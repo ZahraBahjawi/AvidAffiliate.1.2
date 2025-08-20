@@ -209,10 +209,10 @@ const StickyMobileCTA: React.FC<{ onClick: () => void; show: boolean }> = ({ onC
   if (!show) return null;
   
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-deep-blue-900/90 backdrop-blur border-t border-deep-blue-700 p-3 sm:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/90 backdrop-blur border-t border-slate-700 p-3 sm:hidden">
       <button
         onClick={onClick}
-        className="w-full inline-flex items-center justify-center px-6 py-3 bg-coral-500 text-white font-medium rounded-lg hover:bg-coral-600 transition-colors"
+        className="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
       >
         Get my free Report Card
         <ArrowRight className="ml-2 h-4 w-4" />
@@ -311,16 +311,16 @@ const ReportcardPreview: React.FC = () => {
         </div>
         
         <div className="flex justify-center space-x-2 mb-4">
-          <div key={index} className="bg-gradient-to-r from-orange-600/30 to-red-500/30 rounded-xl border border-orange-400/50 shadow-lg">
+          {slides.map((_, index) => (
             <button
               key={index}
-              className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-orange-600/20 transition-all duration-200 rounded-xl group focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 focus:ring-offset-slate-700"
+              onClick={() => {
                 setCurrentSlide(index);
                 track('sample_report_card_view', { slide: index + 1, action: 'dot_click' });
               }}
               className={`w-2 h-2 rounded-full transition-colors ${
-              <span className="text-lg font-medium text-white group-hover:text-orange-300 transition-colors">{item.q}</span>
-              <div className={`transform transition-all duration-200 ${openItem === index ? 'rotate-180 text-orange-400' : 'text-white group-hover:text-orange-300'}`}>
+                index === currentSlide ? 'bg-coral-400' : 'bg-deep-blue-600'
+              }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -328,12 +328,12 @@ const ReportcardPreview: React.FC = () => {
         
         <div className="text-center">
           <button
-                className="px-6 pb-4 border-t border-orange-400/30"
+            onClick={() => {
               track('sample_report_card_view', { action: 'download_sample' });
               window.open('/sample-report-card.pdf', '_blank');
             }}
             className="inline-flex items-center px-4 py-2 bg-coral-600 text-white text-sm font-medium rounded-lg hover:bg-coral-700 transition-colors"
-                <p className="text-orange-100 leading-relaxed pt-3">{item.a}</p>
+          >
             <Download className="mr-2 h-4 w-4" />
             View Full Sample
           </button>
