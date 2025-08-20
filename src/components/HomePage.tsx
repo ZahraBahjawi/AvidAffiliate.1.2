@@ -881,7 +881,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       </section>
 
       {/* About / Values */}
-      <section className="py-20 bg-gray-800">
+      <section id="about-avidaffiliate" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -934,7 +934,11 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
               <button
                 onClick={() => {
                   track('learn_more_about');
-                  onNavigate('about');
+                  // Scroll to the about section on the current page
+                  const aboutSection = document.getElementById('about-avidaffiliate');
+                  if (aboutSection) {
+                    aboutSection.scrollIntoView({ behavior: 'smooth' });
+                  }
                 }}
                 className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors"
               >
