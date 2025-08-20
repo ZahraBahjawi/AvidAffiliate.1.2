@@ -582,20 +582,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Your website is {' '}
-              <span className="relative inline-block">
-                <span className="text-blue-400">
-                  L<span className="relative">eaking
-                    <Droplet 
-                      className={`absolute left-1/2 -translate-x-1/2 top-[0.8em] h-4 w-4 text-blue-400 ${
-                        animationTriggered ? 'motion-safe:animate-[drip_3s_ease-in-out_1]' : 'opacity-0'
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </span>
-                </span>
-              </span>
-              {' '} revenue
+              <span className="font-normal text-white">Your website is Leaking revenue</span>
             </h1>
             <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
               Get a free Report Card within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content.
