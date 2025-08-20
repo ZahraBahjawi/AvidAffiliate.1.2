@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Received - AvidAffiliate</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .footer {
+            background: #f8fafc;
+            padding: 20px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .data-field {
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .data-field:last-child {
+            border-bottom: none;
+        }
+        .field-label {
+            font-weight: 600;
+            color: #374151;
+            display: inline-block;
+            width: 120px;
+        }
+        .field-value {
+            color: #1f2937;
+        }
+        .message-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">AvidAffiliate</div>
+            <h1 style="margin: 0; font-size: 28px;">Message Received!</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">We'll get back to you within 24 hours</p>
+        </div>
+        
+        <div class="content">
+            <p>Hi {{ name }},</p>
+            
+            <p>Thank you for contacting AvidAffiliate! We've successfully received your message and will respond within 24 hours.</p>
+            
+            <div class="highlight-box">
+                <h3 style="margin-top: 0; color: #1e40af;">Your Message Details:</h3>
+                <div class="data-field">
+                    <span class="field-label">Name:</span>
+                    <span class="field-value">{{ name }}</span>
+                </div>
+                <div class="data-field">
+                    <span class="field-label">Email:</span>
+                    <span class="field-value">{{ email }}</span>
+                </div>
+                <div class="data-field">
+                    <span class="field-label">Subject:</span>
+                    <span class="field-value">{{ subject }}</span>
+                </div>
+                <div class="data-field">
+                    <span class="field-label">Message:</span>
+                </div>
+                <div class="message-box">{{ message }}</div>
+            </div>
+            
+            <p>Our team will review your message and respond directly to {{ email }} within 24 hours during business hours (Mon-Fri, 9AM-5PM PST).</p>
+            
+            <p>If you have an urgent question, you can also reach us directly at hello@avidaffiliate.com.</p>
+            
+            <p>Best regards,<br>
+            <strong>The AvidAffiliate Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>AvidAffiliate</strong> - Affiliate Revenue Optimization</p>
+            <p>Email: hello@avidaffiliate.com | Response Time: Within 24 hours</p>
+            <p>This is an automated confirmation email for your contact form submission.</p>
+        </div>
+    </div>
+</body>
+</html>

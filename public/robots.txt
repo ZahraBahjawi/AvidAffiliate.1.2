@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://avidaffiliate.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /.well-known/
+Disallow: /api/
+
+# Allow all other content
+Allow: /about
+Allow: /team
+Allow: /contact
+Allow: /services
+Allow: /privacy
+Allow: /terms
+Allow: /cookies
+Allow: /sitemap
+Allow: /affiliate-partners
