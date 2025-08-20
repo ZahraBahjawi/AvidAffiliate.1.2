@@ -15,13 +15,15 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBack, on
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center">
-              <img 
-                src="/LOGO.png" 
-                alt="AvidAffiliate Logo" 
-                className="h-24 w-auto"
-              />
-            </div>
+<div className="flex items-center">
+  <button onClick={onBack} aria-label="Go to homepage">
+    <img 
+      src="/LOGO.png" 
+      alt="AvidAffiliate Logo" 
+      className="h-16 w-auto"
+    />
+  </button>
+</div>
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
