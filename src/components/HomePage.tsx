@@ -131,7 +131,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-gray-400 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -538,7 +538,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       </a>
 
       {/* Header Navigation */}
-      <header className="bg-slate-900/80 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -583,7 +583,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       </header>
 
       {/* Hero Section */}
-      <section id="main-content" className="pt-16 pb-10">
+      <section id="main-content" className="pt-16 pb-10 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
@@ -697,7 +697,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       <ProofStats />
 
       {/* Problem Section */}
-      <section className="py-20">
+      <section className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -822,7 +822,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
   
 
       {/* Features */}
-      <section id="features" className="py-20">
+      <section id="features" className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
