@@ -546,7 +546,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
     <img 
       src="/LOGO.png" 
       alt="AvidAffiliate Logo" 
-      className="h-16 w-auto"
+      className="h-24 w-auto"
     />
   </button>
 </div>
