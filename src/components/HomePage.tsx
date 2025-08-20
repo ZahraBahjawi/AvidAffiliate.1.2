@@ -121,7 +121,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-deep-blue-300 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
       </div>
     </div>
   );
@@ -454,13 +454,6 @@ export const HomePage: React.FC<HomePageProps> = ({
       <div className="scroll-overlay"></div>
       
       {/* Skip to content link for accessibility */}
-      <a 
-        href="#main-content" 
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-warm-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-warm-500 focus:ring-offset-2"
-      >
-        Skip to content
-      </a>
-
       {/* Header Navigation */}
       <header className="bg-primary-900/95 border-b border-primary-700 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
@@ -476,8 +469,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Features</a>
-              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">How it works</a>
+              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
               <button onClick={() => onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
             </nav>
 
@@ -504,11 +497,11 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section id="main-content" className="pt-16 pb-10 bg-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-normal text-white mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-normal text-white mb-6 leading-tight tracking-tight" role="banner">
               Your website is leaking revenue
             </h1>
-            <p className="text-xl text-deep-blue-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-              Get a free Report Card within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content.
+            <p className="text-xl text-deep-blue-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
+              Get a <strong>FREE</strong> affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content. <em>Join 300+ creators who increased revenue by 20%+</em>
             </p>
 
             {/* Hero Audit Form */}
@@ -530,10 +523,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                 placeholder="Enter your website URL"
                 className="w-full px-4 py-3 rounded-lg bg-deep-blue-800 text-deep-blue-100 border border-deep-blue-600 focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:border-ocean-teal-500"
                 aria-label="Website URL"
-                aria-describedby="url-help"
+                aria-describedby="url-help url-description"
                 disabled={isSubmitting}
+                autoComplete="url"
               />
               <div id="url-help" className="sr-only">Enter your website URL to get a free affiliate report card</div>
+              <div id="url-description" className="sr-only">We will analyze your website for affiliate revenue opportunities and send you a detailed report within 48 hours</div>
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -554,8 +549,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             </form>
 
             {/* Reassurance text */}
-            <p className="text-center text-deep-blue-300 text-sm mt-2 mb-4">
-              Takes ~15 seconds. We'll email your report card—no spam.
+            <p className="text-center text-deep-blue-300 text-sm mt-2 mb-4" role="note">
+              Takes ~15 seconds. We'll email your report card—no spam. <strong>300+ creators trust us.</strong>
             </p>
 
             {/* Sample PDF Thumbnail */}
@@ -607,10 +602,10 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="free-affiliate-audit">
+              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="free-affiliate-audit" role="heading" aria-level="2">
                 The hidden revenue leak
               </h2>
-              <p className="text-xl text-deep-blue-200 font-light">You could be missing out on thousands</p>
+              <p className="text-xl text-deep-blue-200 font-light">You could be missing out on thousands in affiliate revenue</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -680,8 +675,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="how-report-card-works">How the free report card works</h2>
-              <p className="text-xl text-deep-blue-200 font-light">Get your report card in three simple steps</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free affiliate audit works</h2>
+              <p className="text-xl text-deep-blue-200 font-light">Get your comprehensive audit report in three simple steps</p>
             </div>
       
             <div className="grid md:grid-cols-3 gap-8">
@@ -713,8 +708,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* FAQ Section */}
             <div className="mt-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-4" id="frequently-asked-questions">Frequently Asked Questions</h2>
-                <p className="text-lg text-deep-blue-200 font-light">Everything you need to know about our free report card</p>
+                <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-4" id="frequently-asked-questions" role="heading" aria-level="2">Frequently Asked Questions</h2>
+                <p className="text-lg text-deep-blue-200 font-light">Everything you need to know about our free affiliate marketing audit</p>
               </div>
 
               <FAQ />
@@ -728,7 +723,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="why-creators-choose">Why creators choose AvidAffiliate</h2>
+              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="why-creators-choose" role="heading" aria-level="2">Why 300+ creators choose AvidAffiliate</h2>
               <p className="text-xl text-deep-blue-200 font-light">Make more money from your existing content—effortlessly</p>
             </div>
 
