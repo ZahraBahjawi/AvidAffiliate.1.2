@@ -157,68 +157,72 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                 </div>
               </div>
             </div>
-            <div className="flex items-center">
-              <button onClick={onBack} aria-label="Go to homepage">
-                <img 
-                  src="/LOGO.png" 
-                  alt="AvidAffiliate Logo" 
-                  className="h-24 w-auto"
-                />
-              </button>
-            </div>
+          </div>
+        )}
+
+        <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex items-center justify-between h-16">
+              <div className="flex items-center">
+                <button onClick={onBack} aria-label="Go to homepage">
+                  <img 
+                    src="/LOGO.png" 
+                    alt="AvidAffiliate Logo" 
+                    className="h-24 w-auto"
+                  />
                 </button>
+              </div>
+              <nav className="hidden md:flex items-center space-x-8">
+                <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+                <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+                <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
+                <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
+              </nav>
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={onBack}
+                  className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                >
+                  Get my free Report Card
+                </button>
+              </div>
             </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
-              <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
-              <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-              >
-                Get my free Report Card
-              </button>
-            </div>
-            </div>
-        </div>
+          </div>
         </header>
 
         <div className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
+              <div className="text-center mb-12">
                 {onBack && (
-                <button
+                  <button
                     onClick={onBack}
                     className="flex items-center text-white hover:text-orange-300 mb-6 transition-colors"
-                >
+                  >
                     <ArrowLeft className="h-4 w-4 mr-2" />
                     Back to Home
-                </button>
+                  </button>
                 )}
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Contact Us
+                  Contact Us
                 </h1>
                 <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                Have questions about our services? Need support with your account? Looking to explore partnership opportunities? We'd love to hear from you.
+                  Have questions about our services? Need support with your account? Looking to explore partnership opportunities? We'd love to hear from you.
                 </p>
-            </div>
+              </div>
 
-            <div id="contact-page" className="grid lg:grid-cols-2 gap-12">
+              <div id="contact-page" className="grid lg:grid-cols-2 gap-12">
                 <div className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
-                <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
-                
-                <form
+                  <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
+                  
+                  <form
                     name="contact-form"
                     method="POST"
-                 onSubmit={handleFormSubmit}
+                    onSubmit={handleFormSubmit}
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                     className="space-y-6"
-                >
+                  >
                     <input type="hidden" name="form-name" value="contact-form" />
                     
                     {/* 2. Honeypot Field for spam prevention */}
@@ -228,8 +232,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                     </div>
                     
                     <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">Name *</label>
-                    <input
+                      <label htmlFor="name" className="block text-sm font-medium text-white mb-2">Name *</label>
+                      <input
                         type="text"
                         id="name"
                         name="name"
@@ -237,12 +241,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white"
                         placeholder="Your full name"
-                    />
+                      />
                     </div>
 
                     <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-white mb-2">Email *</label>
-                    <input
+                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">Email *</label>
+                      <input
                         type="email"
                         id="email"
                         name="email"
@@ -250,30 +254,30 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white"
                         placeholder="your@email.com"
-                    />
+                      />
                     </div>
 
                     <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">Reason for Contact *</label>
-                    <select
+                      <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">Reason for Contact *</label>
+                      <select
                         id="subject"
                         name="subject"
                         value={formData.subject}
                         onChange={(e) => handleInputChange('subject', e.target.value)}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white"
-                    >
+                      >
                         <option value="" disabled>Please select a reason...</option>
                         <option value="Question about my Report Card">Question about my Report Card</option>
                         <option value="Full Audit & Services Inquiry">Full Audit & Services Inquiry</option>
                         <option value="Partnership Opportunities">Partnership Opportunities</option>
                         <option value="Media Inquiry">Media Inquiry</option>
                         <option value="Other">Other</option>
-                    </select>
+                      </select>
                     </div>
 
                     <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">Message *</label>
-                    <textarea
+                      <label htmlFor="message" className="block text-sm font-medium text-white mb-2">Message *</label>
+                      <textarea
                         id="message"
                         name="message"
                         rows={6}
@@ -281,16 +285,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                         onChange={(e) => handleInputChange('message', e.target.value)}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-slate-700 text-white"
                         placeholder="Tell us more about your inquiry..."
-                    />
+                      />
                     </div>
 
                     <button
-                    type="submit"
-                    className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-110 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      type="submit"
+                      className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-110 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                    <Send className="h-5 w-5 mr-2" />Send Message
+                      <Send className="h-5 w-5 mr-2" />Send Message
                     </button>
-                </form>
+                  </form>
                 </div>
 
                 <div className="space-y-8">
@@ -306,19 +310,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                   <div className="bg-gradient-to-r from-blue-900/20 to-purple-900/20 rounded-2xl p-8 border border-blue-800">
                       <h3 className="text-xl font-bold text-white mb-4">Contact Information</h3>
                       <p className="text-gray-300 leading-relaxed mb-4">
-                      For direct inquiries or if you prefer to use your own email client.
+                        For direct inquiries or if you prefer to use your own email client.
                       </p>
                       <div className="space-y-2 text-gray-300">
-                      <p><strong>Email:</strong> hello@avidaffiliate.com</p>
+                        <p><strong>Email:</strong> hello@avidaffiliate.com</p>
                       </div>
                       <p className="text-sm text-gray-400 mt-4">
-                      We typically respond within 24 hours.
+                        We typically respond within 24 hours.
                       </p>
                   </div>
                 </div>
+              </div>
             </div>
-            </div>
-        </div>
+          </div>
         </div>
       </div>
       <Footer onNavigate={onNavigate} onNext={onBack} />
