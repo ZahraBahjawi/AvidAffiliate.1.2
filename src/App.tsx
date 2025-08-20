@@ -106,14 +106,14 @@ function App() {
     switch (stage) {
       case 'home':
         return <HomePage 
-          onNext={(heroData) => {
-            if (heroData) {
-              setPrefilledData(heroData);
+          onNext={(data) => {
+            if (data?.url) {
+              setPrefilledData(data);
             }
             setStage('form');
-          }}
+          }} 
           onNavigate={(page) => setStage(page as AppStage)}
-          onBack={resetToHome}
+          onBack={resetToHome} // Add this line
         />;
       
       case 'form':
