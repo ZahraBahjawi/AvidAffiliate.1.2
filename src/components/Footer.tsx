@@ -4,10 +4,9 @@ import { CheckCircle } from 'lucide-react';
 interface FooterProps {
   onNavigate?: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies') => void;
   onNext?: () => void;
-  onBack?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext, onBack }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
   return (
     <footer className="bg-gray-800 border-t border-gray-700 py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -43,22 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext, onBack }) =>
             <div>
               <h4 className="text-base font-medium text-white mb-4">Company</h4>
               <ul className="space-y-2">
-                <li>
-                  <button 
-                    onClick={() => {
-                      onBack && onBack(); // Go to home page first
-                      setTimeout(() => {
-                        const aboutSection = document.getElementById('about-avidaffiliate');
-                        if (aboutSection) {
-                          aboutSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }, 100);
-                    }} 
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
-                  >
-                    About Us
-                  </button>
-                </li>
+                <li><a href="#" onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm">About Us</a></li>
                 <li><a href="#" onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm">Our Team</a></li>
                 <li><a href="#" onClick={() => onNavigate && onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm">Contact Us</a></li>
               </ul>
