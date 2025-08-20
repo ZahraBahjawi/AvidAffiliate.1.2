@@ -3,7 +3,6 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { LoadingLogo } from './components/LoadingLogo';
 import { UserData, ScorecardData, AppStage } from './types';
 import { generateMockScorecard } from './utils/mockData';
-import { sendAuditStartedNotification, sendAuditCompletedNotification, generateAuditSummary } from './utils/emailService';
 import { logFormSubmission } from './utils/submissionLogger';
 import { ErrorBanner } from './components/ErrorBanner';
 import { HomePage } from './components/HomePage';
@@ -62,17 +61,8 @@ function App() {
       // Go directly to thank you page
       setStage('thankyou');
 
-      // Background tasks (run independently)
-      setTimeout(() => {
-        // Send audit started notification
-        sendAuditStartedNotification({
-          userEmail: data.email,
-          userName: data.name,
-          websiteUrl: data.url,
-          auditId: auditId
-        }).catch(error => console.warn('Email notification error:', error));
-      }, 500);
-
+      
+     
       // Save to localStorage as backup
       try {
         const backupData = {
