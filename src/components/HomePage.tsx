@@ -177,13 +177,13 @@ const FAQ: React.FC = () => {
         <div key={index} className="bg-gradient-to-r from-coral-600/30 to-coral-500/30 rounded-xl border border-coral-400/50 shadow-lg">
           <button
             onClick={() => handleToggle(index)}
-            className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-coral-600/20 transition-all duration-200 rounded-xl group focus:outline-none focus:ring-2 focus:ring-coral-400 focus:ring-offset-2 focus:ring-offset-deep-blue-700"
+            className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-coral-600/20 transition-all duration-200 rounded-xl group focus:outline-none focus:ring-2 focus:ring-coral-400 focus:ring-offset-2 focus:ring-offset-slate-700"
             aria-expanded={openItem === index}
             aria-controls={`faq-answer-${index}`}
             id={`faq-question-${index}`}
           >
-            <span className="text-lg font-medium text-deep-blue-100 group-hover:text-coral-300 transition-colors">{item.q}</span>
-            <div className={`transform transition-all duration-200 ${openItem === index ? 'rotate-180 text-coral-400' : 'text-deep-blue-300 group-hover:text-coral-300'}`}>
+            <span className="text-lg font-medium text-white group-hover:text-coral-300 transition-colors">{item.q}</span>
+            <div className={`transform transition-all duration-200 ${openItem === index ? 'rotate-180 text-coral-400' : 'text-white group-hover:text-coral-300'}`}>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -196,7 +196,7 @@ const FAQ: React.FC = () => {
               role="region"
               aria-labelledby={`faq-question-${index}`}
             >
-              <p className="text-coral-100 leading-relaxed pt-3">{item.a}</p>
+              <p className="text-white leading-relaxed pt-3">{item.a}</p>
             </div>
           )}
         </div>
