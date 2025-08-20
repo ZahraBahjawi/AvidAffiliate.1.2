@@ -542,17 +542,19 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex items-center">
-              <img 
-                src="/LOGO.png" 
-                alt="AvidAffiliate Logo" 
-                className="h-24 w-auto" 
-                width="96" 
-                height="96"
-                loading="eager"
-                fetchpriority="high"
-              />
-            </div>
+<div className="flex items-center">
+  <button onClick={onBack} aria-label="Go to homepage">
+    <img 
+      src="/LOGO.png" 
+      alt="AvidAffiliate Logo" 
+      className="h-24 w-auto" 
+      width="96" 
+      height="96"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </button>
+</div
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
