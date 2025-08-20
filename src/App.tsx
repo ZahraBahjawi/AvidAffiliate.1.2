@@ -42,7 +42,6 @@ function App() {
   const [scrollTarget, setScrollTarget] = useState<string | null>(null); // Add this line
   const [userData, setUserData] = useState<UserData | null>(null);
   const [scorecardData, setScorecardData] = useState<ScorecardData | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
   const [prefilledData, setPrefilledData] = useState<{ url?: string; email?: string }>({});
 
