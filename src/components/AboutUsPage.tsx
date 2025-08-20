@@ -130,7 +130,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-gray-400 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -524,6 +524,10 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       setFormStarted(true);
       track('form_start', { location: 'hero' });
     }
+  };
+
+  const onBack = () => {
+    onNavigate('home');
   };
 
   return (
@@ -969,7 +973,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   key={i} 
                   className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer"
                   onClick={() => track('partner_logo_click', { name: p.name })}
-                <button onClick={() => onNavigate && onNavigate('home')} aria-label="Go to homepage">
+                >
                   <img 
                     src={p.src} 
                     alt={`${p.name} affiliate network logo`} 
