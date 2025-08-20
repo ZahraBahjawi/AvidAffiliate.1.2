@@ -1,43 +1,69 @@
 import React from 'react';
-import { ArrowLeft, Shield, Eye, Lock, Users } from 'lucide-react';
+import { ArrowLeft, Linkedin, Mail } from 'lucide-react';
 import { Footer } from './Footer';
 
-interface PrivacyPolicyPageProps {
+interface OurTeamPageProps {
   onBack?: () => void;
   onNavigate?: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies') => void;
 }
 
-export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBack, onNavigate }) => {
+export const OurTeamPage: React.FC<OurTeamPageProps> = ({ onBack, onNavigate }) => {
+  const teamMembers = [
+    {
+      name: "David Paxton",
+      role: "Founder & CEO",
+      bio: "An experienced business consultant and entrepreneur with a proven track record of building successful ventures. David's strategic vision and leadership expertise drive our mission to democratize affiliate marketing optimization, ensuring every content creator can unlock their revenue potential.",
+      image: "/david_headshot.jpg",
+      linkedin: "https://www.linkedin.com/in/paxtondavid/",
+      email: "David@avidaffiliate.com"
+    },
+    {
+      name: "Toby Warden",
+      role: "Head of Growth & Partnerships",
+      bio: "A seasoned affiliate marketing expert and business operations specialist, Toby drives our growth initiatives and partnership strategies. His deep industry knowledge and operational excellence ensure our clients achieve maximum results while building sustainable, long-term success.",
+      image: "/toby_headshot.jpg",
+      linkedin: "https://www.linkedin.com/in/tobywarden12/",
+      email: "Toby@avidaffiliate.com"
+    },
+    {
+      name: "Zahra Bahjawi",
+      role: "Lead Technology & Data Analyst",
+      bio: "A Computer Science student and technology expert who brings cutting-edge technical innovation to our platform. Zahra's expertise in data analysis and robust solution development ensures our audit technology delivers accurate, actionable insights that drive real revenue growth.",
+      image: "/zahra_headshot.jpg",
+      linkedin: "https://www.linkedin.com/in/zahra-bahjawi/",
+      email: "Zahra.bahjawi@outlook.com"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+      {/* Scroll overlay for darkening effect */}
+      <div className="scroll-overlay"></div>
       {/* Header Navigation */}
       <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-<div className="flex items-center">
-  <button onClick={onBack} aria-label="Go to homepage">
-    <img 
-      src="/LOGO.png" 
-      alt="AvidAffiliate Logo" 
-      className="h-16 w-auto"
-    />
-  </button>
-</div>
+            <div className="flex items-center">
+              <img 
+                src="/LOGO.png" 
+                alt="AvidAffiliate Logo" 
+                className="h-24 w-auto"
+              />
+            </div>
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
-              <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
-              <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
               <button
                 onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-warm-500 hover:bg-warm-600 focus:outline-none focus:ring-2 focus:ring-warm-500 focus:ring-offset-2 focus:ring-offset-primary-900"
               >
                 Get my free Report Card
               </button>
@@ -48,7 +74,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBack, on
 
       <div className="py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             {onBack && (
@@ -61,122 +87,97 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBack, on
               </button>
             )}
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Privacy Policy
+              Meet Our Team
             </h1>
-            <p className="text-gray-300">
-              Last Updated: January 15, 2025
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Our diverse team of affiliate marketing experts, data scientists, and technology specialists are united by a shared passion for helping content creators maximize their revenue potential.
             </p>
           </div>
 
           {/* Main Content */}
-          <div id="privacy-policy-page" className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
-            {/* Introduction */}
-            <div className="mb-8">
-              <div className="flex items-center mb-4">
-                <Shield className="h-6 w-6 text-blue-600 mr-3" />
-                <h2 className="text-2xl font-bold text-white">Introduction</h2>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                At AvidAffiliate, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services. Please read this policy carefully to understand our practices regarding your personal data.
-              </p>
+          <div id="our-team-page" className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
+            {/* Team Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {teamMembers.map((member, index) => (
+                <div key={index} className="text-center group">
+                  {/* Profile Image Placeholder */}
+                  {member.image.startsWith('/') ? (
+                    <div className="w-32 h-32 mx-auto mb-6 group-hover:shadow-lg transition-shadow">
+                      <img 
+                        src={member.image} 
+                        alt={`${member.name} headshot`}
+                        className="w-32 h-32 rounded-full object-cover border-2 border-blue-800"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-32 h-32 bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-shadow border border-blue-800">
+                      <span className="text-2xl font-bold text-blue-600">{member.image}</span>
+                    </div>
+                  )}
+                  
+                  {/* Member Info */}
+                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
+                  <p className="text-blue-600 font-semibold mb-4">{member.role}</p>
+                  <p className="text-gray-300 leading-relaxed mb-6">{member.bio}</p>
+                  
+                  {/* Social Links Placeholder */}
+                  <div className="flex justify-center space-x-4">
+                    {member.linkedin && (
+                      <a 
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-900/20 transition-colors border border-slate-600"
+                      >
+                        <Linkedin className="h-5 w-5 text-gray-300" />
+                      </a>
+                    )}
+                    {member.email && (
+                      <a 
+                        href={`mailto:${member.email}`}
+                        className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-900/20 transition-colors border border-slate-600"
+                      >
+                        <Mail className="h-5 w-5 text-gray-300" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Information We Collect */}
-            <div className="mb-8">
-              <div className="flex items-center mb-4">
-                <Eye className="h-6 w-6 text-green-600 mr-3" />
-                <h2 className="text-2xl font-bold text-white">Information We Collect</h2>
-              </div>
-              <div className="space-y-4 text-gray-300">
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Personal Identification Information</h3>
-                  <p className="leading-relaxed">
-                    We may collect personal identification information from users in various ways, including when users visit our site, register for services, fill out forms, or interact with other activities, services, features, or resources we make available. This may include your name, email address, website URL, and other contact information.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Usage Data and Analytics</h3>
-                  <p className="leading-relaxed">
-                    We automatically collect certain information when you visit our website, including your IP address, browser type, operating system, referring URLs, pages viewed, and the dates/times of visits. We use this information to analyze trends, administer the site, and gather demographic information.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Website Analysis Data</h3>
-                  <p className="leading-relaxed">
-                    When you use our audit services, we may analyze publicly available information from your website, including link structures, content, and affiliate relationships, to provide our optimization recommendations.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* How We Use Your Information */}
-            <div className="mb-8">
-              <div className="flex items-center mb-4">
-                <Users className="h-6 w-6 text-purple-600 mr-3" />
-                <h2 className="text-2xl font-bold text-white">How We Use Your Information</h2>
-              </div>
-              <div className="space-y-3 text-gray-300">
-                <p><strong>Service Provision:</strong> To provide, operate, and maintain our affiliate optimization services and deliver the results you request.</p>
-                <p><strong>Communication:</strong> To send you information about our services, respond to your inquiries, and provide customer support.</p>
-                <p><strong>Improvement:</strong> To understand how our services are used and to improve our website, services, and user experience.</p>
-                <p><strong>Analysis:</strong> To analyze website performance, conduct research, and develop new features and services.</p>
-                <p><strong>Legal Compliance:</strong> To comply with applicable laws, regulations, and legal processes.</p>
-              </div>
-            </div>
-
-            {/* Sharing Your Information */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-4">Sharing Your Information</h2>
-              <div className="space-y-3 text-gray-300">
-                <p>
-                  We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except in the following circumstances:
+            {/* Team Culture Section */}
+            <div className="mt-16 pt-12 border-t border-gray-200">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-white mb-4">Our Culture</h2>
+                <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                  We're a remote-first team that values collaboration, continuous learning, and making a real impact in the lives of content creators worldwide. Our diverse backgrounds and shared commitment to excellence drive everything we do.
                 </p>
-                <p><strong>Service Providers:</strong> We may share information with trusted third-party service providers who assist us in operating our website, conducting our business, or servicing you, provided they agree to keep this information confidential.</p>
-                <p><strong>Legal Requirements:</strong> We may disclose your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property, or safety.</p>
-                <p><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.</p>
               </div>
-            </div>
 
-            {/* Data Security */}
-            <div className="mb-8">
-              <div className="flex items-center mb-4">
-                <Lock className="h-6 w-6 text-orange-600 mr-3" />
-                <h2 className="text-2xl font-bold text-white">Data Security</h2>
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                We implement appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, transaction information, and data stored on our site. We use industry-standard encryption and security protocols to safeguard your data.
-              </p>
-            </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-800">
+                    <span className="text-2xl">🚀</span>
+                  </div>
+                  <h3 className="font-semibold text-white mb-2">Innovation First</h3>
+                  <p className="text-gray-300 text-sm">We're always exploring new technologies and methodologies to stay ahead of industry trends.</p>
+                </div>
 
-            {/* Your Rights */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-4">Your Rights</h2>
-              <div className="space-y-3 text-gray-300">
-                <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-                <p><strong>Access:</strong> The right to request copies of your personal information.</p>
-                <p><strong>Rectification:</strong> The right to request correction of inaccurate or incomplete information.</p>
-                <p><strong>Erasure:</strong> The right to request deletion of your personal information under certain circumstances.</p>
-                <p><strong>Portability:</strong> The right to request transfer of your information to another service provider.</p>
-                <p><strong>Objection:</strong> The right to object to our processing of your personal information under certain circumstances.</p>
-              </div>
-            </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-800">
+                    <span className="text-2xl">🤝</span>
+                  </div>
+                  <h3 className="font-semibold text-white mb-2">Client-Centric</h3>
+                  <p className="text-gray-300 text-sm">Every decision we make is guided by what's best for our clients and their success.</p>
+                </div>
 
-            {/* Changes to This Policy */}
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-white mb-4">Changes to This Policy</h2>
-              <p className="text-gray-300 leading-relaxed">
-                We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last Updated" date. We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
-              </p>
-            </div>
-
-            {/* Contact Us */}
-            <div className="bg-blue-900/20 rounded-lg p-6 border border-blue-800">
-              <h2 className="text-2xl font-bold text-white mb-4">Contact Us About Privacy</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                If you have any questions about this Privacy Policy, our data practices, or would like to exercise your rights regarding your personal information, please contact us:
-              </p>
-              <div className="space-y-2 text-gray-300">
-                <p><strong>Email:</strong> hello@avidaffiliate.com</p>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-800">
+                    <span className="text-2xl">📈</span>
+                  </div>
+                  <h3 className="font-semibold text-white mb-2">Results Driven</h3>
+                  <p className="text-gray-300 text-sm">We measure our success by the tangible results we deliver for our clients.</p>
+                </div>
               </div>
             </div>
           </div>
