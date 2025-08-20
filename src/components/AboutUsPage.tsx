@@ -537,7 +537,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       </a>
 
       {/* Header Navigation */}
-      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -553,9 +553,9 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Features</a>
-              <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">How it works</a>
-              <button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Features</a>
+              <a href="#how-it-works" className="text-white hover:text-orange-300 transition-colors text-sm font-medium">How it works</a>
+              <button onClick={() => onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
@@ -568,7 +568,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
               >
                 Get my free Report Card
               </button>
@@ -738,7 +738,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-sea-gray-100 text-coral-600 font-medium rounded-lg hover:bg-sea-gray-200 transition-colors mb-8"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold rounded-lg hover:from-yellow-300 hover:to-orange-400 hover:shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300 mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -921,7 +921,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   track('learn_more_about');
                   onNavigate('about');
                 }}
-                className="inline-flex items-center px-6 py-3 bg-coral-600 text-white font-medium rounded-lg hover:bg-coral-500 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300"
               >
                 Learn more about us
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -974,7 +974,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
             <div className="text-center">
               <button
                 onClick={() => onNavigate('affiliate_partners')}
-                className="inline-flex items-center px-6 py-3 bg-coral-600 text-white font-medium rounded-lg hover:bg-coral-500 transition-colors focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2 focus:ring-offset-deep-blue-700"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-500 hover:to-blue-500 hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 View all networks
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -1003,7 +1003,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 bg-sea-gray-100 text-coral-600 text-base font-medium rounded-lg hover:bg-sea-gray-200 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-base font-bold rounded-lg hover:from-yellow-300 hover:to-orange-400 hover:shadow-xl hover:shadow-yellow-500/50 transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -1014,7 +1014,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   track('cta_click', { location: 'final_cta_secondary' });
                   onNavigate('contact');
                 }}
-                className="inline-flex items-center px-8 py-4 bg-transparent border border-sea-gray-100 text-sea-gray-100 text-base font-medium rounded-lg hover:bg-sea-gray-100 hover:text-coral-600 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
+                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white text-base font-semibold rounded-lg hover:bg-white hover:text-orange-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
               >
                 Contact us
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -1027,15 +1027,15 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sea-gray-200 text-sm">
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
                 <span>100% free analysis</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
                 <span>No sign‑up required</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
                 <span>Results in 48 hours</span>
               </div>
             </div>
