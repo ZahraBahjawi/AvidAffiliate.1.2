@@ -2,12 +2,12 @@ import React from 'react';
 import { ArrowLeft, Linkedin, Mail } from 'lucide-react';
 import { Footer } from './Footer';
 
-interface OurTeamPageProps {
+interface AffiliatePartnersPageProps {
   onBack?: () => void;
   onNavigate?: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies') => void;
 }
 
-export const OurTeamPage: React.FC<OurTeamPageProps> = ({ onBack, onNavigate }) => {
+export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ onBack, onNavigate }) => {
   const teamMembers = [
     {
       name: "David Paxton",
