@@ -444,10 +444,55 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
   const [animationTriggered, setAnimationTriggered] = React.useState(false);
   const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
 
+const mainContainerRef = useRef<HTMLDivElement>(null);
   // Store UTMs on first visit
   React.useEffect(() => {
     storeUTMs();
   }, []);
+useEffect(() => {
+    const handleScroll = () => {
+      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      
+      // Define colors for the gradient stops
+      const startColor = [45, 212, 191]; // Teal
+      const midColor = [59, 130, 246];   // Blue
+      const endColor = [168, 85, 247];  // Purple
+
+      // Interpolate colors based on scroll position
+      let color1, color2;
+      if (scrollPercent < 0.5) {
+        const p = scrollPercent * 2;
+        color1 = startColor.map((c, i) => Math.round(c + (midColor[i] - c) * p));
+        color2 = midColor;
+      } else {
+        const p = (scrollPercent - 0.5) * 2;
+        color1 = midColor;
+        color2 = midColor.map((c, i) => Math.round(c + (endColor[i] - c) * p));
+      }
+   if (mainContainerRef.current) {
+        mainContainerRef.current.style.setProperty('--color-stop-1', `rgba(${color1.join(',')}, 0.6)`);
+        mainContainerRef.current.style.setProperty('--color-stop-2', `rgba(${color2.join(',')}, 0.9)`);
+      }
+      
+      setShowRightRail(scrollPercent * 100 > 30);
+      setShowMobileSticky(scrollPercent * 100 > 35);
+      
+      const depths = [25, 50, 75, 100];
+      depths.forEach(depth => {
+        if (scrollPercent * 100 >= depth && !scrollDepthTracked.has(depth)) {
+          track('scroll_depth', { depth });
+          setScrollDepthTracked(prev => new Set([...prev, depth]));
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Set initial gradient on load
+    handleScroll(); 
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrollDepthTracked]);
 
   // Track scroll for right rail CTA and trigger animation
   React.useEffect(() => {
@@ -528,7 +573,18 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
   };
 
   return (
-    <div className="min-h-screen" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div 
+      ref={mainContainerRef}
+      className="background-container" 
+      style={{ 
+        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        '--color-stop-1': 'rgba(45, 212, 191, 0.6)', // Initial color
+        '--color-stop-2': 'rgba(59, 130, 246, 0.9)'  // Initial color
+      } as React.CSSProperties}
+    >
+      <div className="gradient-overlay" />
+      <div className="relative z-10">
+        <div className="min-h-screen" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Skip to content link for accessibility */}
       <a 
         href="#main-content" 
