@@ -45,13 +45,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
                 <li>
                   <button 
                     onClick={() => {
-                      if (onNext) onNext(); // Go to home page first
+                      onNext && onNext(); // Go to home page first
                       setTimeout(() => {
                         const aboutSection = document.getElementById('about-avidaffiliate');
                         if (aboutSection) {
                           aboutSection.scrollIntoView({ behavior: 'smooth' });
                         }
-                      }, 100);
+                      }, 300);
                     }} 
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
