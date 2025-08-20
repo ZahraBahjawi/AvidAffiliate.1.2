@@ -154,8 +154,9 @@ function App() {
       case 'team':
         return <OurTeamPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
       
-      case 'contact':
+      case 'contact': // Add this case
         return <ContactPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+      
       
       case 'privacy':
         return <PrivacyPolicyPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
