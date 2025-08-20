@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { Footer } from './Footer';
 
-interface HomePageProps {
+interface AboutUsPageProps {
   onNext?: (heroData?: { url?: string; email?: string }) => void;
   onNavigate?: (page: string) => void;
 }
@@ -434,7 +434,7 @@ const ReportcardPreview: React.FC = () => {
   );
 };
 
-const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () => {} }) => {
+const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate = () => {} }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [honeypot, setHoneypot] = React.useState('');
   const [showRightRail, setShowRightRail] = React.useState(false);
@@ -969,7 +969,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
                   key={i} 
                   className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer"
                   onClick={() => track('partner_logo_click', { name: p.name })}
-                >
+                <button onClick={() => onNavigate && onNavigate('home')} aria-label="Go to homepage">
                   <img 
                     src={p.src} 
                     alt={`${p.name} affiliate network logo`} 
@@ -1090,5 +1090,5 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
   );
 };
 
-export { HomePage };
-export default HomePage;
+export { AboutUsPage };
+export default AboutUsPage;
