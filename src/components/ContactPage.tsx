@@ -56,24 +56,24 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
     return (
       <div className="min-h-screen bg-slate-900 flex flex-col" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         <div className="flex-grow">
-            <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+            <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                     <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
                 </div>
                 <nav className="hidden md:flex items-center space-x-8">
-                    <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</button>
-                    <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</button>
-                    <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Team</button>
-                    <button onClick={() => onNavigate && onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
+                    <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+                    <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+                    <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
+                    <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
                 </nav>
                 <div className="flex items-center space-x-4">
                     <button
                     onClick={onBack}
-                    className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                    className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                     >
-                    Get Free Scorecard
+                    Get my free Report Card
                     </button>
                 </div>
                 </div>
@@ -100,7 +100,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                     </div>
                     <button
                     onClick={onBack}
-                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300"
                     >
                     Back to Home
                     </button>
@@ -144,13 +144,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={() => setShowThankYou(false)}
-                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300"
                   >
                     Continue Browsing
                   </button>
                   <button
                     onClick={onBack}
-                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                    className="flex-1 px-4 py-2 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-300"
                   >
                     Back to Home
                   </button>
@@ -160,7 +160,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
           </div>
         )}
 
-        <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+        <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -169,17 +169,17 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                 </button>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
-                <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</button>
-                <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</button>
-                <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Team</button>
-                <button onClick={() => onNavigate && onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
+                <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+                <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+                <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
+                <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
             </nav>
             <div className="flex items-center space-x-4">
                 <button
                 onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
-                Get Free Scorecard
+                Get my free Report Card
                 </button>
             </div>
             </div>
@@ -193,7 +193,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                 {onBack && (
                 <button
                     onClick={onBack}
-                    className="flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
+                    className="flex items-center text-white hover:text-orange-300 mb-6 transition-colors"
                 >
                     <ArrowLeft className="h-4 w-4 mr-2" />
                     Back to Home
@@ -286,7 +286,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
 
                     <button
                     type="submit"
-                    className="w-full flex items-center justify-center px-6 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 transition-all duration-200"
+                    className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-110 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                     <Send className="h-5 w-5 mr-2" />Send Message
                     </button>

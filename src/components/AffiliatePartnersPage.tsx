@@ -90,7 +90,7 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
   return (
     <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Header Navigation */}
-      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -106,19 +106,19 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</button>
-              <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</button>
-              <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Team</button>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+              <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+              <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
               <button
                 onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
               >
-                Get Free Scorecard
+                Get my free Report Card
               </button>
             </div>
           </div>
@@ -133,7 +133,7 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
+                  className="flex items-center text-white hover:text-orange-300 mb-6 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home
@@ -211,7 +211,7 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
                         href={partner.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
+                        className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 whitespace-nowrap"
                       >
                         Visit {partner.name}
                         <ExternalLink className="h-4 w-4 ml-2" />

@@ -11,7 +11,7 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
   return (
     <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Header Navigation */}
-      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -27,19 +27,19 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</button>
-              <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</button>
-              <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Team</button>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+              <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+              <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
               <button
                 onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
               >
-                Get Free Scorecard
+                Get my free Report Card
               </button>
             </div>
           </div>
@@ -54,7 +54,7 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
+                  className="flex items-center text-white hover:text-orange-300 mb-6 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home
@@ -78,7 +78,7 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
                     <li>
                       <button
                         onClick={onBack}
-                        className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+                        className="flex items-center text-orange-400 hover:text-orange-300 transition-colors"
                       >
                         <span>Home</span>
                         <ExternalLink className="h-4 w-4 ml-2" />
@@ -88,7 +88,7 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
                       </p>
                     </li>
                     <li>
-                      <button onClick={onBack} className="text-blue-400 hover:text-blue-300 transition-colors">Get Free Scorecard</button>
+                      <button onClick={onBack} className="text-orange-400 hover:text-orange-300 transition-colors">Get Free Report Card</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Submit your website for a comprehensive affiliate revenue audit
                       </p>
@@ -101,7 +101,7 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
                   <h2 className="text-xl font-bold text-white mb-4">Get Started</h2>
                   <ul className="space-y-3">
                     <li>
-                      <button onClick={onBack} className="text-blue-400 hover:text-blue-300 transition-colors">Get Free Report Card</button>
+                      <button onClick={onBack} className="text-orange-400 hover:text-orange-300 transition-colors">Get Free Report Card</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Start with your free affiliate audit and revenue optimization report
                       </p>
@@ -114,19 +114,19 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
                   <h2 className="text-xl font-bold text-white mb-4">Features & Information</h2>
                   <ul className="space-y-3">
                     <li>
-                      <button onClick={onBack} className="text-blue-400 hover:text-blue-300 transition-colors">How It Works</button>
+                      <button onClick={onBack} className="text-orange-400 hover:text-orange-300 transition-colors">How It Works</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Learn about our 3-step audit and optimization process
                       </p>
                     </li>
                     <li>
-                      <button onClick={onBack} className="text-blue-400 hover:text-blue-300 transition-colors">Features & Benefits</button>
+                      <button onClick={onBack} className="text-orange-400 hover:text-orange-300 transition-colors">Features & Benefits</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Smart link analysis, proprietary database, and done-for-you implementation
                       </p>
                     </li>
                     <li>
-                      <button onClick={onBack} className="text-blue-400 hover:text-blue-300 transition-colors">Supported Networks</button>
+                      <button onClick={onBack} className="text-orange-400 hover:text-orange-300 transition-colors">Supported Networks</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Amazon, ShareASale, CJ Affiliate, Impact, and 35,000+ programs
                       </p>
@@ -139,19 +139,19 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
                   <h2 className="text-xl font-bold text-white mb-4">Company Pages</h2>
                   <ul className="space-y-3">
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('about')} className="text-blue-400 hover:text-blue-300 transition-colors">About Us</button>
+                      <button onClick={() => onNavigate && onNavigate('about')} className="text-orange-400 hover:text-orange-300 transition-colors">About Us</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Learn about our company, mission, and values
                       </p>
                     </li>
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('team')} className="text-blue-400 hover:text-blue-300 transition-colors">Our Team</button>
+                      <button onClick={() => onNavigate && onNavigate('team')} className="text-orange-400 hover:text-orange-300 transition-colors">Our Team</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Meet the experts behind AvidAffiliate
                       </p>
                     </li>
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('contact')} className="text-blue-400 hover:text-blue-300 transition-colors">Contact Us</button>
+                      <button onClick={() => onNavigate && onNavigate('contact')} className="text-orange-400 hover:text-orange-300 transition-colors">Contact Us</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Get in touch with our team
                       </p>
@@ -164,31 +164,31 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
                   <h2 className="text-xl font-bold text-white mb-4">Resources & Legal</h2>
                   <ul className="space-y-3">
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('affiliate_partners')} className="text-blue-400 hover:text-blue-300 transition-colors">Affiliate Network Guide</button>
+                      <button onClick={() => onNavigate && onNavigate('affiliate_partners')} className="text-orange-400 hover:text-orange-300 transition-colors">Affiliate Network Guide</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Guide to top affiliate networks with referral links and recommendations
                       </p>
                     </li>
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('privacy')} className="text-blue-400 hover:text-blue-300 transition-colors">Privacy Policy</button>
+                      <button onClick={() => onNavigate && onNavigate('privacy')} className="text-orange-400 hover:text-orange-300 transition-colors">Privacy Policy</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         How we handle your data
                       </p>
                     </li>
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('terms')} className="text-blue-400 hover:text-blue-300 transition-colors">Terms of Service</button>
+                      <button onClick={() => onNavigate && onNavigate('terms')} className="text-orange-400 hover:text-orange-300 transition-colors">Terms of Service</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         Terms and conditions of use
                       </p>
                     </li>
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('cookies')} className="text-blue-400 hover:text-blue-300 transition-colors">Cookie Policy</button>
+                      <button onClick={() => onNavigate && onNavigate('cookies')} className="text-orange-400 hover:text-orange-300 transition-colors">Cookie Policy</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         How we use cookies and manage your preferences
                       </p>
                     </li>
                     <li>
-                      <button onClick={() => onNavigate && onNavigate('sitemap')} className="text-blue-400 hover:text-blue-300 transition-colors">Sitemap</button>
+                      <button onClick={() => onNavigate && onNavigate('sitemap')} className="text-orange-400 hover:text-orange-300 transition-colors">Sitemap</button>
                       <p className="text-sm text-gray-400 ml-0 mt-1">
                         This page - complete site navigation
                       </p>

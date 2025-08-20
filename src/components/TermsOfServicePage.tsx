@@ -14,7 +14,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
   return (
     <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Header Navigation */}
-      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -30,19 +30,19 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</button>
-              <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</button>
-              <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Team</button>
-              <button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+              <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+              <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
+              <button onClick={() => onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
               <button
                 onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
               >
-                Get Free Scorecard
+                Get my free Report Card
               </button>
             </div>
           </div>
@@ -56,7 +56,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
             {/* Back Button */}
             <button
               onClick={onBack}
-              className="inline-flex items-center text-gray-300 hover:text-white mb-8 transition-colors"
+              className="inline-flex items-center text-white hover:text-orange-300 mb-8 transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back
@@ -233,19 +233,19 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
               <div className="flex flex-wrap justify-center gap-6 text-sm">
                 <button
                   onClick={() => onNavigate('privacy')}
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className="text-orange-400 hover:text-orange-300 transition-colors"
                 >
                   Privacy Policy
                 </button>
                 <button
                   onClick={() => onNavigate('cookies')}
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className="text-orange-400 hover:text-orange-300 transition-colors"
                 >
                   Cookie Policy
                 </button>
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className="text-orange-400 hover:text-orange-300 transition-colors"
                 >
                   Contact Us
                 </button>

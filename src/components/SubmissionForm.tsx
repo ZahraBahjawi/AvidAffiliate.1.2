@@ -61,13 +61,13 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => setShowThankYou(false)}
-                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300"
                 >
                   Continue Browsing
                 </button>
                 <button
                   onClick={onBack}
-                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex-1 px-4 py-2 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-300"
                 >
                   Back to Home
                 </button>
@@ -78,7 +78,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
       )}
 
       {/* Simplified Header */}
-      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50">
+      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -89,7 +89,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
               />
             </div>
             <div className="flex items-center">
-              <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors text-sm font-medium flex items-center">
+              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium flex items-center">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </button>
@@ -196,7 +196,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                     <button
                       type="button"
                       onClick={onBack}
-                      className="flex items-center justify-center px-6 py-4 border-2 border-slate-600 text-gray-300 font-medium rounded-xl hover:border-slate-500 hover:bg-slate-700 transition-all duration-300"
+                      className="flex items-center justify-center px-6 py-4 bg-transparent border-2 border-white text-white font-medium rounded-xl hover:bg-white hover:text-slate-900 transition-all duration-300"
                     >
                       <ArrowLeft className="h-5 w-5 mr-2" />
                       Back
@@ -204,8 +204,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                     
                     <button
                       type="submit"
-                      className="flex-1 group inline-flex items-center justify-center px-8 py-4 text-white text-lg font-medium rounded-xl transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                      style={{ backgroundColor: '#FF6B35' }}
+                      className="flex-1 group inline-flex items-center justify-center px-8 py-4 text-white text-lg font-bold rounded-xl bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-110 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       Get My Free Report Card
                       <ChevronRight className="ml-2 h-5 w-5" />
@@ -213,11 +212,11 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                   </div>
                   <p className="text-xs text-gray-400 text-center pt-4">
                     By clicking "Get My Free Report Card", you agree to our{' '}
-                    <button type="button" onClick={() => onNavigate?.('terms')} className="underline hover:text-white">
+                    <button type="button" onClick={() => onNavigate?.('terms')} className="underline hover:text-orange-300">
                       Terms of Service
                     </button>
                     {' '}and{' '}
-                    <button type="button" onClick={() => onNavigate?.('privacy')} className="underline hover:text-white">
+                    <button type="button" onClick={() => onNavigate?.('privacy')} className="underline hover:text-orange-300">
                       Privacy Policy
                     </button>.
                   </p>

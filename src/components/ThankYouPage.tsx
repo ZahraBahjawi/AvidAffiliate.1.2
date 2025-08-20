@@ -186,7 +186,7 @@ ${userData.name}`
     >
       <div className="flex-grow">
         {/* Header Navigation */}
-        <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+        <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
@@ -204,15 +204,15 @@ ${userData.name}`
               <nav className="hidden md:flex items-center space-x-8">
                 <button
                   onClick={onBackToHome}
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-white hover:text-orange-300 transition-colors text-sm font-medium"
                 >
                   Home
                 </button>
-                <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</button>
-                <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Team</button>
+                <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+                <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
                 <button
                   onClick={() => onNavigate && onNavigate('contact')}
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-white hover:text-orange-300 transition-colors text-sm font-medium"
                 >
                   Contact
                 </button>
@@ -222,9 +222,9 @@ ${userData.name}`
               <div className="flex items-center space-x-4">
                 <button
                   onClick={onBackToHome}
-                  className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                  className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
                 >
-                  Back to Homepage
+                  Get my free Report Card
                 </button>
               </div>
             </div>
@@ -401,7 +401,7 @@ ${userData.name}`
                       <button
                         onClick={handleJoinPriorityList}
                         disabled={isJoiningPriorityList}
-                        className="inline-flex items-center justify-center px-4 py-2 bg-green-500 text-white font-medium text-sm rounded-lg hover:bg-green-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold text-sm rounded-lg hover:from-green-400 hover:to-emerald-500 hover:shadow-lg hover:shadow-green-500/50 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {isJoiningPriorityList ? (
                           <>
@@ -436,7 +436,7 @@ ${userData.name}`
                     </div>
                     <button
                         onClick={handleContactUs}
-                        className="inline-flex items-center justify-center px-4 py-2 bg-slate-600 text-white font-medium text-sm rounded-lg hover:bg-slate-500 transition-colors mt-4"
+                        className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold text-sm rounded-lg hover:from-indigo-500 hover:to-blue-500 hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 mt-4"
                       >
                         <Phone className="mr-2 h-4 w-4" />
                         Contact Us
