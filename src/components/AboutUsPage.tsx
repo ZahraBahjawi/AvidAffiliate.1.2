@@ -582,7 +582,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              <span className="font-normal text-white">Your website is Leaking revenue</span>
+              <span className="font-normal text-white">Your website is leaking revenue</span>
             </h1>
             <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
               Get a free Report Card within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content.
