@@ -881,7 +881,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       </section>
 
       {/* About / Values */}
-      <section className="py-20 bg-gray-800">
+      <section id="about-avidaffiliate" className="py-20 bg-gray-800">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
