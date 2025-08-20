@@ -888,7 +888,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
+              <h2 id="about-us" className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
               <p className="text-xl text-gray-300 font-light">Empowering creators to unlock their site's true revenue potential</p>
             </div>
 
@@ -934,16 +934,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
             </div>
 
             <div className="text-center">
-              <button
-                onClick={() => {
-                  track('learn_more_about');
-                  onNavigate('about');
-                }}
-                className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors"
-              >
-                Learn more about us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
+              <a href="#about-us" onClick={(e) => { e.preventDefault(); document.querySelector('#about-us')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About Us</a>
             </div>
           </div>
         </div>
