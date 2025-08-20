@@ -22,7 +22,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
     message: ''
   });
 
-  const [submitSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [errors, setErrors] = useState<Partial<ContactFormData>>({}); 
 
   useEffect(() => {
     const prefillData = localStorage.getItem('contact_prefill');
