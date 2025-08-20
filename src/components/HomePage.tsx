@@ -501,6 +501,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               Your website is leaking revenue
             </h1>
             <p className="text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
+            <p className="text-lg text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
               Get a <strong>FREE</strong> affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content. <em>Join 300+ creators who increased revenue by 20%+</em>
             </p>
 
