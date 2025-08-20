@@ -822,7 +822,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
   
 
       {/* Features */}
-      <section id="features" className="py-20 bg-slate-900">
+      <section id="features" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
