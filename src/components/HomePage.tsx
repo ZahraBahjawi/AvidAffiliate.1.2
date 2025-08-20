@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   CheckCircle,
   TrendingUp,
@@ -22,8 +22,8 @@ import { Footer } from './Footer';
 
 interface HomePageProps {
   onNext: (data?: { url: string }) => void;
-  onNavigate: (page: 'about' | 'team' |'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies' | 'services') => void;
-  onBack: () => void; // Add this line
+  onNavigate: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies' | 'services') => void;
+  onBack: () => void;
 }
 
 // UTM persistence
@@ -113,29 +113,31 @@ const ServicesFlow: React.FC = () => {
   );
 };
 
-const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
-  return (
-    <div className={`mx-auto ${compact ? 'mt-4' : 'mt-10'} max-w-3xl`}>
-      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-gray-300">
-        <div className="flex items-center">
-          <ShieldCheck className="h-4 w-4 mr-2 text-green-400" />
-          Read‑only crawler
+const SecurityPrivacyBlock: React.FC<{ compact?: boolean, onNavigate: HomePageProps['onNavigate'] }> = ({ compact, onNavigate }) => {
+    return (
+      <div className={`mx-auto ${compact ? 'mt-4' : 'mt-10'} max-w-3xl`}>
+        <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-gray-300">
+          <div className="flex items-center">
+            <ShieldCheck className="h-4 w-4 mr-2 text-green-400" />
+            Read‑only crawler
+          </div>
+          <div className="flex items-center">
+            <Shield className="h-4 w-4 mr-2 text-green-400" />
+            Data encrypted in transit
+          </div>
+          <div className="flex items-center">
+            <CheckCircle className="h-4 w-4 mr-2 text-green-400" />
+            We do not sell your data
+          </div>
         </div>
-        <div className="flex items-center">
-          <Shield className="h-4 w-4 mr-2 text-green-400" />
-          Data encrypted in transit
-        </div>
-        <div className="flex items-center">
-          <CheckCircle className="h-4 w-4 mr-2 text-green-400" />
-          We do not sell your data
+        <div className="text-center text-xs text-gray-400 mt-2">
+            <button onClick={() => onNavigate && onNavigate('privacy')} className="underline">Privacy</button> • 
+            <button onClick={() => onNavigate && onNavigate('terms')} className="underline">Terms</button> • 
+            <button onClick={() => onNavigate && onNavigate('cookies')} className="underline">Cookies</button>
         </div>
       </div>
-      <div className="text-center text-xs text-gray-400 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
-      </div>
-    </div>
-  );
-};
+    );
+  };
 
 
 const FAQ: React.FC = () => {
@@ -436,711 +438,657 @@ const ReportcardPreview: React.FC = () => {
 };
 
 const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () => {}, onBack = () => {} }) => {
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [honeypot, setHoneypot] = React.useState('');
-  const [showRightRail, setShowRightRail] = React.useState(false);
-  const [showMobileSticky, setShowMobileSticky] = React.useState(false);
-  const [formStarted, setFormStarted] = React.useState(false);
-  const [animationTriggered, setAnimationTriggered] = React.useState(false);
-  const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
-
-const mainContainerRef = useRef<HTMLDivElement>(null);
-  // Store UTMs on first visit
-  React.useEffect(() => {
-    storeUTMs();
-  }, []);
-useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      
-      // Define colors for the gradient stops
-      const startColor = [45, 212, 191]; // Teal
-      const midColor = [59, 130, 246];   // Blue
-      const endColor = [168, 85, 247];  // Purple
-
-      // Interpolate colors based on scroll position
-      let color1, color2;
-      if (scrollPercent < 0.5) {
-        const p = scrollPercent * 2;
-        color1 = startColor.map((c, i) => Math.round(c + (midColor[i] - c) * p));
-        color2 = midColor;
-      } else {
-        const p = (scrollPercent - 0.5) * 2;
-        color1 = midColor;
-        color2 = midColor.map((c, i) => Math.round(c + (endColor[i] - c) * p));
-      }
-   if (mainContainerRef.current) {
-        mainContainerRef.current.style.setProperty('--color-stop-1', `rgba(${color1.join(',')}, 0.6)`);
-        mainContainerRef.current.style.setProperty('--color-stop-2', `rgba(${color2.join(',')}, 0.9)`);
-      }
-      
-      setShowRightRail(scrollPercent * 100 > 30);
-      setShowMobileSticky(scrollPercent * 100 > 35);
-      
-      const depths = [25, 50, 75, 100];
-      depths.forEach(depth => {
-        if (scrollPercent * 100 >= depth && !scrollDepthTracked.has(depth)) {
-          track('scroll_depth', { depth });
-          setScrollDepthTracked(prev => new Set([...prev, depth]));
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+    const [honeypot, setHoneypot] = React.useState('');
+    const [showRightRail, setShowRightRail] = React.useState(false);
+    const [showMobileSticky, setShowMobileSticky] = React.useState(false);
+    const [formStarted, setFormStarted] = React.useState(false);
+    const [animationTriggered, setAnimationTriggered] = React.useState(false);
+    const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
+    const mainContainerRef = useRef<HTMLDivElement>(null);
+  
+    // Store UTMs on first visit
+    React.useEffect(() => {
+      storeUTMs();
+    }, []);
+  
+    // Effect for handling the scroll-based gradient and other scroll effects
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercent = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+          
+          // Define colors for the gradient stops
+          const startColor = [45, 212, 191]; // Teal
+          const midColor = [59, 130, 246];   // Blue
+          const endColor = [168, 85, 247];  // Purple
+    
+          // Interpolate colors based on scroll position
+          let color1, color2;
+          if (scrollPercent < 0.5) {
+            const p = scrollPercent * 2;
+            color1 = startColor.map((c, i) => Math.round(c + (midColor[i] - c) * p));
+            color2 = midColor;
+          } else {
+            const p = (scrollPercent - 0.5) * 2;
+            color1 = midColor;
+            color2 = midColor.map((c, i) => Math.round(c + (endColor[i] - c) * p));
+          }
+        
+          if (mainContainerRef.current) {
+            mainContainerRef.current.style.setProperty('--color-stop-1', `rgba(${color1.join(',')}, 0.6)`);
+            mainContainerRef.current.style.setProperty('--color-stop-2', `rgba(${color2.join(',')}, 0.9)`);
+          }
+          
+          setShowRightRail(scrollPercent * 100 > 30);
+          setShowMobileSticky(scrollPercent * 100 > 35);
+          
+          const depths = [25, 50, 75, 100];
+          depths.forEach(depth => {
+            if (scrollPercent * 100 >= depth && !scrollDepthTracked.has(depth)) {
+              track('scroll_depth', { depth });
+              setScrollDepthTracked(prev => new Set([...prev, depth]));
+            }
+          });
+        };
+    
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Set initial gradient on load
+    
+        // Animation trigger effect
+        const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+          const id = window.setTimeout(() => setAnimationTriggered(true), 300);
+          return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.clearTimeout(id);
+          };
         }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Set initial gradient on load
-    handleScroll(); 
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrollDepthTracked]);
-
-  // Track scroll for right rail CTA and trigger animation
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      setShowRightRail(scrollPercent > 30);
-      setShowMobileSticky(scrollPercent > 35);
+        
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, [scrollDepthTracked]);
+  
+    const submitHero = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
       
-      const depths = [25, 50, 75, 100];
-      depths.forEach(depth => {
-        if (scrollPercent >= depth && !scrollDepthTracked.has(depth)) {
-          track('scroll_depth', { depth });
-          setScrollDepthTracked(prev => new Set([...prev, depth]));
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Animation trigger effect
-    const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReduced) {
-      const id = window.setTimeout(() => setAnimationTriggered(true), 300);
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-        window.clearTimeout(id);
-      };
-    }
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrollDepthTracked]);
-
-  const submitHero = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    if (isSubmitting) return;
-    
-    if (honeypot) {
-      console.log('Bot detected via honeypot');
-      track('form_submit_fail', { reason: 'honeypot', url: '' });
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    const form = e.currentTarget;
-    let url = (form.elements.namedItem('siteUrl') as HTMLInputElement)?.value || '';
-    
-    if (!url.trim()) {
-      track('validation_error', { field: 'url', message: 'URL is required' });
-      setIsSubmitting(false);
-      return;
-    }
-    
-    if (url) {
-      url = url.replace(/^https?:\/\//, '');
-      url = url.replace(/^www\./, '');
-      url = url.replace(/\/$/, '');
-      url = 'https://' + url;
-    }
-    
-    const utms = getStoredUTMs();
-    track('form_submit_attempt', { url, source: 'hero' });
-    
-    setTimeout(() => {
+      if (isSubmitting) return;
+      
+      if (honeypot) {
+        console.log('Bot detected via honeypot');
+        track('form_submit_fail', { reason: 'honeypot', url: '' });
+        return;
+      }
+      
+      setIsSubmitting(true);
+      
+      const form = e.currentTarget;
+      let url = (form.elements.namedItem('siteUrl') as HTMLInputElement)?.value || '';
+      
+      if (!url.trim()) {
+        track('validation_error', { field: 'url', message: 'URL is required' });
+        setIsSubmitting(false);
+        return;
+      }
+      
       if (url) {
-        onNext({ url, ...utms });
+        url = url.replace(/^https?:\/\//, '');
+        url = url.replace(/^www\./, '');
+        url = url.replace(/\/$/, '');
+        url = 'https://' + url;
       }
-      setIsSubmitting(false);
-    }, 500);
-  };
+      
+      const utms = getStoredUTMs();
+      track('form_submit_attempt', { url, source: 'hero' });
+      
+      setTimeout(() => {
+        if (url) {
+          onNext({ url, ...utms });
+        }
+        setIsSubmitting(false);
+      }, 500);
+    };
+    
+    const handleFormFocus = () => {
+      if (!formStarted) {
+        setFormStarted(true);
+        track('form_start', { location: 'hero' });
+      }
+    };
   
-  const handleFormFocus = () => {
-    if (!formStarted) {
-      setFormStarted(true);
-      track('form_start', { location: 'hero' });
-    }
-  };
-
-  return (
-    <div 
-      ref={mainContainerRef}
-      className="background-container" 
-      style={{ 
-        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-        '--color-stop-1': 'rgba(45, 212, 191, 0.6)', // Initial color
-        '--color-stop-2': 'rgba(59, 130, 246, 0.9)'  // Initial color
-      } as React.CSSProperties}
-    >
-      <div className="gradient-overlay" />
-      <div className="relative z-10">
-        <div className="min-h-screen" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
-      {/* Skip to content link for accessibility */}
-      <a 
-        href="#main-content" 
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-orange-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+    return (
+      <div 
+        ref={mainContainerRef}
+        className="background-container" 
+        style={{ 
+          fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          '--color-stop-1': 'rgba(45, 212, 191, 0.6)',
+          '--color-stop-2': 'rgba(59, 130, 246, 0.9)'
+        } as React.CSSProperties}
       >
-        Skip to content
-      </a>
+        <div className="gradient-overlay" />
+        <div className="relative z-10">
+            {/* All your JSX content from the original return goes here */}
+            <a 
+                href="#main-content" 
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-orange-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            >
+                Skip to content
+            </a>
 
-      {/* Header Navigation */}
-      <header className="bg-slate-900/80 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-<div className="flex items-center">
-  <button onClick={onBack} aria-label="Go to homepage">
-    <img 
-      src="/LOGO.png" 
-      alt="AvidAffiliate Logo" 
-      className="h-24 w-auto" 
-      width="96" 
-      height="96"
-      loading="eager"
-      fetchpriority="high"
-    />
-  </button>
-</div>
+            <header className="bg-slate-900/80 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm">
+                <div className="max-w-7xl mx-auto px-6">
+                <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center">
+                    <button onClick={onBack} aria-label="Go to homepage">
+                        <img 
+                            src="/LOGO.png" 
+                            alt="AvidAffiliate Logo" 
+                            className="h-24 w-auto" 
+                            width="96" 
+                            height="96"
+                            loading="eager"
+                            fetchpriority="high"
+                        />
+                    </button>
+                    </div>
 
-            {/* Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Features</a>
-              <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">How it works</a>
-              <button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
-            </nav>
+                    <nav className="hidden md:flex items-center space-x-8">
+                    <a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Features</a>
+                    <a href="#how-it-works" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">How it works</a>
+                    <button onClick={() => onNavigate('contact')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Contact</button>
+                    </nav>
 
-            {/* CTA Button */}
-            <div className="flex items-center space-x-4">
-              <button
+                    <div className="flex items-center space-x-4">
+                    <button
+                        onClick={() => {
+                            track('cta_click', { location: 'header' });
+                            const heroForm = document.querySelector('#hero-form');
+                            if (heroForm) {
+                                heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        }}
+                        className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                    >
+                        Get my free Report Card
+                    </button>
+                    </div>
+                </div>
+                </div>
+            </header>
+
+            <main>
+                <section id="main-content" className="pt-16 pb-10">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-4xl mx-auto text-center">
+                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+                                Your website is{' '}
+                                <span className="relative inline-block">
+                                <span className="text-blue-400">
+                                    L<span className="relative">eaking
+                                    <Droplet 
+                                        className={`absolute left-1/2 -translate-x-1/2 top-[0.8em] h-4 w-4 text-blue-400 ${
+                                            animationTriggered ? 'motion-safe:animate-[drip_3s_ease-in-out_1]' : 'opacity-0'
+                                        }`}
+                                        aria-hidden="true"
+                                    />
+                                    </span>
+                                </span>
+                                </span>
+                                {' '} revenue
+                            </h1>
+                            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+                                Get a free Report Card within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content.
+                            </p>
+
+                            <form id="hero-form" onSubmit={submitHero} className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4 max-w-2xl mx-auto">
+                                <input
+                                type="text"
+                                name="website"
+                                value={honeypot}
+                                onChange={(e) => setHoneypot(e.target.value)}
+                                style={{ display: 'none' }}
+                                tabIndex={-1}
+                                autoComplete="off"
+                                />
+                                <input
+                                name="siteUrl"
+                                type="text"
+                                required
+                                onFocus={handleFormFocus}
+                                placeholder="Enter your website URL"
+                                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                                aria-label="Website URL"
+                                aria-describedby="url-help"
+                                disabled={isSubmitting}
+                                />
+                                <div id="url-help" className="sr-only">Enter your website URL to get a free affiliate report card</div>
+                                <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="inline-flex items-center px-6 py-3 bg-[#FF6B35] text-white font-medium rounded-lg hover:bg-[#E55A2B] transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                                >
+                                {isSubmitting ? (
+                                    <>
+                                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                                    Processing...
+                                    </>
+                                ) : (
+                                    <>
+                                    Get my free Report Card
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                    </>
+                                )}
+                                </button>
+                            </form>
+
+                            <p className="text-center text-gray-400 text-sm mt-2 mb-4">
+                                Takes ~15 seconds. We'll email your report card—no spam.
+                            </p>
+
+                            <div className="flex justify-center mb-6">
+                                <button
+                                onClick={() => {
+                                    track('sample_pdf_click', { location: 'hero_thumbnail' });
+                                    window.open('/sample-report-card.pdf', '_blank');
+                                }}
+                                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-colors group"
+                                >
+                                <div className="w-12 h-16 bg-white rounded border border-gray-300 flex items-center justify-center flex-shrink-0">
+                                    <div className="text-xs text-gray-600 font-medium">PDF</div>
+                                </div>
+                                <div className="sm:text-left">
+                                    <div className="text-white text-sm font-medium group-hover:text-orange-300 transition-colors">
+                                        View sample report card
+                                    </div>
+                                    <div className="text-gray-400 text-xs">
+                                        See what you'll receive
+                                    </div>
+                                </div>
+                                </button>
+                            </div>
+                            
+                            <SecurityPrivacyBlock onNavigate={onNavigate} />
+                        </div>
+                    </div>
+                </section>
+
+                <ProofStats />
+
+                <section className="py-20">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="free-affiliate-audit">
+                                The hidden revenue leak
+                                </h2>
+                                <p className="text-xl text-gray-300 font-light">You could be missing out on thousands</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-3 gap-8 mb-16">
+                                <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
+                                    <div className="mx-auto mb-6 cursor-pointer">
+                                        <DollarSign className="h-8 w-8 text-red-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                                    </div>
+                                    <h3 className="text-xl font-medium text-white mb-3">Missing payouts</h3>
+                                    <div className="text-3xl font-normal text-red-600 mb-4">50-80%</div>
+                                    <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                                        <span className="group-hover:hidden">of product mentions go unmonetized.</span>
+                                        <span className="hidden group-hover:block">We find those mentions and turn them into tracked, revenue‑generating links.</span>
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
+                                    <div className="mx-auto mb-6 cursor-pointer">
+                                        <Link2Off className="h-8 w-8 text-orange-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                                    </div>
+                                    <h3 className="text-xl font-medium text-white mb-3">Broken links</h3>
+                                    <div className="text-3xl font-normal text-orange-600 mb-4">Silent losses</div>
+                                    <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                                        <span className="group-hover:hidden">from 404s, redirects, and geo‑mismatches</span>
+                                        <span className="hidden group-hover:block">We repair pathways from click to commission so your traffic converts.</span>
+                                    </p>
+                                </div>
+
+                                <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
+                                    <div className="mx-auto mb-6 cursor-pointer">
+                                        <TrendingUp className="h-8 w-8 text-yellow-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                                    </div>
+                                    <h3 className="text-xl font-medium text-white mb-3">Low commission rates</h3>
+                                    <div className="text-3xl font-normal text-yellow-600 mb-4">2–5x</div>
+                                    <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                                        <span className="group-hover:hidden">better payouts exist for many programs.</span>
+                                        <span className="hidden group-hover:block">We benchmark against 35,000+ programs and recommend higher‑paying alternatives.</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-12 text-white text-center">
+                                <h3 className="text-2xl font-normal mb-8 text-white">The result? You're leaving money on the table.</h3>
+                                
+                                <button
+                                onClick={() => {
+                                    track('cta_click', { location: 'problem_section' });
+                                    const heroForm = document.querySelector('#hero-form');
+                                    if (heroForm) {
+                                    heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                    }
+                                }}
+                                className="inline-flex items-center px-6 py-3 bg-white text-orange-600 font-medium rounded-lg hover:bg-gray-100 transition-colors mb-8"
+                                >
+                                Find my hidden revenue
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                                </button>
+                                
+                                <ReportcardPreview />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="how-it-works" className="py-20 bg-slate-700">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="how-report-card-works">How the free report card works</h2>
+                                <p className="text-xl text-gray-300 font-light">Get your report card in three simple steps</p>
+                            </div>
+                    
+                            <div className="grid md:grid-cols-3 gap-8">
+                                <div className="text-center">
+                                    <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                        <span className="text-2xl font-bold text-white">1</span>
+                                    </div>
+                                    <h3 className="text-xl font-medium text-white mb-4">Submit your website</h3>
+                                    <p className="text-gray-300 leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
+                                </div>
+                    
+                                <div className="text-center">
+                                    <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                        <span className="text-2xl font-bold text-white">2</span>
+                                    </div>
+                                    <h3 className="text-xl font-medium text-white mb-4">We analyze your site</h3>
+                                    <p className="text-gray-300 leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
+                                </div>
+                    
+                                <div className="text-center">
+                                    <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                        <span className="text-2xl font-bold text-white">3</span>
+                                    </div>
+                                    <h3 className="text-xl font-medium text-white mb-4">Get your report card</h3>
+                                    <p className="text-gray-300 leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
+                                </div>
+                            </div>
+                    
+                            <div className="mt-20">
+                                <div className="text-center mb-12">
+                                    <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" id="frequently-asked-questions">Frequently Asked Questions</h2>
+                                    <p className="text-lg text-gray-300 font-light">Everything you need to know about our free report card</p>
+                                </div>
+                                <FAQ />
+                            </div>
+                            <ServicesFlow />
+                        </div>
+                    </div>
+                </section>
+
+                <section id="features" className="py-20 bg-slate-900">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="why-creators-choose">Why creators choose AvidAffiliate</h2>
+                                <p className="text-xl text-gray-300 font-light">Make more money from your existing content—effortlessly</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
+                                    <Zap className="h-8 w-8 text-orange-400 mb-6" />
+                                    <h3 className="text-lg font-medium text-white mb-3">Smart link analysis</h3>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                    Automatically find every missed commission opportunity—then see exactly how to monetize it.
+                                    </p>
+                                </div>
+
+                                <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
+                                    <FileText className="h-8 w-8 text-orange-400 mb-6" />
+                                    <h3 className="text-lg font-medium text-white mb-3">Proprietary affiliate database</h3>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                    Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
+                                    </p>
+                                </div>
+
+                                <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
+                                    <Users className="h-8 w-8 text-green-400 mb-6" />
+                                    <h3 className="text-lg font-medium text-white mb-3">Done‑for‑you implementation</h3>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                    We fix issues for you—fast—so you can focus on creating content.
+                                    </p>
+                                </div>
+
+                                <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
+                                    <Clock className="h-8 w-8 text-amber-400 mb-6" />
+                                    <h3 className="text-lg font-medium text-white mb-3">Rapid results</h3>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                    See measurable gains in weeks, not months—starting with the highest‑impact fixes.
+                                    </p>
+                                </div>
+
+                                <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
+                                    <Shield className="h-8 w-8 text-orange-400 mb-6" />
+                                    <h3 className="text-lg font-medium text-white mb-3">Long‑term partner</h3>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                    From audit to ongoing optimization—we help you unlock the full value of your content.
+                                    </p>
+                                </div>
+
+                                <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
+                                    <CheckCircle className="h-8 w-8 text-teal-400 mb-6" />
+                                    <h3 className="text-lg font-medium text-white mb-3">Proven methodology</h3>
+                                    <p className="text-gray-300 text-sm leading-relaxed">
+                                    A repeatable process used by creators to drive consistent, compounding revenue.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="py-20 bg-gray-800">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 id="about-us" className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
+                                <p className="text-xl text-gray-300 font-light">Empowering creators to unlock their site's true revenue potential</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+                                <div>
+                                    <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                                    We bridge the gap between great content and optimized monetization with intelligent, data‑driven affiliate marketing solutions.
+                                    </p>
+                                    <p className="text-lg text-gray-300 leading-relaxed">
+                                    Audit with Optimize, fix with Implement, upgrade partners with Discover, plan with Strategize, and scale with Manage.
+                                    </p>
+                                </div>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
+                                        <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                            <Target className="h-6 w-6 text-orange-600" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-white mb-2">Transparency</h3>
+                                        <p className="text-gray-300 text-sm">Clear process and results</p>
+                                    </div>
+                                    <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
+                                        <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                            <Zap className="h-6 w-6 text-green-600" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-white mb-2">Fast results</h3>
+                                        <p className="text-gray-300 text-sm">Quick, impactful changes</p>
+                                    </div>
+                                    <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
+                                        <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                            <Users className="h-6 w-6 text-amber-600" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-white mb-2">Expert team</h3>
+                                        <p className="text-gray-300 text-sm">Experienced specialists</p>
+                                    </div>
+                                    <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
+                                        <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                            <TrendingUp className="h-6 w-6 text-orange-600" />
+                                        </div>
+                                        <h3 className="text-lg font-semibold text-white mb-2">Data‑driven</h3>
+                                        <p className="text-gray-300 text-sm">Every strategy backed by data</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="text-center">
+                                <a href="#about-us" onClick={(e) => { e.preventDefault(); onNavigate('about'); }} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="py-20 bg-slate-700">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">We support top affiliate networks</h2>
+                                <p className="text-xl text-gray-300 font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
+                            </div>
+
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                                {[
+                                { name: 'Amazon', src: '/amazon.png' },
+                                { name: 'ShareASale', src: '/shareasale.png' },
+                                { name: 'CJ Affiliate', src: '/CJ.png' },
+                                { name: 'Impact', src: '/impact.png' },
+                                { name: 'Awin', src: '/awin.png' },
+                                { name: 'FlexOffers', src: '/flexoffers.png' },
+                                { name: 'ClickBank', src: '/clickbank.png' },
+                                { name: 'Rakuten', src: '/rakuten.png' },
+                                ].map((p, i) => (
+                                <div 
+                                    key={i} 
+                                    className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer"
+                                    onClick={() => track('partner_logo_click', { name: p.name })}
+                                >
+                                    <img 
+                                    src={p.src} 
+                                    alt={`${p.name} affiliate network logo`} 
+                                    className="max-h-full max-w-full w-auto h-auto object-contain" 
+                                    style={{ maxHeight: '90%', maxWidth: '90%' }}
+                                    width="120"
+                                    height="60"
+                                    loading="lazy"
+                                    decoding="async"
+                                    />
+                                </div>
+                                ))}
+                            </div>
+
+                            <div className="text-center">
+                                <button
+                                onClick={() => onNavigate('affiliate_partners')}
+                                className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-700"
+                                >
+                                View all networks
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                                </button>
+                            </div>
+
+                            <p className="text-center text-xs text-gray-300 mt-4">
+                                Logos are for identification only; no endorsement implied. All trademarks belong to their respective owners.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+                    <div className="max-w-7xl mx-auto px-6">
+                        <div className="max-w-4xl mx-auto text-center text-white">
+                            <h2 className="text-3xl md:text-4xl font-normal mb-6">Ready to unlock hidden affiliate revenue?</h2>
+                            <p className="text-xl text-orange-100 mb-12 font-light">
+                            Start with your free report card. Then choose Audit (deep analysis), then Implementation (we fix it).
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                                <button
+                                onClick={() => {
+                                    track('cta_click', { location: 'final_cta_primary' });
+                                    onNext();
+                                }}
+                                className="inline-flex items-center px-8 py-4 bg-white text-orange-600 text-base font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+                                >
+                                Get my free Report Card
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                                </button>
+
+                                <button
+                                onClick={() => {
+                                    track('cta_click', { location: 'final_cta_secondary' });
+                                    onNavigate('contact');
+                                }}
+                                className="inline-flex items-center px-8 py-4 bg-transparent border border-white text-white text-base font-medium rounded-lg hover:bg-white hover:text-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+                                >
+                                Contact us
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                                </button>
+                            </div>
+
+                            <p className="text-xs text-orange-200 mb-6 opacity-75">
+                                Limited Implement and Manage openings monthly
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-orange-100 text-sm">
+                                <div className="flex items-center">
+                                    <CheckCircle className="h-4 w-4 mr-2" />
+                                    <span>100% free analysis</span>
+                                </div>
+                                <div className="flex items-center">
+                                    <CheckCircle className="h-4 w-4 mr-2" />
+                                    <span>No sign‑up required</span>
+                                </div>
+                                <div className="flex items-center">
+                                    <CheckCircle className="h-4 w-4 mr-2" />
+                                    <span>Results in 48 hours</span>
+                                </div>
+                            </div>
+
+                            <SecurityPrivacyBlock onNavigate={onNavigate} compact />
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <Footer onNavigate={onNavigate} onNext={onNext} onBack={onBack}/>
+
+            <DesktopRightRailCTA
+                show={showRightRail}
                 onClick={() => {
-                  track('cta_click', { location: 'header' });
-                  const heroForm = document.querySelector('#hero-form');
-                  if (heroForm) {
+                track('cta_click', { location: 'right_rail' });
+                const heroForm = document.querySelector('#hero-form');
+                if (heroForm) {
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  }
+                }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-              >
-                Get my free Report Card
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+            />
 
-      {/* Hero Section */}
-      <section id="main-content" className="pt-16 pb-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Your website is {' '}
-              <span className="relative inline-block">
-                <span className="text-blue-400">
-                  L<span className="relative">eaking
-                    <Droplet 
-                      className={`absolute left-1/2 -translate-x-1/2 top-[0.8em] h-4 w-4 text-blue-400 ${
-                        animationTriggered ? 'motion-safe:animate-[drip_3s_ease-in-out_1]' : 'opacity-0'
-                      }`}
-                      aria-hidden="true"
-                    />
-                  </span>
-                </span>
-              </span>
-              {' '} revenue
-            </h1>
-            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
-              Get a free Report Card within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content.
-            </p>
-
-            {/* Hero Audit Form */}
-            <form id="hero-form" onSubmit={submitHero} className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4 max-w-2xl mx-auto">
-              <input
-                type="text"
-                name="website"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-                style={{ display: 'none' }}
-                tabIndex={-1}
-                autoComplete="off"
-              />
-              <input
-                name="siteUrl"
-                type="text"
-                required
-                onFocus={handleFormFocus}
-                placeholder="Enter your website URL"
-                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-                aria-label="Website URL"
-                aria-describedby="url-help"
-                disabled={isSubmitting}
-              />
-              <div id="url-help" className="sr-only">Enter your website URL to get a free affiliate report card</div>
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="inline-flex items-center px-6 py-3 bg-[#FF6B35] text-white font-medium rounded-lg hover:bg-[#E55A2B] transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Processing...
-                  </>
-                ) : (
-                  <>
-                    Get my free Report Card
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </button>
-            </form>
-
-            {/* Reassurance text */}
-            <p className="text-center text-gray-400 text-sm mt-2 mb-4">
-              Takes ~15 seconds. We'll email your report card—no spam.
-            </p>
-
-            {/* Sample PDF Thumbnail */}
-            <div className="flex justify-center mb-6">
-              <button
+            <StickyMobileCTA
+                show={showMobileSticky}
                 onClick={() => {
-                  track('sample_pdf_click', { location: 'hero_thumbnail' });
-                  window.open('/sample-report-card.pdf', '_blank');
-                }}
-                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-colors group"
-              >
-                <div className="w-12 h-16 bg-white rounded border border-gray-300 flex items-center justify-center flex-shrink-0">
-                  <div className="text-xs text-gray-600 font-medium">PDF</div>
-                </div>
-                <div className="sm:text-left">
-                  <div className="text-white text-sm font-medium group-hover:text-orange-300 transition-colors">
-                    View sample report card
-                  </div>
-                  <div className="text-gray-400 text-xs">
-                    See what you'll receive
-                  </div>
-                </div>
-              </button>
-            </div>
-            {/* Security badges - mobile friendly */}
-            <div className="text-center text-gray-300 text-sm">
-              <div className="flex items-center justify-center mb-2">
-                <Shield className="h-4 w-4 mr-2 text-green-500 flex-shrink-0" />
-                <span>No credit card • Read‑only scan • Results in 48 hours</span>
-              </div>
-              <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
-                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-gray-300 hover:text-white transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Privacy</button>
-                <span className="text-gray-400">•</span>
-                <button onClick={() => onNavigate && onNavigate('terms')} className="text-gray-300 hover:text-white transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Terms</button>
-                <span className="text-gray-400">•</span>
-                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-gray-300 hover:text-white transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Cookies</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Proof Stats Strip */}
-      <ProofStats />
-
-      {/* Problem Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="free-affiliate-audit">
-                The hidden revenue leak
-              </h2>
-              <p className="text-xl text-gray-300 font-light">You could be missing out on thousands</p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
-                <div className="mx-auto mb-6 cursor-pointer">
-                  <DollarSign className="h-8 w-8 text-red-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
-                </div>
-                <h3 className="text-xl font-medium text-white mb-3">Missing payouts</h3>
-                <div className="text-3xl font-normal text-red-600 mb-4">50-80%</div>
-                <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="group-hover:hidden">of product mentions go unmonetized.</span>
-                  <span className="hidden group-hover:block">We find those mentions and turn them into tracked, revenue‑generating links.</span>
-                </p>
-              </div>
-
-              <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
-                <div className="mx-auto mb-6 cursor-pointer">
-                  <Link2Off className="h-8 w-8 text-orange-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
-                </div>
-                <h3 className="text-xl font-medium text-white mb-3">Broken links</h3>
-                <div className="text-3xl font-normal text-orange-600 mb-4">Silent losses</div>
-                <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="group-hover:hidden">from 404s, redirects, and geo‑mismatches</span>
-                  <span className="hidden group-hover:block">We repair pathways from click to commission so your traffic converts.</span>
-                </p>
-              </div>
-
-              <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
-                <div className="mx-auto mb-6 cursor-pointer">
-                  <TrendingUp className="h-8 w-8 text-yellow-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
-                </div>
-                <h3 className="text-xl font-medium text-white mb-3">Low commission rates</h3>
-                <div className="text-3xl font-normal text-yellow-600 mb-4">2–5x</div>
-                <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="group-hover:hidden">better payouts exist for many programs.</span>
-                  <span className="hidden group-hover:block">We benchmark against 35,000+ programs and recommend higher‑paying alternatives.</span>
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-12 text-white text-center">
-              <h3 className="text-2xl font-normal mb-8 text-white">The result? You're leaving money on the table.</h3>
-              
-              <button
-                onClick={() => {
-                  track('cta_click', { location: 'problem_section' });
-                  const heroForm = document.querySelector('#hero-form');
-                  if (heroForm) {
+                track('cta_click', { location: 'sticky_mobile' });
+                const heroForm = document.querySelector('#hero-form');
+                if (heroForm) {
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                  }
+                }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-white text-orange-600 font-medium rounded-lg hover:bg-gray-100 transition-colors mb-8"
-              >
-                Find my hidden revenue
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-              
-              {/* Reportcard Preview */}
-              <ReportcardPreview />
-            </div>
-          </div>
+            />
+
+            <JSONLDSnippets />
         </div>
-      </section>
-
-      {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-slate-700">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="how-report-card-works">How the free report card works</h2>
-              <p className="text-xl text-gray-300 font-light">Get your report card in three simple steps</p>
-            </div>
-      
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">1</span>
-                </div>
-                <h3 className="text-xl font-medium text-white mb-4">Submit your website</h3>
-                <p className="text-gray-300 leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
-              </div>
-      
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">2</span>
-                </div>
-                <h3 className="text-xl font-medium text-white mb-4">We analyze your site</h3>
-                <p className="text-gray-300 leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
-              </div>
-      
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">3</span>
-                </div>
-                <h3 className="text-xl font-medium text-white mb-4">Get your report card</h3>
-                <p className="text-gray-300 leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
-              </div>
-            </div>
-      
-            {/* FAQ Section */}
-            <div className="mt-20">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" id="frequently-asked-questions">Frequently Asked Questions</h2>
-                <p className="text-lg text-gray-300 font-light">Everything you need to know about our free report card</p>
-              </div>
-
-              <FAQ />
-            </div>
-
-            {/* Map to services */}
-            <ServicesFlow />
-          </div>
-        </div>
-      </section>
+      </div>
+    );
+  };
   
-
-      {/* Features */}
-      <section id="features" className="py-20 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="why-creators-choose">Why creators choose AvidAffiliate</h2>
-              <p className="text-xl text-gray-300 font-light">Make more money from your existing content—effortlessly</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Zap className="h-8 w-8 text-orange-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Smart link analysis</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  Automatically find every missed commission opportunity—then see exactly how to monetize it.
-                </p>
-              </div>
-
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <FileText className="h-8 w-8 text-orange-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Proprietary affiliate database</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
-                </p>
-              </div>
-
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Users className="h-8 w-8 text-green-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Done‑for‑you implementation</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  We fix issues for you—fast—so you can focus on creating content.
-                </p>
-              </div>
-
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Clock className="h-8 w-8 text-amber-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Rapid results</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  See measurable gains in weeks, not months—starting with the highest‑impact fixes.
-                </p>
-              </div>
-
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Shield className="h-8 w-8 text-orange-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Long‑term partner</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  From audit to ongoing optimization—we help you unlock the full value of your content.
-                </p>
-              </div>
-
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <CheckCircle className="h-8 w-8 text-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Proven methodology</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  A repeatable process used by creators to drive consistent, compounding revenue.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About / Values */}
-      <section className="py-20 bg-gray-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 id="about-us" className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
-              <p className="text-xl text-gray-300 font-light">Empowering creators to unlock their site's true revenue potential</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <div>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                  We bridge the gap between great content and optimized monetization with intelligent, data‑driven affiliate marketing solutions.
-                </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
-                  Audit with Optimize, fix with Implement, upgrade partners with Discover, plan with Strategize, and scale with Manage.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Target className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Transparency</h3>
-                  <p className="text-gray-300 text-sm">Clear process and results</p>
-                </div>
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Zap className="h-6 w-6 text-green-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Fast results</h3>
-                  <p className="text-gray-300 text-sm">Quick, impactful changes</p>
-                </div>
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-6 w-6 text-amber-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Expert team</h3>
-                  <p className="text-gray-300 text-sm">Experienced specialists</p>
-                </div>
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="h-6 w-6 text-orange-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Data‑driven</h3>
-                  <p className="text-gray-300 text-sm">Every strategy backed by data</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <a href="#about-us" onClick={(e) => { e.preventDefault(); document.querySelector('#about-us')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About Us</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section className="py-20 bg-slate-700">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">We support top affiliate networks</h2>
-              <p className="text-xl text-gray-300 font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
-            </div>
-
-            {/* Logo Grid (replace with real assets) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-              {[
-                { name: 'Amazon', src: '/amazon.png' },
-                { name: 'ShareASale', src: '/shareasale.png' },
-                { name: 'CJ Affiliate', src: '/CJ.png' },
-                { name: 'Impact', src: '/impact.png' },
-                { name: 'Awin', src: '/awin.png' },
-                { name: 'FlexOffers', src: '/flexoffers.png' },
-                { name: 'ClickBank', src: '/clickbank.png' },
-                { name: 'Rakuten', src: '/rakuten.png' },
-              ].map((p, i) => (
-                <div 
-                  key={i} 
-                  className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer"
-                  onClick={() => track('partner_logo_click', { name: p.name })}
-                >
-                  <img 
-                    src={p.src} 
-                    alt={`${p.name} affiliate network logo`} 
-                    className="max-h-full max-w-full w-auto h-auto object-contain" 
-                    style={{ maxHeight: '90%', maxWidth: '90%' }}
-                    width="120"
-                    height="60"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <button
-                onClick={() => onNavigate('affiliate_partners')}
-                className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-700"
-              >
-                View all networks
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-            </div>
-
-            <p className="text-center text-xs text-gray-300 mt-4">
-              Logos are for identification only; no endorsement implied. All trademarks belong to their respective owners.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-normal mb-6">Ready to unlock hidden affiliate revenue?</h2>
-            <p className="text-xl text-orange-100 mb-12 font-light">
-              Start with your free report card. Then choose Audit (deep analysis), then Implementation (we fix it).
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <button
-                onClick={() => {
-                  track('cta_click', { location: 'final_cta_primary' });
-                  onNext();
-                }}
-                className="inline-flex items-center px-8 py-4 bg-white text-orange-600 text-base font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
-              >
-                Get my free Report Card
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-
-              <button
-                onClick={() => {
-                  track('cta_click', { location: 'final_cta_secondary' });
-                  onNavigate('contact');
-                }}
-                className="inline-flex items-center px-8 py-4 bg-transparent border border-white text-white text-base font-medium rounded-lg hover:bg-white hover:text-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
-              >
-                Contact us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
-            </div>
-
-            <p className="text-xs text-orange-200 mb-6 opacity-75">
-              Limited Implement and Manage openings monthly
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-orange-100 text-sm">
-              <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2" />
-                <span>100% free analysis</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2" />
-                <span>No sign‑up required</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2" />
-                <span>Results in 48 hours</span>
-              </div>
-            </div>
-
-            <SecurityPrivacyBlock />
-          </div>
-        </div>
-      </section>
-
-      <Footer onNavigate={onNavigate} onNext={onNext} />
-
-      {/* Desktop Right Rail CTA */}
-      <DesktopRightRailCTA
-        show={showRightRail}
-        onClick={() => {
-          track('cta_click', { location: 'right_rail' });
-          const heroForm = document.querySelector('#hero-form');
-          if (heroForm) {
-            heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }}
-      />
-
-      {/* Sticky mobile CTA */}
-      <StickyMobileCTA
-        show={showMobileSticky}
-        onClick={() => {
-          track('cta_click', { location: 'sticky_mobile' });
-          const heroForm = document.querySelector('#hero-form');
-          if (heroForm) {
-            heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }}
-      />
-
-      {/* JSON-LD */}
-      <JSONLDSnippets />
-    </div>
-  );
-};
-
-export { HomePage };
-export default HomePage;
+  export { HomePage };
+  export default HomePage;
