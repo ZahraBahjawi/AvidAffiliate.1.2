@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowLeft, Globe, User, Mail, TrendingUp, DollarSign, Users, ShieldCheck } from 'lucide-react';
+import { ChevronRight, ArrowLeft, Globe, User, Mail, TrendingUp, DollarSign, Users, ShieldCheck, CheckCircle, X } from 'lucide-react';
 
 interface SubmissionFormProps {
   onSubmit: (data: any) => void;
@@ -14,6 +14,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
   onNavigate,
   prefilledData = {}
 }) => {
+  const [showThankYou, setShowThankYou] = useState(false);
   const [formData, setFormData] = useState({
     url: prefilledData.url || '',
     name: '',
@@ -26,8 +27,56 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleFormSubmit = (e: React.FormEvent) => {
+    // Let the form submit naturally, then show popup
+    setShowThankYou(true);
+  };
+
   return (
     <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+      {/* Thank You Popup */}
+      {showThankYou && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative">
+            <button
+              onClick={() => setShowThankYou(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-green-600" />
+              </div>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Thank You!
+              </h2>
+              
+              <p className="text-gray-600 mb-6">
+                We've received your request for a free affiliate report card. You'll receive your results within 48 hours at the email address you provided.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={() => setShowThankYou(false)}
+                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Continue Browsing
+                </button>
+                <button
+                  onClick={onBack}
+                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Back to Home
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Simplified Header */}
       <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -68,7 +117,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
               <form
                 name="audit-request"
                 method="POST"
-                action="/thank-you/"
+                onSubmit={handleFormSubmit}
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 className="space-y-8"

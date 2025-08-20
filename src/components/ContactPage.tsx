@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Mail, Send, Phone, CheckCircle, User, FileText, Briefcase, Handshake } from 'lucide-react';
+import { ArrowLeft, Mail, Send, Phone, CheckCircle, User, FileText, Briefcase, Handshake, X } from 'lucide-react';
 import { Footer } from './Footer';
 
 interface ContactPageProps {
@@ -22,9 +22,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [errors, setErrors] = useState<Partial<ContactFormData>>({}); 
 
   useEffect(() => {
     const prefillData = localStorage.getItem('contact_prefill');
@@ -46,6 +45,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
 
   const handleInputChange = (field: keyof ContactFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    // Let the form submit naturally, then show popup
+    setShowThankYou(true);
   };
 
   if (submitSuccess) {
@@ -113,6 +117,49 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       <div className="flex-grow">
+        {/* Thank You Popup */}
+        {showThankYou && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative">
+              <button
+                onClick={() => setShowThankYou(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-8 w-8 text-green-600" />
+                </div>
+                
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Message Sent!
+                </h2>
+                
+                <p className="text-gray-600 mb-6">
+                  Thank you for contacting us. We'll get back to you within 24 hours.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    onClick={() => setShowThankYou(false)}
+                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Continue Browsing
+                  </button>
+                  <button
+                    onClick={onBack}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                  >
+                    Back to Home
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
         <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between h-16">
@@ -165,7 +212,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                 <form
                     name="contact-form"
                     method="POST"
-                    action="/thank-you/"
+                 onSubmit={handleFormSubmit}
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
                     className="space-y-6"
