@@ -554,7 +554,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       fetchpriority="high"
     />
   </button>
-</div
+</div>
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
