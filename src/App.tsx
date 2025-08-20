@@ -113,6 +113,7 @@ function App() {
             setStage('form');
           }}
           onNavigate={(page) => setStage(page as AppStage)}
+          onBack={resetToHome}
         />;
       
       case 'form':
