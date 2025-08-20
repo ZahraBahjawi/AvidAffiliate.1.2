@@ -435,7 +435,7 @@ const ReportcardPreview: React.FC = () => {
   );
 };
 
-const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () => {} }) => {
+const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () => {}, onBack = () => {} }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [honeypot, setHoneypot] = React.useState('');
   const [showRightRail, setShowRightRail] = React.useState(false);
