@@ -528,7 +528,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
   };
 
   return (
-    <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div className="min-h-screen" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Skip to content link for accessibility */}
       <a 
         href="#main-content" 
@@ -538,7 +538,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       </a>
 
       {/* Header Navigation */}
-      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+      <header className="bg-slate-900/80 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -583,7 +583,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       </header>
 
       {/* Hero Section */}
-      <section id="main-content" className="pt-16 pb-10 bg-slate-900">
+      <section id="main-content" className="pt-16 pb-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
@@ -697,7 +697,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
       <ProofStats />
 
       {/* Problem Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -822,7 +822,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
   
 
       {/* Features */}
-      <section id="features" className="py-20 bg-slate-900">
+      <section id="features" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">

@@ -21,6 +21,20 @@ import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 
 function App() {
+  // Scroll-based background darkening effect
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPercent = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1);
+      const overlay = document.querySelector('.scroll-overlay') as HTMLElement;
+      if (overlay) {
+        overlay.style.opacity = (scrollPercent * 0.8).toString();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const [stage, setStage] = useState<AppStage>('home');
   const [scrollTarget, setScrollTarget] = useState<string | null>(null); // Add this line
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -193,6 +207,7 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="min-h-screen bg-gray-900">
+        <div className="scroll-overlay"></div>
         {error && <ErrorBanner error={error} onDismiss={dismissError} />}
         {renderCurrentStage()}
         <TestingPanel />
