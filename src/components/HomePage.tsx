@@ -22,7 +22,7 @@ import { Footer } from './Footer';
 
 interface HomePageProps {
   onNext: (data?: { url: string }) => void;
-  onNavigate: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies' | 'services') => void;
+  onNavigate: (page: 'about' | 'team' |'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies' | 'services') => void;
   onBack: () => void; // Add this line
 }
 
