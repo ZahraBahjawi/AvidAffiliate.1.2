@@ -77,16 +77,16 @@ const ProofStats: React.FC = () => {
           <p className="text-lg text-white font-light">On average, our full audits find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-deep-blue-800/70 border border-deep-blue-700 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-ocean-teal-400 mb-1">~300</p>
+          <div className="bg-slate-800/70 border border-slate-700 rounded-xl p-6 text-center">
+            <p className="text-3xl font-bold text-green-400 mb-1">~300</p>
             <p className="text-white text-sm">unmonetized mentions across ~50 different brands.</p>
           </div>
-          <div className="bg-deep-blue-800/70 border border-deep-blue-700 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-coral-400 mb-1">~250</p>
+          <div className="bg-slate-800/70 border border-slate-700 rounded-xl p-6 text-center">
+            <p className="text-3xl font-bold text-orange-400 mb-1">~250</p>
             <p className="text-white text-sm">broken links.</p>
           </div>
-          <div className="bg-deep-blue-800/70 border border-deep-blue-700 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-ocean-teal-300 mb-1">Est. 20% uplift.</p>
+          <div className="bg-slate-800/70 border border-slate-700 rounded-xl p-6 text-center">
+            <p className="text-3xl font-bold text-blue-400 mb-1">Est. 20% uplift.</p>
             <p className="text-white text-sm">in affiliate revenue*</p>
           </div>
         </div>
@@ -521,7 +521,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 required
                 onFocus={handleFormFocus}
                 placeholder="Enter your website URL"
-                className="w-full px-4 py-3 rounded-lg bg-deep-blue-800 text-deep-blue-100 border border-deep-blue-600 focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:border-ocean-teal-500"
+                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 placeholder-gray-300"
                 aria-label="Website URL"
                 aria-describedby="url-help url-description"
                 disabled={isSubmitting}
@@ -532,7 +532,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center px-6 py-3 bg-coral-500 text-white font-medium rounded-lg hover:bg-coral-600 transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
               >
                 {isSubmitting ? (
                   <>
@@ -560,13 +560,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('sample_pdf_click', { location: 'hero_thumbnail' });
                   window.open('/sample-report-card.pdf', '_blank');
                 }}
-                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-deep-blue-800 hover:bg-deep-blue-700 border border-deep-blue-600 rounded-lg transition-colors group"
+                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-all duration-300 hover:shadow-md group"
               >
-                <div className="w-12 h-16 bg-deep-blue-100 rounded border border-deep-blue-300 flex items-center justify-center flex-shrink-0">
-                  <div className="text-xs text-deep-blue-600 font-medium">PDF</div>
+                <div className="w-12 h-16 bg-white rounded border border-gray-300 flex items-center justify-center flex-shrink-0">
+                  <div className="text-xs text-gray-700 font-medium">PDF</div>
                 </div>
                 <div className="sm:text-left">
-                  <div className="text-white text-sm font-medium group-hover:text-ocean-teal-300 transition-colors">
+                  <div className="text-white text-sm font-medium group-hover:text-orange-300 transition-colors">
                     View sample report card
                   </div>
                   <div className="text-white text-xs">
@@ -579,15 +579,15 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Security badges - mobile friendly */}
             <div className="text-center text-white text-sm">
               <div className="flex items-center justify-center mb-2">
-                <Shield className="h-4 w-4 mr-2 text-ocean-teal-500 flex-shrink-0" />
+                <Shield className="h-4 w-4 mr-2 text-green-400 flex-shrink-0" />
                 <span>No credit card • Read‑only scan • Results in 48 hours</span>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
-                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-white hover:text-ocean-teal-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Privacy</button>
+                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-white hover:text-orange-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Privacy</button>
                 <span className="text-white">•</span>
-                <button onClick={() => onNavigate && onNavigate('terms')} className="text-white hover:text-ocean-teal-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Terms</button>
+                <button onClick={() => onNavigate && onNavigate('terms')} className="text-white hover:text-orange-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Terms</button>
                 <span className="text-white">•</span>
-                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-white hover:text-ocean-teal-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Cookies</button>
+                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-white hover:text-orange-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Cookies</button>
               </div>
             </div>
           </div>
@@ -609,36 +609,36 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-deep-blue-800 rounded-xl p-8 text-center shadow-sm border border-deep-blue-600 transition-all duration-300 hover:p-12 hover:bg-deep-blue-700 group">
+              <div className="bg-slate-800 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-700 group">
                 <div className="mx-auto mb-6 cursor-pointer">
-                  <DollarSign className="h-8 w-8 text-coral-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                  <DollarSign className="h-8 w-8 text-green-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
                 </div>
-                <h3 className="text-xl font-medium text-deep-blue-100 mb-3">Missing payouts</h3>
-                <div className="text-3xl font-normal text-coral-600 mb-4">50-80%</div>
+                <h3 className="text-xl font-medium text-white mb-3">Missing payouts</h3>
+                <div className="text-3xl font-normal text-green-400 mb-4">50-80%</div>
                 <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">of product mentions go unmonetized.</span>
                   <span className="hidden group-hover:block">We find those mentions and turn them into tracked, revenue‑generating links.</span>
                 </p>
               </div>
 
-              <div className="bg-deep-blue-800 rounded-xl p-8 text-center shadow-sm border border-deep-blue-600 transition-all duration-300 hover:p-12 hover:bg-deep-blue-700 group">
+              <div className="bg-slate-800 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-700 group">
                 <div className="mx-auto mb-6 cursor-pointer">
-                  <Link2Off className="h-8 w-8 text-ocean-teal-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                  <Link2Off className="h-8 w-8 text-red-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
                 </div>
-                <h3 className="text-xl font-medium text-deep-blue-100 mb-3">Broken links</h3>
-                <div className="text-3xl font-normal text-ocean-teal-600 mb-4">Silent losses</div>
+                <h3 className="text-xl font-medium text-white mb-3">Broken links</h3>
+                <div className="text-3xl font-normal text-red-400 mb-4">Silent losses</div>
                 <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">from 404s, redirects, and geo‑mismatches</span>
                   <span className="hidden group-hover:block">We repair pathways from click to commission so your traffic converts.</span>
                 </p>
               </div>
 
-              <div className="bg-deep-blue-800 rounded-xl p-8 text-center shadow-sm border border-deep-blue-600 transition-all duration-300 hover:p-12 hover:bg-deep-blue-700 group">
+              <div className="bg-slate-800 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-700 group">
                 <div className="mx-auto mb-6 cursor-pointer">
-                  <TrendingUp className="h-8 w-8 text-ocean-teal-400 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                  <TrendingUp className="h-8 w-8 text-blue-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
                 </div>
-                <h3 className="text-xl font-medium text-deep-blue-100 mb-3">Low commission rates</h3>
-                <div className="text-3xl font-normal text-ocean-teal-600 mb-4">2–5x</div>
+                <h3 className="text-xl font-medium text-white mb-3">Low commission rates</h3>
+                <div className="text-3xl font-normal text-blue-400 mb-4">2–5x</div>
                 <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">better payouts exist for many programs.</span>
                   <span className="hidden group-hover:block">We benchmark against 35,000+ programs and recommend higher‑paying alternatives.</span>
@@ -657,7 +657,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-white text-coral-600 font-medium rounded-lg hover:bg-gray-100 transition-colors mb-8"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold rounded-lg hover:from-yellow-300 hover:to-orange-400 hover:shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300 mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -681,7 +681,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-coral-500 to-coral-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <span className="text-2xl font-bold text-white">1</span>
                 </div>
                 <h3 className="text-xl font-medium text-white mb-4">Submit your website</h3>
@@ -689,7 +689,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
       
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-ocean-teal-500 to-ocean-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <span className="text-2xl font-bold text-white">2</span>
                 </div>
                 <h3 className="text-xl font-medium text-white mb-4">We analyze your site</h3>
@@ -697,7 +697,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
       
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-ocean-teal-400 to-ocean-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <span className="text-2xl font-bold text-white">3</span>
                 </div>
                 <h3 className="text-xl font-medium text-white mb-4">Get your report card</h3>
@@ -728,48 +728,48 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
-                <Zap className="h-8 w-8 text-ocean-teal-400 mb-6" />
+              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
+                <Zap className="h-8 w-8 text-yellow-400 mb-6" />
                 <h3 className="text-lg font-medium text-white mb-3">Smart link analysis</h3>
                 <p className="text-white text-sm leading-relaxed">
                   Automatically find every missed commission opportunity—then see exactly how to monetize it.
                 </p>
               </div>
 
-              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
-                <FileText className="h-8 w-8 text-ocean-teal-400 mb-6" />
+              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
+                <FileText className="h-8 w-8 text-blue-400 mb-6" />
                 <h3 className="text-lg font-medium text-white mb-3">Proprietary affiliate database</h3>
                 <p className="text-white text-sm leading-relaxed">
                   Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
                 </p>
               </div>
 
-              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
-                <Users className="h-8 w-8 text-ocean-teal-400 mb-6" />
+              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
+                <Users className="h-8 w-8 text-green-400 mb-6" />
                 <h3 className="text-lg font-medium text-white mb-3">Done‑for‑you implementation</h3>
                 <p className="text-white text-sm leading-relaxed">
                   We fix issues for you—fast—so you can focus on creating content.
                 </p>
               </div>
 
-              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
-                <Clock className="h-8 w-8 text-ocean-teal-300 mb-6" />
+              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
+                <Clock className="h-8 w-8 text-purple-400 mb-6" />
                 <h3 className="text-lg font-medium text-white mb-3">Rapid results</h3>
                 <p className="text-white text-sm leading-relaxed">
                   See measurable gains in weeks, not months—starting with the highest‑impact fixes.
                 </p>
               </div>
 
-              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
-                <Shield className="h-8 w-8 text-ocean-teal-400 mb-6" />
+              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
+                <Shield className="h-8 w-8 text-indigo-400 mb-6" />
                 <h3 className="text-lg font-medium text-white mb-3">Long‑term partner</h3>
                 <p className="text-white text-sm leading-relaxed">
                   From audit to ongoing optimization—we help you unlock the full value of your content.
                 </p>
               </div>
 
-              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
-                <CheckCircle className="h-8 w-8 text-ocean-teal-400 mb-6" />
+              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
+                <CheckCircle className="h-8 w-8 text-teal-400 mb-6" />
                 <h3 className="text-lg font-medium text-white mb-3">Proven methodology</h3>
                 <p className="text-white text-sm leading-relaxed">
                   A repeatable process used by creators to drive consistent, compounding revenue.
@@ -799,30 +799,30 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
-                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Target className="h-6 w-6 text-ocean-teal-600" />
+                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Target className="h-6 w-6 text-blue-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Transparency</h3>
                   <p className="text-white text-sm">Clear process and results</p>
                 </div>
-                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
-                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Zap className="h-6 w-6 text-ocean-teal-600" />
+                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                  <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Zap className="h-6 w-6 text-yellow-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Fast results</h3>
                   <p className="text-white text-sm">Quick, impactful changes</p>
                 </div>
-                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
-                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-6 w-6 text-ocean-teal-600" />
+                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-6 w-6 text-green-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Expert team</h3>
                   <p className="text-white text-sm">Experienced specialists</p>
                 </div>
-                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
-                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="h-6 w-6 text-ocean-teal-600" />
+                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="h-6 w-6 text-purple-600" />
                   </div>
                   <h3 className="text-lg font-semibold text-white mb-2">Data‑driven</h3>
                   <p className="text-white text-sm">Every strategy backed by data</p>
@@ -836,7 +836,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('learn_more_about');
                   onNavigate('about');
                 }}
-                className="inline-flex items-center px-6 py-3 bg-coral-600 text-white font-medium rounded-lg hover:bg-coral-500 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300"
               >
                 Learn more about us
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -869,7 +869,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               ].map((p, i) => (
                 <div 
                   key={i} 
-                  className="bg-deep-blue-100 rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-deep-blue-200 cursor-pointer"
+                  className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer"
                   onClick={() => track('partner_logo_click', { name: p.name })}
                 >
                   <img 
@@ -889,7 +889,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="text-center">
               <button
                 onClick={() => onNavigate('affiliate_partners')}
-                className="inline-flex items-center px-6 py-3 bg-coral-600 text-white font-medium rounded-lg hover:bg-coral-500 transition-colors focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2 focus:ring-offset-deep-blue-700"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-500 hover:to-blue-500 hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-700"
               >
                 View all networks
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -904,7 +904,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-coral-600 to-coral-500">
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-normal mb-6">Ready to unlock hidden affiliate revenue?</h2>
@@ -918,7 +918,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 bg-white text-coral-600 text-base font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-base font-bold rounded-lg hover:from-yellow-300 hover:to-orange-400 hover:shadow-xl hover:shadow-yellow-500/50 transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-orange-600"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -929,7 +929,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_secondary' });
                   onNavigate('contact');
                 }}
-                className="inline-flex items-center px-8 py-4 bg-transparent border border-white text-white text-base font-medium rounded-lg hover:bg-white hover:text-coral-600 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
+                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white text-base font-semibold rounded-lg hover:bg-white hover:text-orange-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
               >
                 Contact us
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -942,15 +942,15 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-white text-sm">
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
                 <span>100% free analysis</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
                 <span>No sign‑up required</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
                 <span>Results in 48 hours</span>
               </div>
             </div>
