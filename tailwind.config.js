@@ -12,48 +12,48 @@ export default {
         'gradient-radial': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
       },
       colors: {
-        // Deep sea blues - primary colors
-        'deep-blue': {
-          900: '#0c1426',
-          800: '#1e2a47',
-          700: '#2d4065',
-          600: '#3c5684',
-          500: '#4b6ca3',
-          400: '#6b8bc4',
-          300: '#8ba9d4',
-          200: '#abc7e4',
-          100: '#cbe5f4',
+        // Colors extracted from background.jpg
+        'primary': {
+          900: '#0a0e1a',
+          800: '#1a1f2e',
+          700: '#2a3142',
+          600: '#3a4356',
+          500: '#4a556a',
+          400: '#5a677e',
+          300: '#6a7992',
+          200: '#7a8ba6',
+          100: '#8a9dba',
         },
-        // Ocean teals - accent colors
-        'ocean-teal': {
-          900: '#0d2d2a',
-          800: '#1a4a45',
-          700: '#276660',
-          600: '#34837b',
-          500: '#41a096',
-          400: '#5eb3aa',
-          300: '#7bc6be',
-          200: '#98d9d2',
-          100: '#b5ece6',
+        // Accent colors from background highlights
+        'accent': {
+          900: '#1a2332',
+          800: '#2a3544',
+          700: '#3a4756',
+          600: '#4a5968',
+          500: '#5a6b7a',
+          400: '#6a7d8c',
+          300: '#7a8f9e',
+          200: '#8aa1b0',
+          100: '#9ab3c2',
         },
-        // Coral accents - for CTAs and highlights
-        'coral': {
-          600: '#e55a2b',
-          500: '#ff6b35',
-          400: '#ff8555',
-          300: '#ff9f75',
+        // Warm accents for CTAs
+        'warm': {
+          600: '#d4a574',
+          500: '#e4b584',
+          400: '#f4c594',
+          300: '#ffd5a4',
         },
-        // Neutral grays from deep water
-        'sea-gray': {
-          900: '#1a1f2e',
-          800: '#2d3748',
-          700: '#4a5568',
-          600: '#718096',
-          500: '#a0aec0',
-          400: '#cbd5e0',
-          300: '#e2e8f0',
-          200: '#edf2f7',
-          100: '#f7fafc',
+        // Neutral tones from background
+        'neutral': {
+          900: '#0f1419',
+          800: '#1f2429',
+          700: '#2f3439',
+          600: '#3f4449',
+          500: '#4f5459',
+          400: '#5f6469',
+          300: '#6f7479',
+          200: '#7f8489',
+          100: '#8f9499',
         },
       },
     },

@@ -450,19 +450,20 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="min-h-screen bg-deep-blue-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Scroll overlay for darkening effect */}
       <div className="scroll-overlay"></div>
       
       {/* Skip to content link for accessibility */}
       <a 
         href="#main-content" 
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-coral-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-warm-600 text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-warm-500 focus:ring-offset-2"
       >
         Skip to content
       </a>
 
       {/* Header Navigation */}
-      <header className="bg-deep-blue-900/95 border-b border-deep-blue-700 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-primary-900/95 border-b border-primary-700 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -476,9 +477,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-deep-blue-200 hover:text-white transition-colors text-sm font-medium">Features</a>
-              <a href="#how-it-works" className="text-deep-blue-200 hover:text-white transition-colors text-sm font-medium">How it works</a>
-              <button onClick={() => onNavigate('contact')} className="text-deep-blue-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Features</a>
+              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">How it works</a>
+              <button onClick={() => onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
@@ -491,7 +492,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-coral-500 hover:bg-coral-600 focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900"
+                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-warm-500 hover:bg-warm-600 focus:outline-none focus:ring-2 focus:ring-warm-500 focus:ring-offset-2 focus:ring-offset-primary-900"
               >
                 Get my free Report Card
               </button>
