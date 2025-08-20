@@ -23,6 +23,7 @@ import { ThankYouPage } from './components/ThankYouPage';
 
 function App() {
   const [stage, setStage] = useState<AppStage>('home');
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null); // Add this line
   const [userData, setUserData] = useState<UserData | null>(null);
   const [scorecardData, setScorecardData] = useState<ScorecardData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -106,6 +107,7 @@ function App() {
     switch (stage) {
       case 'home':
         return <HomePage 
+          
           onNext={(data) => {
             if (data?.url) {
               setPrefilledData(data);
@@ -113,7 +115,9 @@ function App() {
             setStage('form');
           }} 
           onNavigate={(page) => setStage(page as AppStage)}
-          onBack={resetToHome} // Add this line
+          onBack={resetToHome}
+          scrollTarget={scrollTarget}
+          onScrollComplete={() => setScrollTarget(null)}
         />;
       
       case 'form':
