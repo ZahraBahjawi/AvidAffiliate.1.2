@@ -1,11 +1,10 @@
-const postmark = require("postmark");
+import postmark from "postmark";
 
-// IMPORTANT: Replace this with your own Postmark server API token
-const serverToken = process.env.5e801ee0-d962-4df7-9f69-0a892df75d05;
+// Access the environment variable using its KEY
+const serverToken = process.env.POSTMARK_SERVER_TOKEN; 
 const client = new postmark.ServerClient(serverToken);
 
-
-exports.handler = async (event) => {
+export const handler = async (event) => {
   try {
     const submission = JSON.parse(event.body).payload.data;
     const userEmail = submission.email;
@@ -17,12 +16,12 @@ exports.handler = async (event) => {
     }
 
     await client.sendEmailWithTemplate({
-      From: "hello@avidaffiliate.com", // This must be a verified sender signature in Postmark
+      From: "hello@avidaffiliate.com",
       To: userEmail,
-      TemplateAlias: "confirmation", // The alias of your template in Postmark
+      TemplateAlias: "confirmation",
       TemplateModel: {
         name: userName,
-        ...submission, // This makes all form fields available in the template
+        ...submission,
       },
     });
 
