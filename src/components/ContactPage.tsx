@@ -164,7 +164,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
         <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-                <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
+                <button onClick={onBack} aria-label="Go to homepage">
+                  <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
+                </button>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
                 <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Home</button>
