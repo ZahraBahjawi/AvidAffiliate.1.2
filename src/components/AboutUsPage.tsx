@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { Footer } from './Footer';
 
-interface AboutUsPageProps {
+interface HomePageProps {
   onNext?: (heroData?: { url?: string; email?: string }) => void;
   onNavigate?: (page: string) => void;
 }
@@ -130,7 +130,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-gray-400 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
       </div>
     </div>
   );
@@ -434,7 +434,7 @@ const ReportcardPreview: React.FC = () => {
   );
 };
 
-const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate = () => {} }) => {
+const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () => {} }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [honeypot, setHoneypot] = React.useState('');
   const [showRightRail, setShowRightRail] = React.useState(false);
@@ -524,10 +524,6 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       setFormStarted(true);
       track('form_start', { location: 'hero' });
     }
-  };
-
-  const onBack = () => {
-    onNavigate('home');
   };
 
   return (
@@ -1094,5 +1090,5 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
   );
 };
 
-export { AboutUsPage };
-export default AboutUsPage;
+export { HomePage };
+export default HomePage;
