@@ -121,7 +121,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-deep-blue-300 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -500,7 +500,6 @@ export const HomePage: React.FC<HomePageProps> = ({
             <h1 className="text-4xl md:text-6xl font-normal text-white mb-6 leading-tight tracking-tight" role="banner">
               Your website is leaking revenue
             </h1>
-            <p className="text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
             <p className="text-lg text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
               Get a <strong>FREE</strong> affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content. <em>Join 300+ creators who increased revenue by 20%+</em>
             </p>
