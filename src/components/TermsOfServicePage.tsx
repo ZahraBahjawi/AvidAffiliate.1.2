@@ -19,9 +19,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <button onClick={onBack} className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded">
-                <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
-              </button>
+              <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
             </div>
 
             {/* Navigation Links */}
