@@ -4,15 +4,57 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Google+Sans+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+/* Color palette extracted from deep sea background */
+:root {
+  /* Deep sea blues - primary colors */
+  --deep-blue-900: #0c1426;
+  --deep-blue-800: #1e2a47;
+  --deep-blue-700: #2d4065;
+  --deep-blue-600: #3c5684;
+  --deep-blue-500: #4b6ca3;
+  --deep-blue-400: #6b8bc4;
+  --deep-blue-300: #8ba9d4;
+  --deep-blue-200: #abc7e4;
+  --deep-blue-100: #cbe5f4;
+  
+  /* Ocean teals - accent colors */
+  --ocean-teal-900: #0d2d2a;
+  --ocean-teal-800: #1a4a45;
+  --ocean-teal-700: #276660;
+  --ocean-teal-600: #34837b;
+  --ocean-teal-500: #41a096;
+  --ocean-teal-400: #5eb3aa;
+  --ocean-teal-300: #7bc6be;
+  --ocean-teal-200: #98d9d2;
+  --ocean-teal-100: #b5ece6;
+  
+  /* Coral accents - for CTAs and highlights */
+  --coral-600: #e55a2b;
+  --coral-500: #ff6b35;
+  --coral-400: #ff8555;
+  --coral-300: #ff9f75;
+  
+  /* Neutral grays from deep water */
+  --sea-gray-900: #1a1f2e;
+  --sea-gray-800: #2d3748;
+  --sea-gray-700: #4a5568;
+  --sea-gray-600: #718096;
+  --sea-gray-500: #a0aec0;
+  --sea-gray-400: #cbd5e0;
+  --sea-gray-300: #e2e8f0;
+  --sea-gray-200: #edf2f7;
+  --sea-gray-100: #f7fafc;
+}
+
 /* Deep sea background */
 body {
   background: linear-gradient(
     to bottom,
-    #1e3a8a 0%,     /* Deep blue at top */
-    #1e40af 20%,    /* Slightly darker blue */
-    #1d4ed8 40%,    /* Medium blue */
-    #1e293b 60%,    /* Dark blue-gray */
-    #0f172a 80%,    /* Very dark blue */
+    var(--deep-blue-500) 0%,     /* Deep blue at top */
+    var(--deep-blue-600) 20%,    /* Slightly darker blue */
+    var(--deep-blue-700) 40%,    /* Medium blue */
+    var(--deep-blue-800) 60%,    /* Dark blue-gray */
+    var(--deep-blue-900) 80%,    /* Very dark blue */
     #000000 100%    /* Black at bottom */
   );
   background-attachment: fixed;
@@ -28,9 +70,9 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(29, 78, 216, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(30, 58, 138, 0.06) 0%, transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(75, 108, 163, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(52, 131, 123, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(30, 64, 101, 0.06) 0%, transparent 50%);
   pointer-events: none;
   z-index: -1;
 }
@@ -66,22 +108,22 @@ body::before {
 
 .candle-text:hover {
   text-shadow: 
-    0 0 3px rgba(255, 193, 7, 0.4),
-    0 0 6px rgba(255, 193, 7, 0.3),
-    0 0 9px rgba(255, 193, 7, 0.2),
-    0 0 12px rgba(255, 193, 7, 0.1);
-  color: #f59e0b;
+    0 0 3px rgba(65, 160, 150, 0.4),
+    0 0 6px rgba(65, 160, 150, 0.3),
+    0 0 9px rgba(65, 160, 150, 0.2),
+    0 0 12px rgba(65, 160, 150, 0.1);
+  color: var(--ocean-teal-500);
   animation: candleFlicker 2s ease-in-out infinite alternate;
 }
 
 /* Clicked state - stays lit */
 .candle-text.candle-lit {
   text-shadow: 
-    0 0 3px rgba(255, 193, 7, 0.4),
-    0 0 6px rgba(255, 193, 7, 0.3),
-    0 0 9px rgba(255, 193, 7, 0.2),
-    0 0 12px rgba(255, 193, 7, 0.1);
-  color: #f59e0b;
+    0 0 3px rgba(65, 160, 150, 0.4),
+    0 0 6px rgba(65, 160, 150, 0.3),
+    0 0 9px rgba(65, 160, 150, 0.2),
+    0 0 12px rgba(65, 160, 150, 0.1);
+  color: var(--ocean-teal-500);
   animation: candleFlicker 2s ease-in-out infinite alternate;
 }
 
@@ -93,42 +135,42 @@ body::before {
 @keyframes candleFlicker {
   0% {
     text-shadow: 
-      0 0 3px rgba(255, 193, 7, 0.4),
-      0 0 6px rgba(255, 193, 7, 0.3),
-      0 0 9px rgba(255, 193, 7, 0.2),
-      0 0 12px rgba(255, 193, 7, 0.1);
+      0 0 3px rgba(65, 160, 150, 0.4),
+      0 0 6px rgba(65, 160, 150, 0.3),
+      0 0 9px rgba(65, 160, 150, 0.2),
+      0 0 12px rgba(65, 160, 150, 0.1);
     filter: brightness(1);
   }
   25% {
     text-shadow: 
-      0 0 2px rgba(255, 193, 7, 0.5),
-      0 0 4px rgba(255, 193, 7, 0.35),
-      0 0 6px rgba(255, 193, 7, 0.25),
-      0 0 8px rgba(255, 193, 7, 0.15);
+      0 0 2px rgba(65, 160, 150, 0.5),
+      0 0 4px rgba(65, 160, 150, 0.35),
+      0 0 6px rgba(65, 160, 150, 0.25),
+      0 0 8px rgba(65, 160, 150, 0.15);
     filter: brightness(0.9);
   }
   50% {
     text-shadow: 
-      0 0 4px rgba(255, 193, 7, 0.45),
-      0 0 7px rgba(255, 193, 7, 0.32),
-      0 0 10px rgba(255, 193, 7, 0.22),
-      0 0 13px rgba(255, 193, 7, 0.12);
+      0 0 4px rgba(65, 160, 150, 0.45),
+      0 0 7px rgba(65, 160, 150, 0.32),
+      0 0 10px rgba(65, 160, 150, 0.22),
+      0 0 13px rgba(65, 160, 150, 0.12);
     filter: brightness(1.1);
   }
   75% {
     text-shadow: 
-      0 0 2.5px rgba(255, 193, 7, 0.38),
-      0 0 5px rgba(255, 193, 7, 0.28),
-      0 0 7.5px rgba(255, 193, 7, 0.18),
-      0 0 10px rgba(255, 193, 7, 0.08);
+      0 0 2.5px rgba(65, 160, 150, 0.38),
+      0 0 5px rgba(65, 160, 150, 0.28),
+      0 0 7.5px rgba(65, 160, 150, 0.18),
+      0 0 10px rgba(65, 160, 150, 0.08);
     filter: brightness(0.95);
   }
   100% {
     text-shadow: 
-      0 0 3.5px rgba(255, 193, 7, 0.42),
-      0 0 6.5px rgba(255, 193, 7, 0.31),
-      0 0 9.5px rgba(255, 193, 7, 0.21),
-      0 0 12.5px rgba(255, 193, 7, 0.11);
+      0 0 3.5px rgba(65, 160, 150, 0.42),
+      0 0 6.5px rgba(65, 160, 150, 0.31),
+      0 0 9.5px rgba(65, 160, 150, 0.21),
+      0 0 12.5px rgba(65, 160, 150, 0.11);
     filter: brightness(1.05);
   }
 }

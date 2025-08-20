@@ -221,7 +221,7 @@ const StickyMobileCTA: React.FC<{ onClick: () => void; show: boolean }> = ({ onC
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/90 backdrop-blur border-t border-slate-700 p-3 sm:hidden">
       <button
         onClick={onClick}
-        className="w-full inline-flex items-center justify-center px-6 py-3 bg-[#FF6B35] text-white font-medium rounded-lg hover:bg-[#E55A2B] transition-colors"
+        className="w-full inline-flex items-center justify-center px-6 py-3 bg-coral-500 text-white font-medium rounded-lg hover:bg-coral-600 transition-colors"
       >
         Get my free Report Card
         <ArrowRight className="ml-2 h-4 w-4" />
@@ -237,7 +237,7 @@ const DesktopRightRailCTA: React.FC<{ onClick: () => void; show: boolean }> = ({
     <div className={`fixed bottom-6 right-6 z-40 hidden lg:block transition-all duration-300 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
       <button
         onClick={onClick}
-        className="flex items-center gap-2 px-6 py-3 bg-[#FF6B35] text-white font-medium rounded-full shadow-lg hover:bg-[#E55A2B] transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+        className="flex items-center gap-2 px-6 py-3 bg-coral-500 text-white font-medium rounded-full shadow-lg hover:bg-coral-600 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2"
       >
         <Zap className="h-5 w-5" />
         <span>Get my free Report Card</span>
@@ -582,9 +582,9 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              <span className="font-normal text-white">Your website is leaking revenue</span>
+              <span className="font-normal text-sea-gray-100">Your website is leaking revenue</span>
             </h1>
-            <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-xl text-sea-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
               Get a free Report Card within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content.
             </p>
 
@@ -605,7 +605,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                 required
                 onFocus={handleFormFocus}
                 placeholder="Enter your website URL"
-                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                className="w-full px-4 py-3 rounded-lg bg-deep-blue-800 text-sea-gray-100 border border-deep-blue-600 focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:border-ocean-teal-500"
                 aria-label="Website URL"
                 aria-describedby="url-help"
                 disabled={isSubmitting}
@@ -614,7 +614,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center px-6 py-3 bg-[#FF6B35] text-white font-medium rounded-lg hover:bg-[#E55A2B] transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="inline-flex items-center px-6 py-3 bg-coral-500 text-white font-medium rounded-lg hover:bg-coral-600 transition-colors whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900"
               >
                 {isSubmitting ? (
                   <>
@@ -631,7 +631,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
             </form>
 
             {/* Reassurance text */}
-            <p className="text-center text-gray-400 text-sm mt-2 mb-4">
+            <p className="text-center text-sea-gray-400 text-sm mt-2 mb-4">
               Takes ~15 seconds. We'll email your report card—no spam.
             </p>
 
@@ -642,33 +642,33 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   track('sample_pdf_click', { location: 'hero_thumbnail' });
                   window.open('/sample-report-card.pdf', '_blank');
                 }}
-                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-colors group"
+                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-deep-blue-800 hover:bg-deep-blue-700 border border-deep-blue-600 rounded-lg transition-colors group"
               >
-                <div className="w-12 h-16 bg-white rounded border border-gray-300 flex items-center justify-center flex-shrink-0">
-                  <div className="text-xs text-gray-600 font-medium">PDF</div>
+                <div className="w-12 h-16 bg-sea-gray-100 rounded border border-sea-gray-300 flex items-center justify-center flex-shrink-0">
+                  <div className="text-xs text-sea-gray-600 font-medium">PDF</div>
                 </div>
                 <div className="sm:text-left">
-                  <div className="text-white text-sm font-medium group-hover:text-orange-300 transition-colors">
+                  <div className="text-sea-gray-100 text-sm font-medium group-hover:text-ocean-teal-300 transition-colors">
                     View sample report card
                   </div>
-                  <div className="text-gray-400 text-xs">
+                  <div className="text-sea-gray-400 text-xs">
                     See what you'll receive
                   </div>
                 </div>
               </button>
             </div>
             {/* Security badges - mobile friendly */}
-            <div className="text-center text-gray-300 text-sm">
+            <div className="text-center text-sea-gray-300 text-sm">
               <div className="flex items-center justify-center mb-2">
-                <Shield className="h-4 w-4 mr-2 text-green-500 flex-shrink-0" />
+                <Shield className="h-4 w-4 mr-2 text-ocean-teal-500 flex-shrink-0" />
                 <span>No credit card • Read‑only scan • Results in 48 hours</span>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
-                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-gray-300 hover:text-white transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Privacy</button>
-                <span className="text-gray-400">•</span>
-                <button onClick={() => onNavigate && onNavigate('terms')} className="text-gray-300 hover:text-white transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Terms</button>
-                <span className="text-gray-400">•</span>
-                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-gray-300 hover:text-white transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Cookies</button>
+                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-sea-gray-300 hover:text-sea-gray-100 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Privacy</button>
+                <span className="text-sea-gray-400">•</span>
+                <button onClick={() => onNavigate && onNavigate('terms')} className="text-sea-gray-300 hover:text-sea-gray-100 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Terms</button>
+                <span className="text-sea-gray-400">•</span>
+                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-sea-gray-300 hover:text-sea-gray-100 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Cookies</button>
               </div>
             </div>
           </div>
@@ -679,56 +679,56 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       <ProofStats />
 
       {/* Problem Section */}
-      <section className="py-20 bg-slate-900">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="free-affiliate-audit">
+              <h2 className="text-3xl md:text-4xl font-normal text-sea-gray-100 mb-6" id="free-affiliate-audit">
                 The hidden revenue leak
               </h2>
-              <p className="text-xl text-gray-300 font-light">You could be missing out on thousands</p>
+              <p className="text-xl text-sea-gray-300 font-light">You could be missing out on thousands</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
+              <div className="bg-deep-blue-800 rounded-xl p-8 text-center shadow-sm border border-deep-blue-600 transition-all duration-300 hover:p-12 hover:bg-deep-blue-700 group">
                 <div className="mx-auto mb-6 cursor-pointer">
-                  <DollarSign className="h-8 w-8 text-red-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                  <DollarSign className="h-8 w-8 text-coral-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">Missing payouts</h3>
-                <div className="text-3xl font-normal text-red-600 mb-4">50-80%</div>
-                <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-xl font-medium text-sea-gray-100 mb-3">Missing payouts</h3>
+                <div className="text-3xl font-normal text-coral-600 mb-4">50-80%</div>
+                <p className="text-sea-gray-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">of product mentions go unmonetized.</span>
                   <span className="hidden group-hover:block">We find those mentions and turn them into tracked, revenue‑generating links.</span>
                 </p>
               </div>
 
-              <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
+              <div className="bg-deep-blue-800 rounded-xl p-8 text-center shadow-sm border border-deep-blue-600 transition-all duration-300 hover:p-12 hover:bg-deep-blue-700 group">
                 <div className="mx-auto mb-6 cursor-pointer">
-                  <Link2Off className="h-8 w-8 text-orange-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                  <Link2Off className="h-8 w-8 text-ocean-teal-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">Broken links</h3>
-                <div className="text-3xl font-normal text-orange-600 mb-4">Silent losses</div>
-                <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-xl font-medium text-sea-gray-100 mb-3">Broken links</h3>
+                <div className="text-3xl font-normal text-ocean-teal-600 mb-4">Silent losses</div>
+                <p className="text-sea-gray-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">from 404s, redirects, and geo‑mismatches</span>
                   <span className="hidden group-hover:block">We repair pathways from click to commission so your traffic converts.</span>
                 </p>
               </div>
 
-              <div className="bg-slate-700 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-600 group">
+              <div className="bg-deep-blue-800 rounded-xl p-8 text-center shadow-sm border border-deep-blue-600 transition-all duration-300 hover:p-12 hover:bg-deep-blue-700 group">
                 <div className="mx-auto mb-6 cursor-pointer">
-                  <TrendingUp className="h-8 w-8 text-yellow-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+                  <TrendingUp className="h-8 w-8 text-ocean-teal-400 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">Low commission rates</h3>
-                <div className="text-3xl font-normal text-yellow-600 mb-4">2–5x</div>
-                <p className="text-slate-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="text-xl font-medium text-sea-gray-100 mb-3">Low commission rates</h3>
+                <div className="text-3xl font-normal text-ocean-teal-600 mb-4">2–5x</div>
+                <p className="text-sea-gray-300 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">better payouts exist for many programs.</span>
                   <span className="hidden group-hover:block">We benchmark against 35,000+ programs and recommend higher‑paying alternatives.</span>
                 </p>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-12 text-white text-center">
-              <h3 className="text-2xl font-normal mb-8 text-white">The result? You're leaving money on the table.</h3>
+            <div className="bg-gradient-to-r from-coral-600 to-coral-500 rounded-2xl p-12 text-white text-center">
+              <h3 className="text-2xl font-normal mb-8 text-sea-gray-100">The result? You're leaving money on the table.</h3>
               
               <button
                 onClick={() => {
@@ -738,7 +738,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-white text-orange-600 font-medium rounded-lg hover:bg-gray-100 transition-colors mb-8"
+                className="inline-flex items-center px-6 py-3 bg-sea-gray-100 text-coral-600 font-medium rounded-lg hover:bg-sea-gray-200 transition-colors mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -752,45 +752,45 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-slate-700">
+      <section id="how-it-works" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="how-report-card-works">How the free report card works</h2>
-              <p className="text-xl text-gray-300 font-light">Get your report card in three simple steps</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-sea-gray-100 mb-6" id="how-report-card-works">How the free report card works</h2>
+              <p className="text-xl text-sea-gray-300 font-light">Get your report card in three simple steps</p>
             </div>
       
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">1</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-coral-500 to-coral-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold text-sea-gray-100">1</span>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-4">Submit your website</h3>
-                <p className="text-gray-300 leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
+                <h3 className="text-xl font-medium text-sea-gray-100 mb-4">Submit your website</h3>
+                <p className="text-sea-gray-300 leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
               </div>
       
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">2</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-ocean-teal-500 to-ocean-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold text-sea-gray-100">2</span>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-4">We analyze your site</h3>
-                <p className="text-gray-300 leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
+                <h3 className="text-xl font-medium text-sea-gray-100 mb-4">We analyze your site</h3>
+                <p className="text-sea-gray-300 leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
               </div>
       
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">3</span>
+                <div className="w-20 h-20 bg-gradient-to-br from-ocean-teal-400 to-ocean-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold text-sea-gray-100">3</span>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-4">Get your report card</h3>
-                <p className="text-gray-300 leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
+                <h3 className="text-xl font-medium text-sea-gray-100 mb-4">Get your report card</h3>
+                <p className="text-sea-gray-300 leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
               </div>
             </div>
       
             {/* FAQ Section */}
             <div className="mt-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" id="frequently-asked-questions">Frequently Asked Questions</h2>
-                <p className="text-lg text-gray-300 font-light">Everything you need to know about our free report card</p>
+                <h2 className="text-3xl md:text-4xl font-normal text-sea-gray-100 mb-4" id="frequently-asked-questions">Frequently Asked Questions</h2>
+                <p className="text-lg text-sea-gray-300 font-light">Everything you need to know about our free report card</p>
               </div>
 
               <FAQ />
@@ -804,59 +804,59 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
   
 
       {/* Features */}
-      <section id="features" className="py-20 bg-slate-900">
+      <section id="features" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="why-creators-choose">Why creators choose AvidAffiliate</h2>
-              <p className="text-xl text-gray-300 font-light">Make more money from your existing content—effortlessly</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-sea-gray-100 mb-6" id="why-creators-choose">Why creators choose AvidAffiliate</h2>
+              <p className="text-xl text-sea-gray-300 font-light">Make more money from your existing content—effortlessly</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Zap className="h-8 w-8 text-orange-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Smart link analysis</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
+                <Zap className="h-8 w-8 text-ocean-teal-400 mb-6" />
+                <h3 className="text-lg font-medium text-sea-gray-100 mb-3">Smart link analysis</h3>
+                <p className="text-sea-gray-300 text-sm leading-relaxed">
                   Automatically find every missed commission opportunity—then see exactly how to monetize it.
                 </p>
               </div>
 
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <FileText className="h-8 w-8 text-orange-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Proprietary affiliate database</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
+                <FileText className="h-8 w-8 text-ocean-teal-400 mb-6" />
+                <h3 className="text-lg font-medium text-sea-gray-100 mb-3">Proprietary affiliate database</h3>
+                <p className="text-sea-gray-300 text-sm leading-relaxed">
                   Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
                 </p>
               </div>
 
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Users className="h-8 w-8 text-green-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Done‑for‑you implementation</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
+                <Users className="h-8 w-8 text-ocean-teal-400 mb-6" />
+                <h3 className="text-lg font-medium text-sea-gray-100 mb-3">Done‑for‑you implementation</h3>
+                <p className="text-sea-gray-300 text-sm leading-relaxed">
                   We fix issues for you—fast—so you can focus on creating content.
                 </p>
               </div>
 
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Clock className="h-8 w-8 text-amber-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Rapid results</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
+                <Clock className="h-8 w-8 text-ocean-teal-300 mb-6" />
+                <h3 className="text-lg font-medium text-sea-gray-100 mb-3">Rapid results</h3>
+                <p className="text-sea-gray-300 text-sm leading-relaxed">
                   See measurable gains in weeks, not months—starting with the highest‑impact fixes.
                 </p>
               </div>
 
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <Shield className="h-8 w-8 text-orange-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Long‑term partner</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
+                <Shield className="h-8 w-8 text-ocean-teal-400 mb-6" />
+                <h3 className="text-lg font-medium text-sea-gray-100 mb-3">Long‑term partner</h3>
+                <p className="text-sea-gray-300 text-sm leading-relaxed">
                   From audit to ongoing optimization—we help you unlock the full value of your content.
                 </p>
               </div>
 
-              <div className="bg-gray-700 rounded-xl p-8 shadow-sm border border-gray-600">
-                <CheckCircle className="h-8 w-8 text-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Proven methodology</h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
+              <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
+                <CheckCircle className="h-8 w-8 text-ocean-teal-400 mb-6" />
+                <h3 className="text-lg font-medium text-sea-gray-100 mb-3">Proven methodology</h3>
+                <p className="text-sea-gray-300 text-sm leading-relaxed">
                   A repeatable process used by creators to drive consistent, compounding revenue.
                 </p>
               </div>
@@ -866,51 +866,51 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       </section>
 
       {/* About / Values */}
-      <section className="py-20 bg-gray-800">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
-              <p className="text-xl text-gray-300 font-light">Empowering creators to unlock their site's true revenue potential</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-sea-gray-100 mb-6">About AvidAffiliate</h2>
+              <p className="text-xl text-sea-gray-300 font-light">Empowering creators to unlock their site's true revenue potential</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                <p className="text-lg text-sea-gray-300 leading-relaxed mb-6">
                   We bridge the gap between great content and optimized monetization with intelligent, data‑driven affiliate marketing solutions.
                 </p>
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-lg text-sea-gray-300 leading-relaxed">
                   Audit with Optimize, fix with Implement, upgrade partners with Discover, plan with Strategize, and scale with Manage.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Target className="h-6 w-6 text-orange-600" />
+                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
+                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Target className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Transparency</h3>
-                  <p className="text-gray-300 text-sm">Clear process and results</p>
+                  <h3 className="text-lg font-semibold text-sea-gray-100 mb-2">Transparency</h3>
+                  <p className="text-sea-gray-300 text-sm">Clear process and results</p>
                 </div>
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Zap className="h-6 w-6 text-green-600" />
+                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
+                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Zap className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Fast results</h3>
-                  <p className="text-gray-300 text-sm">Quick, impactful changes</p>
+                  <h3 className="text-lg font-semibold text-sea-gray-100 mb-2">Fast results</h3>
+                  <p className="text-sea-gray-300 text-sm">Quick, impactful changes</p>
                 </div>
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-6 w-6 text-amber-600" />
+                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
+                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Users className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Expert team</h3>
-                  <p className="text-gray-300 text-sm">Experienced specialists</p>
+                  <h3 className="text-lg font-semibold text-sea-gray-100 mb-2">Expert team</h3>
+                  <p className="text-sea-gray-300 text-sm">Experienced specialists</p>
                 </div>
-                <div className="bg-slate-700 rounded-xl p-6 text-center border border-slate-600">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="h-6 w-6 text-orange-600" />
+                <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
+                  <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Data‑driven</h3>
-                  <p className="text-gray-300 text-sm">Every strategy backed by data</p>
+                  <h3 className="text-lg font-semibold text-sea-gray-100 mb-2">Data‑driven</h3>
+                  <p className="text-sea-gray-300 text-sm">Every strategy backed by data</p>
                 </div>
               </div>
             </div>
@@ -921,7 +921,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   track('learn_more_about');
                   onNavigate('about');
                 }}
-                className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-coral-600 text-white font-medium rounded-lg hover:bg-coral-500 transition-colors"
               >
                 Learn more about us
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -932,12 +932,12 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 bg-slate-700">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">We support top affiliate networks</h2>
-              <p className="text-xl text-gray-300 font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-sea-gray-100 mb-6">We support top affiliate networks</h2>
+              <p className="text-xl text-sea-gray-300 font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
             </div>
 
             {/* Logo Grid (replace with real assets) */}
@@ -954,7 +954,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
               ].map((p, i) => (
                 <div 
                   key={i} 
-                  className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer"
+                  className="bg-sea-gray-100 rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-sea-gray-200 cursor-pointer"
                   onClick={() => track('partner_logo_click', { name: p.name })}
                 >
                   <img 
@@ -974,14 +974,14 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
             <div className="text-center">
               <button
                 onClick={() => onNavigate('affiliate_partners')}
-                className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-medium rounded-lg hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-700"
+                className="inline-flex items-center px-6 py-3 bg-coral-600 text-white font-medium rounded-lg hover:bg-coral-500 transition-colors focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2 focus:ring-offset-deep-blue-700"
               >
                 View all networks
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
 
-            <p className="text-center text-xs text-gray-300 mt-4">
+            <p className="text-center text-xs text-sea-gray-300 mt-4">
               Logos are for identification only; no endorsement implied. All trademarks belong to their respective owners.
             </p>
           </div>
@@ -989,11 +989,11 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-gradient-to-r from-coral-600 to-coral-500">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center text-white">
+          <div className="max-w-4xl mx-auto text-center text-sea-gray-100">
             <h2 className="text-3xl md:text-4xl font-normal mb-6">Ready to unlock hidden affiliate revenue?</h2>
-            <p className="text-xl text-orange-100 mb-12 font-light">
+            <p className="text-xl text-sea-gray-200 mb-12 font-light">
               Start with your free report card. Then choose Audit (deep analysis), then Implementation (we fix it).
             </p>
 
@@ -1003,7 +1003,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 bg-white text-orange-600 text-base font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+                className="inline-flex items-center px-8 py-4 bg-sea-gray-100 text-coral-600 text-base font-medium rounded-lg hover:bg-sea-gray-200 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -1014,28 +1014,28 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
                   track('cta_click', { location: 'final_cta_secondary' });
                   onNavigate('contact');
                 }}
-                className="inline-flex items-center px-8 py-4 bg-transparent border border-white text-white text-base font-medium rounded-lg hover:bg-white hover:text-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+                className="inline-flex items-center px-8 py-4 bg-transparent border border-sea-gray-100 text-sea-gray-100 text-base font-medium rounded-lg hover:bg-sea-gray-100 hover:text-coral-600 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
               >
                 Contact us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
 
-            <p className="text-xs text-orange-200 mb-6 opacity-75">
+            <p className="text-xs text-sea-gray-200 mb-6 opacity-75">
               Limited Implement and Manage openings monthly
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-orange-100 text-sm">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sea-gray-200 text-sm">
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2" />
+                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
                 <span>100% free analysis</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2" />
+                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
                 <span>No sign‑up required</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2" />
+                <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
                 <span>Results in 48 hours</span>
               </div>
             </div>
