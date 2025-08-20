@@ -9,7 +9,9 @@ interface SitemapPageProps {
 
 export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) => {
   return (
-    <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+      {/* Scroll overlay for darkening effect */}
+      <div className="scroll-overlay"></div>
       {/* Header Navigation */}
       <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
@@ -27,17 +29,23 @@ export const SitemapPage: React.FC<SitemapPageProps> = ({ onBack, onNavigate }) 
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
-              <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
-              <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
               <button
-                onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                onClick={() => {
+                  const heroForm = document.querySelector('#hero-form');
+                  if (heroForm) {
+                    heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  } else {
+                    onBack && onBack();
+                  }
+                }}
+                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-warm-500 hover:bg-warm-600 focus:outline-none focus:ring-2 focus:ring-warm-500 focus:ring-offset-2 focus:ring-offset-primary-900"
               >
                 Get my free Report Card
               </button>
