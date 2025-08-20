@@ -233,7 +233,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                         name="name"
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white ${errors.name ? 'border-red-400' : 'border-slate-600'}`}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white"
                         placeholder="Your full name"
                     />
@@ -247,7 +246,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                         name="email"
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white ${errors.email ? 'border-red-400' : 'border-slate-600'}`}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white"
                         placeholder="your@email.com"
                     />
@@ -260,7 +258,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                         name="subject"
                         value={formData.subject}
                         onChange={(e) => handleInputChange('subject', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white ${errors.subject ? 'border-red-400' : 'border-slate-600'}`}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-700 text-white"
                     >
                         <option value="" disabled>Please select a reason...</option>
@@ -280,7 +277,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                         rows={6}
                         value={formData.message}
                         onChange={(e) => handleInputChange('message', e.target.value)}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-slate-700 text-white ${errors.message ? 'border-red-400' : 'border-slate-600'}`}
                         className="w-full px-4 py-3 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-slate-700 text-white"
                         placeholder="Tell us more about your inquiry..."
                     />
