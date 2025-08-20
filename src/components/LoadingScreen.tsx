@@ -60,7 +60,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center px-6">
       <div className="w-full max-w-3xl text-center">
         {/* Header state: received + queued */}
         <div className="mb-6">
@@ -190,21 +190,21 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
           <button
             onClick={onViewSample}
-            className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 font-medium rounded-lg hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300"
           >
             View sample report card
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>
           <button
             onClick={onBookCall}
-            className="inline-flex items-center justify-center px-6 py-3 bg-transparent border border-white/20 text-white font-medium rounded-lg hover:bg-white hover:text-slate-900 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-slate-900 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             Book a 20‑minute Strategize call
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>
           <button
             onClick={onGoHome}
-            className="inline-flex items-center justify-center px-6 py-3 bg-slate-800 text-white font-medium rounded-lg border border-slate-700 hover:bg-slate-700 transition-colors"
+            className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-500 hover:to-blue-500 hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300"
           >
             Back to home
           </button>

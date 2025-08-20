@@ -148,7 +148,7 @@ export const ScorecardDisplay: React.FC<ScorecardDisplayProps> = ({
             <div className="text-center">
               <button
                 onClick={() => onNavigate && onNavigate('contact')}
-                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white text-base font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-base font-bold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-xl hover:shadow-orange-500/50 transform hover:scale-110 transition-all duration-300"
               >
                 Contact us
                 <ChevronRight className="ml-2 h-5 w-5" />
@@ -156,7 +156,7 @@ export const ScorecardDisplay: React.FC<ScorecardDisplayProps> = ({
               <div className="mt-4">
                 <button
                   onClick={onBackToHome}
-                  className="text-gray-300 hover:text-white text-sm"
+                  className="text-white hover:text-orange-300 text-sm transition-colors"
                 >
                   Back to home
                 </button>
