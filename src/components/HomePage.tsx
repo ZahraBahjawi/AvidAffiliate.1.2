@@ -74,27 +74,27 @@ const ProofStats: React.FC = () => {
     <section className="py-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          <p className="text-lg text-deep-blue-200 font-light">On average, our full audits find:</p>
+          <p className="text-lg text-white font-light">On average, our full audits find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-deep-blue-800/70 border border-deep-blue-700 rounded-xl p-6 text-center">
             <p className="text-3xl font-bold text-ocean-teal-400 mb-1">~300</p>
-            <p className="text-deep-blue-200 text-sm">unmonetized mentions across ~50 different brands.</p>
+            <p className="text-white text-sm">unmonetized mentions across ~50 different brands.</p>
           </div>
           <div className="bg-deep-blue-800/70 border border-deep-blue-700 rounded-xl p-6 text-center">
             <p className="text-3xl font-bold text-coral-400 mb-1">~250</p>
-            <p className="text-deep-blue-200 text-sm">broken links.</p>
+            <p className="text-white text-sm">broken links.</p>
           </div>
           <div className="bg-deep-blue-800/70 border border-deep-blue-700 rounded-xl p-6 text-center">
             <p className="text-3xl font-bold text-ocean-teal-300 mb-1">Est. 20% uplift.</p>
-            <p className="text-deep-blue-200 text-sm">in affiliate revenue*</p>
+            <p className="text-white text-sm">in affiliate revenue*</p>
           </div>
         </div>
       </div>
       
       {/* Caption */}
       <div className="text-center mt-6 px-6">
-        <div className="text-sm text-deep-blue-300 space-y-1">
+        <div className="text-sm text-white space-y-1">
           <p>Estimates based on last 10 audits; results vary by traffic and content mix.</p>
           <p>*Uplift calculated using proportion of unmonetized / broken affiliate links to existing monetized links</p>
         </div>
@@ -500,7 +500,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <h1 className="text-4xl md:text-6xl font-normal text-white mb-6 leading-tight tracking-tight" role="banner">
               Your website is leaking revenue
             </h1>
-            <p className="text-xl text-deep-blue-200 mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
+            <p className="text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
               Get a <strong>FREE</strong> affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content. <em>Join 300+ creators who increased revenue by 20%+</em>
             </p>
 
@@ -549,7 +549,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </form>
 
             {/* Reassurance text */}
-            <p className="text-center text-deep-blue-300 text-sm mt-2 mb-4" role="note">
+            <p className="text-center text-white text-sm mt-2 mb-4" role="note">
               Takes ~15 seconds. We'll email your report card—no spam. <strong>300+ creators trust us.</strong>
             </p>
 
@@ -566,10 +566,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div className="text-xs text-deep-blue-600 font-medium">PDF</div>
                 </div>
                 <div className="sm:text-left">
-                  <div className="text-deep-blue-100 text-sm font-medium group-hover:text-ocean-teal-300 transition-colors">
+                  <div className="text-white text-sm font-medium group-hover:text-ocean-teal-300 transition-colors">
                     View sample report card
                   </div>
-                  <div className="text-deep-blue-300 text-xs">
+                  <div className="text-white text-xs">
                     See what you'll receive
                   </div>
                 </div>
@@ -577,17 +577,17 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Security badges - mobile friendly */}
-            <div className="text-center text-deep-blue-200 text-sm">
+            <div className="text-center text-white text-sm">
               <div className="flex items-center justify-center mb-2">
                 <Shield className="h-4 w-4 mr-2 text-ocean-teal-500 flex-shrink-0" />
                 <span>No credit card • Read‑only scan • Results in 48 hours</span>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
-                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-deep-blue-200 hover:text-deep-blue-100 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Privacy</button>
-                <span className="text-deep-blue-300">•</span>
-                <button onClick={() => onNavigate && onNavigate('terms')} className="text-deep-blue-200 hover:text-deep-blue-100 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Terms</button>
-                <span className="text-deep-blue-300">•</span>
-                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-deep-blue-200 hover:text-deep-blue-100 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Cookies</button>
+                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-white hover:text-ocean-teal-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Privacy</button>
+                <span className="text-white">•</span>
+                <button onClick={() => onNavigate && onNavigate('terms')} className="text-white hover:text-ocean-teal-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Terms</button>
+                <span className="text-white">•</span>
+                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-white hover:text-ocean-teal-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-ocean-teal-500 focus:ring-offset-2 focus:ring-offset-deep-blue-900">Cookies</button>
               </div>
             </div>
           </div>
@@ -602,10 +602,10 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="free-affiliate-audit" role="heading" aria-level="2">
+              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="free-affiliate-audit" role="heading" aria-level="2">
                 The hidden revenue leak
               </h2>
-              <p className="text-xl text-deep-blue-200 font-light">You could be missing out on thousands in affiliate revenue</p>
+              <p className="text-xl text-white font-light">You could be missing out on thousands in affiliate revenue</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -615,7 +615,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-deep-blue-100 mb-3">Missing payouts</h3>
                 <div className="text-3xl font-normal text-coral-600 mb-4">50-80%</div>
-                <p className="text-deep-blue-200 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">of product mentions go unmonetized.</span>
                   <span className="hidden group-hover:block">We find those mentions and turn them into tracked, revenue‑generating links.</span>
                 </p>
@@ -627,7 +627,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-deep-blue-100 mb-3">Broken links</h3>
                 <div className="text-3xl font-normal text-ocean-teal-600 mb-4">Silent losses</div>
-                <p className="text-deep-blue-200 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">from 404s, redirects, and geo‑mismatches</span>
                   <span className="hidden group-hover:block">We repair pathways from click to commission so your traffic converts.</span>
                 </p>
@@ -639,7 +639,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-deep-blue-100 mb-3">Low commission rates</h3>
                 <div className="text-3xl font-normal text-ocean-teal-600 mb-4">2–5x</div>
-                <p className="text-deep-blue-200 text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="group-hover:hidden">better payouts exist for many programs.</span>
                   <span className="hidden group-hover:block">We benchmark against 35,000+ programs and recommend higher‑paying alternatives.</span>
                 </p>
@@ -647,7 +647,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="bg-gradient-to-r from-coral-600 to-coral-500 rounded-2xl p-12 text-white text-center">
-              <h3 className="text-2xl font-normal mb-8 text-deep-blue-100">The result? You're leaving money on the table.</h3>
+              <h3 className="text-2xl font-normal mb-8 text-white">The result? You're leaving money on the table.</h3>
               
               <button
                 onClick={() => {
@@ -657,7 +657,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-deep-blue-100 text-coral-600 font-medium rounded-lg hover:bg-deep-blue-200 transition-colors mb-8"
+                className="inline-flex items-center px-6 py-3 bg-white text-coral-600 font-medium rounded-lg hover:bg-gray-100 transition-colors mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -675,41 +675,41 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free affiliate audit works</h2>
-              <p className="text-xl text-deep-blue-200 font-light">Get your comprehensive audit report in three simple steps</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free affiliate audit works</h2>
+              <p className="text-xl text-white font-light">Get your comprehensive audit report in three simple steps</p>
             </div>
       
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-coral-500 to-coral-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-deep-blue-100">1</span>
+                  <span className="text-2xl font-bold text-white">1</span>
                 </div>
-                <h3 className="text-xl font-medium text-deep-blue-100 mb-4">Submit your website</h3>
-                <p className="text-deep-blue-200 leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
+                <h3 className="text-xl font-medium text-white mb-4">Submit your website</h3>
+                <p className="text-white leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
               </div>
       
               <div className="text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-ocean-teal-500 to-ocean-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-deep-blue-100">2</span>
+                  <span className="text-2xl font-bold text-white">2</span>
                 </div>
-                <h3 className="text-xl font-medium text-deep-blue-100 mb-4">We analyze your site</h3>
-                <p className="text-deep-blue-200 leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
+                <h3 className="text-xl font-medium text-white mb-4">We analyze your site</h3>
+                <p className="text-white leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
               </div>
       
               <div className="text-center">
                 <div className="w-20 h-20 bg-gradient-to-br from-ocean-teal-400 to-ocean-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-deep-blue-100">3</span>
+                  <span className="text-2xl font-bold text-white">3</span>
                 </div>
-                <h3 className="text-xl font-medium text-deep-blue-100 mb-4">Get your report card</h3>
-                <p className="text-deep-blue-200 leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
+                <h3 className="text-xl font-medium text-white mb-4">Get your report card</h3>
+                <p className="text-white leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
               </div>
             </div>
       
             {/* FAQ Section */}
             <div className="mt-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-4" id="frequently-asked-questions" role="heading" aria-level="2">Frequently Asked Questions</h2>
-                <p className="text-lg text-deep-blue-200 font-light">Everything you need to know about our free affiliate marketing audit</p>
+                <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" id="frequently-asked-questions" role="heading" aria-level="2">Frequently Asked Questions</h2>
+                <p className="text-lg text-white font-light">Everything you need to know about our free affiliate marketing audit</p>
               </div>
 
               <FAQ />
@@ -723,55 +723,55 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6" id="why-creators-choose" role="heading" aria-level="2">Why 300+ creators choose AvidAffiliate</h2>
-              <p className="text-xl text-deep-blue-200 font-light">Make more money from your existing content—effortlessly</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="why-creators-choose" role="heading" aria-level="2">Why 300+ creators choose AvidAffiliate</h2>
+              <p className="text-xl text-white font-light">Make more money from your existing content—effortlessly</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
                 <Zap className="h-8 w-8 text-ocean-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-deep-blue-100 mb-3">Smart link analysis</h3>
-                <p className="text-deep-blue-200 text-sm leading-relaxed">
+                <h3 className="text-lg font-medium text-white mb-3">Smart link analysis</h3>
+                <p className="text-white text-sm leading-relaxed">
                   Automatically find every missed commission opportunity—then see exactly how to monetize it.
                 </p>
               </div>
 
               <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
                 <FileText className="h-8 w-8 text-ocean-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-deep-blue-100 mb-3">Proprietary affiliate database</h3>
-                <p className="text-deep-blue-200 text-sm leading-relaxed">
+                <h3 className="text-lg font-medium text-white mb-3">Proprietary affiliate database</h3>
+                <p className="text-white text-sm leading-relaxed">
                   Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
                 </p>
               </div>
 
               <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
                 <Users className="h-8 w-8 text-ocean-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-deep-blue-100 mb-3">Done‑for‑you implementation</h3>
-                <p className="text-deep-blue-200 text-sm leading-relaxed">
+                <h3 className="text-lg font-medium text-white mb-3">Done‑for‑you implementation</h3>
+                <p className="text-white text-sm leading-relaxed">
                   We fix issues for you—fast—so you can focus on creating content.
                 </p>
               </div>
 
               <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
                 <Clock className="h-8 w-8 text-ocean-teal-300 mb-6" />
-                <h3 className="text-lg font-medium text-deep-blue-100 mb-3">Rapid results</h3>
-                <p className="text-deep-blue-200 text-sm leading-relaxed">
+                <h3 className="text-lg font-medium text-white mb-3">Rapid results</h3>
+                <p className="text-white text-sm leading-relaxed">
                   See measurable gains in weeks, not months—starting with the highest‑impact fixes.
                 </p>
               </div>
 
               <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
                 <Shield className="h-8 w-8 text-ocean-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-deep-blue-100 mb-3">Long‑term partner</h3>
-                <p className="text-deep-blue-200 text-sm leading-relaxed">
+                <h3 className="text-lg font-medium text-white mb-3">Long‑term partner</h3>
+                <p className="text-white text-sm leading-relaxed">
                   From audit to ongoing optimization—we help you unlock the full value of your content.
                 </p>
               </div>
 
               <div className="bg-deep-blue-800 rounded-xl p-8 shadow-sm border border-deep-blue-600">
                 <CheckCircle className="h-8 w-8 text-ocean-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-deep-blue-100 mb-3">Proven methodology</h3>
-                <p className="text-deep-blue-200 text-sm leading-relaxed">
+                <h3 className="text-lg font-medium text-white mb-3">Proven methodology</h3>
+                <p className="text-white text-sm leading-relaxed">
                   A repeatable process used by creators to drive consistent, compounding revenue.
                 </p>
               </div>
@@ -785,16 +785,16 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6">About AvidAffiliate</h2>
-              <p className="text-xl text-deep-blue-200 font-light">Empowering creators to unlock their site's true revenue potential</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
+              <p className="text-xl text-white font-light">Empowering creators to unlock their site's true revenue potential</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <p className="text-lg text-deep-blue-200 leading-relaxed mb-6">
+                <p className="text-lg text-white leading-relaxed mb-6">
                   We bridge the gap between great content and optimized monetization with intelligent, data‑driven affiliate marketing solutions.
                 </p>
-                <p className="text-lg text-deep-blue-200 leading-relaxed">
+                <p className="text-lg text-white leading-relaxed">
                   Audit with Optimize, fix with Implement, upgrade partners with Discover, plan with Strategize, and scale with Manage.
                 </p>
               </div>
@@ -803,29 +803,29 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Target className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-deep-blue-100 mb-2">Transparency</h3>
-                  <p className="text-deep-blue-200 text-sm">Clear process and results</p>
+                  <h3 className="text-lg font-semibold text-white mb-2">Transparency</h3>
+                  <p className="text-white text-sm">Clear process and results</p>
                 </div>
                 <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
                   <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Zap className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-deep-blue-100 mb-2">Fast results</h3>
-                  <p className="text-deep-blue-200 text-sm">Quick, impactful changes</p>
+                  <h3 className="text-lg font-semibold text-white mb-2">Fast results</h3>
+                  <p className="text-white text-sm">Quick, impactful changes</p>
                 </div>
                 <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
                   <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Users className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-deep-blue-100 mb-2">Expert team</h3>
-                  <p className="text-deep-blue-200 text-sm">Experienced specialists</p>
+                  <h3 className="text-lg font-semibold text-white mb-2">Expert team</h3>
+                  <p className="text-white text-sm">Experienced specialists</p>
                 </div>
                 <div className="bg-deep-blue-800 rounded-xl p-6 text-center border border-deep-blue-600">
                   <div className="w-12 h-12 bg-ocean-teal-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="h-6 w-6 text-ocean-teal-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-deep-blue-100 mb-2">Data‑driven</h3>
-                  <p className="text-deep-blue-200 text-sm">Every strategy backed by data</p>
+                  <h3 className="text-lg font-semibold text-white mb-2">Data‑driven</h3>
+                  <p className="text-white text-sm">Every strategy backed by data</p>
                 </div>
               </div>
             </div>
@@ -851,8 +851,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-deep-blue-100 mb-6">We support top affiliate networks</h2>
-              <p className="text-xl text-deep-blue-200 font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">We support top affiliate networks</h2>
+              <p className="text-xl text-white font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
             </div>
 
             {/* Logo Grid */}
@@ -897,6 +897,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <p className="text-center text-xs text-deep-blue-200 mt-4">
+            <p className="text-center text-xs text-white mt-4">
               Logos are for identification only; no endorsement implied. All trademarks belong to their respective owners.
             </p>
           </div>
@@ -906,9 +907,9 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-r from-coral-600 to-coral-500">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center text-deep-blue-100">
+          <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-normal mb-6">Ready to unlock hidden affiliate revenue?</h2>
-            <p className="text-xl text-deep-blue-200 mb-12 font-light">
+            <p className="text-xl text-white mb-12 font-light">
               Start with your free report card. Then choose Audit (deep analysis), then Implementation (we fix it).
             </p>
 
@@ -918,7 +919,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 bg-deep-blue-100 text-coral-600 text-base font-medium rounded-lg hover:bg-deep-blue-200 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
+                className="inline-flex items-center px-8 py-4 bg-white text-coral-600 text-base font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -929,18 +930,18 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_secondary' });
                   onNavigate('contact');
                 }}
-                className="inline-flex items-center px-8 py-4 bg-transparent border border-deep-blue-100 text-deep-blue-100 text-base font-medium rounded-lg hover:bg-deep-blue-100 hover:text-coral-600 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
+                className="inline-flex items-center px-8 py-4 bg-transparent border border-white text-white text-base font-medium rounded-lg hover:bg-white hover:text-coral-600 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-coral-600"
               >
                 Contact us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
 
-            <p className="text-xs text-deep-blue-200 mb-6 opacity-75">
+            <p className="text-xs text-white mb-6 opacity-75">
               Limited Implement and Manage openings monthly
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-deep-blue-200 text-sm">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-white text-sm">
               <div className="flex items-center">
                 <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-300" />
                 <span>100% free analysis</span>
