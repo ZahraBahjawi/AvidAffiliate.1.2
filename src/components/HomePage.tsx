@@ -21,8 +21,9 @@ import {
 import { Footer } from './Footer';
 
 interface HomePageProps {
-  onNext?: (heroData?: { url?: string; email?: string }) => void;
-  onNavigate?: (page: string) => void;
+  onNext: (data?: { url: string }) => void;
+  onNavigate: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies' | 'services') => void;
+  onBack: () => void; // Add this line
 }
 
 // UTM persistence
