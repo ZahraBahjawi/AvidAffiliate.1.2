@@ -121,7 +121,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-deep-blue-300 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -209,10 +209,10 @@ const StickyMobileCTA: React.FC<{ onClick: () => void; show: boolean }> = ({ onC
   if (!show) return null;
   
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/90 backdrop-blur border-t border-slate-700 p-3 sm:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-40 bg-deep-blue-900/90 backdrop-blur border-t border-deep-blue-700 p-3 sm:hidden">
       <button
         onClick={onClick}
-        className="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+        className="w-full inline-flex items-center justify-center px-6 py-3 bg-coral-500 text-white font-medium rounded-lg hover:bg-coral-600 transition-colors"
       >
         Get my free Report Card
         <ArrowRight className="ml-2 h-4 w-4" />
