@@ -1,8 +1,9 @@
 const postmark = require("postmark");
 
 // IMPORTANT: Replace this with your own Postmark server API token
-const serverToken = "YOUR_POSTMARK_SERVER_TOKEN"; 
+const serverToken = 5e801ee0-d962-4df7-9f69-0a892df75d05;
 const client = new postmark.ServerClient(serverToken);
+
 
 exports.handler = async (event) => {
   try {
