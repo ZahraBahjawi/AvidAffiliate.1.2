@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { LoadingLogo } from './components/LoadingLogo';
 import { UserData, ScorecardData, AppStage } from './types';
 import { generateMockScorecard } from './utils/mockData';
 import { sendAuditStartedNotification, sendAuditCompletedNotification, generateAuditSummary } from './utils/emailService';
@@ -21,6 +22,8 @@ import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  
   // Scroll-based background darkening effect
   React.useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +45,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
   const [prefilledData, setPrefilledData] = useState<{ url?: string; email?: string }>({});
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
 
   const handleFormSubmit = async (data: UserData) => {
     setUserData(data);
@@ -115,6 +122,15 @@ function App() {
   const dismissError = () => {
     setError('');
   };
+
+  // Show loading screen first
+  if (isLoading) {
+    return (
+      <ErrorBoundary>
+        <LoadingLogo onComplete={handleLoadingComplete} />
+      </ErrorBoundary>
+    );
+  }
 
   const renderCurrentStage = () => {
     switch (stage) {
