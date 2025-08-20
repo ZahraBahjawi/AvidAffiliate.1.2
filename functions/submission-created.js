@@ -1,7 +1,7 @@
 const postmark = require("postmark");
 
 // IMPORTANT: Replace this with your own Postmark server API token
-const serverToken = 5e801ee0-d962-4df7-9f69-0a892df75d05;
+const serverToken = process.env.5e801ee0-d962-4df7-9f69-0a892df75d05;
 const client = new postmark.ServerClient(serverToken);
 
 
