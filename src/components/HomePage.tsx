@@ -455,7 +455,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       
       {/* Skip to content link for accessibility */}
       {/* Header Navigation */}
-      <header className="bg-primary-900/95 border-b border-primary-700 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
