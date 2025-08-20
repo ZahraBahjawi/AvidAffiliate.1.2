@@ -159,9 +159,7 @@ function App() {
       case 'sitemap':
         return <SitemapPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
       
-      case 'about':
-        return <AboutUsPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
-      
+     
       case 'team':
         return <OurTeamPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
       
