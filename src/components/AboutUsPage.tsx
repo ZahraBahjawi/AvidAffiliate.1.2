@@ -1058,7 +1058,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onNext = () => {}, onNavigate
         </div>
       </section>
 
-      <Footer onNavigate={onNavigate} onNext={onNext} />
+      <Footer onNavigate={onNavigate} onNext={onNext} onBack={onBack} />
 
       {/* Desktop Right Rail CTA */}
       <DesktopRightRailCTA

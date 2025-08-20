@@ -1064,7 +1064,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
         </div>
       </section>
 
-      <Footer onNavigate={onNavigate} onNext={onNext} />
+      <Footer onNavigate={onNavigate} onNext={onNext} onBack={onBackToHome} />
 
       {/* Desktop Right Rail CTA */}
       <DesktopRightRailCTA

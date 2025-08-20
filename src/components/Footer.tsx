@@ -4,9 +4,10 @@ import { CheckCircle } from 'lucide-react';
 interface FooterProps {
   onNavigate?: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies') => void;
   onNext?: () => void;
+  onBack?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext, onBack }) => {
   return (
     <footer className="bg-gray-800 border-t border-gray-700 py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -45,13 +46,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
                 <li>
                   <button 
                     onClick={() => {
-                      onNext && onNext(); // Go to home page first
+                      onBack && onBack(); // Go to home page first
                       setTimeout(() => {
                         const aboutSection = document.getElementById('about-avidaffiliate');
                         if (aboutSection) {
                           aboutSection.scrollIntoView({ behavior: 'smooth' });
                         }
-                      }, 300);
+                      }, 100);
                     }} 
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
