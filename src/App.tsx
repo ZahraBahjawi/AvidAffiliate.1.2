@@ -10,7 +10,6 @@ import { SubmissionForm } from './components/SubmissionForm';
 import { LoadingScreen } from './components/LoadingScreen';
 import { ScorecardDisplay } from './components/ScorecardDisplay';
 import { SitemapPage } from './components/SitemapPage';
-import { AboutUsPage } from './components/AboutUsPage';
 import { OurTeamPage } from './components/OurTeamPage';
 import { ContactPage } from './components/ContactPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
