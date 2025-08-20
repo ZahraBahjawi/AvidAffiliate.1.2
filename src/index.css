@@ -173,3 +173,23 @@ body::before {
     animation: none !important;
   }
 }
+
+.background-container {
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.gradient-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, var(--color-stop-1), var(--color-stop-2));
+  opacity: 0.8;
+  z-index: -1;
+  transition: background 0.5s ease-out;
+}
