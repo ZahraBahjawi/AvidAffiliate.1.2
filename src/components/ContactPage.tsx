@@ -157,30 +157,30 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                 </div>
               </div>
             </div>
-          </div>
-        )}
-
-        <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-                <button onClick={onBack} aria-label="Go to homepage">
-                  <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
+              <button onClick={onBack} aria-label="Go to homepage">
+                <img 
+                  src="/LOGO.png" 
+                  alt="AvidAffiliate Logo" 
+                  className="h-24 w-auto"
+                />
+              </button>
+            </div>
                 </button>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
-                <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
-                <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
-                <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
-                <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
+              <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+              <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
+              <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
             </nav>
             <div className="flex items-center space-x-4">
-                <button
+              <button
                 onClick={onBack}
                 className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-                >
+              >
                 Get my free Report Card
-                </button>
+              </button>
             </div>
             </div>
         </div>
