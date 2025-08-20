@@ -33,7 +33,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
               <h4 className="text-base font-medium text-white mb-4">Get Started</h4>
               <ul className="space-y-2">
                 <li><a href="#" onClick={() => { onNext && onNext(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-colors text-sm">Free Report Card</a></li>
-                <li><button onClick={() => { onNext && onNext(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-gray-300 hover:text-white transition-colors text-sm">How It Works</button></li>
+                <li><button onClick={() => onNavigate && onNavigate('home#about-us')} className="text-gray-300 hover:text-white transition-colors text-sm">About Us</button></li>
                 <li><a href="#" onClick={() => onNavigate && onNavigate('affiliate_partners')} className="text-gray-300 hover:text-white transition-colors text-sm">Affiliate Network Guide</a></li>
               </ul>
             </div>
