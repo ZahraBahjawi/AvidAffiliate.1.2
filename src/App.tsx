@@ -114,7 +114,15 @@ function App() {
             }
             setStage('form');
           }} 
-          onNavigate={(page) => setStage(page as AppStage)}
+          onNavigate={(page) => {
+            if (page.includes('#')) {
+              const [targetStage, targetId] = page.split('#');
+              setStage(targetStage as AppStage);
+              setScrollTarget(targetId);
+            } else {
+              setStage(page as AppStage);
+            }
+          }}
           onBack={resetToHome}
           scrollTarget={scrollTarget}
           onScrollComplete={() => setScrollTarget(null)}
