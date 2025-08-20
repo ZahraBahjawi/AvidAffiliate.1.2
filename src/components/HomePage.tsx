@@ -542,15 +542,17 @@ const HomePage: React.FC<HomePageProps> = ({ onNext = () => {}, onNavigate = () 
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <img 
-                src="/LOGO.png" 
-                alt="AvidAffiliate Logo" 
-                className="h-24 w-auto" 
-                width="96" 
-                height="96"
-                loading="eager"
-                fetchpriority="high"
-              />
+              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded">
+                <img 
+                  src="/LOGO.png" 
+                  alt="AvidAffiliate Logo" 
+                  className="h-24 w-auto" 
+                  width="96" 
+                  height="96"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+              </button>
             </div>
 
             {/* Navigation Links */}

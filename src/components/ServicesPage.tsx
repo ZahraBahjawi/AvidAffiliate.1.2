@@ -131,11 +131,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <img 
-                src="/LOGO.png" 
-                alt="AvidAffiliate Logo" 
-                className="h-24 w-auto"
-              />
+              <button onClick={onBack} className="focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded">
+                <img 
+                  src="/LOGO.png" 
+                  alt="AvidAffiliate Logo" 
+                  className="h-24 w-auto"
+                />
+              </button>
             </div>
 
             {/* Navigation Links */}
