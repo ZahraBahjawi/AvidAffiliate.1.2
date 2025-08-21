@@ -497,7 +497,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section id="main-content" className="pt-16 pb-10 bg-transparent">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-7xl font-bolt text-white mb-7 leading-tight tracking-tight" role="banner">
+            <h1 className="text-4xl md:text-7xl font-bold text-white mb-7 leading-tight tracking-tight" role="banner">
               Your website is leaking revenue
             </h1>
             <p className="text-lg text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
