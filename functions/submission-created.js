@@ -1,47 +1,53 @@
 import { ServerClient } from "postmark";
+import fs from "fs";
+import path from "path";
 
 export const handler = async (event) => {
   const { form_name, payload } = JSON.parse(event.body);
   const { name, email, subject, message, url, trafficTier, earningsTier } = payload.data;
 
-  // Replace with your Postmark server token
   const client = new ServerClient(process.env.POSTMARK_SERVER_TOKEN);
 
   let emailHtml = "";
   let emailSubject = "";
+  let templatePath = "";
+  let templateData = {};
 
-  // Determine which email template to use
   if (form_name === 'audit-request') {
-    emailSubject = "New Audit Request Received";
-    // A simplified HTML body for the email
-    emailHtml = `
-      <h1>New Audit Request</h1>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Website:</strong> ${url}</p>
-      <p><strong>Traffic Tier:</strong> ${trafficTier}</p>
-      <p><strong>Earnings Tier:</strong> ${earningsTier}</p>
-    `;
+    emailSubject = "Report Card Request Received!";
+    templatePath = path.resolve(process.cwd(), 'emails/audit-request.html');
+    templateData = {
+      name: name,
+      "website-url": url,
+      email: email,
+      "traffic-tier": trafficTier,
+      "earnings-tier": earningsTier,
+    };
+
   } else if (form_name === 'contact-form') {
-    emailSubject = "New Contact Form Submission";
-    emailHtml = `
-      <h1>New Contact Message</h1>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message}</p>
-    `;
-  } else {
-    // Default case or for other forms
-    emailSubject = "New Form Submission";
-    emailHtml = `<p>A new form submission has been received.</p><p><strong>Form:</strong> ${form_name}</p><p><strong>Data:</strong></p><pre>${JSON.stringify(payload.data, null, 2)}</pre>`;
+    emailSubject = "Message Received - AvidAffiliate";
+    templatePath = path.resolve(process.cwd(), 'emails/contact-form.html');
+    templateData = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message
+    };
   }
+
+  if (templatePath) {
+    let htmlContent = fs.readFileSync(templatePath, 'utf8');
+    for (const key in templateData) {
+      htmlContent = htmlContent.replace(new RegExp(`{{ ${key} }}`, 'g'), templateData[key]);
+    }
+    emailHtml = htmlContent;
+  }
+
 
   try {
     await client.sendEmail({
-      "From": "hello@avidaffiliate.com", // Must be a registered sender signature in Postmark
-      "To": "your-email@example.com", // The email address where you want to receive notifications
+      "From": "hello@avidaffiliate.com",
+      "To": email, // Change this to the user's email
       "Subject": emailSubject,
       "HtmlBody": emailHtml,
     });
