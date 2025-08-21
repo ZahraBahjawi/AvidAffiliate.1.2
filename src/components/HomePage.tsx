@@ -784,13 +784,13 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* About / Values */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
-              <p className="text-xl text-white font-light">Empowering creators to unlock their site's true revenue potential</p>
-            </div>
+<section id="about-us" className="py-20">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="max-w-4xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
+        <p className="text-xl text-white font-light">Empowering creators to unlock their site's true revenue potential</p>
+      </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
