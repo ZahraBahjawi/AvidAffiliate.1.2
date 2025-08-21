@@ -461,7 +461,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <button onClick={onBack} aria-label="Go to homepage"> 
+              <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Scroll to top"> 
               <img
                 src="/LOGO.png" 
                 alt="AvidAffiliate Logo" 
