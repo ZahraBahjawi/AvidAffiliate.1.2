@@ -460,11 +460,13 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <img 
+              <button onClick={onBack} aria-label="Go to homepage"> 
+              <img
                 src="/LOGO.png" 
                 alt="AvidAffiliate Logo" 
                 className="h-24 w-auto"
               />
+              </button>
             </div>
 
             {/* Navigation Links */}
