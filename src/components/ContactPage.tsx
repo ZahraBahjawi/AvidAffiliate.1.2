@@ -226,6 +226,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                   <form
                     name="contact-form"
                     method="POST"
+                    action="/thank-you"
                     onSubmit={handleFormSubmit}
                     data-netlify="true"
                     data-netlify-honeypot="bot-field"
