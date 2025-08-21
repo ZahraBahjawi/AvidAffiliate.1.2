@@ -501,7 +501,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               Your website is leaking revenue
             </h1>
             <p className="text-lg text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
-              Get a free affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs—so you earn more without redoing content. 
+              Get a free affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs - so you earn more without redoing content. 
             </p>
 
             {/* Hero Audit Form */}
