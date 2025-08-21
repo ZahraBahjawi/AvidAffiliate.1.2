@@ -346,6 +346,7 @@ const ReportcardPreview: React.FC = () => {
 export const HomePage: React.FC<HomePageProps> = ({ 
   onNext = () => {}, 
   onNavigate = () => {}, 
+  onBack = () => {},
   scrollTarget,
   onScrollComplete 
 }) => {
