@@ -19,6 +19,7 @@ import { CookiesPage } from './components/CookiesPage';
 import { SubmissionLogger } from './components/SubmissionLogger';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
+import { GenericThankYouPage } from './components/GenericThankYouPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -123,6 +124,16 @@ function App() {
 
   const renderCurrentStage = () => {
     switch (stage) {
+      case 'thankyou':
+        return userData ? (
+          <ThankYouPage
+            userData={userData}
+            onBackToHome={resetToHome}
+            onNavigate={(page) => setStage(page)}
+          />
+        ) : <GenericThankYouPage onBackToHome={resetToHome} onNavigate={(page) => setStage(page)} />;
+
+
       case 'home':
         return <HomePage 
           
