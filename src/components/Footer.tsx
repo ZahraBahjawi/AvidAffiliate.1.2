@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
             <div>
               <h4 className="text-base font-medium text-white mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><a href="#" onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm">About Us</a></li>
+                <li><button onClick={() => onNavigate && onNavigate('home#about-us')} className="text-white hover:text-orange-300 transition-colors text-sm">About Us</button></li>
                 <li><a href="#" onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm">Our Team</a></li>
                 <li><a href="#" onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm">Contact Us</a></li>
               </ul>
