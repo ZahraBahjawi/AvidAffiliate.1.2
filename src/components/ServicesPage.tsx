@@ -178,12 +178,14 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
       <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {
+/* Logo */
+}
 <div className="flex items-center">
   <button onClick={onBack} aria-label="Go to homepage">
-    <img 
-      src="/LOGO.png" 
-      alt="AvidAffiliate Logo" 
+    <img
+      src="/LOGO.png"
+      alt="AvidAffiliate Logo"
       className="h-24 w-auto"
     />
   </button>
