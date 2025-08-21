@@ -48,9 +48,25 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
-    // Let the form submit naturally, then show popup
-    setShowThankYou(true);
-  };
+  e.preventDefault();
+
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData as any).toString(),
+  })
+    .then(() => {
+      // On success, show your custom thank you pop-up
+      setShowThankYou(true);
+    })
+    .catch((error) => {
+      // You can add more robust error handling here
+      alert(error);
+    });
+};
 
   if (submitSuccess) {
     return (
