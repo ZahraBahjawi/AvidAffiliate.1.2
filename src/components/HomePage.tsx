@@ -468,11 +468,11 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Navigation Links */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
-              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
-              <button onClick={() => onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
-            </nav>
+<nav className="hidden md:flex items-center space-x-8">
+  <a href="#features" className="text-white hover:font-bold transition text-sm font-medium" aria-label="View features section">Features</a>
+  <a href="#how-it-works" className="text-white hover:font-bold transition text-sm font-medium" aria-label="Learn how it works">How it works</a>
+  <button onClick={() => onNavigate('contact')} className="text-white hover:font-bold transition text-sm font-medium">Contact</button>
+</nav>
 
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
