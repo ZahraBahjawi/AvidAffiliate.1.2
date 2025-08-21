@@ -28,9 +28,25 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
-    // Let the form submit naturally, then show popup
-    setShowThankYou(true);
-  };
+  e.preventDefault();
+
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData as any).toString(),
+  })
+    .then(() => {
+      // On success, call the onSubmit prop to navigate to your custom thank you page
+      onSubmit(Object.fromEntries(formData));
+    })
+    .catch((error) => {
+      // You can add more robust error handling here
+      alert(error);
+    });
+};
 
   return (
     <div className="min-h-screen bg-slate-900" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
