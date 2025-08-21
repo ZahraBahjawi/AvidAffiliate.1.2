@@ -117,6 +117,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
               <form
                 name="audit-request"
                 method="POST"
+                action="/thank-you"
                 onSubmit={handleFormSubmit}
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
