@@ -28,7 +28,7 @@ export const LoadingLogo: React.FC<LoadingLogoProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 bg-slate-900 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-brand-dark-blue flex items-center justify-center z-50">
       {/* Logo container */}
       <div className="relative">
         {/* Background logo (empty/outline) */}
@@ -56,7 +56,7 @@ export const LoadingLogo: React.FC<LoadingLogoProps> = ({ onComplete }) => {
         
         {/* Optional glow effect */}
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full blur-2xl transition-opacity duration-300"
+          className="absolute inset-0 bg-gradient-to-r from-brand-blue/20 to-brand-yellow/20 rounded-full blur-2xl transition-opacity duration-300"
           style={{ opacity: progress / 100 }}
         />
       </div>
