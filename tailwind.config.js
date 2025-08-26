@@ -11,7 +11,7 @@ export default {
       colors: {
         'brand-blue': '#1350C5',
         'brand-dark-blue': '#081F5D',
-        'brand-gray': '#A0A9AC',
+        'brand-gray': '#A0AFB5',
         'brand-yellow': '#CCD418',
       },
     },
