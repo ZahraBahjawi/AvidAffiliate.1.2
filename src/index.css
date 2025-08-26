@@ -4,34 +4,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Google+Sans+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-/* Background using the actual background.jpg image */
-.background-container {
-  background-image: url('/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
+body {
+  @apply bg-white text-brand-dark-blue;
 }
 
-/* Scroll-based darkening overlay */
+/* Background can be simplified to white */
+.background-container {
+  @apply bg-white;
+}
+
+/* Scroll-based darkening overlay is not needed for a light theme */
 .scroll-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.1) 20%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 80%,
-    rgba(0, 0, 0, 0.9) 100%
-  );
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  display: none;
 }
 
 /* Candle lighting effect for hidden revenue text */
