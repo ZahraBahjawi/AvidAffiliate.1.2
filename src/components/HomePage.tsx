@@ -391,7 +391,7 @@ const ReportcardPreview: React.FC = () => {
         }
       };
 
-  return (
+return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       <div className="scroll-overlay"></div>
       
