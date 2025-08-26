@@ -19,7 +19,6 @@ import { CookiesPage } from './components/CookiesPage';
 import { SubmissionLogger } from './components/SubmissionLogger';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
-import { GenericThankYouPage } from './components/GenericThankYouPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -131,7 +130,7 @@ function App() {
             onBackToHome={resetToHome}
             onNavigate={(page) => setStage(page)}
           />
-        ) : <GenericThankYouPage onBackToHome={resetToHome} onNavigate={(page) => setStage(page)} />;
+        ) : null;
 
 
       case 'home':
@@ -166,15 +165,6 @@ function App() {
             prefilledData={prefilledData}
           />
         );
-      
-      case 'thankyou':
-        return userData ? (
-          <ThankYouPage
-            userData={userData}
-            onBackToHome={resetToHome}
-            onNavigate={(page) => setStage(page)}
-          />
-        ) : null;
       
       case 'scorecard':
         return userData && scorecardData ? (
@@ -222,7 +212,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-gray-900">
+      <div className="min-h-screen bg-white">
         <div className="scroll-overlay"></div>
         {error && <ErrorBanner error={error} onDismiss={dismissError} />}
         {renderCurrentStage()}
