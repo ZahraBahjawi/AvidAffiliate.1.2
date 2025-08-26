@@ -390,7 +390,6 @@ const ReportcardPreview: React.FC = () => {
           track('form_start', { location: 'hero' });
         }
       };
-
 return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       <div className="scroll-overlay"></div>
