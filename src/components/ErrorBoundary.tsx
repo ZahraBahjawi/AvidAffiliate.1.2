@@ -39,24 +39,24 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
       }
 
       return (
-        <div className="min-h-screen bg-slate-900 flex items-center justify-center px-6">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-6">
           <div className="max-w-md w-full text-center">
-            <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-800">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-200">
               <AlertTriangle className="h-8 w-8 text-red-600" />
             </div>
             
-            <h1 className="text-2xl font-bold text-white mb-4">
+            <h1 className="text-2xl font-bold text-brand-dark-blue mb-4">
               Something went wrong
             </h1>
             
-            <p className="text-gray-300 mb-8 leading-relaxed">
+            <p className="text-gray-600 mb-8 leading-relaxed">
               We're sorry, but something unexpected happened. Please try refreshing the page or contact support if the problem persists.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={this.resetError}
-                className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-dark-blue transition-colors"
               >
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Try Again
@@ -64,7 +64,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
               
               <button
                 onClick={() => window.location.href = '/'}
-                className="inline-flex items-center justify-center px-6 py-3 bg-slate-700 text-white font-medium rounded-lg hover:bg-slate-600 transition-colors border border-slate-600"
+                className="inline-flex items-center justify-center px-6 py-3 bg-gray-200 text-brand-dark-blue font-medium rounded-lg hover:bg-gray-300 transition-colors border border-gray-300"
               >
                 <Home className="h-4 w-4 mr-2" />
                 Go Home
@@ -73,11 +73,11 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             
             {process.env.NODE_ENV === 'development' && this.state.error && (
               <details className="mt-8 text-left">
-                <summary className="text-sm text-gray-400 cursor-pointer hover:text-gray-300 mb-2">
+                <summary className="text-sm text-gray-500 cursor-pointer hover:text-gray-600 mb-2">
                   Error Details (Development)
                 </summary>
-                <div className="bg-slate-800 rounded-lg p-4 border border-slate-700">
-                  <pre className="text-xs text-red-400 whitespace-pre-wrap overflow-auto">
+                <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
+                  <pre className="text-xs text-red-600 whitespace-pre-wrap overflow-auto">
                     {this.state.error.toString()}
                     {this.state.errorInfo?.componentStack}
                   </pre>
@@ -86,11 +86,11 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             )}
             
             <div className="mt-8 text-center">
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-500">
                 Need help? Contact us at{' '}
                 <a 
                   href="mailto:hello@avidaffiliate.com" 
-                  className="text-blue-400 hover:text-blue-300 underline"
+                  className="text-brand-blue hover:text-brand-dark-blue underline"
                 >
                   hello@avidaffiliate.com
                 </a>
