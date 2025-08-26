@@ -27,6 +27,7 @@ interface HomePageProps {
   onScrollComplete?: () => void;
 }
 
+
 // UTM persistence
 const getStoredUTMs = () => {
   try {
