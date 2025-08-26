@@ -358,7 +358,6 @@ export const HomePage: React.FC<HomePageProps> = ({
     const [formStarted, setFormStarted] = React.useState(false);
     const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
   
-
   // Store UTMs on first visit
   React.useEffect(() => {
     storeUTMs();
