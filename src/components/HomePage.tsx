@@ -351,12 +351,13 @@ export const HomePage: React.FC<HomePageProps> = ({
   scrollTarget,
   onScrollComplete 
 }) => {
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [honeypot, setHoneypot] = React.useState('');
-  const [showRightRail, setShowRightRail] = React.useState(false);
-  const [showMobileSticky, setShowMobileSticky] = React.useState(false);
-  const [formStarted, setFormStarted] = React.useState(false);
-  const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
+    const [honeypot, setHoneypot] = React.useState('');
+    const [showRightRail, setShowRightRail] = React.useState(false);
+    const [showMobileSticky, setShowMobileSticky] = React.useState(false);
+    const [formStarted, setFormStarted] = React.useState(false);
+    const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
+  
 
   // Store UTMs on first visit
   React.useEffect(() => {
