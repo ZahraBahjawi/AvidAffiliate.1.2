@@ -12,11 +12,9 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
   onNavigate = () => {} 
 }) => {
   return (
-    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
-      {/* Scroll overlay for darkening effect */}
-      <div className="scroll-overlay"></div>
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Header Navigation */}
-      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-white/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -32,9 +30,9 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
-              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
@@ -48,7 +46,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
                     onBack && onBack();
                   }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-primary-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
                 Get my free Report Card
               </button>
@@ -64,7 +62,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
             {/* Back Button */}
             <button
               onClick={onBack}
-              className="inline-flex items-center text-white hover:text-orange-300 mb-8 transition-colors"
+              className="inline-flex items-center text-brand-dark-blue hover:text-brand-blue mb-8 transition-colors"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back
@@ -73,24 +71,24 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
             {/* Header */}
             <div className="text-center mb-12">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FileText className="h-8 w-8 text-blue-600" />
+                <FileText className="h-8 w-8 text-brand-blue" />
               </div>
-              <h1 className="text-4xl font-bold text-white mb-4">Terms of Service</h1>
-              <p className="text-xl text-gray-300">
+              <h1 className="text-4xl font-bold text-brand-dark-blue mb-4">Terms of Service</h1>
+              <p className="text-xl text-gray-600">
                 Last updated: January 2025
               </p>
             </div>
 
             {/* Terms Content */}
-            <div className="bg-slate-800 rounded-xl p-8 border border-slate-700 space-y-8">
+            <div className="bg-white rounded-xl p-8 border border-gray-200 space-y-8">
               
               {/* Agreement to Terms */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
-                  <Shield className="h-6 w-6 mr-3 text-blue-400" />
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4 flex items-center">
+                  <Shield className="h-6 w-6 mr-3 text-brand-blue" />
                   Agreement to Terms
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     By accessing and using AvidAffiliate's website and services, you accept and agree to be bound by the terms and provision of this agreement.
                   </p>
@@ -102,11 +100,11 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* Use License */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
-                  <FileText className="h-6 w-6 mr-3 text-green-400" />
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4 flex items-center">
+                  <FileText className="h-6 w-6 mr-3 text-green-600" />
                   Use License
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     Permission is granted to temporarily access and use our services for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
                   </p>
@@ -121,11 +119,11 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* Service Description */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
-                  <Users className="h-6 w-6 mr-3 text-purple-400" />
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4 flex items-center">
+                  <Users className="h-6 w-6 mr-3 text-purple-600" />
                   Service Description
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     AvidAffiliate provides affiliate marketing optimization services including:
                   </p>
@@ -140,11 +138,11 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* User Responsibilities */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
-                  <AlertTriangle className="h-6 w-6 mr-3 text-yellow-400" />
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4 flex items-center">
+                  <AlertTriangle className="h-6 w-6 mr-3 text-yellow-500" />
                   User Responsibilities
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     When using our services, you agree to:
                   </p>
@@ -160,11 +158,11 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* Payment Terms */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
-                  <Calendar className="h-6 w-6 mr-3 text-indigo-400" />
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4 flex items-center">
+                  <Calendar className="h-6 w-6 mr-3 text-indigo-600" />
                   Payment Terms
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     For paid services:
                   </p>
@@ -179,10 +177,10 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* Limitation of Liability */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4">
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4">
                   Limitation of Liability
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     In no event shall AvidAffiliate or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use our services, even if AvidAffiliate or an authorized representative has been notified orally or in writing of the possibility of such damage.
                   </p>
@@ -191,10 +189,10 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* Termination */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4">
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4">
                   Termination
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     We may terminate or suspend your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
                   </p>
@@ -206,10 +204,10 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* Changes to Terms */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4">
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4">
                   Changes to Terms
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days notice prior to any new terms taking effect.
                   </p>
@@ -218,15 +216,15 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
 
               {/* Contact Information */}
               <section>
-                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
-                  <Mail className="h-6 w-6 mr-3 text-red-400" />
+                <h2 className="text-2xl font-semibold text-brand-dark-blue mb-4 flex items-center">
+                  <Mail className="h-6 w-6 mr-3 text-red-600" />
                   Contact Information
                 </h2>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <p>
                     If you have any questions about these Terms of Service, please contact us:
                   </p>
-                  <div className="bg-slate-700 rounded-lg p-4 border border-slate-600">
+                  <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
                     <p><strong>Email:</strong> legal@avidaffiliate.com</p>
                     <p><strong>Address:</strong> [Your Business Address]</p>
                     <p><strong>Phone:</strong> [Your Phone Number]</p>
@@ -241,19 +239,19 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
               <div className="flex flex-wrap justify-center gap-6 text-sm">
                 <button
                   onClick={() => onNavigate('privacy')}
-                  className="text-orange-400 hover:text-orange-300 transition-colors"
+                  className="text-brand-blue hover:text-brand-dark-blue transition-colors"
                 >
                   Privacy Policy
                 </button>
                 <button
                   onClick={() => onNavigate('cookies')}
-                  className="text-orange-400 hover:text-orange-300 transition-colors"
+                  className="text-brand-blue hover:text-brand-dark-blue transition-colors"
                 >
                   Cookie Policy
                 </button>
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="text-orange-400 hover:text-orange-300 transition-colors"
+                  className="text-brand-blue hover:text-brand-dark-blue transition-colors"
                 >
                   Contact Us
                 </button>
