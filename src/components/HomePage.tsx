@@ -27,7 +27,6 @@ interface HomePageProps {
   onScrollComplete?: () => void;
 }
 
-
 // UTM persistence
 const getStoredUTMs = () => {
   try {
@@ -344,53 +343,109 @@ const ReportcardPreview: React.FC = () => {
   );
 };
 
-    const submitHero = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        
-        if (isSubmitting) return;
-        
-        if (honeypot) {
-          console.log('Bot detected via honeypot');
-          track('form_submit_fail', { reason: 'honeypot', url: '' });
-          return;
-        }
-        
-        setIsSubmitting(true);
-        
-        const form = e.currentTarget;
-        let url = (form.elements.namedItem('siteUrl') as HTMLInputElement)?.value || '';
-        
-        if (!url.trim()) {
-          track('validation_error', { field: 'url', message: 'URL is required' });
-          setIsSubmitting(false);
-          return;
-        }
-        
-        if (url) {
-          url = url.replace(/^https?:\/\//, '');
-          url = url.replace(/^www\./, '');
-          url = url.replace(/\/$/, '');
-          url = 'https://' + url;
-        }
-        
-        const utms = getStoredUTMs();
-        track('form_submit_attempt', { url, source: 'hero' });
-        
-        setTimeout(() => {
-          if (url) {
-            onNext({ url, ...utms });
-          }
-          setIsSubmitting(false);
-        }, 500);
-      };
+export const HomePage: React.FC<HomePageProps> = ({ 
+  onNext = () => {}, 
+  onNavigate = () => {}, 
+  onBack = () => {},
+  scrollTarget,
+  onScrollComplete 
+}) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [honeypot, setHoneypot] = React.useState('');
+  const [showRightRail, setShowRightRail] = React.useState(false);
+  const [showMobileSticky, setShowMobileSticky] = React.useState(false);
+  const [formStarted, setFormStarted] = React.useState(false);
+  const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
+
+  // Store UTMs on first visit
+  React.useEffect(() => {
+    storeUTMs();
+  }, []);
+
+  // Scroll-based hooks
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPercent = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1);
       
-      const handleFormFocus = () => {
-        if (!formStarted) {
-          setFormStarted(true);
-          track('form_start', { location: 'hero' });
+      // Right rail and mobile sticky CTAs
+      setShowRightRail(scrollPercent > 0.3);
+      setShowMobileSticky(scrollPercent > 0.35);
+      
+      // Scroll depth tracking
+      const depths = [25, 50, 75, 100];
+      depths.forEach(depth => {
+        if (scrollPercent * 100 >= depth && !scrollDepthTracked.has(depth)) {
+          track('scroll_depth', { depth });
+          setScrollDepthTracked(prev => new Set([...prev, depth]));
         }
-      };
-        return (
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrollDepthTracked]);
+
+  // Handle scroll target
+  React.useEffect(() => {
+    if (scrollTarget) {
+      const element = document.getElementById(scrollTarget);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          onScrollComplete?.();
+        }, 1000);
+      }
+    }
+  }, [scrollTarget, onScrollComplete]);
+
+  const submitHero = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (isSubmitting) return;
+    
+    if (honeypot) {
+      console.log('Bot detected via honeypot');
+      track('form_submit_fail', { reason: 'honeypot', url: '' });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    const form = e.currentTarget;
+    let url = (form.elements.namedItem('siteUrl') as HTMLInputElement)?.value || '';
+    
+    if (!url.trim()) {
+      track('validation_error', { field: 'url', message: 'URL is required' });
+      setIsSubmitting(false);
+      return;
+    }
+    
+    if (url) {
+      url = url.replace(/^https?:\/\//, '');
+      url = url.replace(/^www\./, '');
+      url = url.replace(/\/$/, '');
+      url = 'https://' + url;
+    }
+    
+    const utms = getStoredUTMs();
+    track('form_submit_attempt', { url, source: 'hero' });
+    
+    setTimeout(() => {
+      if (url) {
+        onNext({ url, ...utms });
+      }
+      setIsSubmitting(false);
+    }, 500);
+  };
+  
+  const handleFormFocus = () => {
+    if (!formStarted) {
+      setFormStarted(true);
+      track('form_start', { location: 'hero' });
+    }
+  };
+
+  return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       <div className="scroll-overlay"></div>
       
