@@ -10,7 +10,7 @@ export default {
       },
       colors: {
         'brand-blue': '#1338BE',
-        'brand-dark-blue': '#001851',
+        'brand-dark-blue': '#081F5D',
         'brand-gray': '#A0A9AC',
         'brand-yellow': '#c9ee59',
       },
