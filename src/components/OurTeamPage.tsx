@@ -36,11 +36,9 @@ export const OurTeamPage: React.FC<OurTeamPageProps> = ({ onBack, onNavigate }) 
   ];
 
   return (
-    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
-      {/* Scroll overlay for darkening effect */}
-      <div className="scroll-overlay"></div>
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Header Navigation */}
-      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-white/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -56,9 +54,9 @@ export const OurTeamPage: React.FC<OurTeamPageProps> = ({ onBack, onNavigate }) 
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
-              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
@@ -72,7 +70,7 @@ export const OurTeamPage: React.FC<OurTeamPageProps> = ({ onBack, onNavigate }) 
                     onBack && onBack();
                   }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-primary-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
                 Get my free Report Card
               </button>
@@ -89,64 +87,57 @@ export const OurTeamPage: React.FC<OurTeamPageProps> = ({ onBack, onNavigate }) 
             {onBack && (
               <button
                 onClick={onBack}
-                className="flex items-center text-white hover:text-orange-300 mb-6 transition-colors"
+                className="flex items-center text-brand-dark-blue hover:text-brand-blue mb-6 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back to Home
               </button>
             )}
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-brand-dark-blue mb-4">
               Meet Our Team
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Our diverse team of affiliate marketing experts, data scientists, and technology specialists are united by a shared passion for helping content creators maximize their revenue potential.
             </p>
           </div>
 
           {/* Main Content */}
-          <div id="our-team-page" className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
+          <div id="our-team-page" className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
             {/* Team Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {teamMembers.map((member, index) => (
                 <div key={index} className="text-center group">
-                  {/* Profile Image Placeholder */}
-                  {member.image.startsWith('/') ? (
-                    <div className="w-32 h-32 mx-auto mb-6 group-hover:shadow-lg transition-shadow">
+                  <div className="w-32 h-32 mx-auto mb-6">
                       <img 
                         src={member.image} 
                         alt={`${member.name} headshot`}
-                        className="w-32 h-32 rounded-full object-cover border-2 border-blue-800"
+                        className="w-32 h-32 rounded-full object-cover border-2 border-brand-blue"
                       />
                     </div>
-                  ) : (
-                    <div className="w-32 h-32 bg-gradient-to-br from-blue-900/20 to-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-shadow border border-blue-800">
-                      <span className="text-2xl font-bold text-blue-600">{member.image}</span>
-                    </div>
-                  )}
                   
                   {/* Member Info */}
-                  <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                  <p className="text-blue-600 font-semibold mb-4">{member.role}</p>
-                  <p className="text-gray-300 leading-relaxed mb-6">{member.bio}</p>
+                  <h3 className="text-xl font-bold text-brand-dark-blue mb-2">{member.name}</h3>
+                  <p className="text-brand-blue font-semibold mb-4">{member.role}</p>
+                  <p className="text-gray-600 leading-relaxed mb-6">{member.bio}</p>
                   
-                  {/* Social Links Placeholder */}
+                  {/* Social Links */}
                   <div className="flex justify-center space-x-4">
                     {member.linkedin && (
                       <a 
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-900/20 transition-colors border border-slate-600"
+                        className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors border border-gray-200"
                       >
-                        <Linkedin className="h-5 w-5 text-gray-300" />
+                        <Linkedin className="h-5 w-5 text-gray-600" />
                       </a>
                     )}
                     {member.email && (
                       <a 
                         href={`mailto:${member.email}`}
-                        className="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-900/20 transition-colors border border-slate-600"
+                        className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors border border-gray-200"
                       >
-                        <Mail className="h-5 w-5 text-gray-300" />
+                        <Mail className="h-5 w-5 text-gray-600" />
                       </a>
                     )}
                   </div>
@@ -157,36 +148,10 @@ export const OurTeamPage: React.FC<OurTeamPageProps> = ({ onBack, onNavigate }) 
             {/* Team Culture Section */}
             <div className="mt-16 pt-12 border-t border-gray-200">
               <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-white mb-4">Our Culture</h2>
-                <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <h2 className="text-2xl font-bold text-brand-dark-blue mb-4">Our Culture</h2>
+                <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
                   We're a remote-first team that values collaboration, continuous learning, and making a real impact in the lives of content creators worldwide. Our diverse backgrounds and shared commitment to excellence drive everything we do.
                 </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-800">
-                    <span className="text-2xl">🚀</span>
-                  </div>
-                  <h3 className="font-semibold text-white mb-2">Innovation First</h3>
-                  <p className="text-gray-300 text-sm">We're always exploring new technologies and methodologies to stay ahead of industry trends.</p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-800">
-                    <span className="text-2xl">🤝</span>
-                  </div>
-                  <h3 className="font-semibold text-white mb-2">Client-Centric</h3>
-                  <p className="text-gray-300 text-sm">Every decision we make is guided by what's best for our clients and their success.</p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-800">
-                    <span className="text-2xl">📈</span>
-                  </div>
-                  <h3 className="font-semibold text-white mb-2">Results Driven</h3>
-                  <p className="text-gray-300 text-sm">We measure our success by the tangible results we deliver for our clients.</p>
-                </div>
               </div>
             </div>
           </div>
