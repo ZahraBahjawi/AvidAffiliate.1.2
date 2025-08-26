@@ -9,7 +9,7 @@ export default {
         'serif': ['Google Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       colors: {
-        'brand-blue': '#1338BE',
+        'brand-blue': '#1350C5',
         'brand-dark-blue': '#081F5D',
         'brand-gray': '#A0A9AC',
         'brand-yellow': '#c9ee59',
