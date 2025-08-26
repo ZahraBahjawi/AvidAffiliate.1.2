@@ -71,30 +71,30 @@ const track = (eventName: string, data?: Record<string, any>) => {
 
 const ProofStats: React.FC = () => {
   return (
-    <section className="py-10">
+    <section className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          <p className="text-lg text-white font-light">On average, our full audits find:</p>
+          <p className="text-lg text-brand-dark-blue font-light">On average, our full audits find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-slate-800/70 border border-slate-700 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-green-400 mb-1">~300</p>
-            <p className="text-white text-sm">unmonetized mentions across ~50 different brands.</p>
+          <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
+            <p className="text-3xl font-bold text-green-600 mb-1">~300</p>
+            <p className="text-brand-dark-blue text-sm">unmonetized mentions across ~50 different brands.</p>
           </div>
-          <div className="bg-slate-800/70 border border-slate-700 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-orange-400 mb-1">~250</p>
-            <p className="text-white text-sm">broken links.</p>
+          <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
+            <p className="text-3xl font-bold text-yellow-600 mb-1">~250</p>
+            <p className="text-brand-dark-blue text-sm">broken links.</p>
           </div>
-          <div className="bg-slate-800/70 border border-slate-700 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-blue-400 mb-1">Est. 20% uplift.</p>
-            <p className="text-white text-sm">in affiliate revenue*</p>
+          <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
+            <p className="text-3xl font-bold text-brand-blue mb-1">Est. 20% uplift.</p>
+            <p className="text-brand-dark-blue text-sm">in affiliate revenue*</p>
           </div>
         </div>
       </div>
       
       {/* Caption */}
       <div className="text-center mt-6 px-6">
-        <div className="text-sm text-white space-y-1">
+        <div className="text-sm text-gray-600 space-y-1">
           <p>Estimates based on last 10 audits; results vary by traffic and content mix.</p>
           <p>*Uplift calculated using proportion of unmonetized / broken affiliate links to existing monetized links</p>
         </div>
@@ -106,21 +106,21 @@ const ProofStats: React.FC = () => {
 const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
   return (
     <div className={`mx-auto ${compact ? 'mt-4' : 'mt-10'} max-w-3xl`}>
-      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-deep-blue-200">
+      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-gray-600">
         <div className="flex items-center">
-          <ShieldCheck className="h-4 w-4 mr-2 text-ocean-teal-400" />
+          <ShieldCheck className="h-4 w-4 mr-2 text-brand-blue" />
           Read‑only crawler
         </div>
         <div className="flex items-center">
-          <Shield className="h-4 w-4 mr-2 text-ocean-teal-400" />
+          <Shield className="h-4 w-4 mr-2 text-brand-blue" />
           Data encrypted in transit
         </div>
         <div className="flex items-center">
-          <CheckCircle className="h-4 w-4 mr-2 text-ocean-teal-400" />
+          <CheckCircle className="h-4 w-4 mr-2 text-brand-blue" />
           We do not sell your data
         </div>
       </div>
-      <div className="text-center text-xs text-deep-blue-300 mt-2">
+      <div className="text-center text-xs text-gray-500 mt-2">
         <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
       </div>
     </div>
@@ -174,16 +174,16 @@ const FAQ: React.FC = () => {
   return (
     <div className="space-y-3">
       {faqItems.map((item, index) => (
-        <div key={index} className="bg-gradient-to-r from-coral-600/30 to-coral-500/30 rounded-xl border border-coral-400/50 shadow-lg">
+        <div key={index} className="bg-white rounded-xl border border-gray-200 shadow-sm">
           <button
             onClick={() => handleToggle(index)}
-            className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-coral-600/20 transition-all duration-200 rounded-xl group focus:outline-none focus:ring-2 focus:ring-coral-400 focus:ring-offset-2 focus:ring-offset-slate-700"
+            className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-all duration-200 rounded-xl group focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
             aria-expanded={openItem === index}
             aria-controls={`faq-answer-${index}`}
             id={`faq-question-${index}`}
           >
-            <span className="text-lg font-medium text-white group-hover:text-coral-300 transition-colors">{item.q}</span>
-            <div className={`transform transition-all duration-200 ${openItem === index ? 'rotate-180 text-coral-400' : 'text-white group-hover:text-coral-300'}`}>
+            <span className="text-lg font-medium text-brand-dark-blue group-hover:text-brand-blue transition-colors">{item.q}</span>
+            <div className={`transform transition-all duration-200 ${openItem === index ? 'rotate-180 text-brand-blue' : 'text-gray-500 group-hover:text-brand-blue'}`}>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -191,12 +191,12 @@ const FAQ: React.FC = () => {
           </button>
           {openItem === index && (
             <div 
-              className="px-6 pb-4 border-t border-coral-400/30"
+              className="px-6 pb-4 border-t border-gray-200"
               id={`faq-answer-${index}`}
               role="region"
               aria-labelledby={`faq-question-${index}`}
             >
-              <p className="text-white leading-relaxed pt-3">{item.a}</p>
+              <p className="text-gray-700 leading-relaxed pt-3">{item.a}</p>
             </div>
           )}
         </div>
@@ -209,10 +209,10 @@ const StickyMobileCTA: React.FC<{ onClick: () => void; show: boolean }> = ({ onC
   if (!show) return null;
   
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 bg-deep-blue-900/90 backdrop-blur border-t border-deep-blue-700 p-3 sm:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur border-t border-gray-200 p-3 sm:hidden">
       <button
         onClick={onClick}
-        className="w-full inline-flex items-center justify-center px-6 py-3 bg-coral-500 text-white font-medium rounded-lg hover:bg-coral-600 transition-colors"
+        className="w-full inline-flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-dark-blue transition-colors"
       >
         Get my free Report Card
         <ArrowRight className="ml-2 h-4 w-4" />
@@ -228,7 +228,7 @@ const DesktopRightRailCTA: React.FC<{ onClick: () => void; show: boolean }> = ({
     <div className={`fixed bottom-6 right-6 z-40 hidden lg:block transition-all duration-300 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
       <button
         onClick={onClick}
-        className="flex items-center gap-2 px-6 py-3 bg-coral-500 text-white font-medium rounded-full shadow-lg hover:bg-coral-600 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-coral-500 focus:ring-offset-2"
+        className="flex items-center gap-2 px-6 py-3 bg-brand-blue text-white font-medium rounded-full shadow-lg hover:bg-brand-dark-blue transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
       >
         <Zap className="h-5 w-5" />
         <span>Get my free Report Card</span>
@@ -274,13 +274,13 @@ const ReportcardPreview: React.FC = () => {
 
   return (
     <div className="mt-8 max-w-2xl mx-auto">
-      <p className="text-center text-deep-blue-200 text-sm mb-4">Preview a sample report card</p>
+      <p className="text-center text-gray-200 text-sm mb-4">Preview a sample report card</p>
       
-      <div className="bg-deep-blue-800 rounded-lg border border-deep-blue-600 p-6 relative">
+      <div className="bg-white/10 rounded-lg border border-white/20 p-6 relative">
         <div className="flex items-center justify-between mb-4">
           <button
             onClick={prevSlide}
-            className="p-2 rounded-full bg-deep-blue-700 hover:bg-deep-blue-600 transition-colors"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-4 w-4 text-white" />
@@ -296,14 +296,14 @@ const ReportcardPreview: React.FC = () => {
             <h3 className="text-lg font-medium text-white mb-1">
               {slides[currentSlide].title}
             </h3>
-            <p className="text-deep-blue-200 text-sm">
+            <p className="text-gray-300 text-sm">
               {slides[currentSlide].description}
             </p>
           </div>
           
           <button
             onClick={nextSlide}
-            className="p-2 rounded-full bg-deep-blue-700 hover:bg-deep-blue-600 transition-colors"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
             aria-label="Next slide"
           >
             <ChevronRight className="h-4 w-4 text-white" />
@@ -319,7 +319,7 @@ const ReportcardPreview: React.FC = () => {
                 track('sample_report_card_view', { slide: index + 1, action: 'dot_click' });
               }}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-coral-400' : 'bg-deep-blue-600'
+                index === currentSlide ? 'bg-brand-yellow' : 'bg-white/30'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -332,7 +332,7 @@ const ReportcardPreview: React.FC = () => {
               track('sample_report_card_view', { action: 'download_sample' });
               window.open('/sample-report-card.pdf', '_blank');
             }}
-            className="inline-flex items-center px-4 py-2 bg-coral-600 text-white text-sm font-medium rounded-lg hover:bg-coral-700 transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-brand-yellow text-brand-dark-blue text-sm font-medium rounded-lg hover:bg-yellow-400 transition-colors"
           >
             <Download className="mr-2 h-4 w-4" />
             View Full Sample
@@ -362,14 +362,10 @@ export const HomePage: React.FC<HomePageProps> = ({
     storeUTMs();
   }, []);
 
-  // Scroll-based background darkening effect
+  // Scroll-based hooks
   React.useEffect(() => {
     const handleScroll = () => {
       const scrollPercent = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1);
-      const overlay = document.querySelector('.scroll-overlay') as HTMLElement;
-      if (overlay) {
-        overlay.style.opacity = (scrollPercent * 0.8).toString();
-      }
       
       // Right rail and mobile sticky CTAs
       setShowRightRail(scrollPercent > 0.3);
@@ -450,13 +446,13 @@ export const HomePage: React.FC<HomePageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Scroll overlay for darkening effect */}
       <div className="scroll-overlay"></div>
       
       {/* Skip to content link for accessibility */}
       {/* Header Navigation */}
-      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-white/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -472,9 +468,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             {/* Navigation Links */}
 <nav className="hidden md:flex items-center space-x-8">
-  <a href="#features" className="text-white hover:font-bold transition text-sm" aria-label="View features section">Features</a>
-  <a href="#how-it-works" className="text-white hover:font-bold transition text-sm" aria-label="Learn how it works">How it works</a>
-  <button onClick={() => onNavigate('contact')} className="text-white hover:font-bold transition text-sm">Contact</button>
+  <a href="#features" className="text-brand-dark-blue hover:text-brand-blue transition text-sm font-medium" aria-label="View features section">Features</a>
+  <a href="#how-it-works" className="text-brand-dark-blue hover:text-brand-blue transition text-sm font-medium" aria-label="Learn how it works">How it works</a>
+  <button onClick={() => onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition text-sm font-medium">Contact</button>
 </nav>
 
             {/* CTA Button */}
@@ -487,7 +483,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-primary-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
                 Get my free Report Card
               </button>
@@ -497,13 +493,13 @@ export const HomePage: React.FC<HomePageProps> = ({
       </header>
 
       {/* Hero Section */}
-      <section id="main-content" className="pt-16 pb-10 bg-transparent">
+      <section id="main-content" className="pt-16 pb-10 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-7xl font-bold text-white mb-7 leading-tight tracking-tight" role="banner">
+            <h1 className="text-4xl md:text-7xl font-bold text-brand-dark-blue mb-7 leading-tight tracking-tight" role="banner">
               Your website is leaking revenue
             </h1>
-            <p className="text-lg text-white mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
+            <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
               Get a free affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs - so you earn more without redoing content. 
             </p>
 
@@ -524,7 +520,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 required
                 onFocus={handleFormFocus}
                 placeholder="Enter your website URL"
-                className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 placeholder-gray-300"
+                className="w-full px-4 py-3 rounded-lg bg-white text-brand-dark-blue border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue placeholder-gray-500"
                 aria-label="Website URL"
                 aria-describedby="url-help url-description"
                 disabled={isSubmitting}
@@ -535,7 +531,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-semibold rounded-lg hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 transition-all duration-300 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                className="inline-flex items-center px-6 py-3 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 transition-all duration-300 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
                 {isSubmitting ? (
                   <>
@@ -552,7 +548,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </form>
 
             {/* Reassurance text */}
-            <p className="text-center text-white text-sm mt-2 mb-4" role="note">
+            <p className="text-center text-gray-600 text-sm mt-2 mb-4" role="note">
               Takes ~15 seconds. We'll email your report card—no spam.
             </p>
 
@@ -563,16 +559,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('sample_pdf_click', { location: 'hero_thumbnail' });
                   window.open('/sample-report-card.pdf', '_blank');
                 }}
-                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-lg transition-all duration-300 hover:shadow-md group"
+                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all duration-300 hover:shadow-md group"
               >
                 <div className="w-12 h-16 bg-white rounded border border-gray-300 flex items-center justify-center flex-shrink-0">
                   <div className="text-xs text-gray-700 font-medium">PDF</div>
                 </div>
                 <div className="sm:text-left">
-                  <div className="text-white text-sm font-medium group-hover:text-orange-300 transition-colors">
+                  <div className="text-brand-dark-blue text-sm font-medium group-hover:text-brand-blue transition-colors">
                     View sample report card
                   </div>
-                  <div className="text-white text-xs">
+                  <div className="text-gray-600 text-xs">
                     See what you'll receive
                   </div>
                 </div>
@@ -580,17 +576,17 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Security badges - mobile friendly */}
-            <div className="text-center text-white text-sm">
+            <div className="text-center text-gray-600 text-sm">
               <div className="flex items-center justify-center mb-2">
-                <Shield className="h-4 w-4 mr-2 text-green-400 flex-shrink-0" />
+                <Shield className="h-4 w-4 mr-2 text-green-600 flex-shrink-0" />
                 <span>No credit card • Read‑only scan • Results in 48 hours</span>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
-                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-white hover:text-orange-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Privacy</button>
-                <span className="text-white">•</span>
-                <button onClick={() => onNavigate && onNavigate('terms')} className="text-white hover:text-orange-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Terms</button>
-                <span className="text-white">•</span>
-                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-white hover:text-orange-300 transition-colors underline focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900">Cookies</button>
+                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Privacy</button>
+                <span className="text-gray-500">•</span>
+                <button onClick={() => onNavigate && onNavigate('terms')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Terms</button>
+                <span className="text-gray-500">•</span>
+                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Cookies</button>
               </div>
             </div>
           </div>
@@ -605,52 +601,49 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="free-affiliate-audit" role="heading" aria-level="2">
+              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="free-affiliate-audit" role="heading" aria-level="2">
                 The hidden revenue leak
               </h2>
-              <p className="text-xl text-white font-light">You could be missing out on thousands in affiliate revenue</p>
+              <p className="text-xl text-gray-600 font-light">You could be missing out on thousands in affiliate revenue</p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-slate-800 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-700 group">
-                <div className="mx-auto mb-6 cursor-pointer">
-                  <DollarSign className="h-8 w-8 text-green-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
+                <div className="mx-auto mb-6">
+                  <DollarSign className="h-8 w-8 text-green-500 mx-auto transition-all duration-300" />
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">Missing payouts</h3>
-                <div className="text-3xl font-normal text-green-400 mb-4">50-80%</div>
-                <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="group-hover:hidden">of product mentions go unmonetized.</span>
-                  <span className="hidden group-hover:block">We find those mentions and turn them into tracked, revenue‑generating links.</span>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Missing payouts</h3>
+                <div className="text-3xl font-normal text-green-600 mb-4">50-80%</div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  of product mentions go unmonetized. We find those mentions and turn them into tracked, revenue‑generating links.
                 </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-700 group">
-                <div className="mx-auto mb-6 cursor-pointer">
-                  <Link2Off className="h-8 w-8 text-red-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
+                <div className="mx-auto mb-6">
+                  <Link2Off className="h-8 w-8 text-red-500 mx-auto transition-all duration-300" />
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">Broken links</h3>
-                <div className="text-3xl font-normal text-red-400 mb-4">Silent losses</div>
-                <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="group-hover:hidden">from 404s, redirects, and geo‑mismatches</span>
-                  <span className="hidden group-hover:block">We repair pathways from click to commission so your traffic converts.</span>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Broken links</h3>
+                <div className="text-3xl font-normal text-red-600 mb-4">Silent losses</div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  from 404s, redirects, and geo‑mismatches. We repair pathways from click to commission so your traffic converts.
                 </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8 text-center shadow-sm border border-slate-600 transition-all duration-300 hover:p-12 hover:bg-slate-700 group">
-                <div className="mx-auto mb-6 cursor-pointer">
-                  <TrendingUp className="h-8 w-8 text-blue-500 mx-auto transition-all duration-300 group-hover:h-10 group-hover:w-10" />
+              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
+                <div className="mx-auto mb-6">
+                  <TrendingUp className="h-8 w-8 text-blue-500 mx-auto transition-all duration-300" />
                 </div>
-                <h3 className="text-xl font-medium text-white mb-3">Low commission rates</h3>
-                <div className="text-3xl font-normal text-blue-400 mb-4">2–5x</div>
-                <p className="text-white text-sm leading-relaxed opacity-60 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="group-hover:hidden">better payouts exist for many programs.</span>
-                  <span className="hidden group-hover:block">We benchmark against 35,000+ programs and recommend higher‑paying alternatives.</span>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Low commission rates</h3>
+                <div className="text-3xl font-normal text-blue-600 mb-4">2–5x</div>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  better payouts exist for many programs. We benchmark against 35,000+ programs and recommend higher‑paying alternatives.
                 </p>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-coral-600 to-coral-500 rounded-2xl p-12 text-white text-center">
-              <h3 className="text-2xl font-normal mb-8 text-white">The result? You're leaving money on the table.</h3>
+            <div className="bg-brand-dark-blue rounded-2xl p-12 text-white text-center">
+              <h3 className="text-2xl font-normal mb-8">The result? You're leaving money on the table.</h3>
               
               <button
                 onClick={() => {
@@ -660,7 +653,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold rounded-lg hover:from-yellow-300 hover:to-orange-400 hover:shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300 mb-8"
+                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300 mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -674,45 +667,45 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20">
+      <section id="how-it-works" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free affiliate audit works</h2>
-              <p className="text-xl text-white font-light">Get your comprehensive audit report in three simple steps</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free affiliate audit works</h2>
+              <p className="text-xl text-gray-600 font-light">Get your comprehensive audit report in three simple steps</p>
             </div>
       
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">1</span>
+                <div className="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold">1</span>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-4">Submit your website</h3>
-                <p className="text-white leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-4">Submit your website</h3>
+                <p className="text-gray-600 leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
               </div>
       
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">2</span>
+                <div className="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold">2</span>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-4">We analyze your site</h3>
-                <p className="text-white leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-4">We analyze your site</h3>
+                <p className="text-gray-600 leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
               </div>
       
               <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                  <span className="text-2xl font-bold text-white">3</span>
+                <div className="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold">3</span>
                 </div>
-                <h3 className="text-xl font-medium text-white mb-4">Get your report card</h3>
-                <p className="text-white leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-4">Get your report card</h3>
+                <p className="text-gray-600 leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
               </div>
             </div>
       
             {/* FAQ Section */}
             <div className="mt-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" id="frequently-asked-questions" role="heading" aria-level="2">Frequently Asked Questions</h2>
-                <p className="text-lg text-white font-light">Everything you need to know about our free affiliate marketing audit</p>
+                <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-4" id="frequently-asked-questions" role="heading" aria-level="2">Frequently Asked Questions</h2>
+                <p className="text-lg text-gray-600 font-light">Everything you need to know about our free affiliate marketing audit</p>
               </div>
 
               <FAQ />
@@ -726,55 +719,55 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6" id="why-creators-choose" role="heading" aria-level="2">Why 300+ creators choose AvidAffiliate</h2>
-              <p className="text-xl text-white font-light">Make more money from your existing content—effortlessly</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="why-creators-choose" role="heading" aria-level="2">Why 300+ creators choose AvidAffiliate</h2>
+              <p className="text-xl text-gray-600 font-light">Make more money from your existing content—effortlessly</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
-                <Zap className="h-8 w-8 text-yellow-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Smart link analysis</h3>
-                <p className="text-white text-sm leading-relaxed">
+              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <Zap className="h-8 w-8 text-brand-yellow mb-6" />
+                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Smart link analysis</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   Automatically find every missed commission opportunity—then see exactly how to monetize it.
                 </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
-                <FileText className="h-8 w-8 text-blue-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Proprietary affiliate database</h3>
-                <p className="text-white text-sm leading-relaxed">
+              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <FileText className="h-8 w-8 text-brand-blue mb-6" />
+                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Proprietary affiliate database</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
                 </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
-                <Users className="h-8 w-8 text-green-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Done‑for‑you implementation</h3>
-                <p className="text-white text-sm leading-relaxed">
+              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <Users className="h-8 w-8 text-green-600 mb-6" />
+                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Done‑for‑you implementation</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   We fix issues for you—fast—so you can focus on creating content.
                 </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
-                <Clock className="h-8 w-8 text-purple-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Rapid results</h3>
-                <p className="text-white text-sm leading-relaxed">
+              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <Clock className="h-8 w-8 text-purple-600 mb-6" />
+                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Rapid results</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   See measurable gains in weeks, not months—starting with the highest‑impact fixes.
                 </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
-                <Shield className="h-8 w-8 text-indigo-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Long‑term partner</h3>
-                <p className="text-white text-sm leading-relaxed">
+              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <Shield className="h-8 w-8 text-indigo-600 mb-6" />
+                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Long‑term partner</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   From audit to ongoing optimization—we help you unlock the full value of your content.
                 </p>
               </div>
 
-              <div className="bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-600">
-                <CheckCircle className="h-8 w-8 text-teal-400 mb-6" />
-                <h3 className="text-lg font-medium text-white mb-3">Proven methodology</h3>
-                <p className="text-white text-sm leading-relaxed">
+              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <CheckCircle className="h-8 w-8 text-teal-600 mb-6" />
+                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Proven methodology</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   A repeatable process used by creators to drive consistent, compounding revenue.
                 </p>
               </div>
@@ -784,51 +777,51 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* About / Values */}
-<section id="about-us" className="py-20">
+<section id="about-us" className="py-20 bg-gray-50">
   <div className="max-w-7xl mx-auto px-6">
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">About AvidAffiliate</h2>
-        <p className="text-xl text-white font-light">Empowering creators to unlock their site's true revenue potential</p>
+        <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6">About AvidAffiliate</h2>
+        <p className="text-xl text-gray-600 font-light">Empowering creators to unlock their site's true revenue potential</p>
       </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <p className="text-lg text-white leading-relaxed mb-6">
+                <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   We bridge the gap between great content and optimized monetization with intelligent, data‑driven affiliate marketing solutions.
                 </p>
-                <p className="text-lg text-white leading-relaxed">
+                <p className="text-lg text-gray-700 leading-relaxed">
                   Audit with Optimize, fix with Implement, upgrade partners with Discover, plan with Strategize, and scale with Manage.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Target className="h-6 w-6 text-blue-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Transparency</h3>
-                  <p className="text-white text-sm">Clear process and results</p>
+                  <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">Transparency</h3>
+                  <p className="text-gray-600 text-sm">Clear process and results</p>
                 </div>
-                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
                   <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Zap className="h-6 w-6 text-yellow-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Fast results</h3>
-                  <p className="text-white text-sm">Quick, impactful changes</p>
+                  <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">Fast results</h3>
+                  <p className="text-gray-600 text-sm">Quick, impactful changes</p>
                 </div>
-                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Users className="h-6 w-6 text-green-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Expert team</h3>
-                  <p className="text-white text-sm">Experienced specialists</p>
+                  <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">Expert team</h3>
+                  <p className="text-gray-600 text-sm">Experienced specialists</p>
                 </div>
-                <div className="bg-slate-800 rounded-xl p-6 text-center border border-slate-600">
+                <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="h-6 w-6 text-purple-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">Data‑driven</h3>
-                  <p className="text-white text-sm">Every strategy backed by data</p>
+                  <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">Data‑driven</h3>
+                  <p className="text-gray-600 text-sm">Every strategy backed by data</p>
                 </div>
               </div>
             </div>
@@ -839,7 +832,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('learn_more_about');
                   onNavigate('about');
                 }}
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center px-6 py-3 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 transition-all duration-300"
               >
                 Learn more about us
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -854,8 +847,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-white mb-6">We support top affiliate networks</h2>
-              <p className="text-xl text-white font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6">We support top affiliate networks</h2>
+              <p className="text-xl text-gray-600 font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
             </div>
 
             {/* Logo Grid */}
@@ -892,14 +885,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="text-center">
               <button
                 onClick={() => onNavigate('affiliate_partners')}
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-500 hover:to-blue-500 hover:shadow-lg hover:shadow-indigo-500/50 transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-700"
+                className="inline-flex items-center px-6 py-3 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
                 View all networks
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
 
-            <p className="text-center text-xs text-white mt-4">
+            <p className="text-center text-xs text-gray-500 mt-4">
               Logos are for identification only; no endorsement implied. All trademarks belong to their respective owners.
             </p>
           </div>
@@ -907,11 +900,11 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-brand-dark-blue">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-normal mb-6">Ready to unlock hidden affiliate revenue?</h2>
-            <p className="text-xl text-white mb-12 font-light">
+            <p className="text-xl mb-12 font-light opacity-80">
               Start with your free report card. Then choose Audit (deep analysis), then Implementation (we fix it).
             </p>
 
@@ -921,7 +914,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-base font-bold rounded-lg hover:from-yellow-300 hover:to-orange-400 hover:shadow-xl hover:shadow-yellow-500/50 transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-orange-600"
+                className="inline-flex items-center px-8 py-4 bg-brand-yellow text-brand-dark-blue text-base font-bold rounded-lg hover:bg-yellow-400 hover:shadow-xl hover:shadow-yellow-500/50 transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -932,28 +925,28 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_secondary' });
                   onNavigate('contact');
                 }}
-                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white text-base font-semibold rounded-lg hover:bg-white hover:text-orange-600 hover:shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white text-base font-semibold rounded-lg hover:bg-white hover:text-brand-dark-blue hover:shadow-lg transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
               >
                 Contact us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
             </div>
 
-            <p className="text-xs text-white mb-6 opacity-75">
+            <p className="text-xs mb-6 opacity-75">
               Limited Implement and Manage openings monthly
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-white text-sm">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-sm">
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-400" />
                 <span>100% free analysis</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-400" />
                 <span>No sign‑up required</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 mr-2 text-green-300" />
+                <CheckCircle className="h-4 w-4 mr-2 text-green-400" />
                 <span>Results in 48 hours</span>
               </div>
             </div>
