@@ -83,16 +83,16 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
 
   const getTypeColor = (type: string) => {
     return type === 'Referral' 
-      ? 'bg-orange-100 text-orange-800 border-orange-200' 
+      ? 'bg-yellow-100 text-yellow-800 border-yellow-200' 
       : 'bg-gray-100 text-gray-800 border-gray-200';
   };
 
   return (
-    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Scroll overlay for darkening effect */}
       <div className="scroll-overlay"></div>
       {/* Header Navigation */}
-      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-white/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -108,9 +108,9 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
-              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
@@ -124,7 +124,7 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
                     onBack && onBack();
                   }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-primary-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
                 Get my free Report Card
               </button>
@@ -141,27 +141,27 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center text-white hover:text-orange-300 mb-6 transition-colors"
+                  className="flex items-center text-brand-dark-blue hover:text-brand-blue mb-6 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home
                 </button>
               )}
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-brand-dark-blue mb-4">
                 Affiliate Network Guide
               </h1>
-              <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 Your comprehensive guide to the leading affiliate networks and platforms for maximizing your revenue potential.
               </p>
             </div>
 
             {/* Disclaimer */}
-            <div className="bg-orange-900/20 border-l-4 border-orange-400 p-6 mb-8 rounded-r-lg">
+            <div className="bg-yellow-50 border-l-4 border-brand-yellow p-6 mb-8 rounded-r-lg">
               <div className="flex items-start">
-                <AlertTriangle className="h-6 w-6 text-orange-600 mt-1 mr-3 flex-shrink-0" />
+                <AlertTriangle className="h-6 w-6 text-yellow-600 mt-1 mr-3 flex-shrink-0" />
                 <div>
-                  <h3 className="text-lg font-semibold text-orange-400 mb-2">Affiliate Link Disclosure</h3>
-                  <p className="text-orange-300 leading-relaxed">
+                  <h3 className="text-lg font-semibold text-yellow-800 mb-2">Affiliate Link Disclosure</h3>
+                  <p className="text-yellow-700 leading-relaxed">
                     <strong>Important:</strong> Some links on this page are affiliate referral links, clearly marked as "Referral" below. 
                     This means we may earn a commission if you sign up or make a purchase through these links, at no extra cost to you. 
                     We only recommend platforms we genuinely believe can benefit your affiliate marketing efforts. Links marked as "Not Referral" 
@@ -172,54 +172,54 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
             </div>
 
             {/* Introduction */}
-            <div className="bg-slate-800 rounded-2xl shadow-xl p-8 mb-8 border border-slate-700">
-              <h2 className="text-2xl font-bold text-white mb-4">How We Help You Choose</h2>
-              <p className="text-gray-300 leading-relaxed mb-4">
+            <div className="bg-gray-50 rounded-2xl shadow-xl p-8 mb-8 border border-gray-200">
+              <h2 className="text-2xl font-bold text-brand-dark-blue mb-4">How We Help You Choose</h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
                 Our audit service analyzes your website to identify which affiliate networks and programs offer the optimal fit 
                 for your monetization opportunities. We've researched and evaluated these networks based on their commission 
                 structures, merchant quality, and overall value to content creators.
               </p>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Rather than guessing which networks might work, our audit identifies the specific programs that will deliver 
                 the best results based on factual analysis of available opportunities.
               </p>
             </div>
 
             {/* Partners List */}
-            <div className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
-              <h2 className="text-2xl font-bold text-white mb-6">Recommended Affiliate Networks & Platforms</h2>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
+              <h2 className="text-2xl font-bold text-brand-dark-blue mb-6">Recommended Affiliate Networks & Platforms</h2>
               
               <div className="space-y-6">
                 {affiliatePartners.map((partner, index) => (
-                  <div key={index} className="border border-slate-600 rounded-lg p-6 hover:shadow-md transition-shadow bg-slate-700">
+                  <div key={index} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow bg-gray-50">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3">
                       <div className="flex items-center">
                         {getCategoryIcon(partner.category)}
-                        <h3 className="text-xl font-bold text-white ml-3">{partner.name}</h3>
+                        <h3 className="text-xl font-bold text-brand-dark-blue ml-3">{partner.name}</h3>
                       </div>
                       <div className="flex flex-wrap items-center gap-2">
                         <span className={`inline-flex px-3 py-1 text-xs font-semibold rounded-full border ${getTypeColor(partner.type)}`}>
                           {partner.type}
                         </span>
-                        <span className="text-sm text-gray-400 bg-slate-600 px-2 py-1 rounded whitespace-nowrap">
+                        <span className="text-sm text-gray-600 bg-gray-200 px-2 py-1 rounded whitespace-nowrap">
                           {partner.category}
                         </span>
                       </div>
                     </div>
                     
-                    <p className="text-gray-300 leading-relaxed mb-4">
+                    <p className="text-gray-600 leading-relaxed mb-4">
                       {partner.description}
                     </p>
                     
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                      <div className="text-sm text-gray-400">
+                      <div className="text-sm text-gray-500">
                         <span className="font-medium">Platform Type:</span> {partner.category}
                       </div>
                       <a
                         href={partner.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300 whitespace-nowrap"
+                        className="inline-flex items-center justify-center px-4 py-2 bg-brand-blue text-white text-sm font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 transition-all duration-300 whitespace-nowrap"
                       >
                         Visit {partner.name}
                         <ExternalLink className="h-4 w-4 ml-2" />
@@ -231,9 +231,9 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
             </div>
 
             {/* Our Service Information */}
-            <div className="mt-8 bg-blue-900/20 rounded-xl p-6 border border-blue-800">
-              <h3 className="text-lg font-semibold text-blue-400 mb-3">Optimal Network Recommendations</h3>
-              <p className="text-blue-300 leading-relaxed">
+            <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200">
+              <h3 className="text-lg font-semibold text-brand-blue mb-3">Optimal Network Recommendations</h3>
+              <p className="text-blue-800 leading-relaxed">
                 Our audit service identifies which networks offer the best opportunities for your website based on factual 
                 analysis of commission rates, program availability, and optimization potential.
               </p>
