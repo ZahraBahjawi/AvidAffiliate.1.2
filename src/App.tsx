@@ -48,6 +48,17 @@ function App() {
     setIsLoading(false);
   };
 
+  const handleNavigate = (page: AppStage | string) => {
+    if (typeof page === 'string' && page.includes('#')) {
+      const [targetStage, targetId] = page.split('#');
+      setStage(targetStage as AppStage);
+      setScrollTarget(targetId);
+    } else {
+      setStage(page as AppStage);
+      window.scrollTo(0, 0); // Scroll to top on normal page navigation
+    }
+  };
+
   const handleFormSubmit = async (data: UserData) => {
     setUserData(data);
     
@@ -128,7 +139,7 @@ function App() {
           <ThankYouPage
             userData={userData}
             onBackToHome={resetToHome}
-            onNavigate={(page) => setStage(page)}
+            onNavigate={handleNavigate}
           />
         ) : null;
 
@@ -142,15 +153,7 @@ function App() {
             }
             setStage('form');
           }} 
-          onNavigate={(page) => {
-            if (page.includes('#')) {
-              const [targetStage, targetId] = page.split('#');
-              setStage(targetStage as AppStage);
-              setScrollTarget(targetId);
-            } else {
-              setStage(page as AppStage);
-            }
-          }}
+          onNavigate={handleNavigate}
           onBack={resetToHome}
           scrollTarget={scrollTarget}
           onScrollComplete={() => setScrollTarget(null)}
@@ -161,7 +164,7 @@ function App() {
           <SubmissionForm
             onSubmit={handleFormSubmit}
             onBack={() => setStage('home')}
-            onNavigate={(page) => setStage(page)}
+            onNavigate={handleNavigate}
             prefilledData={prefilledData}
           />
         );
@@ -172,32 +175,32 @@ function App() {
             scorecardData={scorecardData}
             userData={userData}
             onBackToHome={resetToHome}
-            onNavigate={(page) => setStage(page)}
+            onNavigate={handleNavigate}
           />
         ) : null;
       
       case 'sitemap':
-        return <SitemapPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+        return <SitemapPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
      
       case 'team':
-        return <OurTeamPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+        return <OurTeamPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
       case 'contact': // Add this case
-        return <ContactPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+        return <ContactPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
       
       case 'privacy':
-        return <PrivacyPolicyPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+        return <PrivacyPolicyPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
       case 'terms':
-        return <TermsOfServicePage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+        return <TermsOfServicePage onBack={resetToHome} onNavigate={handleNavigate} />;
       
       case 'cookies':
-        return <CookiesPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+        return <CookiesPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
       case 'affiliate_partners':
-        return <AffiliatePartnersPage onBack={resetToHome} onNavigate={(page) => setStage(page)} />;
+        return <AffiliatePartnersPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
       case 'admin':
         return <SubmissionLogger />;
@@ -205,7 +208,7 @@ function App() {
       default:
         return <HomePage 
           onNext={() => setStage('form')} 
-          onNavigate={(page) => setStage(page)}
+          onNavigate={handleNavigate}
         />;
     }
   };
