@@ -94,7 +94,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
       )}
 
       {/* Simplified Header */}
-      <header className="bg-brand-dark-blue border-b border-brand-blue sticky top-0 z-50">
+      <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -105,7 +105,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
               />
             </div>
             <div className="flex items-center">
-              <button onClick={onBack} className="text-white hover:text-brand-gray transition-colors text-sm font-medium flex items-center">
+              <button onClick={onBack} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium flex items-center">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </button>
