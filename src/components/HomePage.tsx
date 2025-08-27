@@ -570,6 +570,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </button>
             </div>
+            
             {/* Testimonial Section */}
             <div className="mt-12 max-w-2xl mx-auto">
               <blockquote className="text-lg text-gray-700 italic border-l-4 border-brand-yellow pl-6">
