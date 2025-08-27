@@ -49,49 +49,43 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
   if (submitSuccess) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-        {/* Header Navigation */}
-        <header className="bg-white shadow-sm border-b border-gray-200">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between h-16">
-              {/* Logo */}
-              <div className="flex items-center">
-                <div className="flex items-center">
-                  <img 
-                    src="/LOGO.png" 
-                    alt="AvidAffiliate Logo" 
-                    className="h-8 w-8 mr-3"
-                  />
-                  <img 
-                    src="/LOGO.png" 
-                    alt="AvidAffiliate Logo" 
-                    className="h-8 w-8 mr-3"
-                  />
-                  <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Revenue Optimization</h1>
-                  </div>
-                </div>
-              </div>
+         {/* Header Navigation */}
+      <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between h-16">
+            {
+/* Logo */
+}
+<div className="flex items-center">
+  <button onClick={onBack} aria-label="Go to homepage">
+    <img
+      src="/LOGO.png"
+      alt="AvidAffiliate Logo"
+      className="h-24 w-auto"
+    />
+  </button>
+</div>
 
-              {/* Navigation Links */}
-              <nav className="hidden md:flex items-center space-x-8">
-                <button onClick={onBack} className="text-gray-600 hover:text-blue-600 transition-colors font-medium">Home</button>
-                <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-600 hover:text-blue-600 transition-colors font-medium">About</button>
-                <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-600 hover:text-blue-600 transition-colors font-medium">Team</button>
-                <button onClick={() => onNavigate && onNavigate('contact')} className="text-gray-600 hover:text-blue-600 transition-colors font-medium">Contact</button>
-              </nav>
+            {/* Navigation Links */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <button onClick={onBack} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Home</button>
+              <button onClick={() => onNavigate && onNavigate('about')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">About</button>
+              <button onClick={() => onNavigate && onNavigate('team')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Team</button>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
+            </nav>
 
-              {/* CTA Button */}
-              <div className="flex items-center space-x-4">
-                <button
-                  onClick={onBack}
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium shadow-md"
-                >
-                  Free Scorecard
-                </button>
-              </div>
+            {/* CTA Button */}
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={onBack}
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+              >
+                Get Free Scorecard
+              </button>
             </div>
           </div>
-        </header>
+        </div>
+      </header>
 
         <div className="py-16">
           <div className="container mx-auto px-4">
