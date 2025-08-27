@@ -72,14 +72,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
     return (
       <div className="min-h-screen bg-slate-900 flex flex-col" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         <div className="flex-grow">
-            <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+            <header className="bg-brand-dark-blue border-b border-brand-blue sticky top-0 z-50 backdrop-blur-sm">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex items-center justify-between h-16">
                 <div className="flex items-center">
                     <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
                 </div>
                 <nav className="hidden md:flex items-center space-x-8">
-                    <button onClick={onBack} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Home</button>
+                    <button onClick={onBack} className="text-white hover:text-brand-gray transition-colors text-sm font-medium">Home</button>
                     <button onClick={() => onNavigate && onNavigate('about')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">About</button>
                     <button onClick={() => onNavigate && onNavigate('team')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Team</button>
                     <button onClick={() => onNavigate && onNavigate('contact')} className="text-white hover:text-orange-300 transition-colors text-sm font-medium">Contact</button>
