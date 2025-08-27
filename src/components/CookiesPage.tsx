@@ -9,11 +9,11 @@ interface CookiesPageProps {
 
 export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) => {
   return (
-    <div className="min-h-screen bg-primary-900 background-container" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Scroll overlay for darkening effect */}
       <div className="scroll-overlay"></div>
       {/* Header Navigation */}
-      <header className="bg-black/95 border-b border-gray-800 sticky top-0 z-50 backdrop-blur-sm">
+      <header className="bg-white/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -29,9 +29,9 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="View features section">Features</a>
-              <a href="#how-it-works" className="text-neutral-200 hover:text-white transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="text-neutral-200 hover:text-white transition-colors text-sm font-medium">Contact</button>
+              <a href="#features" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium" aria-label="Learn how it works">How it works</a>
+              <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
@@ -45,7 +45,7 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
                     onBack && onBack();
                   }
                 }}
-                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-primary-900"
+                className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
                 Get my free Report Card
               </button>
@@ -62,30 +62,30 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center text-white hover:text-orange-300 mb-6 transition-colors"
+                  className="flex items-center text-brand-dark-blue hover:text-brand-blue mb-6 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home
                 </button>
               )}
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold text-brand-dark-blue mb-4">
                 Cookie Policy
               </h1>
-              <p className="text-gray-300">
+              <p className="text-gray-600">
                 Last Updated: August 5th, 2025
               </p>
             </div>
 
             {/* Main Content */}
-            <div id="cookies-page" className="bg-slate-800 rounded-2xl shadow-xl p-8 space-y-8 border border-slate-700">
+            <div id="cookies-page" className="bg-white rounded-2xl shadow-xl p-8 space-y-8 border border-gray-200">
               
               {/* Introduction */}
               <section>
                 <div className="flex items-center mb-4">
-                  <Cookie className="h-6 w-6 text-blue-600 mr-3" />
-                  <h2 className="text-2xl font-bold text-white">What Are Cookies?</h2>
+                  <Cookie className="h-6 w-6 text-brand-blue mr-3" />
+                  <h2 className="text-2xl font-bold text-brand-dark-blue">What Are Cookies?</h2>
                 </div>
-                <div className="text-gray-300 space-y-3">
+                <div className="text-gray-600 space-y-3">
                   <p>
                     Cookies are small text files that are placed on your computer or mobile device when you visit our website. They are widely used to make websites work more efficiently and to provide information to website owners about how users interact with their sites.
                   </p>
@@ -99,15 +99,15 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
               <section>
                 <div className="flex items-center mb-4">
                   <Settings className="h-6 w-6 text-green-600 mr-3" />
-                  <h2 className="text-2xl font-bold text-white">Types of Cookies We Use</h2>
+                  <h2 className="text-2xl font-bold text-brand-dark-blue">Types of Cookies We Use</h2>
                 </div>
                 <div className="space-y-6">
-                  <div className="bg-blue-900/20 rounded-lg p-6 border border-blue-800">
-                    <h3 className="text-lg font-semibold text-blue-400 mb-3">Essential Cookies</h3>
-                    <p className="text-blue-300 mb-3">
+                  <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                    <h3 className="text-lg font-semibold text-blue-800 mb-3">Essential Cookies</h3>
+                    <p className="text-blue-700 mb-3">
                       These cookies are necessary for the website to function properly and cannot be disabled. They enable core functionality such as:
                     </p>
-                    <ul className="list-disc list-inside text-blue-300 space-y-1">
+                    <ul className="list-disc list-inside text-blue-700 space-y-1">
                       <li>Security and authentication</li>
                       <li>Form submission and data processing</li>
                       <li>Session management</li>
@@ -115,28 +115,28 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
                     </ul>
                   </div>
 
-                  <div className="bg-green-900/20 rounded-lg p-6 border border-green-800">
-                    <h3 className="text-lg font-semibold text-green-400 mb-3">Analytics Cookies</h3>
-                    <p className="text-green-300 mb-3">
+                  <div className="bg-green-50 rounded-lg p-6 border border-green-200">
+                    <h3 className="text-lg font-semibold text-green-800 mb-3">Analytics Cookies</h3>
+                    <p className="text-green-700 mb-3">
                       These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously:
                     </p>
-                    <ul className="list-disc list-inside text-green-300 space-y-1">
+                    <ul className="list-disc list-inside text-green-700 space-y-1">
                       <li>Number of visitors and page views</li>
                       <li>How long visitors spend on our site</li>
                       <li>Which pages are most popular</li>
                       <li>Traffic sources and user behavior patterns</li>
                     </ul>
-                    <p className="text-green-400 text-sm mt-3">
+                    <p className="text-green-800 text-sm mt-3">
                       <strong>Third-party services:</strong> We may use Google Analytics or similar services to collect this information.
                     </p>
                   </div>
 
-                  <div className="bg-purple-900/20 rounded-lg p-6 border border-purple-800">
-                    <h3 className="text-lg font-semibold text-purple-400 mb-3">Functional Cookies</h3>
-                    <p className="text-purple-300 mb-3">
+                  <div className="bg-purple-50 rounded-lg p-6 border border-purple-200">
+                    <h3 className="text-lg font-semibold text-purple-800 mb-3">Functional Cookies</h3>
+                    <p className="text-purple-700 mb-3">
                       These cookies enable enhanced functionality and personalization:
                     </p>
-                    <ul className="list-disc list-inside text-purple-300 space-y-1">
+                    <ul className="list-disc list-inside text-purple-700 space-y-1">
                       <li>Remembering your preferences and settings</li>
                       <li>Providing personalized content and recommendations</li>
                       <li>Enabling social media features</li>
@@ -144,18 +144,18 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
                     </ul>
                   </div>
 
-                  <div className="bg-orange-900/20 rounded-lg p-6 border border-orange-800">
-                    <h3 className="text-lg font-semibold text-orange-400 mb-3">Marketing Cookies</h3>
-                    <p className="text-orange-300 mb-3">
+                  <div className="bg-yellow-50 rounded-lg p-6 border border-yellow-200">
+                    <h3 className="text-lg font-semibold text-yellow-800 mb-3">Marketing Cookies</h3>
+                    <p className="text-yellow-700 mb-3">
                       These cookies are used to deliver relevant advertisements and track advertising effectiveness:
                     </p>
-                    <ul className="list-disc list-inside text-orange-300 space-y-1">
+                    <ul className="list-disc list-inside text-yellow-700 space-y-1">
                       <li>Tracking visits across websites</li>
                       <li>Building a profile of your interests</li>
                       <li>Showing relevant advertisements</li>
                       <li>Measuring advertising campaign performance</li>
                     </ul>
-                    <p className="text-orange-400 text-sm mt-3">
+                    <p className="text-yellow-800 text-sm mt-3">
                       <strong>Note:</strong> We may work with advertising partners who use these cookies to show you relevant ads on other websites.
                     </p>
                   </div>
@@ -164,8 +164,8 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
 
               {/* Third-Party Cookies */}
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Third-Party Cookies</h2>
-                <div className="text-gray-300 space-y-3">
+                <h2 className="text-2xl font-bold text-brand-dark-blue mb-4">Third-Party Cookies</h2>
+                <div className="text-gray-600 space-y-3">
                   <p>
                     Some cookies on our website are set by third-party services that appear on our pages. We do not control these cookies, and they are subject to the respective third parties' privacy policies.
                   </p>
@@ -185,11 +185,11 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
               <section>
                 <div className="flex items-center mb-4">
                   <Shield className="h-6 w-6 text-purple-600 mr-3" />
-                  <h2 className="text-2xl font-bold text-white">Managing Your Cookie Preferences</h2>
+                  <h2 className="text-2xl font-bold text-brand-dark-blue">Managing Your Cookie Preferences</h2>
                 </div>
-                <div className="text-gray-300 space-y-4">
+                <div className="text-gray-600 space-y-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">Browser Settings</h3>
+                    <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">Browser Settings</h3>
                     <p className="mb-3">
                       Most web browsers allow you to control cookies through their settings. You can:
                     </p>
@@ -203,8 +203,8 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">Browser-Specific Instructions</h3>
-                    <div className="bg-slate-700 rounded-lg p-4 border border-slate-600">
+                    <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">Browser-Specific Instructions</h3>
+                    <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
                       <ul className="space-y-2 text-sm">
                         <li><strong>Chrome:</strong> Settings → Privacy and Security → Cookies and other site data</li>
                         <li><strong>Firefox:</strong> Options → Privacy & Security → Cookies and Site Data</li>
@@ -215,7 +215,7 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">Opt-Out Tools</h3>
+                    <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">Opt-Out Tools</h3>
                     <p>
                       For analytics and advertising cookies, you can also use these opt-out tools:
                     </p>
@@ -231,14 +231,14 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
               {/* Impact of Disabling Cookies */}
               <section>
                 <div className="flex items-center mb-4">
-                  <Eye className="h-6 w-6 text-orange-600 mr-3" />
-                  <h2 className="text-2xl font-bold text-white">Impact of Disabling Cookies</h2>
+                  <Eye className="h-6 w-6 text-yellow-600 mr-3" />
+                  <h2 className="text-2xl font-bold text-brand-dark-blue">Impact of Disabling Cookies</h2>
                 </div>
-                <div className="bg-yellow-900/20 border border-yellow-800 rounded-lg p-6">
-                  <p className="text-yellow-300 mb-3">
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                  <p className="text-yellow-700 mb-3">
                     <strong>Please note:</strong> Disabling certain cookies may affect your experience on our website:
                   </p>
-                  <ul className="list-disc list-inside text-yellow-300 space-y-1">
+                  <ul className="list-disc list-inside text-yellow-700 space-y-1">
                     <li>Some features may not work properly or at all</li>
                     <li>You may need to re-enter information more frequently</li>
                     <li>Personalized content and recommendations may not be available</li>
@@ -250,8 +250,8 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
 
               {/* Updates to Cookie Policy */}
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Updates to This Cookie Policy</h2>
-                <div className="text-gray-300 space-y-3">
+                <h2 className="text-2xl font-bold text-brand-dark-blue mb-4">Updates to This Cookie Policy</h2>
+                <div className="text-gray-600 space-y-3">
                   <p>
                     We may update this Cookie Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes, we will update the "Last Updated" date at the top of this policy.
                   </p>
@@ -266,16 +266,16 @@ export const CookiesPage: React.FC<CookiesPageProps> = ({ onBack, onNavigate }) 
 
               {/* Contact Information */}
               <section>
-                <div className="bg-blue-900/20 rounded-lg p-6 border border-blue-800">
-                  <h2 className="text-2xl font-bold text-white mb-4">Questions About Cookies?</h2>
-                  <p className="text-gray-300 leading-relaxed mb-4">
+                <div className="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                  <h2 className="text-2xl font-bold text-brand-dark-blue mb-4">Questions About Cookies?</h2>
+                  <p className="text-gray-600 leading-relaxed mb-4">
                     If you have any questions about our use of cookies or this Cookie Policy, please contact us:
                   </p>
-                  <div className="space-y-2 text-gray-300">
+                  <div className="space-y-2 text-gray-700">
                     <p><strong>Email:</strong> hello@avidaffiliate.com</p>
                     <p><strong>Subject Line:</strong> Cookie Policy Inquiry</p>
                   </div>
-                  <p className="text-sm text-gray-400 mt-4">
+                  <p className="text-sm text-gray-500 mt-4">
                     We will respond to your inquiry within 48 hours during normal business days.
                   </p>
                 </div>
