@@ -588,13 +588,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
      
       </section>
-            {/* Testimonial Section */}
-            <div className="mt-12 max-w-2xl mx-auto">
-              <blockquote className="text-lg text-gray-700 italic border-l-4 border-brand-yellow pl-6">
-                "They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The information provided was thorough, concise and extremely helpful. The changes have enhanced my site and put me in a better position to attain more clicks and sales."
-              </blockquote>
-              <p className="text-right mt-4 text-brand-dark-blue font-semibold">— Ed Schmidt, The Golf Travel Guru</p>
-            </div>
+
       {/* Proof Stats Strip */}
       <ProofStats />
 
