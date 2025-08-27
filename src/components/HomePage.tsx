@@ -586,7 +586,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
           </div>
-        </div>
+     
       </section>
             {/* Testimonial Section */}
             <div className="mt-12 max-w-2xl mx-auto">
