@@ -178,35 +178,36 @@ ${userData.name}`
 
   return (
     <div
-      className="min-h-screen bg-slate-900 flex flex-col"
+      className="min-h-screen bg-white flex flex-col"
       style={{
         fontFamily:
-          'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
     >
       <div className="flex-grow">
         {/* Header Navigation */}
-        <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-slate-900/95">
+        <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
               <div className="flex items-center">
-                <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
+                 <button onClick={onBackToHome} aria-label="Go to homepage">
+                    <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
+                </button>
               </div>
 
               {/* Navigation Links */}
               <nav className="hidden md:flex items-center space-x-8">
                 <button
-                  onClick={onBackToHome}
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                  onClick={() => onNavigate && onNavigate('home#features')}
+                  className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium"
                 >
-                  Home
+                  Features
                 </button>
-                <button onClick={() => onNavigate && onNavigate('about')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">About</button>
-                <button onClick={() => onNavigate && onNavigate('team')} className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Team</button>
+                <button onClick={() => onNavigate && onNavigate('home#how-it-works')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">How it works</button>
                 <button
                   onClick={() => onNavigate && onNavigate('contact')}
-                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+                  className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium"
                 >
                   Contact
                 </button>
@@ -216,7 +217,7 @@ ${userData.name}`
               <div className="flex items-center space-x-4">
                 <button
                   onClick={onBackToHome}
-                  className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-[#FF6B35] hover:bg-[#E55A2B] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+                  className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
                 >
                   Back to Homepage
                 </button>
@@ -230,38 +231,38 @@ ${userData.name}`
             <div className="max-w-4xl mx-auto">
               {/* Success Acknowledgement */}
               <div className="text-center mb-10">
-                <div className="w-20 h-20 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-800">
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 border border-green-200">
                   <CheckCircle className="h-10 w-10 text-green-600" />
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                <h1 className="text-4xl md:text-5xl font-bold text-brand-dark-blue mb-6">
                   Thank you for submitting!
                 </h1>
-                <p className="text-xl text-gray-300 mb-2">
+                <p className="text-xl text-gray-600 mb-2">
                   We've received your Report Card request for{' '}
-                  <span className="font-semibold text-blue-400">{userData.url}</span>
+                  <span className="font-semibold text-brand-blue">{userData.url}</span>
                 </p>
-                <p className="text-lg text-gray-300">
+                <p className="text-lg text-gray-600">
                   Your results will be delivered within {etaHoursMax} hours to{' '}
-                  <span className="font-semibold text-blue-400">{userData.email}</span>
+                  <span className="font-semibold text-brand-blue">{userData.email}</span>
                 </p>
               </div>
 
               {/* Status + Timeline */}
-              <div className="bg-gray-800/60 border border-gray-700 rounded-2xl p-8 shadow-xl mb-10">
+              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-xl mb-10">
                 <div className="flex flex-col items-center gap-3 mb-6">
-                  <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-600 text-emerald-300 text-sm">
+                  <div className="inline-flex items-center justify-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 text-sm">
                     <CheckCircle className="h-4 w-4" />
                     Report Card request received
                   </div>
                 </div>
                 <div className="mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-300">Estimated progress</span>
-                    <span className="text-sm text-gray-400">{progressPct}%</span>
+                    <span className="text-sm text-gray-600">Estimated progress</span>
+                    <span className="text-sm text-gray-500">{progressPct}%</span>
                   </div>
-                  <div className="w-full bg-gray-900 rounded-full h-2">
+                  <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                      className="bg-blue-500 h-2 rounded-full transition-all"
+                      className="bg-brand-blue h-2 rounded-full transition-all"
                       style={{ width: `${progressPct}%` }}
                       aria-hidden="true"
                     />
@@ -274,25 +275,25 @@ ${userData.name}`
                         className={[
                           'mt-0.5 flex h-5 w-5 items-center justify-center rounded-full border',
                           i <= stageIndex
-                            ? 'bg-blue-500 border-blue-400 text-white'
-                            : 'bg-gray-900 border-gray-700 text-gray-500',
+                            ? 'bg-brand-blue border-blue-400 text-white'
+                            : 'bg-white border-gray-300 text-gray-400',
                         ].join(' ')}
                         aria-hidden="true"
                       >
                         {i <= stageIndex ? (
                           <CheckCircle className="h-3 w-3" />
                         ) : (
-                          <span className="h-1.5 w-1.5 bg-gray-600 rounded-full" />
+                          <span className="h-1.5 w-1.5 bg-gray-300 rounded-full" />
                         )}
                       </div>
                       <div className="text-sm">
-                        <div className={i <= stageIndex ? 'text-white' : 'text-gray-400'}>
+                        <div className={i <= stageIndex ? 'text-brand-dark-blue' : 'text-gray-600'}>
                           {s.label}
                         </div>
                         {i === 1 &&
                           queuePosition !== undefined &&
                           queueSize !== undefined && (
-                            <div className="text-xs text-gray-400 mt-0.5">
+                            <div className="text-xs text-gray-500 mt-0.5">
                               Position {queuePosition} of {queueSize}
                             </div>
                           )}
@@ -304,17 +305,17 @@ ${userData.name}`
 
               {/* Optional Details Section */}
               {!submitSuccess && (
-                <div className="bg-blue-900/20 rounded-2xl shadow-xl p-8 mb-8 border border-blue-800">
+                <div className="bg-blue-50 rounded-2xl shadow-xl p-8 mb-8 border border-blue-200">
                   {!showOptionalForm ? (
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-800">
-                        <Settings className="h-8 w-8 text-blue-600" />
+                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-200">
+                        <Settings className="h-8 w-8 text-brand-blue" />
                       </div>
-                      <h2 className="text-2xl font-bold text-white mb-4">Boost the quality of your Report Card (Optional)</h2>
-                      <p className="text-blue-300 mb-4">30 seconds to get more targeted recommendations—no commitments.</p>
+                      <h2 className="text-2xl font-bold text-brand-dark-blue mb-4">Boost the quality of your Report Card (Optional)</h2>
+                      <p className="text-blue-800 mb-4">30 seconds to get more targeted recommendations—no commitments.</p>
                       <button
                         onClick={() => { setShowOptionalForm(true); track('optional_details_open'); }}
-                        className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                        className="inline-flex items-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-dark-blue transition-colors"
                       >
                         <TrendingUp className="h-5 w-5 mr-2" />
                         Add Optional Details
@@ -330,35 +331,35 @@ ${userData.name}`
 
               {/* Success message for optional form */}
               {submitSuccess && (
-                <div className="bg-green-900/20 rounded-lg p-6 mb-8 border border-green-800">
+                <div className="bg-green-50 rounded-lg p-6 mb-8 border border-green-200">
                   <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-green-400 mr-3" />
+                    <CheckCircle className="h-6 w-6 text-green-600 mr-3" />
                     <div>
-                      <h3 className="text-lg font-semibold text-green-400">Additional details received!</h3>
-                      <p className="text-green-300">We'll use this to provide more targeted recommendations in your Report Card.</p>
+                      <h3 className="text-lg font-semibold text-green-800">Additional details received!</h3>
+                      <p className="text-green-700">We'll use this to provide more targeted recommendations in your Report Card.</p>
                     </div>
                   </div>
                 </div>
               )}
 
               {/* Full Journey Section */}
-              <div className="bg-slate-800 rounded-2xl shadow-xl p-8 mb-8 border border-slate-700">
-                <h2 className="text-2xl font-bold text-white mb-2 text-center">
+              <div className="bg-gray-50 rounded-2xl shadow-xl p-8 mb-8 border border-gray-200">
+                <h2 className="text-2xl font-bold text-brand-dark-blue mb-2 text-center">
                   Your Journey with AvidAffiliate
                 </h2>
-                <p className="text-center text-gray-300 text-sm mb-8">
+                <p className="text-center text-gray-600 text-sm mb-8">
                   The path from insights to compounding revenue.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6">
                   {/* Stage 1: Report Card */}
-                  <div className="text-center bg-slate-700/50 p-6 rounded-lg border border-slate-600 flex flex-col justify-between">
+                  <div className="text-center bg-white p-6 rounded-lg border border-gray-200 flex flex-col justify-between">
                     <div>
-                      <div className="w-16 h-16 bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-800">
-                        <Clock className="h-8 w-8 text-blue-500" />
+                      <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-200">
+                        <Clock className="h-8 w-8 text-brand-blue" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">1. Free Report Card</h3>
-                      <p className="text-gray-300 text-sm">
+                      <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">1. Free Report Card</h3>
+                      <p className="text-gray-600 text-sm">
                         Your quick snapshot of missed payouts, broken links, and higher‑paying alternatives.
                       </p>
                     </div>
@@ -367,7 +368,7 @@ ${userData.name}`
                         track('report_card_sample_view', { source: 'thank_you_journey' });
                         window.open('/sample-report-card.html', '_blank');
                       }}
-                      className="inline-flex items-center justify-center px-4 py-2 bg-slate-600 text-white font-medium text-sm rounded-lg hover:bg-slate-500 transition-colors mt-4"
+                      className="inline-flex items-center justify-center px-4 py-2 bg-gray-200 text-brand-dark-blue font-medium text-sm rounded-lg hover:bg-gray-300 transition-colors mt-4"
                     >
                       <Download className="mr-2 h-4 w-4" />
                       View Sample Report Card
@@ -375,21 +376,21 @@ ${userData.name}`
                   </div>
 
                   {/* Stage 2: Full Audit - HIGHLIGHTED */}
-                  <div className="text-center bg-green-900/20 p-6 rounded-lg border-2 border-green-500 flex flex-col justify-between shadow-2xl shadow-green-500/10 relative">
+                  <div className="text-center bg-green-50 p-6 rounded-lg border-2 border-green-500 flex flex-col justify-between shadow-2xl shadow-green-500/10 relative">
                     <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
-                        <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-green-300 bg-green-900 ring-1 ring-inset ring-green-600/20 rounded-full">
+                        <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-green-800 bg-green-100 ring-1 ring-inset ring-green-200/20 rounded-full">
                           Recommended Next Step
                         </span>
                       </div>
                     <div>
-                      <div className="w-16 h-16 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-800">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-200">
                         <TrendingUp className="h-8 w-8 text-green-500" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">2. Full Audit (Paid)</h3>
-                      <p className="text-gray-300 text-sm mb-2">
+                      <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">2. Full Audit (Paid)</h3>
+                      <p className="text-gray-600 text-sm mb-2">
                         A prioritized 90‑day plan to fix links, swap programs, and optimize tracking.
                       </p>
-                      <p className="text-xs text-gray-400 mb-4">One-time investment for a complete roadmap.</p>
+                      <p className="text-xs text-gray-500 mb-4">One-time investment for a complete roadmap.</p>
                     </div>
                     {!priorityListJoined ? (
                       <button
@@ -418,19 +419,19 @@ ${userData.name}`
                   </div>
 
                   {/* Stage 3: Implementation */}
-                  <div className="text-center bg-slate-700/50 p-6 rounded-lg border border-slate-600 flex flex-col justify-between">
+                  <div className="text-center bg-white p-6 rounded-lg border border-gray-200 flex flex-col justify-between">
                     <div>
-                      <div className="w-16 h-16 bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-800">
+                      <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-200">
                         <Settings className="h-8 w-8 text-purple-500" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">3. Implementation</h3>
-                      <p className="text-gray-300 text-sm">
+                      <h3 className="text-lg font-semibold text-brand-dark-blue mb-2">3. Implementation</h3>
+                      <p className="text-gray-600 text-sm">
                         We fix everything for you, then manage and optimize monthly for compounding gains.
                       </p>
                     </div>
                     <button
                         onClick={handleContactUs}
-                        className="inline-flex items-center justify-center px-4 py-2 bg-slate-600 text-white font-medium text-sm rounded-lg hover:bg-slate-500 transition-colors mt-4"
+                        className="inline-flex items-center justify-center px-4 py-2 bg-gray-200 text-brand-dark-blue font-medium text-sm rounded-lg hover:bg-gray-300 transition-colors mt-4"
                       >
                         <Phone className="mr-2 h-4 w-4" />
                         Contact Us
