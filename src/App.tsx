@@ -11,7 +11,7 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { ScorecardDisplay } from './components/ScorecardDisplay';
 import { SitemapPage } from './components/SitemapPage';
 import { OurTeamPage } from './components/OurTeamPage';
-import { ContactPage } from './components/ContactPage';
+import ContactPage from './components/ContactPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TermsOfServicePage } from './components/TermsOfServicePage';
 import { AffiliatePartnersPage } from './components/AffiliatePartnersPage';
