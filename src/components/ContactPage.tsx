@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Mail, Send, Phone, CheckCircle, User, FileText, Briefcase, Handshake } from 'lucide-react';
+import { ArrowLeft, Mail, Send, CheckCircle } from 'lucide-react';
 import { logFormSubmission } from '../utils/submissionLogger';
 import { Footer } from './Footer';
 import { sendConfirmationEmail } from '../utils/emailService';
@@ -13,7 +13,7 @@ const encode = (data: { [key: string]: any }) => {
 
 interface ContactPageProps {
   onBack?: () => void;
-  onNavigate?: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies') => void;
+  onNavigate?: (page: string) => void;
 }
 
 interface ContactFormData {
@@ -133,23 +133,24 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
             <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex items-center justify-between h-16">
-                <div className="flex items-center">
-                    <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
-                </div>
-                <nav className="hidden md:flex items-center space-x-8">
-                    <button onClick={onBack} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Home</button>
-                    <button onClick={() => onNavigate && onNavigate('about')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">About</button>
-                    <button onClick={() => onNavigate && onNavigate('team')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Team</button>
-                    <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
-                </nav>
-                <div className="flex items-center space-x-4">
-                    <button
-                    onClick={onBack}
-                    className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
-                    >
-                    Get Free Scorecard
+                  <div className="flex items-center">
+                    <button onClick={onBack} aria-label="Go to homepage">
+                      <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
                     </button>
-                </div>
+                  </div>
+                  <nav className="hidden md:flex items-center space-x-8">
+                      <button onClick={() => onNavigate && onNavigate('home#features')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Features</button>
+                      <button onClick={() => onNavigate && onNavigate('home#how-it-works')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">How it works</button>
+                      <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
+                  </nav>
+                  <div className="flex items-center space-x-4">
+                      <button
+                      onClick={() => onNavigate && onNavigate('home#hero-form')}
+                      className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+                      >
+                      Get my free Report Card
+                      </button>
+                  </div>
                 </div>
             </div>
             </header>
@@ -169,7 +170,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
                     </p>
                     <div className="text-gray-500 text-sm mb-6">
                         While you wait, feel free to learn more about{' '}
-                        <button onClick={() => onNavigate?.('about')} className="underline text-brand-blue hover:text-brand-dark-blue">our mission</button> or{' '}
+                        <button onClick={() => onNavigate?.('home#about-us')} className="underline text-brand-blue hover:text-brand-dark-blue">our mission</button> or{' '}
                         <button onClick={() => onNavigate?.('team')} className="underline text-brand-blue hover:text-brand-dark-blue">meet the team</button>.
                     </div>
                     <button
@@ -194,23 +195,24 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
         <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-                <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-                <button onClick={onBack} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Home</button>
-                <button onClick={() => onNavigate && onNavigate('about')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">About</button>
-                <button onClick={() => onNavigate && onNavigate('team')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Team</button>
-                <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
-            </nav>
-            <div className="flex items-center space-x-4">
-                <button
-                onClick={onBack}
-                className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
-                >
-                Get Free Scorecard
+              <div className="flex items-center">
+                <button onClick={onBack} aria-label="Go to homepage">
+                  <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-24 w-auto" />
                 </button>
-            </div>
+              </div>
+              <nav className="hidden md:flex items-center space-x-8">
+                  <button onClick={() => onNavigate && onNavigate('home#features')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Features</button>
+                  <button onClick={() => onNavigate && onNavigate('home#how-it-works')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">How it works</button>
+                  <button onClick={() => onNavigate && onNavigate('contact')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">Contact</button>
+              </nav>
+              <div className="flex items-center space-x-4">
+                  <button
+                  onClick={() => onNavigate && onNavigate('home#hero-form')}
+                  className="text-white px-6 py-2 rounded-md transition-colors text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+                  >
+                  Get my free Report Card
+                  </button>
+              </div>
             </div>
         </div>
         </header>
