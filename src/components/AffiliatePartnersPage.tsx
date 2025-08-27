@@ -87,7 +87,7 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
       : 'bg-gray-100 text-gray-800 border-gray-200';
   };
 
-  return (
+    return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Header Navigation */}
       <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
