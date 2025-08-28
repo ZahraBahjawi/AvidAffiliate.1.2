@@ -186,7 +186,7 @@ ${userData.name}`
     >
       <div className="flex-grow">
         {/* Header Navigation */}
-        <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
+        <header className="border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm" style={{ backgroundColor: '#081F5D' }}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-between h-16">
               {/* Logo */}
@@ -200,14 +200,14 @@ ${userData.name}`
               <nav className="hidden md:flex items-center space-x-8">
                 <button
                   onClick={() => onNavigate && onNavigate('home#features')}
-                  className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium"
+                  className="text-white hover:text-brand-yellow transition-colors text-sm font-medium"
                 >
                   Features
                 </button>
-                <button onClick={() => onNavigate && onNavigate('home#how-it-works')} className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium">How it works</button>
+                <button onClick={() => onNavigate && onNavigate('home#how-it-works')} className="text-white hover:text-brand-yellow transition-colors text-sm font-medium">How it works</button>
                 <button
                   onClick={() => onNavigate && onNavigate('contact')}
-                  className="text-brand-dark-blue hover:text-brand-blue transition-colors text-sm font-medium"
+                  className="text-white hover:text-brand-yellow transition-colors text-sm font-medium"
                 >
                   Contact
                 </button>
