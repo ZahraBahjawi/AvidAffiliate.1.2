@@ -447,6 +447,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+      <div className="scroll-overlay"></div>
+      
       {/* Header Navigation */}
       <header className="bg-brand-yellow/95 border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6">
@@ -553,7 +555,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <button
                 onClick={() => {
                   track('sample_pdf_click', { location: 'hero_thumbnail' });
-                  window.open('/sample-report-card.pdf', '_blank');
+                  window.open('/sample-report-card.html', '_blank');
                 }}
                 className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all duration-300 hover:shadow-md group"
               >
@@ -570,9 +572,17 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </button>
             </div>
-            
+
+            {/* Testimonial Section */}
+            <div className="mt-12 max-w-2xl mx-auto">
+              <blockquote className="text-lg text-gray-700 italic border-l-4 border-brand-yellow pl-6">
+                "They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The information provided was thorough, concise and extremely helpful. The changes have enhanced my site and put me in a better position to attain more clicks and sales."
+              </blockquote>
+              <p className="text-right mt-4 text-brand-dark-blue font-semibold">— Ed Schmidt, The Golf Travel Guru</p>
+            </div>
+
             {/* Security badges - mobile friendly */}
-            <div className="text-center text-gray-600 text-sm">
+            <div className="text-center text-gray-600 text-sm mt-12">
               <div className="flex items-center justify-center mb-2">
                 <Shield className="h-4 w-4 mr-2 text-green-600 flex-shrink-0" />
                 <span>No credit card • Read‑only scan • Results in 48 hours</span>
@@ -588,13 +598,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
       </section>
-            {/* Testimonial Section */}
-            <div className="mt-12 max-w-2xl mx-auto">
-              <blockquote className="text-lg text-gray-700 italic border-l-4 border-brand-yellow pl-6">
-                "They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The information provided was thorough, concise and extremely helpful. The changes have enhanced my site and put me in a better position to attain more clicks and sales."
-              </blockquote>
-              <p className="text-right mt-4 text-brand-dark-blue font-semibold">— Ed Schmidt, The Golf Travel Guru</p>
-            </div>
+
       {/* Proof Stats Strip */}
       <ProofStats />
 
@@ -663,7 +667,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               
               {/* Reportcard Preview */}
               <ReportcardPreview />
-              
             </div>
           </div>
         </div>
