@@ -12,7 +12,7 @@ export default {
         'brand-blue': '#1350C5',
         'brand-dark-blue': '#081F5D',
         'brand-gray': '#A0AFB5',
-        'brand-yellow': '#34a0a4',
+        'brand-yellow': '#97d8c4',
       },
     },
   },
