@@ -106,22 +106,22 @@ const ProofStats: React.FC = () => {
 const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
   return (
     <div className={`mx-auto ${compact ? 'mt-4' : 'mt-10'} max-w-3xl`}>
-      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-gray-600">
+      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-white">
         <div className="flex items-center">
-          <ShieldCheck className="h-4 w-4 mr-2 text-brand-blue" />
+          <ShieldCheck className="h-4 w-4 mr-2 text-white" />
           Read‑only crawler
         </div>
         <div className="flex items-center">
-          <Shield className="h-4 w-4 mr-2 text-brand-blue" />
+          <Shield className="h-4 w-4 mr-2 text-white" />
           Data encrypted in transit
         </div>
         <div className="flex items-center">
-          <CheckCircle className="h-4 w-4 mr-2 text-brand-blue" />
+          <CheckCircle className="h-4 w-4 mr-2 text-white" />
           We do not sell your data
         </div>
       </div>
-      <div className="text-center text-xs text-gray-500 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+      <div className="text-center text-xs text-white mt-2">
+        <a href="/privacy" className="underline hover:text-brand-yellow transition-colors">Privacy</a> • <a href="/terms" className="underline hover:text-brand-yellow transition-colors">Terms</a> • <a href="/cookies" className="underline hover:text-brand-yellow transition-colors">Cookies</a>
       </div>
     </div>
   );
@@ -585,14 +585,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="text-center text-gray-600 text-sm mt-12">
               <div className="flex items-center justify-center mb-2">
                 <Shield className="h-4 w-4 mr-2 text-green-600 flex-shrink-0" />
-                <span>No credit card • Read‑only scan • Results in 48 hours</span>
+                <span className="text-white">No credit card • Read‑only scan • Results in 48 hours</span>
               </div>
               <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
-                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Privacy</button>
-                <span className="text-gray-500">•</span>
-                <button onClick={() => onNavigate && onNavigate('terms')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Terms</button>
-                <span className="text-gray-500">•</span>
-                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Cookies</button>
+                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-white hover:text-brand-yellow transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Privacy</button>
+                <span className="text-white">•</span>
+                <button onClick={() => onNavigate && onNavigate('terms')} className="text-white hover:text-brand-yellow transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Terms</button>
+                <span className="text-white">•</span>
+                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-white hover:text-brand-yellow transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Cookies</button>
               </div>
             </div>
           </div>
