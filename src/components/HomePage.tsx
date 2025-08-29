@@ -506,9 +506,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                     className="melting-drip"
                   />
                 </svg>
-                <div className="absolute -bottom-6 left-1/4 w-2 h-2 bg-[#97d8c4] rounded-full opacity-0 melting-drop-1"></div>
-                <div className="absolute -bottom-8 left-1/2 w-1.5 h-1.5 bg-[#97d8c4] rounded-full opacity-0 melting-drop-2"></div>
-                <div className="absolute -bottom-10 left-3/4 w-1 h-1 bg-[#97d8c4] rounded-full opacity-0 melting-drop-3"></div>
               </span> revenue
             </h1>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
