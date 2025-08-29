@@ -571,16 +571,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('sample_pdf_click', { location: 'hero_thumbnail' });
                   window.open('/sample-report-card.html', '_blank');
                 }}
-                className="flex flex-col text-center sm:flex-row items-center gap-3 px-4 py-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-lg transition-all duration-300 hover:shadow-md group"
+                className="flex flex-col text-center sm:flex-row items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border border-blue-200 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 group"
               >
-                <div className="w-12 h-16 bg-white rounded border border-gray-300 flex items-center justify-center flex-shrink-0">
-                  <div className="text-xs text-gray-700 font-medium">PDF</div>
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-dark-blue rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                  <FileText className="h-6 w-6 text-white" />
                 </div>
                 <div className="sm:text-left">
-                  <div className="text-brand-dark-blue text-sm font-medium group-hover:text-brand-blue transition-colors">
+                  <div className="text-brand-dark-blue text-base font-semibold group-hover:text-brand-blue transition-colors">
                     View sample report card
                   </div>
-                  <div className="text-gray-600 text-xs">
+                  <div className="text-gray-600 text-sm">
                     See what you'll receive
                   </div>
                 </div>
