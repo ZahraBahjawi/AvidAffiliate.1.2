@@ -121,7 +121,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-gray-500 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -577,6 +577,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
                   <FileText className="h-6 w-6 text-brand-blue" />
                 </div>
+                </div>
                 <div className="sm:text-left">
                   <div className="text-brand-dark-blue text-base font-semibold group-hover:text-brand-blue transition-colors">
                     View sample report card
@@ -609,18 +610,18 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Proof Stats Strip */}
       <ProofStats />
       {/* Testimonial Section */}
-            <section class="pb-8" aria-labelledby="testimonial-heading">
-                         <h2 id="testimonial-heading" class="text-2xl font-bold text-brand-dark-blue mb-4 text-center">What Our Clients Say</h2>
-                         <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-                              <figure class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                                   <img class="w-24 h-24 rounded-full object-cover border-2 border-brand-blue flex-shrink-0" src="https://www.thegolftravelguru.com/wp-content/uploads/2019/07/IMG_0407-copy-768x757.jpg" alt="Photo of Ed Schmidt." />
+            <section className="pb-8" aria-labelledby="testimonial-heading">
+                         <h2 id="testimonial-heading" className="text-2xl font-bold text-brand-dark-blue mb-4 text-center">What Our Clients Say</h2>
+                         <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
+                              <figure className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                                   <img className="w-24 h-24 rounded-full object-cover border-2 border-brand-blue flex-shrink-0" src="https://www.thegolftravelguru.com/wp-content/uploads/2019/07/IMG_0407-copy-768x757.jpg" alt="Photo of Ed Schmidt." />
                                    <div>
-                                        <blockquote class="text-gray-600 italic">
+                                        <blockquote className="text-gray-600 italic">
                                              <p>"They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The information provided was thorough, concise and extremely helpful. The changes have enhanced my site and put me in a better position to attain more clicks and sales."</p>
                                         </blockquote>
-                                        <figcaption class="mt-4">
-                                             <div class="font-bold text-brand-dark-blue">Ed Schmidt</div>
-                                             <div class="text-sm text-gray-500">The Golf Travel Guru</div>
+                                        <figcaption className="mt-4">
+                                             <div className="font-bold text-brand-dark-blue">Ed Schmidt</div>
+                                             <div className="text-sm text-gray-500">The Golf Travel Guru</div>
                                         </figcaption>
                                    </div>
                               </figure>
