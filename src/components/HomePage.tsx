@@ -71,7 +71,7 @@ const track = (eventName: string, data?: Record<string, any>) => {
 
 const ProofStats: React.FC = () => {
   return (
-    <section className="py-10 bg-gray-50">
+    <section className="py-10 bg-gray-50 group relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
           <p className="text-lg text-brand-dark-blue font-light">On average, our full audits find:</p>
@@ -93,7 +93,7 @@ const ProofStats: React.FC = () => {
       </div>
       
       {/* Caption */}
-      <div className="text-center mt-6 px-6">
+      <div className="text-center mt-6 px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="text-sm text-gray-600 space-y-1">
           <p>Estimates based on last 10 audits; results vary by traffic and content mix.</p>
           <p>*Uplift calculated using proportion of unmonetized / broken affiliate links to existing monetized links</p>
