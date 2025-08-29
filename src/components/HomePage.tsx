@@ -574,7 +574,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                 className="flex flex-col text-center sm:flex-row items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border border-blue-200 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 group"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-dark-blue rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-                  <FileText className="h-6 w-6 text-white" />
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FileText className="h-6 w-6 text-brand-blue" />
                 </div>
                 <div className="sm:text-left">
                   <div className="text-brand-dark-blue text-base font-semibold group-hover:text-brand-blue transition-colors">
