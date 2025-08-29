@@ -593,7 +593,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* Proof Stats Strip */}
       <ProofStats />
-{/* Testimonial Section */}
+      {/* Testimonial Section */}
             <section class="pb-8" aria-labelledby="testimonial-heading">
                          <h2 id="testimonial-heading" class="text-2xl font-bold text-brand-dark-blue mb-4 text-center">What Our Clients Say</h2>
                          <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8">
