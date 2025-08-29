@@ -16,7 +16,6 @@ import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { TermsOfServicePage } from './components/TermsOfServicePage';
 import { AffiliatePartnersPage } from './components/AffiliatePartnersPage';
 import { CookiesPage } from './components/CookiesPage';
-import { SubmissionLogger } from './components/SubmissionLogger';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 
@@ -201,9 +200,6 @@ function App() {
       
       case 'affiliate_partners':
         return <AffiliatePartnersPage onBack={resetToHome} onNavigate={handleNavigate} />;
-      
-      case 'admin':
-        return <SubmissionLogger />;
       
       default:
         return <HomePage 
