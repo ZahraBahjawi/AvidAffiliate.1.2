@@ -495,7 +495,21 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-7xl font-bold text-brand-dark-blue mb-7 leading-tight tracking-tight" role="banner">
-              Your website is leaking revenue
+              Your website is <span className="relative inline-block melting-text">
+                leaking
+                <svg className="absolute -bottom-2 left-0 w-full h-4 overflow-visible" viewBox="0 0 100 16" preserveAspectRatio="none">
+                  <path 
+                    d="M15 8 Q20 12 25 8 T35 8 Q40 12 45 8 T55 8 Q60 12 65 8 T75 8 Q80 12 85 8" 
+                    stroke="#97d8c4" 
+                    strokeWidth="2" 
+                    fill="none"
+                    className="melting-drip"
+                  />
+                </svg>
+                <div className="absolute -bottom-6 left-1/4 w-2 h-2 bg-[#97d8c4] rounded-full opacity-0 melting-drop-1"></div>
+                <div className="absolute -bottom-8 left-1/2 w-1.5 h-1.5 bg-[#97d8c4] rounded-full opacity-0 melting-drop-2"></div>
+                <div className="absolute -bottom-10 left-3/4 w-1 h-1 bg-[#97d8c4] rounded-full opacity-0 melting-drop-3"></div>
+              </span> revenue
             </h1>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
               Get a free affiliate marketing audit within 48 hours that pinpoints unmonetized mentions, broken links, and higher‑paying programs - so you earn more without redoing content. 

@@ -112,6 +112,73 @@ body {
   .animate-drip {
     animation: none !important;
   }
+  .melting-text .melting-drip,
+  .melting-text .melting-drop-1,
+  .melting-text .melting-drop-2,
+  .melting-text .melting-drop-3 {
+    animation: none !important;
+  }
+}
+
+/* Melting text animations */
+.melting-text {
+  animation: textMelt 4s ease-in-out infinite;
+}
+
+.melting-drip {
+  animation: dripWave 3s ease-in-out infinite;
+}
+
+.melting-drop-1 {
+  animation: dropFall 2.5s ease-in infinite 0.5s;
+}
+
+.melting-drop-2 {
+  animation: dropFall 3s ease-in infinite 1s;
+}
+
+.melting-drop-3 {
+  animation: dropFall 2.8s ease-in infinite 1.5s;
+}
+
+@keyframes textMelt {
+  0%, 70% { transform: translateY(0); }
+  85% { transform: translateY(1px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes dripWave {
+  0%, 60% { 
+    d: path("M15 8 Q20 12 25 8 T35 8 Q40 12 45 8 T55 8 Q60 12 65 8 T75 8 Q80 12 85 8");
+    opacity: 0;
+  }
+  70% { opacity: 0.7; }
+  80% { 
+    d: path("M15 10 Q20 14 25 10 T35 10 Q40 14 45 10 T55 10 Q60 14 65 10 T75 10 Q80 14 85 10");
+    opacity: 0.9;
+  }
+  100% { 
+    d: path("M15 8 Q20 12 25 8 T35 8 Q40 12 45 8 T55 8 Q60 12 65 8 T75 8 Q80 12 85 8");
+    opacity: 0;
+  }
+}
+
+@keyframes dropFall {
+  0% { 
+    transform: translateY(0) scale(1); 
+    opacity: 0; 
+  }
+  10% { 
+    opacity: 0.8; 
+  }
+  70% { 
+    transform: translateY(20px) scale(0.8); 
+    opacity: 0.6; 
+  }
+  100% { 
+    transform: translateY(30px) scale(0.4); 
+    opacity: 0; 
+  }
 }
 
 /* Subtle one-shot animations for leaking effect */
@@ -131,7 +198,12 @@ body {
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .gentle-wave,
-  .gentle-drop {
+  .gentle-drop,
+  .melting-text,
+  .melting-drip,
+  .melting-drop-1,
+  .melting-drop-2,
+  .melting-drop-3 {
     animation: none !important;
   }
 }
