@@ -189,7 +189,11 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
               
               <div className="space-y-6">
                 {affiliatePartners.map((partner, index) => (
-                  <div key={index} className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow bg-gray-50">
+                  <div 
+                    key={index} 
+                    id={partner.name.toLowerCase().replace(/\s+/g, '-')}
+                    className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow bg-gray-50"
+                  >
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3">
                       <div className="flex items-center">
                         {getCategoryIcon(partner.category)}

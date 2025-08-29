@@ -860,19 +860,35 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Logo Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
               {[
-                { name: 'Amazon', src: '/amazon.png' },
-                { name: 'ShareASale', src: '/shareasale.png' },
-                { name: 'CJ Affiliate', src: '/CJ.png' },
-                { name: 'Impact', src: '/impact.png' },
-                { name: 'Awin', src: '/awin.png' },
-                { name: 'FlexOffers', src: '/flexoffers.png' },
-                { name: 'ClickBank', src: '/clickbank.png' },
-                { name: 'Rakuten', src: '/rakuten.png' },
+                { name: 'Amazon', src: '/amazon.png', hasSection: false },
+                { name: 'ShareASale', src: '/shareasale.png', hasSection: false },
+                { name: 'CJ Affiliate', src: '/CJ.png', hasSection: true },
+                { name: 'Impact', src: '/impact.png', hasSection: true },
+                { name: 'Awin', src: '/awin.png', hasSection: true },
+                { name: 'FlexOffers', src: '/flexoffers.png', hasSection: true },
+                { name: 'ClickBank', src: '/clickbank.png', hasSection: false },
+                { name: 'Rakuten', src: '/rakuten.png', hasSection: false },
               ].map((p, i) => (
-                <div 
+                <button
                   key={i} 
-                  className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer"
-                  onClick={() => track('partner_logo_click', { name: p.name })}
+                  className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
+                  onClick={() => {
+                    track('partner_logo_click', { name: p.name });
+                    if (p.hasSection) {
+                      // Navigate to affiliate partners page and scroll to the specific section
+                      onNavigate('affiliate_partners');
+                      // Use setTimeout to ensure navigation completes before scrolling
+                      setTimeout(() => {
+                        const element = document.getElementById(p.name.toLowerCase().replace(/\s+/g, '-'));
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }, 100);
+                    } else {
+                      // For networks without sections, just go to the affiliate partners page
+                      onNavigate('affiliate_partners');
+                    }
+                  }}
                 >
                   <img 
                     src={p.src} 
@@ -884,7 +900,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     loading="lazy"
                     decoding="async"
                   />
-                </div>
+                </button>
               ))}
             </div>
 
