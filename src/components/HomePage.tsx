@@ -611,6 +611,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                               </figure>
                          </div>
                     </section>
+      
       {/* Problem Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
