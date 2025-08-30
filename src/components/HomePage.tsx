@@ -78,7 +78,7 @@ const ProofStats: React.FC = () => {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-green-600 mb-1">~300 unmonetized mentions</p>
+            <p className="text-3xl font-bold text-green-600 mb-1">~300 unmonetized links</p>
             <p className="text-brand-dark-blue text-sm">across ~50 different brands.</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
