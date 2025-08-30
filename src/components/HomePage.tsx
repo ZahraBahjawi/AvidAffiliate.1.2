@@ -687,7 +687,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:bg-yellow-400 hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-8"
+                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
