@@ -13,67 +13,6 @@ body {
   @apply bg-white;
 }
 
-/* Scroll-based darkening overlay is not needed for a light theme */
-.scroll-overlay {
-  display: none;
-}
-
-/* Candle lighting effect for hidden revenue text */
-.candle-text {
-  color: #1f2937;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-}
-
-/* Hover effect disabled when clicked */
-.candle-text.candle-lit:hover {
-  /* Maintains the same lit appearance */
-}
-
-@keyframes candleFlicker {
-  0% {
-    text-shadow: 
-      0 0 3px rgba(65, 160, 150, 0.4),
-      0 0 6px rgba(65, 160, 150, 0.3),
-      0 0 9px rgba(65, 160, 150, 0.2),
-      0 0 12px rgba(65, 160, 150, 0.1);
-    filter: brightness(1);
-  }
-  25% {
-    text-shadow: 
-      0 0 2px rgba(65, 160, 150, 0.5),
-      0 0 4px rgba(65, 160, 150, 0.35),
-      0 0 6px rgba(65, 160, 150, 0.25),
-      0 0 8px rgba(65, 160, 150, 0.15);
-    filter: brightness(0.9);
-  }
-  50% {
-    text-shadow: 
-      0 0 4px rgba(65, 160, 150, 0.45),
-      0 0 7px rgba(65, 160, 150, 0.32),
-      0 0 10px rgba(65, 160, 150, 0.22),
-      0 0 13px rgba(65, 160, 150, 0.12);
-    filter: brightness(1.1);
-  }
-  75% {
-    text-shadow: 
-      0 0 2.5px rgba(65, 160, 150, 0.38),
-      0 0 5px rgba(65, 160, 150, 0.28),
-      0 0 7.5px rgba(65, 160, 150, 0.18),
-      0 0 10px rgba(65, 160, 150, 0.08);
-    filter: brightness(0.95);
-  }
-  100% {
-    text-shadow: 
-      0 0 3.5px rgba(65, 160, 150, 0.42),
-      0 0 6.5px rgba(65, 160, 150, 0.31),
-      0 0 9.5px rgba(65, 160, 150, 0.21),
-      0 0 12.5px rgba(65, 160, 150, 0.11);
-    filter: brightness(1.05);
-  }
-}
-
 @layer utilities {
   @keyframes drip {
     0% { transform: translateY(0); opacity: 0; }
