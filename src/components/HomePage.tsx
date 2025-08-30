@@ -1057,7 +1057,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 text-white text-base font-bold rounded-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
+                className="inline-flex items-center px-8 py-4 text-white text-base font-bold rounded-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
