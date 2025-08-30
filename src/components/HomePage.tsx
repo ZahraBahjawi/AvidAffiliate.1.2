@@ -83,11 +83,11 @@ const ProofStats: React.FC = () => {
             <p className="text-3xl font-bold text-green-600 mb-1">~300 unmonetized mentions</p>
             <p className="text-brand-dark-blue text-sm">across ~50 different brands.</p>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-7 text-center">
+          <div className="bg-white border border-gray-200 rounded-xl p-9 text-center">
             <p className="text-3xl font-bold text-yellow-600 mb-1">~250 broken links</p>
             <p className="text-brand-dark-blue text-sm">on average.</p>
           </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-7 text-center">
+          <div className="bg-white border border-gray-200 rounded-xl p-9 text-center">
             <p className="text-3xl font-bold text-brand-blue mb-1">~20% revenue uplift</p>
             <p className="text-brand-dark-blue text-sm">through affiliate marketing.</p>
           </div>
