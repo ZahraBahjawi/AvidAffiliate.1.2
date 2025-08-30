@@ -74,7 +74,7 @@ const ProofStats: React.FC = () => {
     <section className="py-10 bg-gray-50 group relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          <p className="text-lg text-brand-dark-blue font-light">On average, our full audits find:</p>
+          <p className="text-lg text-brand-dark-blue font-light">Our full audits find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
