@@ -468,9 +468,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-white hover:text-brand-yellow transition text-sm font-medium" aria-label="View features section">Features</a>
-              <a href="#how-it-works" className="text-white hover:text-brand-yellow transition text-sm font-medium" aria-label="Learn how it works">How it works</a>
-              <button onClick={() => onNavigate('contact')} className="text-white hover:text-brand-yellow transition text-sm font-medium">Contact</button>
+              <a href="#features" className="text-white transition text-sm font-medium" aria-label="View features section">Features</a>
+              <a href="#how-it-works" className="text-white transition text-sm font-medium" aria-label="Learn how it works">How it works</a>
+              <button onClick={() => onNavigate('contact')} className="text-white transition text-sm font-medium">Contact</button>
             </nav>
 
             {/* CTA Button */}
@@ -687,7 +687,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300 mb-8"
+                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -1057,7 +1057,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 bg-brand-yellow text-brand-dark-blue text-base font-bold rounded-lg hover:bg-yellow-400 hover:shadow-xl hover:shadow-yellow-500/50 transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
+                className="inline-flex items-center px-8 py-4 bg-brand-yellow text-brand-dark-blue text-base font-bold rounded-lg hover:bg-yellow-400 hover:shadow-xl transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-yellow focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
