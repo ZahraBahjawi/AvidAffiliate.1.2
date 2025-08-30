@@ -1051,7 +1051,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               Start with your free report card. Then choose Audit (deep analysis), then Implementation (we fix it).
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 group">
               <button
                 onClick={() => {
                   track('cta_click', { location: 'final_cta_primary' });
@@ -1073,6 +1073,11 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Contact us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
+              
+              {/* Hover-only text */}
+              <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute mt-20">
+                Takes ~15 seconds. We'll email your report card—no spam.
+              </p>
             </div>
 
             <p className="text-xs mb-6 opacity-75">
