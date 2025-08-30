@@ -16,6 +16,7 @@ import {
   Eye,
   ChevronLeft,
   ChevronRight,
+  Globe,
 } from 'lucide-react';
 import { Footer } from './Footer';
 
