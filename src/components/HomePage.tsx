@@ -606,23 +606,27 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Proof Stats Strip */}
       <ProofStats />
       {/* Testimonial Section */}
-            <section className="pb-8" aria-labelledby="testimonial-heading">
-                         <h2 id="testimonial-heading" className="text-2xl font-bold text-brand-dark-blue mb-4 text-center">What Our Clients Say</h2>
-                         <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-                              <figure className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                                   <img className="w-24 h-24 rounded-full object-cover border-2 border-brand-blue flex-shrink-0" src="https://www.thegolftravelguru.com/wp-content/uploads/2019/07/IMG_0407-copy-768x757.jpg" alt="Photo of Ed Schmidt." />
-                                   <div>
-                                        <blockquote className="text-gray-600 italic">
-                                             <p>"They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The information provided was thorough, concise and extremely helpful. The changes have enhanced my site and put me in a better position to attain more clicks and sales."</p>
-                                        </blockquote>
-                                        <figcaption className="mt-4">
-                                             <div className="font-bold text-brand-dark-blue">Ed Schmidt</div>
-                                             <div className="text-sm text-gray-500">The Golf Travel Guru</div>
-                                        </figcaption>
-                                   </div>
-                              </figure>
-                         </div>
-                    </section>
+      <section className="py-20" aria-labelledby="testimonial-heading">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <h2 id="testimonial-heading" className="text-2xl font-bold text-brand-dark-blue mb-8 text-center">What Our Clients Say</h2>
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
+              <figure className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                <img className="w-24 h-24 rounded-full object-cover border-2 border-brand-blue flex-shrink-0" src="https://www.thegolftravelguru.com/wp-content/uploads/2019/07/IMG_0407-copy-768x757.jpg" alt="Photo of Ed Schmidt." />
+                <div>
+                  <blockquote className="text-gray-600 italic">
+                    <p>"They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The information provided was thorough, concise and extremely helpful. The changes have enhanced my site and put me in a better position to attain more clicks and sales."</p>
+                  </blockquote>
+                  <figcaption className="mt-4">
+                    <div className="font-bold text-brand-dark-blue">Ed Schmidt</div>
+                    <div className="text-sm text-gray-500">The Golf Travel Guru</div>
+                  </figcaption>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Problem Section */}
       <section className="py-20">
