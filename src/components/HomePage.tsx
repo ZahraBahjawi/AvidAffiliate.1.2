@@ -82,8 +82,8 @@ const ProofStats: React.FC = () => {
             <p className="text-brand-dark-blue text-sm">across ~50 different brands.</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-yellow-600 mb-1">~250</p>
-            <p className="text-brand-dark-blue text-sm">broken links.</p>
+            <p className="text-3xl font-bold text-yellow-600 mb-1">~250 broken links.</p>
+            <p className="text-brand-dark-blue text-sm">on average.</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
             <p className="text-3xl font-bold text-brand-blue mb-1">Est. 20% uplift.</p>
