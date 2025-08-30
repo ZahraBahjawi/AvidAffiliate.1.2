@@ -1037,7 +1037,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
 
-            <p className="text-center text-xs text-gray-500 mt-4">
+            <p className="text-center text-xs text-white-500 mt-4">
               Logos are for identification only; no endorsement implied. All trademarks belong to their respective owners.
             </p>
           </div>
