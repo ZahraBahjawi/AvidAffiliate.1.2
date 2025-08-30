@@ -123,7 +123,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-gray-500 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -334,7 +334,7 @@ const ReportcardPreview: React.FC = () => {
               track('sample_report_card_view', { action: 'download_sample' });
               window.open('/sample-report-card.html', '_blank');
             }}
-            className="inline-flex items-center px-4 py-2 bg-brand-yellow text-brand-dark-blue text-sm font-medium rounded-lg transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-brand-yellow text-brand-dark-blue text-sm font-medium rounded-lg hover:bg-yellow-400 transition-colors"
           >
             <Download className="mr-2 h-4 w-4" />
             View Full Sample
@@ -687,7 +687,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
                   }
                 }}
-                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-8"
+                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300 mb-8"
               >
                 Find my hidden revenue
                 <ArrowRight className="ml-2 h-4 w-4" />
