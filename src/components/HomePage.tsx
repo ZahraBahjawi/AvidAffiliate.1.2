@@ -5,6 +5,7 @@ import {
   Shield,
   Clock,
   Users,
+  Globe,
   DollarSign,
   Zap,
   FileText,
