@@ -518,7 +518,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             </p>
 
             {/* Hero Audit Form */}
-            <form id="hero-form" onSubmit={submitHero} className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4 max-w-2xl mx-auto">
+            <div className="group">
+              <form id="hero-form" onSubmit={submitHero} className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4 max-w-2xl mx-auto">
               <input
                 type="text"
                 name="website"
@@ -559,12 +560,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </>
                 )}
               </button>
-            </form>
+              </form>
 
-            {/* Reassurance text */}
-            <p className="text-center text-gray-600 text-sm mt-2 mb-4" role="note">
-              Takes ~15 seconds. We'll email your report card—no spam.
-            </p>
+              {/* Reassurance text - only visible on button hover */}
+              <p className="text-center text-gray-600 text-sm mt-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" role="note">
+                Takes ~15 seconds. We'll email your report card—no spam.
+              </p>
+            </div>
 
             {/* Sample PDF Thumbnail */}
             <div className="flex justify-center mb-6">
