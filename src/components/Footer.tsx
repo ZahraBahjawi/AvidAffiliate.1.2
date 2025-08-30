@@ -15,14 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {/* Company Info */}
             <div>
-              <div className="flex items-center mb-4">
-                <img 
-                  src="/LOGO.png" 
-                  alt="AvidAffiliate Logo" 
-                  className="h-14 w-auto mr-2"
-                />
-                <h3 className="text-lg font-medium text-brand-dark-blue">AvidAffiliate</h3>
-              </div>
+              <h3 className="text-lg font-medium text-brand-dark-blue mb-4">AvidAffiliate</h3>
               <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                 Unlock your website's hidden affiliate revenue with our comprehensive link audit and monetization platform.
               </p>
