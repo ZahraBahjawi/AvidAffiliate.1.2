@@ -108,7 +108,7 @@ const ProofStats: React.FC = () => {
 const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
   return (
     <div className={`mx-auto ${compact ? 'mt-4' : 'mt-10'} max-w-3xl`}>
-      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-gray-600">
+      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-white-600">
         <div className="flex items-center">
           <ShieldCheck className="h-4 w-4 mr-2 text-brand-blue" />
           Read‑only crawler
