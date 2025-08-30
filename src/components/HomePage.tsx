@@ -595,13 +595,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <Shield className="h-4 w-4 mr-2 text-green-600 flex-shrink-0" />
                 <span>No credit card • Read‑only scan • Results in 48 hours</span>
               </div>
-              <div className="flex flex-wrap items-center justify-center gap-1 text-xs">
-                <button onClick={() => onNavigate && onNavigate('privacy')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Privacy</button>
-                <span className="text-gray-500">•</span>
-                <button onClick={() => onNavigate && onNavigate('terms')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Terms</button>
-                <span className="text-gray-500">•</span>
-                <button onClick={() => onNavigate && onNavigate('cookies')} className="text-gray-600 hover:text-brand-blue transition-colors underline focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2">Cookies</button>
-              </div>
             </div>
           </div>
         </div>
