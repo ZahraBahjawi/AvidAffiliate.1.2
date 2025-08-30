@@ -108,7 +108,7 @@ const ProofStats: React.FC = () => {
 const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
   return (
     <div className={`mx-auto ${compact ? 'mt-4' : 'mt-10'} max-w-3xl`}>
-      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-white-600">
+      <div className="grid justify-items-center sm:justify-items-start sm:grid-cols-3 gap-4 text-sm text-gray-600">
         <div className="flex items-center">
           <ShieldCheck className="h-4 w-4 mr-2 text-brand-blue" />
           Read‑only crawler
@@ -122,8 +122,8 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
           We do not sell your data
         </div>
       </div>
-      <div className="text-center text-xs text-white-500 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+      <div className="text-center text-xs text-gray-500 mt-2">
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -1051,13 +1051,13 @@ export const HomePage: React.FC<HomePageProps> = ({
               Start with your free report card. Then choose Audit (deep analysis), then Implementation (we fix it).
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 group">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <button
                 onClick={() => {
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 border-2 border-white text-white text-base font-bold rounded-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+                className="inline-flex items-center px-8 py-4 text-brand-dark-blue text-base font-bold rounded-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -1073,11 +1073,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Contact us
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
-              
-              {/* Hover-only text */}
-              <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute mt-20">
-                Takes ~15 seconds. We'll email your report card—no spam.
-              </p>
             </div>
 
             <p className="text-xs mb-6 opacity-75">
