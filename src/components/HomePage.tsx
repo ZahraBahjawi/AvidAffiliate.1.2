@@ -79,7 +79,7 @@ const ProofStats: React.FC = () => {
           <p className="text-lg text-brand-dark-blue font-light">Our full audits find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white border border-gray-200 rounded-xl p-7 text-center">
+          <div className="bg-white border border-gray-200 rounded-xl p-9 text-center">
             <p className="text-3xl font-bold text-green-600 mb-1">~300 unmonetized mentions</p>
             <p className="text-brand-dark-blue text-sm">across ~50 different brands.</p>
           </div>
