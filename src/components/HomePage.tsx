@@ -16,7 +16,6 @@ import {
   Eye,
   ChevronLeft,
   ChevronRight,
-  Globe,
 } from 'lucide-react';
 import { Footer } from './Footer';
 
@@ -122,7 +121,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-gray-500 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
