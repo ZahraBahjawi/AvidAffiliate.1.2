@@ -1043,7 +1043,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-brand-yellow">
+      <section className="py-20 bg-brand-dark-blue">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-3xl md:text-4xl font-normal mb-6">Ready to unlock hidden affiliate revenue?</h2>
