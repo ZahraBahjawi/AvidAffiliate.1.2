@@ -121,7 +121,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-gray-500 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -707,108 +707,29 @@ export const HomePage: React.FC<HomePageProps> = ({
               <p className="text-xl text-gray-600 font-light">Get your comprehensive audit report in three simple steps</p>
             </div>
       
-            {/* Infographic Container */}
-            <div className="relative">
-              {/* Connection Lines - Hidden on mobile */}
-              <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-blue to-transparent transform -translate-y-1/2 z-0"></div>
-              
-              <div className="grid md:grid-cols-3 gap-8 relative z-10">
-                <div className="text-center group">
-                  {/* Step 1 - Submit */}
-                  <div className="relative mb-8">
-                    <div className="w-24 h-24 bg-gradient-to-br from-brand-blue to-blue-600 text-white rounded-full flex items-center justify-center mx-auto shadow-xl transform group-hover:scale-110 transition-all duration-300 border-4 border-white">
-                      <Globe className="h-8 w-8" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-yellow text-brand-dark-blue rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
-                      1
-                    </div>
-                    {/* Floating elements */}
-                    <div className="absolute -top-4 -left-4 w-3 h-3 bg-brand-yellow rounded-full opacity-60 animate-pulse"></div>
-                    <div className="absolute -bottom-2 -right-6 w-2 h-2 bg-brand-blue rounded-full opacity-40 animate-pulse delay-300"></div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-brand-dark-blue mb-4 group-hover:text-brand-blue transition-colors">Submit your website</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 group-hover:shadow-lg transition-all duration-300">
-                    <p className="text-gray-600 leading-relaxed text-sm">Enter your website URL. No sign‑up or credit card required.</p>
-                    <div className="mt-3 flex items-center justify-center text-xs text-green-600">
-                      <Shield className="h-3 w-3 mr-1" />
-                      100% secure & private
-                    </div>
-                  </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold">1</span>
                 </div>
-      
-                <div className="text-center group">
-                  {/* Step 2 - Analyze */}
-                  <div className="relative mb-8">
-                    <div className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-full flex items-center justify-center mx-auto shadow-xl transform group-hover:scale-110 transition-all duration-300 border-4 border-white">
-                      <Eye className="h-8 w-8" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-yellow text-brand-dark-blue rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
-                      2
-                    </div>
-                    {/* Analysis animation dots */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div className="w-16 h-16 border-2 border-green-300 rounded-full animate-ping opacity-20"></div>
-                    </div>
-                    <div className="absolute -top-3 -left-3 w-4 h-4 bg-green-400 rounded-full opacity-50 animate-bounce delay-100"></div>
-                    <div className="absolute -bottom-3 -right-3 w-3 h-3 bg-emerald-400 rounded-full opacity-60 animate-bounce delay-500"></div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-brand-dark-blue mb-4 group-hover:text-green-600 transition-colors">We analyze your site</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 group-hover:shadow-lg transition-all duration-300">
-                    <p className="text-gray-600 leading-relaxed text-sm mb-3">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
-                    <div className="grid grid-cols-3 gap-2 text-xs">
-                      <div className="bg-blue-50 rounded px-2 py-1 text-blue-700">Links</div>
-                      <div className="bg-green-50 rounded px-2 py-1 text-green-700">Programs</div>
-                      <div className="bg-purple-50 rounded px-2 py-1 text-purple-700">Revenue</div>
-                    </div>
-                  </div>
-                </div>
-      
-                <div className="text-center group">
-                  {/* Step 3 - Deliver */}
-                  <div className="relative mb-8">
-                    <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-full flex items-center justify-center mx-auto shadow-xl transform group-hover:scale-110 transition-all duration-300 border-4 border-white">
-                      <Mail className="h-8 w-8" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-brand-yellow text-brand-dark-blue rounded-full flex items-center justify-center text-sm font-bold shadow-lg">
-                      3
-                    </div>
-                    {/* Email delivery animation */}
-                    <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
-                      <div className="w-6 h-4 bg-brand-yellow rounded-sm opacity-80 animate-bounce"></div>
-                    </div>
-                    <div className="absolute -bottom-4 -left-5 w-3 h-3 bg-purple-400 rounded-full opacity-50 animate-pulse"></div>
-                    <div className="absolute -bottom-2 -right-4 w-2 h-2 bg-indigo-400 rounded-full opacity-60 animate-pulse delay-700"></div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-brand-dark-blue mb-4 group-hover:text-purple-600 transition-colors">Get your report card</h3>
-                  <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 group-hover:shadow-lg transition-all duration-300">
-                    <p className="text-gray-600 leading-relaxed text-sm mb-3">We email a clear, prioritized summary of your current link profile and opportunity.</p>
-                    <div className="flex items-center justify-center text-xs text-purple-600">
-                      <Clock className="h-3 w-3 mr-1" />
-                      Delivered in 24-48 hours
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-4">Submit your website</h3>
+                <p className="text-gray-600 leading-relaxed">Enter your website URL. No sign‑up or credit card required.</p>
               </div>
-            </div>
-            
-            {/* Bottom CTA */}
-            <div className="text-center mt-16">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 max-w-2xl mx-auto">
-                <h3 className="text-2xl font-semibold text-brand-dark-blue mb-4">Ready to discover your hidden revenue?</h3>
-                <p className="text-gray-600 mb-6">Join 300+ creators who've already optimized their affiliate strategy</p>
-                <button
-                  onClick={() => {
-                    track('cta_click', { location: 'how_it_works_bottom' });
-                    const heroForm = document.querySelector('#hero-form');
-                    if (heroForm) {
-                      heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                  }}
-                  className="inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-                >
-                  Start my free audit
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </button>
+      
+              <div className="text-center">
+                <div className="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold">2</span>
+                </div>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-4">We analyze your site</h3>
+                <p className="text-gray-600 leading-relaxed">We scan your pages, identify unmonetized mentions and broken links, and benchmark programs.</p>
+              </div>
+      
+              <div className="text-center">
+                <div className="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-2xl font-bold">3</span>
+                </div>
+                <h3 className="text-xl font-medium text-brand-dark-blue mb-4">Get your report card</h3>
+                <p className="text-gray-600 leading-relaxed">We email a clear, prioritized summary of your current link profile and opportunity.</p>
               </div>
             </div>
       
