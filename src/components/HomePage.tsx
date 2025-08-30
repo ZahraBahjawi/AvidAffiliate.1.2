@@ -86,8 +86,8 @@ const ProofStats: React.FC = () => {
             <p className="text-brand-dark-blue text-sm">on average.</p>
           </div>
           <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
-            <p className="text-3xl font-bold text-brand-blue mb-1">Est. 20% uplift.</p>
-            <p className="text-brand-dark-blue text-sm">in affiliate revenue*</p>
+            <p className="text-3xl font-bold text-brand-blue mb-1">~20% uplift in revenue</p>
+            <p className="text-brand-dark-blue text-sm">through affiliate marketing.</p>
           </div>
         </div>
       </div>
