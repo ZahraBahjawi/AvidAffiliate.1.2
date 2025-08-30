@@ -1037,7 +1037,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
 
-            <p className="text-center text-xs text-white-500 mt-4">
+            <p className="text-center text-xs text-gray-500 mt-4">
               Logos are for identification only; no endorsement implied. All trademarks belong to their respective owners.
             </p>
           </div>
@@ -1059,7 +1059,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('cta_click', { location: 'final_cta_primary' });
                   onNext();
                 }}
-                className="inline-flex items-center px-8 py-4 text-brand-dark-blue text-base font-bold rounded-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
+                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white text-base font-bold rounded-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-brand-dark-blue"
               >
                 Get my free Report Card
                 <ArrowRight className="ml-2 h-4 w-4" />
