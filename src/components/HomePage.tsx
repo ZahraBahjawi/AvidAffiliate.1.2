@@ -571,21 +571,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                   track('sample_pdf_click', { location: 'hero_thumbnail' });
                   window.open('/sample-report-card.html', '_blank');
                 }}
-                className="flex flex-col text-center sm:flex-row items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border border-blue-200 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 group"
+                className="inline-flex items-center gap-2 text-brand-blue hover:text-brand-dark-blue transition-colors text-sm underline"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-dark-blue rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <FileText className="h-6 w-6 text-brand-blue" />
-                </div>
-                </div>
-                <div className="sm:text-left">
-                  <div className="text-brand-dark-blue text-base font-semibold group-hover:text-brand-blue transition-colors">
-                    View sample report card
-                  </div>
-                  <div className="text-gray-600 text-sm">
-                    See what you'll receive
-                  </div>
-                </div>
+                <FileText className="h-4 w-4" />
+                View sample report card
               </button>
             </div>
             
