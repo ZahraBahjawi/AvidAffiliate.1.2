@@ -621,7 +621,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                         href="https://www.thegolftravelguru.com/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="hover:text-brand-blue transition-colors underline"
+                        className="hover:text-brand-blue transition-colors"
                       >
                         The Golf Travel Guru
                       </a>
