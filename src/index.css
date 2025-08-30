@@ -26,27 +26,6 @@ body {
   display: inline-block;
 }
 
-.candle-text:hover {
-  text-shadow: 
-    0 0 3px rgba(65, 160, 150, 0.4),
-    0 0 6px rgba(65, 160, 150, 0.3),
-    0 0 9px rgba(65, 160, 150, 0.2),
-    0 0 12px rgba(65, 160, 150, 0.1);
-  color: var(--ocean-teal-500);
-  animation: candleFlicker 2s ease-in-out infinite alternate;
-}
-
-/* Clicked state - stays lit */
-.candle-text.candle-lit {
-  text-shadow: 
-    0 0 3px rgba(65, 160, 150, 0.4),
-    0 0 6px rgba(65, 160, 150, 0.3),
-    0 0 9px rgba(65, 160, 150, 0.2),
-    0 0 12px rgba(65, 160, 150, 0.1);
-  color: var(--ocean-teal-500);
-  animation: candleFlicker 2s ease-in-out infinite alternate;
-}
-
 /* Hover effect disabled when clicked */
 .candle-text.candle-lit:hover {
   /* Maintains the same lit appearance */
