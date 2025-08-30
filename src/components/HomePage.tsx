@@ -616,7 +616,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </blockquote>
                   <figcaption className="mt-4">
                     <div className="font-bold text-brand-dark-blue">Ed Schmidt</div>
-                    <div className="text-sm text-gray-500">The Golf Travel Guru</div>
+                    <div className="text-sm text-gray-500">
+                      <a 
+                        href="https://www.thegolftravelguru.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-brand-blue transition-colors underline"
+                      >
+                        The Golf Travel Guru
+                      </a>
+                    </div>
                   </figcaption>
                 </div>
               </figure>
