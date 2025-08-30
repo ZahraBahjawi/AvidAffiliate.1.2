@@ -128,7 +128,7 @@ body {
 
 @keyframes textMelt {
   0%, 90% { transform: translateY(0); }
-  85% { transform: translateY(3px); }
+  95% { transform: translateY(3px); }
   100% { transform: translateY(0); }
 }
 
