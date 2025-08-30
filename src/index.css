@@ -119,7 +119,7 @@ body {
 
 /* Melting text animations */
 .melting-text {
-  animation: textMelt 7s ease-in-out infinite;
+  animation: textMelt 4s ease-in-out infinite;
 }
 
 .melting-drip {
@@ -127,7 +127,7 @@ body {
 }
 
 @keyframes textMelt {
-  0%, 70% { transform: translateY(0); }
+  0%, 90% { transform: translateY(0); }
   85% { transform: translateY(1px); }
   100% { transform: translateY(0); }
 }
