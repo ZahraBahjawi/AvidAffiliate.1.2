@@ -323,7 +323,74 @@ ${userData.name}`
                     </div>
                   ) : (
                     <form onSubmit={handleOptionalSubmit} className="space-y-6">
-                      {/* Form fields... */}
+                      <h3 className="text-xl font-semibold text-brand-dark-blue mb-4">Tell us a bit more:</h3>
+                      <div>
+                        <label htmlFor="traffic-tier" className="block text-sm font-medium text-brand-dark-blue mb-2">Monthly Traffic</label>
+                        <select
+                          id="traffic-tier"
+                          name="traffic-tier"
+                          value={optionalData.trafficTier}
+                          onChange={(e) => handleOptionalInputChange('trafficTier', e.target.value)}
+                          className="w-full px-4 py-3 border rounded-lg bg-white"
+                        >
+                          <option value="">Select traffic...</option>
+                          <option value="0-10k">0 - 10,000 visitors</option>
+                          <option value="10k-50k">10,000 - 50,000 visitors</option>
+                          <option value="50k-100k">50,000 - 100,000 visitors</option>
+                          <option value="100k-500k">100,000 - 500,000 visitors</option>
+                          <option value="500k+">500,000+ visitors</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="primary-niche" className="block text-sm font-medium text-brand-dark-blue mb-2">Primary Niche</label>
+                        <input
+                          type="text"
+                          id="primary-niche"
+                          name="primary-niche"
+                          value={optionalData.primaryNiche}
+                          onChange={(e) => handleOptionalInputChange('primaryNiche', e.target.value)}
+                          className="w-full px-4 py-3 border rounded-lg bg-white"
+                          placeholder="e.g., Tech, Travel, Finance"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label htmlFor="affiliate-networks" className="block text-sm font-medium text-brand-dark-blue mb-2">Current Affiliate Networks</label>
+                        <input
+                          type="text"
+                          id="affiliate-networks"
+                          name="affiliate-networks"
+                          value={optionalData.affiliateNetworks}
+                          onChange={(e) => handleOptionalInputChange('affiliateNetworks', e.target.value)}
+                          className="w-full px-4 py-3 border rounded-lg bg-white"
+                          placeholder="e.g., Amazon, ShareASale, Impact"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="biggest-challenge" className="block text-sm font-medium text-brand-dark-blue mb-2">Biggest Challenge</label>
+                        <textarea
+                          id="biggest-challenge"
+                          name="biggest-challenge"
+                          rows={3}
+                          value={optionalData.biggestChallenge}
+                          onChange={(e) => handleOptionalInputChange('biggestChallenge', e.target.value)}
+                          className="w-full px-4 py-3 border rounded-lg bg-white"
+                          placeholder="e.g., Finding good programs, fixing broken links"
+                        />
+                      </div>
+                      
+                      <div className="flex gap-4">
+                        <button type="button" onClick={() => setShowOptionalForm(false)} className="w-full px-4 py-2 border rounded-lg">Cancel</button>
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full flex items-center justify-center px-4 py-2 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue disabled:opacity-50"
+                        >
+                          {isSubmitting ? 'Submitting...' : 'Submit Details'}
+                        </button>
+                      </div>
                     </form>
                   )}
                 </div>
