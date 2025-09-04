@@ -151,10 +151,384 @@
     <div class="max-w-4xl mx-auto my-8 sm:my-12 p-4 bg-white shadow-lg rounded-2xl">
 
         <section class="report-page mb-16">
-            </section>
+            <header class="flex justify-between items-start pb-6 border-b border-gray-200" role="banner">
+                <div>
+                    <h1 class="text-4xl font-bold" style="color: #081F5D;">AvidAffiliate</h1>
+                    <p style="color: #1350C5;" class="font-semibold">Monetization Report Card</p>
+                </div>
+                <div class="text-right text-sm text-gray-500">
+                    <p><strong>Client:</strong> Example Corp</p>
+                    <p><strong>URL:</strong> example.com</p>
+                    <p><strong>Date:</strong> <span class="current-date"></span></p>
+                </div>
+            </header>
+
+            <main id="main-content" role="main">
+                <section class="py-8">
+                    <div class="flex items-center gap-6 bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                        <img
+                            src="https://avidaffiliate.com/david_headshot.jpg"
+                            onerror="this.onerror=null;this.src='https://placehold.co/96x96/E0E8F9/081F5D?text=D';"
+                            alt="David, AvidAffiliate Founder"
+                            class="w-24 h-24 rounded-full object-cover border-2 flex-shrink-0"
+                            style="border-color: #1350C5;"
+                        />
+                        <p class="text-sm leading-relaxed text-gray-600">
+                            Thanks for trusting us with your site. As a fellow content creator who's been building a profitable golf affiliate site since 2021, I know how much work goes into it. I also know that most creators unknowingly miss out on 15–30% of their income from simple fixes. This snapshot shows you where that money is hiding on your site — David
+                        </p>
+                    </div>
+                </section>
+
+                <section class="pb-8" aria-labelledby="journey-heading">
+                    <h2 id="journey-heading" class="text-2xl font-bold mb-4 text-center" style="color: #081F5D;">Your Journey with AvidAffiliate</h2>
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                            <div>
+                                <div class="flex items-center justify-center w-12 h-12 text-white rounded-full mx-auto font-bold text-lg border-4 border-white" style="background-color: #1350C5;">1</div>
+                                <h3 class="mt-2 text-lg font-semibold" style="color: #081F5D;">Report Card</h3>
+                                <p class="text-xs font-bold" style="color: #1350C5;">You are here</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-center w-12 h-12 bg-gray-300 text-gray-600 rounded-full mx-auto font-bold text-lg border-4 border-white">2</div>
+                                <h3 class="mt-2 text-lg font-semibold" style="color: #081F5D;">Full Audit</h3>
+                                <p class="text-xs text-gray-500">Next step</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-center w-12 h-12 bg-gray-300 text-gray-600 rounded-full mx-auto font-bold text-lg border-4 border-white">3</div>
+                                <h3 class="mt-2 text-lg font-semibold" style="color: #081F5D;">Implementation</h3>
+                                <p class="text-xs text-gray-500">We do the fixes</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-center w-12 h-12 bg-gray-300 text-gray-600 rounded-full mx-auto font-bold text-lg border-4 border-white">4</div>
+                                <h3 class="mt-2 text-lg font-semibold" style="color: #081F5D;">Management</h3>
+                                <p class="text-xs text-gray-500">Ongoing growth</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <article aria-labelledby="exec-summary-heading" class="pb-6">
+                    <h2 id="exec-summary-heading" class="text-3xl font-bold mb-6 text-center" style="color: #081F5D;">Executive Summary</h2>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="h-full flex flex-col">
+                            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-4 text-center">
+                                <p class="text-sm uppercase tracking-wider text-gray-500">Overall Grade</p>
+                                <p class="text-8xl font-extrabold leading-none" style="color: #1350C5;" aria-label="Overall grade C minus">C-</p>
+                                <div class="mt-4 text-left">
+                                    <p class="text-xs mb-2 font-semibold text-gray-500">Grade legend</p>
+                                    <ul class="text-xs space-y-1 text-gray-500">
+                                        <li>Grade A: under 25 critical errors, under 50 unmonetized mentions</li>
+                                        <li>Grade B: 25–150 critical errors, 50–200 unmonetized mentions</li>
+                                        <li>Grade C: 150–500 critical errors, 200–700 unmonetized mentions</li>
+                                    </ul>
+                                    <p class="text-xs mt-3" style="color: #081F5D;">
+                                        To reach B‑: fix top 100 unmonetized mentions, repair 200 broken links, and test 3 higher‑paying programs.
+                                    </p>
+                                </div>
+                            </div>
+
+                             <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm">
+                                <strong>Takeaway:</strong> Your site demonstrates strong potential, but significant revenue is being left on the table. Our initial scan identified <strong class="text-amber-600">688 unmonetized brand mentions</strong> and <strong class="text-red-600">755 total broken links</strong>. These issues should be the top priority for optimization.
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full flex flex-col justify-between">
+                            <div class="text-center">
+                                <div class="text-lg font-semibold mb-2" style="color: #081F5D;">Estimated Revenue Uplift</div>
+                                <div id="uplift-value" class="count-up text-6xl font-extrabold text-green-600 leading-none tracking-tight mb-2 print:animate-none" data-value="63" aria-label="Estimated revenue uplift 63 percent">0%</div>
+                                <div class="text-sm text-gray-500">Modeled lift from top‑priority fixes in 30–60 days.</div>
+                            </div>
+                            
+                             <div class="mt-6 h-48">
+                                <canvas id="link-opportunity-chart"></canvas>
+                            </div>
+
+                            <div class="mt-6">
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="text-center">
+                                        <div id="unmonetized-value" class="count-up text-5xl font-bold text-amber-500 leading-none" data-value="688" aria-label="Six hundred eighty eight unmonetized mentions">0</div>
+                                        <div class="text-sm uppercase tracking-wide mt-1 text-gray-500">Unmonetized Mentions</div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div id="broken-links-value" class="count-up text-5xl font-bold text-red-600 leading-none" data-value="755" aria-label="Seven hundred fifty five broken links">0</div>
+                                        <div class="text-sm uppercase tracking-wide mt-1 text-gray-500">Total Broken Links</div>
+                                        <div class="text-xs text-red-700 font-semibold">(98 are high-priority affiliate links)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 flex items-center justify-center gap-2 text-xs text-gray-500">
+                                <span>As of</span>
+                                <span class="current-date whitespace-nowrap"></span>
+                                <span aria-hidden="true">•</span>
+                                <span>Confidence: Medium (requires traffic analytics)</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <section class="mt-8 grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold mb-2 text-base" style="color: #081F5D;">What this means</h3>
+                        <p class="text-sm text-gray-600">
+                            You’re likely missing 4 figures per year from unmonetized mentions and broken affiliate links, depending on traffic and EPC.
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                        <h3 class="font-semibold mb-2 text-base" style="color: #081F5D;">Next 30 days</h3>
+                        <ul class="text-sm list-disc list-inside space-y-1 text-gray-600">
+                            <li>Apply to top 10 unmonetized affiliate programs</li>
+                            <li>Fix top 200 unmonetized mentions based on traffic</li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <article aria-labelledby="footprint-heading" class="mt-10">
+                    <h2 id="footprint-heading" class="text-2xl font-bold mb-4 text-center" style="color: #081F5D;">Your Current Link Footprint</h2>
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 space-y-6">
+                        <div class="grid md:grid-cols-1 gap-6">
+                            <div class="bg-white border border-gray-200 rounded-lg p-4">
+                                <h3 class="font-semibold mb-3 text-base" style="color: #081F5D;">Overview</h3>
+                                <dl class="grid grid-cols-2 gap-x-3 gap-y-2 text-sm">
+                                    <dt class="text-gray-500">Total external URLs scanned</dt><dd class="font-medium text-right" style="color: #081F5D;">8,606</dd>
+                                    <dt class="text-gray-500">Working Affiliate Links</dt><dd class="font-medium text-right" style="color: #081F5D;">1,251</dd>
+                                    <dt class="text-gray-500 whitespace-nowrap">Unique programs detected</dt><dd class="font-medium text-right" style="color: #081F5D;">42</dd>
+                                </dl>
+                                <p class="text-xs text-gray-400 mt-3">*Link counts represent unique destination URLs, which may appear multiple times across your site.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <h3 class="font-semibold mb-3 text-base" style="color: #081F5D;">Top External Destinations</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm min-w-full responsive-table">
+                                    <caption class="sr-only">Top external destination domains by link count</caption>
+                                    <thead class="text-gray-500">
+                                        <tr>
+                                            <th scope="col" class="text-left pb-2">Domain</th>
+                                            <th scope="col" class="text-center pb-2">Links</th>
+                                            <th scope="col" class="text-right pb-2">Affiliate</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 md:divide-y-0">
+                                        <tr><td data-label="Domain" class="py-2">amazon.com</td><td data-label="Links" class="text-center py-2">902</td><td data-label="Affiliate" class="text-right py-2">Yes</td></tr>
+                                        <tr><td data-label="Domain" class="py-2">youtube.com</td><td data-label="Links" class="text-center py-2">195</td><td data-label="Affiliate" class="text-right py-2">No</td></tr>
+                                        <tr><td data-label="Domain" class="py-2">etsy.com</td><td data-label="Links" class="text-center py-2">143</td><td data-label="Affiliate" class="text-right py-2">Yes</td></tr>
+                                        <tr><td data-label="Domain" class="py-2">tiktok.com</td><td data-label="Links" class="text-center py-2">129</td><td data-label="Affiliate" class="text-right py-2">No</td></tr>
+                                        <tr><td data-label="Domain" class="py-2">en.wikipedia.org</td><td data-label="Links" class="text-center py-2">40</td><td data-label="Affiliate" class="text-right py-2">No</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+
+            <footer class="mt-8" role="contentinfo">
+                <div class="text-xs mt-3 text-center text-gray-400">
+                    AvidAffiliate • hello@avidaffiliate.com • avidaffiliate.com • Page 1 of 3
+                </div>
+            </footer>
+        </section>
 
         <section class="report-page mb-16">
-            </section>
+            <header class="flex justify-between items-start pb-6 border-b border-gray-200" role="banner">
+                <div>
+                    <h1 class="text-4xl font-bold" style="color: #081F5D;">AvidAffiliate</h1>
+                    <p class="font-semibold" style="color: #1350C5;">Monetization Report Card</p>
+                </div>
+                <div class="text-right text-sm text-gray-500">
+                    <p><strong>Client:</strong> Example Corp</p>
+                    <p><strong>URL:</strong> example.com</p>
+                    <p><strong>As of:</strong> <span class="current-date"></span></p>
+                </div>
+            </header>
+
+            <main role="main">
+                <section class="py-8">
+                    <h2 class="text-3xl font-bold mb-6 text-center" style="color: #081F5D;">Detailed Findings</h2>
+
+                    <div class="flex flex-col gap-8">
+
+                        <article class="bg-gray-50 border border-gray-200 rounded-2xl p-6" aria-labelledby="unmonetized-heading">
+                            <h3 id="unmonetized-heading" class="text-xl font-semibold mb-4" style="color: #081F5D;">Missed Payouts: Top Unmonetized Mentions</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm min-w-full responsive-table">
+                                    <caption class="sr-only">Missed Payouts: Top Unmonetized Mentions</caption>
+                                    <thead class="text-gray-500">
+                                        <tr>
+                                            <th scope="col" class="text-left pb-2">Brand/Product</th>
+                                            <th scope="col" class="text-center pb-2">Mentions</th>
+                                            <th scope="col" class="text-center pb-2">Value</th>
+                                            <th scope="col" class="text-right pb-2">Priority</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 md:divide-y-0">
+                                        <tr class="relative tooltip-group">
+                                            <td data-label="Brand/Product" class="py-2">
+                                                <span class="blur-text select-none" aria-hidden="true">Redacted Brand</span>
+                                                <span class="ml-2 inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded" style="color: #1350C5; background-color: #E0E8F9;">
+                                                    🔒 Unlock brand in Full Audit
+                                                    <button
+                                                        type="button"
+                                                        class="underline decoration-dotted focus:outline-none"
+                                                        aria-describedby="tt-redacted-1"
+                                                    >
+                                                        details
+                                                    </button>
+                                                </span>
+                                                <span
+                                                    id="tt-redacted-1"
+                                                    role="tooltip"
+                                                    class="tooltip hidden absolute z-10 left-0 mt-2 w-56 rounded bg-white border border-gray-200 p-2 text-xs shadow-lg text-gray-600"
+                                                >
+                                                    Brand name and affected URLs are available in the Full Audit.
+                                                </span>
+                                            </td>
+                                            <td data-label="Mentions" class="text-center py-2">124</td>
+                                            <td data-label="Value" class="text-right py-2">$20–$50 / lead</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-high">High</span></td>
+                                        </tr>
+
+                                        <tr class="relative tooltip-group">
+                                            <td data-label="Brand/Product" class="py-2">
+                                                <span class="blur-text select-none" aria-hidden="true">Another Brand</span>
+                                                <span class="ml-2 inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded" style="color: #1350C5; background-color: #E0E8F9;">
+                                                    🔒 Unlock brand in Full Audit
+                                                    <button
+                                                        type="button"
+                                                        class="underline decoration-dotted focus:outline-none"
+                                                        aria-describedby="tt-redacted-2"
+                                                    >
+                                                        details
+                                                    </button>
+                                                </span>
+                                                <span
+                                                    id="tt-redacted-2"
+                                                    role="tooltip"
+                                                    class="tooltip hidden absolute z-10 left-0 mt-2 w-56 rounded bg-white border border-gray-200 p-2 text-xs shadow-lg text-gray-600"
+                                                >
+                                                    Brand name and affected URLs are available in the Full Audit.
+                                                </span>
+                                            </td>
+                                            <td data-label="Mentions" class="text-center py-2">98</td>
+                                            <td data-label="Value" class="text-right py-2">Up to 5% / sale</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-high">High</span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td data-label="Brand/Product" class="py-2">Amazon.com</td>
+                                            <td data-label="Mentions" class="text-center py-2">14</td>
+                                            <td data-label="Value" class="text-right py-2">Up to 12% / sale</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-medium">Med</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Brand/Product" class="py-2">Upwork.com</td>
+                                            <td data-label="Mentions" class="text-center py-2">13</td>
+                                            <td data-label="Value" class="text-right py-2">Up to 49% / txn</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-medium">Med</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Brand/Product" class="py-2">PayPal.com</td>
+                                            <td data-label="Mentions" class="text-center py-2">11</td>
+                                            <td data-label="Value" class="text-right py-2">$8 / signup</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-low">Low</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="text-center mt-4 pt-4 border-t border-gray-200">
+                               <p class="text-xs text-gray-500 mb-3">Top opportunities and affected URLs are redacted in this free Report Card. <br class="hidden sm:block">We’ll deliver exact URLs, recommended programs, and tracking plans in the Full Audit.</p>
+
+                                <a href="https://avidaffiliate.com/free-report-card?source=report_card_unlock"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center px-4 py-2 text-white font-semibold rounded-lg transition" style="background-color: #1350C5;">
+                                    Get my free report card
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="bg-gray-50 border border-gray-200 rounded-2xl p-6" aria-labelledby="errors-heading">
+                            <h3 id="errors-heading" class="text-xl font-semibold mb-4" style="color: #081F5D;">Revenue Leaks: Critical Link Errors</h3>
+                             <p class="text-sm text-gray-600 mb-4">The following issues account for the 755 broken links found on your site. Errors affecting affiliate links are the highest priority as they directly impact revenue.</p>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm min-w-full responsive-table">
+                                    <caption class="sr-only">Revenue Leaks: Critical Link Errors</caption>
+                                    <thead class="text-gray-500">
+                                        <tr>
+                                            <th scope="col" class="text-left pb-2">Issue Type</th>
+                                            <th scope="col" class="text-center pb-2">Count</th>
+                                            <th scope="col" class="text-right pb-2">Priority</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 md:divide-y-0">
+                                        <tr>
+                                            <td data-label="Issue Type" class="py-2">Host Not Found</td>
+                                            <td data-label="Count" class="text-center py-2 text-red-600 font-semibold">250</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-high">High</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Issue Type" class="py-2">404 Not Found</td>
+                                            <td data-label="Count" class="text-center py-2 text-red-600 font-semibold">217</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-high">High</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Issue Type" class="py-2">SSL Certificate Problem</td>
+                                            <td data-label="Count" class="text-center py-2 text-amber-500 font-semibold">111</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-medium">Med</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Issue Type" class="py-2">Timeout</td>
+                                            <td data-label="Count" class="text-center py-2 text-amber-500 font-semibold">56</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-medium">Med</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td data-label="Issue Type" class="py-2">Connect Error</td>
+                                            <td data-label="Count" class="text-center py-2 text-amber-500 font-semibold">27</td>
+                                            <td data-label="Priority" class="text-right py-2"><span class="badge badge-low">Low</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-4 pt-4 border-t border-gray-200 flex flex-wrap items-center justify-center gap-2">
+                                <span class="text-xs bg-gray-100 border border-gray-200 px-2 py-1 rounded text-gray-500">Data freshness: updated this week</span>
+                                <span class="text-xs bg-gray-100 border border-gray-200 px-2 py-1 rounded text-gray-500">Sources: site crawl, program benchmarks (35,000+)</span>
+                                <span class="text-xs bg-gray-100 border border-gray-200 px-2 py-1 rounded text-gray-500">Median per 100 posts: 14 unmonetized mentions, 12 broken links</span>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="mt-8" role="contentinfo">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col gap-4">
+                    <div class="grid md:grid-cols-1 gap-4 text-sm" style="color: #081F5D;">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4">
+                            <p class="font-semibold mb-2">Next 30 days</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Repair/replace 404s and host errors on top posts</li>
+                                <li>Swap dead merchants with live category/product pages</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="sm:flex items-center justify-between gap-3">
+                        <p class="text-sm mb-2 sm:mb-0" style="color: #081F5D;">The exact URLs and fixes are available in the Full Audit.</p>
+                        <div class="flex items-center gap-3">
+                            <a href="https://avidaffiliate.com/free-report-card?source=report_card_page2_footer"
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center px-4 py-2 text-white font-semibold rounded-lg" style="background-color: #1350C5;">
+                               Get my free report card
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-xs mt-3 text-center text-gray-400">
+                    AvidAffiliate • hello@avidaffiliate.com • avidaffiliate.com • Page 2 of 3
+                </div>
+            </footer>
+        </section>
 
         <section class="report-page">
             <header class="flex justify-between items-start pb-6 border-b border-gray-200" role="banner">
@@ -185,12 +559,90 @@
                                 <p>Yes. The report card is free and takes less than 48 hours. No credit card or login required.</p>
                             </div>
                         </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+                                    aria-expanded="false" aria-controls="faq-panel-2" id="faq-button-2">
+                                <span class="font-semibold" style="color:#081F5D;">What’s included in the report card?</span>
+                                <svg class="shrink-0 text-gray-500 transition-transform duration-200" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div id="faq-panel-2" role="region" aria-labelledby="faq-button-2" class="px-6 pb-6 text-sm text-gray-600 hidden">
+                                <p>We provide a rating A–F of your current link profile and opportunity. We provide a count of the unmonetized mentions, broken/redirecting links, estimated impact and outline next steps.</p>
+                            </div>
                         </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+                                    aria-expanded="false" aria-controls="faq-panel-3" id="faq-button-3">
+                                <span class="font-semibold" style="color:#081F5D;">What access do you need?</span>
+                                <svg class="shrink-0 text-gray-500 transition-transform duration-200" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div id="faq-panel-3" role="region" aria-labelledby="faq-button-3" class="px-6 pb-6 text-sm text-gray-600 hidden">
+                                <p>Only your public website URL. Our crawler is read‑only and does not require credentials or code access.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+                                    aria-expanded="false" aria-controls="faq-panel-4" id="faq-button-4">
+                                <span class="font-semibold" style="color:#081F5D;">Is this safe for Amazon Associates?</span>
+                                <svg class="shrink-0 text-gray-500 transition-transform duration-200" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div id="faq-panel-4" role="region" aria-labelledby="faq-button-4" class="px-6 pb-6 text-sm text-gray-600 hidden">
+                                <p>Yes. We follow Amazon Associates policies and suggest compliant alternatives when they pay more.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+                                    aria-expanded="false" aria-controls="faq-panel-5" id="faq-button-5">
+                                <span class="font-semibold" style="color:#081F5D;">What happens after I get the report card?</span>
+                                <svg class="shrink-0 text-gray-500 transition-transform duration-200" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div id="faq-panel-5" role="region" aria-labelledby="faq-button-5" class="px-6 pb-6 text-sm text-gray-600 hidden">
+                                <p>Once we share your report card, we will find time with you to discuss your goals, share more details and develop an action plan. If you would like to proceed, the next step is to conduct a full audit on your site.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+                                    aria-expanded="false" aria-controls="faq-panel-6" id="faq-button-6">
+                                <span class="font-semibold" style="color:#081F5D;">Will this affect my site performance?</span>
+                                <svg class="shrink-0 text-gray-500 transition-transform duration-200" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div id="faq-panel-6" role="region" aria-labelledby="faq-button-6" class="px-6 pb-6 text-sm text-gray-600 hidden">
+                                <p>No. Our crawler is read-only and designed to have zero impact on your site's performance or user experience.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+                                    aria-expanded="false" aria-controls="faq-panel-7" id="faq-button-7">
+                                <span class="font-semibold" style="color:#081F5D;">Do you guarantee results?</span>
+                                <svg class="shrink-0 text-gray-500 transition-transform duration-200" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div id="faq-panel-7" role="region" aria-labelledby="faq-button-7" class="px-6 pb-6 text-sm text-gray-600 hidden">
+                                <p>While we can't guarantee specific revenue increases, our audits consistently identify actionable opportunities. Most clients see measurable improvements within 30 days of implementation.</p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 </main>
 
             <footer class="mt-8" role="contentinfo">
-                <div class="mt-6 mb-6 rounded-xl shadow-lg border border-gray-200 bg-white">
+                <div class="m-4 rounded-xl shadow-xl border border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
                   <div class="flex items-center justify-between gap-3 p-3">
                     <div class="flex items-center gap-3">
                       <span class="inline-flex h-8 w-8 items-center justify-center rounded-full" style="background-color: #1350C5;">
@@ -206,6 +658,7 @@
                             <div id="share-menu" class="hidden absolute bottom-full right-0 mb-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 text-sm">
                                 <a id="share-email" href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Email to a colleague</a>
                                 <button id="copy-link-btn" class="w-full text-left block px-4 py-2 text-gray-700 hover:bg-gray-100">Copy link</button>
+                                <a href="sample-report.pdf" download="AvidAffiliate-Sample-Report-Card.pdf" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Download PDF</a>
                             </div>
                         </div>
                       <a
@@ -219,7 +672,7 @@
                   </div>
                 </div>
 
-                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 mt-4">
                     <p class="text-sm" style="color: #081F5D;">Questions? Send us an email or book a quick call.</p>
                     <div class="flex items-center gap-3">
                         <a href="mailto:hello@avidaffiliate.com" class="text-sm font-semibold" style="color: #1350C5;">hello@avidaffiliate.com</a>
@@ -325,8 +778,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if(shareMenu) shareMenu.classList.add('hidden');
                 }, 1500);
             }, () => {
-                // You can add a fallback here for older browsers if needed
-                alert("Failed to copy link.");
+                // Fallback for older browsers if needed
+                alert("Failed to copy.");
             });
         });
     }
@@ -391,8 +844,8 @@ document.addEventListener('DOMContentLoaded', () => {
                      {
                         label: 'Unmonetized Mentions',
                         data: [unmonetizedLinks],
-                        backgroundColor: '#97d8c4', // brand-yellow
-                        borderColor: '#97d8c4',
+                        backgroundColor: 'rgba(245, 158, 11, 0.8)', // amber-500
+                        borderColor: 'rgb(217, 119, 6)',
                         borderWidth: 1
                     },
                     {
