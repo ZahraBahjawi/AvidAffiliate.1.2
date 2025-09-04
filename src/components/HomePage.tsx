@@ -123,7 +123,7 @@ const SecurityPrivacyBlock: React.FC<{ compact?: boolean }> = ({ compact }) => {
         </div>
       </div>
       <div className="text-center text-xs text-white-500 mt-2">
-        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className="underline">Terms</a> • <a href="/cookies" className="underline">Cookies</a>
+        <a href="/privacy" className="underline">Privacy</a> • <a href="/terms" className=\"underline">Terms</a> • <a href="/cookies" className=\"underline">Cookies</a>
       </div>
     </div>
   );
@@ -577,11 +577,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 }}
                 className="flex flex-col text-center sm:flex-row items-center gap-4 px-6 py-4 bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 border border-blue-200 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 group"
               >
-                <img 
-                  src="/S1.png" 
-                  alt="Sample Report Card" 
-                  className="h-6 w-6 object-contain"
-                />
+                <FileText className="h-6 w-6 text-brand-blue" />
                 <div className="sm:text-left">
                   <div className="text-brand-dark-blue text-base font-semibold group-hover:text-brand-blue transition-colors">
                     View sample report card
