@@ -40,22 +40,10 @@
             border-width: 1px;
             white-space: nowrap;
         }
-        .badge-high     { background-color: rgb(220 38 38 / 0.1); color: rgb(220 38 38); border-color: rgb(220 38 38 / 0.3); }
-        .badge-medium   { background-color: rgb(245 158 11 / 0.12); color: rgb(217 119 6); border-color: rgb(251 191 36 / 0.35); }
-        .badge-low      { background-color: rgb(16 185 129 / 0.12); color: rgb(5 150 105); border-color: rgb(16 185 129 / 0.35); }
-        
-        /* Floating Banner Transition */
-        #aa-free-banner {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        #aa-free-banner.hidden {
-            opacity: 0;
-            transform: translateY(100%);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        
+        .badge-high     { background-color: rgba(220, 38, 38, 0.1); color: #dc2626; border-color: rgba(220, 38, 38, 0.3); }
+        .badge-medium   { background-color: rgba(245, 158, 11, 0.12); color: #d97706; border-color: rgba(251, 191, 36, 0.35); }
+        .badge-low      { background-color: rgba(16, 185, 129, 0.12); color: #059669; border-color: rgba(16, 185, 129, 0.35); }
+
         /* Share menu transition */
         #share-menu {
             transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
@@ -92,6 +80,29 @@
             }
         }
 
+        .download-section {
+          margin-top: 20px;
+        }
+        
+        .download-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 24px;
+          background: #1350C5;
+          color: white;
+          text-decoration: none;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 14px;
+          transition: all 0.2s ease;
+        }
+        
+        .download-btn:hover {
+          background: #081F5D;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(19, 80, 197, 0.3);
+        }
 
         @media print {
             .print-bg-none { background: none !important; }
@@ -167,6 +178,16 @@
                 <div>
                     <h1 class="text-4xl font-bold" style="color: #081F5D;">AvidAffiliate</h1>
                     <p style="color: #1350C5;" class="font-semibold">Monetization Report Card</p>
+                    <div class="download-section">
+                        <a href="/sample-report.pdf" download="AvidAffiliate-Sample-Report-Card.pdf" class="download-btn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7,10 12,15 17,10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download PDF Version
+                        </a>
+                    </div>
                 </div>
                 <div class="text-right text-sm text-gray-500">
                     <p><strong>Client:</strong> Example Corp</p>
@@ -241,7 +262,7 @@
                             </div>
 
                              <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm">
-                                <strong>Takeaway:</strong> Your site demonstrates strong potential, but significant revenue is being left on the table. Our initial scan identified <strong class="text-amber-600">688 unmonetized brand mentions</strong> and <strong class="text-red-600">755 total broken links</strong>. These issues should be the top priority for optimization.
+                                <strong>Takeaway:</strong> Your site demonstrates strong potential, but significant revenue is being left on the table. Our initial scan identified <strong style="color: #97d8c4;">688 unmonetized brand mentions</strong> and <strong class="text-red-600">755 total broken links</strong>. These issues should be the top priority for optimization.
                             </div>
                         </div>
                         <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full flex flex-col justify-between">
@@ -250,7 +271,7 @@
                                 <div id="uplift-value" class="count-up text-6xl font-extrabold text-green-600 leading-none tracking-tight mb-2 print:animate-none" data-value="63" aria-label="Estimated revenue uplift 63 percent">0%</div>
                                 <div class="text-sm text-gray-500">Modeled lift from top‑priority fixes in 30–60 days.</div>
                             </div>
-                            
+
                              <div class="mt-6 h-48">
                                 <canvas id="link-opportunity-chart"></canvas>
                             </div>
@@ -258,7 +279,7 @@
                             <div class="mt-6">
                                 <div class="grid grid-cols-2 gap-6">
                                     <div class="text-center">
-                                        <div id="unmonetized-value" class="count-up text-5xl font-bold text-amber-500 leading-none" data-value="688" aria-label="Six hundred eighty eight unmonetized mentions">0</div>
+                                        <div id="unmonetized-value" class="count-up text-5xl font-bold" style="color: #97d8c4;" data-value="688" aria-label="Six hundred eighty eight unmonetized mentions">0</div>
                                         <div class="text-sm uppercase tracking-wide mt-1 text-gray-500">Unmonetized Mentions</div>
                                     </div>
                                     <div class="text-center">
@@ -360,7 +381,7 @@
             <main role="main">
                 <section class="py-8">
                     <h2 class="text-3xl font-bold mb-6 text-center" style="color: #081F5D;">Detailed Findings</h2>
-                    
+
                     <div class="flex flex-col gap-8">
 
                         <article class="bg-gray-50 border border-gray-200 rounded-2xl p-6" aria-labelledby="unmonetized-heading">
@@ -488,17 +509,17 @@
                                         </tr>
                                         <tr>
                                             <td data-label="Issue Type" class="py-2">SSL Certificate Problem</td>
-                                            <td data-label="Count" class="text-center py-2 text-amber-500 font-semibold">111</td>
+                                            <td data-label="Count" class="text-center py-2 font-semibold" style="color: #97d8c4;">111</td>
                                             <td data-label="Priority" class="text-right py-2"><span class="badge badge-medium">Med</span></td>
                                         </tr>
                                         <tr>
                                             <td data-label="Issue Type" class="py-2">Timeout</td>
-                                            <td data-label="Count" class="text-center py-2 text-amber-500 font-semibold">56</td>
+                                            <td data-label="Count" class="text-center py-2 font-semibold" style="color: #97d8c4;">56</td>
                                             <td data-label="Priority" class="text-right py-2"><span class="badge badge-medium">Med</span></td>
                                         </tr>
                                         <tr>
                                             <td data-label="Issue Type" class="py-2">Connect Error</td>
-                                            <td data-label="Count" class="text-center py-2 text-amber-500 font-semibold">27</td>
+                                            <td data-label="Count" class="text-center py-2 font-semibold" style="color: #97d8c4;">27</td>
                                             <td data-label="Priority" class="text-right py-2"><span class="badge badge-low">Low</span></td>
                                         </tr>
                                     </tbody>
@@ -542,93 +563,9 @@
             </footer>
         </section>
 
-        <section class="report-page">
-            <header class="flex justify-between items-start pb-6 border-b border-gray-200" role="banner">
-                <div>
-                    <h1 class="text-4xl font-bold" style="color: #081F5D;">AvidAffiliate</h1>
-                    <p class="font-semibold" style="color: #1350C5;">Monetization Report Card</p>
-                </div>
-                <div class="text-right text-sm text-gray-500">
-                    <p><strong>Client:</strong> Example Corp</p>
-                    <p><strong>URL:</strong> example.com</p>
-                    <p><strong>Date:</strong> <span class="current-date"></span></p>
-                </div>
-            </header>
-            <main class="flex-grow flex flex-col" role="main">
-                 <section class="pb-8" aria-labelledby="testimonial-heading">
-                    <h2 id="testimonial-heading" class="text-2xl font-bold mb-4 text-center" style="color: #081F5D;">What Our Clients Say</h2>
-                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-                        <figure class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                            <img class="w-24 h-24 rounded-full object-cover border-2 flex-shrink-0" src="https://www.thegolftravelguru.com/wp-content/uploads/2019/07/IMG_0407-copy-768x757.jpg" onerror="this.onerror=null;this.src='https://placehold.co/96x96/E0E8F9/081F5D?text=E';" alt="Photo of Ed Schmidt." style="border-color: #1350C5;" />
-                            <div>
-                                <blockquote class="italic text-gray-600">
-                                    <p>"They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The information provided was thorough, concise and extremely helpful. The changes have enhanced my site and put me in a better position to attain more clicks and sales."</p>
-                                </blockquote>
-                                <figcaption class="mt-4">
-                                    <div class="font-bold" style="color: #081F5D;">Ed Schmidt</div>
-                                    <div class="text-sm text-gray-500">The Golf Travel Guru</div>
-                                </figcaption>
-                            </div>
-                        </figure>
-                    </div>
-                </section>
-
-                <section id="cta" class="py-8" aria-labelledby="path-heading">
-                    <div class="rounded-2xl p-8 sm:p-12 text-white text-center" style="background-color: #081F5D;">
-                        <h2 id="path-heading" class="text-3xl font-bold mb-2">Your Path to Higher Revenue</h2>
-                        <p class="text-gray-300">
-                            The Report Card is the first step. Here's the full journey to unlock your site's potential.
-                        </p>
-
-                        <p class="text-white text-xl sm:text-2xl font-semibold mt-3 mb-8">
-                            Ready to fix your <span class="font-extrabold">broken links</span> and monetize your
-                            <span class="font-extrabold"> missed opportunities</span>? Your report card is one click away.
-                        </p>
-
-                        <div class="grid md:grid-cols-4 gap-6">
-                            <div class="bg-white/10 p-6 rounded-xl border-2 border-white ring-4 ring-white/20">
-                                <h3 class="text-lg font-semibold mb-2">1. Report Card</h3>
-                                <p class="text-sm text-gray-300">Snapshot of unmonetized mentions, broken links, and higher‑paying alternatives.</p>
-                                 <a href="https://avidaffiliate.com/free-report-card?source=report_card_page3_maincard"
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="inline-flex items-center px-4 py-2 mt-4 font-semibold rounded-lg"
-                                   style="background-color: #1350C5; color: white;">
-                                    Get my free report card
-                                </a>
-                            </div>
-                            <div class="bg-white/10 p-6 rounded-xl border border-white/20">
-                                <h3 class="text-lg font-semibold mb-2">2. Full Audit</h3>
-                                <p class="text-sm text-gray-300">Prioritized 90‑day plan with exact URLs, program swaps, and tracking QA.</p>
-                            </div>
-                            <div class="bg-white/10 p-6 rounded-xl border border-white/20">
-                                <h3 class="text-lg font-semibold mb-2">3. Implementation</h3>
-                                <p class="text-sm text-gray-300">We fix everything for you, then QA and validate conversions.</p>
-                            </div>
-                            <div class="bg-white/10 p-6 rounded-xl border border-white/20">
-                                <h3 class="text-lg font-semibold mb-2">4. Management</h3>
-                                <p class="text-sm text-gray-300">Monitoring, monthly audits, program tests, and reporting.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <article aria-labelledby="methodology-heading" class="py-8">
-                    <h2 id="methodology-heading" class="text-3xl font-bold mb-6 text-center" style="color: #081F5D;">Appendix: Methodology & Impact Estimation</h2>
-                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-8 space-y-4 text-gray-600 text-sm">
-                        <p>The **Estimated Revenue Uplift** is a projection, not a guarantee, based on actionable opportunities identified during our scan. We estimate uplift based on your site's existing monetized links and traffic (if provided), combined with industry benchmarks and commission rate analysis across our proprietary database of 35,000+ affiliate programs.</p>
-                        <p>For this free report card, the percentage uplift is a simplified calculation to provide a directional estimate. It's derived by summing the number of broken and unmonetized affiliate links and dividing that total by the number of existing, working affiliate links. This method assumes, for modeling purposes, that each link holds a similar potential value.</p>
-                        <div class="mt-2 text-xs text-gray-500 bg-white border border-gray-200 rounded p-3">
-                           <strong>Example Calculation:</strong> A site with 1,251 working affiliate links is found to have 98 broken affiliate links and 688 unmonetized opportunities. The uplift is calculated as: (98 + 688) / 1,251 = ~63%.
-                        </div>
-                    </div>
-                </article>
-
-            </main>
-        </section>
-
          <section class="report-page">
             <header class="flex justify-between items-start pb-6 border-b border-gray-200" role="banner">
-                <div>
+                 <div>
                     <h1 class="text-4xl font-bold" style="color: #081F5D;">AvidAffiliate</h1>
                     <p class="font-semibold" style="color: #1350C5;">Monetization Report Card</p>
                 </div>
@@ -639,7 +576,7 @@
                 </div>
             </header>
             <main>
-                <section id="faq" aria-labelledby="faq-heading" class="py-8">
+                 <section id="faq" aria-labelledby="faq-heading" class="py-8">
                     <h2 id="faq-heading" class="text-3xl font-bold mb-6 text-center" style="color: #081F5D;">Frequently Asked Questions</h2>
 
                     <div id="faq-container" class="bg-gray-50 border border-gray-200 rounded-2xl divide-y divide-gray-200">
@@ -738,7 +675,36 @@
                 </main>
 
             <footer class="mt-8" role="contentinfo">
-                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="m-4 rounded-xl shadow-xl border border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+                  <div class="flex items-center justify-between gap-3 p-3">
+                    <div class="flex items-center gap-3">
+                      <span class="inline-flex h-8 w-8 items-center justify-center rounded-full" style="background-color: #1350C5;">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02l.707-.707a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                      </span>
+                      <p class="text-sm font-semibold" style="color:#081F5D;">Found this useful?</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                       <div class="relative">
+                            <button id="share-btn" type="button" class="px-4 py-2 text-sm font-semibold rounded-lg text-gray-700 bg-gray-200 hover:bg-gray-300">
+                                Share
+                            </button>
+                            <div id="share-menu" class="hidden absolute bottom-full right-0 mb-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 text-sm">
+                                <a id="share-email" href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Email to a colleague</a>
+                                <button id="copy-link-btn" class="w-full text-left block px-4 py-2 text-gray-700 hover:bg-gray-100">Copy link</button>
+                            </div>
+                        </div>
+                      <a
+                        href="https://avidaffiliate.com/free-report-card?source=floating_banner"
+                        class="px-4 py-2 text-sm font-semibold rounded-lg text-white"
+                        style="background-color:#1350C5;"
+                      >
+                        Get Your Free Report
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 mt-4">
                     <p class="text-sm" style="color: #081F5D;">Questions? Send us an email or book a quick call.</p>
                     <div class="flex items-center gap-3">
                         <a href="mailto:hello@avidaffiliate.com" class="text-sm font-semibold" style="color: #1350C5;">hello@avidaffiliate.com</a>
@@ -756,47 +722,6 @@
         </section>
     </div>
 
-    <div id="aa-free-banner" class="fixed inset-x-0 bottom-0 z-50 print:hidden">
-      <div class="mx-auto max-w-4xl">
-        <div class="m-4 rounded-xl shadow-xl border border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
-          <div class="flex items-center justify-between gap-3 p-3">
-            <div class="flex items-center gap-3">
-              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full" style="background-color: #1350C5;">
-                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02l.707-.707a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-              </span>
-              <p class="text-sm font-semibold" style="color:#081F5D;">Found this useful?</p>
-            </div>
-            <div class="flex items-center gap-2">
-               <div class="relative">
-                    <button id="share-btn" type="button" class="px-4 py-2 text-sm font-semibold rounded-lg text-gray-700 bg-gray-200 hover:bg-gray-300">
-                        Share
-                    </button>
-                    <div id="share-menu" class="hidden absolute bottom-full right-0 mb-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 text-sm">
-                        <a id="share-email" href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Email to a colleague</a>
-                        <a href="/sample-report.pdf" download="AvidAffiliate-Sample-Report.pdf" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
-                          <svg class="mr-3 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                          </svg>
-                          Download PDF
-                        </a>
-                        <button id="copy-link-btn" class="w-full text-left block px-4 py-2 text-gray-700 hover:bg-gray-100">Copy link</button>
-                    </div>
-                </div>
-              <a
-                href="https://avidaffiliate.com/free-report-card?source=floating_banner"
-                class="px-4 py-2 text-sm font-semibold rounded-lg text-white"
-                style="background-color:#1350C5;"
-              >
-                Get Your Free Report
-              </a>
-              <button id="aa-free-banner-close" class="p-2 text-gray-500 hover:text-gray-700" aria-label="Dismiss banner">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -856,70 +781,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. BANNER: Floating banner scroll trigger, dismissal, and share functionality
-    const banner = document.getElementById('aa-free-banner');
-    const closeBannerBtn = document.getElementById('aa-free-banner-close');
+    // 3. SHARE FUNCTIONALITY
     const shareBtn = document.getElementById('share-btn');
     const shareMenu = document.getElementById('share-menu');
     const copyLinkBtn = document.getElementById('copy-link-btn');
     const shareEmail = document.getElementById('share-email');
 
-    let bannerShown = false;
+    if (shareBtn && shareMenu) {
+         shareBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            shareMenu.classList.toggle('hidden');
+         });
+    }
 
-    if (localStorage.getItem('avidAffiliateBannerDismissed') === 'true') {
-        if (banner) banner.remove();
-    } else {
-        const handleScroll = () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent >= 50 && !bannerShown && banner) {
-                banner.classList.remove('hidden');
-                bannerShown = true;
-                window.removeEventListener('scroll', handleScroll);
-            }
-        };
-        window.addEventListener('scroll', handleScroll, { passive: true });
+    if (shareEmail) {
+        const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
+        const emailBody = encodeURIComponent(`I thought you might find this sample report card interesting:\n\n${window.location.href}`);
+        shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+    }
 
-        if (closeBannerBtn) {
-            closeBannerBtn.addEventListener('click', () => {
-                if(banner) {
-                    banner.classList.add('hidden');
-                    localStorage.setItem('avidAffiliateBannerDismissed', 'true');
-                }
-            });
-        }
-        
-        if (shareBtn && shareMenu) {
-             shareBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                shareMenu.classList.toggle('hidden');
-             });
-        }
-
-        if (shareEmail) {
-            const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
-            const emailBody = encodeURIComponent(`I thought you might find this sample report card interesting:\n\n${window.location.href}`);
-            shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
-        }
-
-        if(copyLinkBtn) {
-            copyLinkBtn.addEventListener('click', () => {
-                const url = window.location.href;
-                const dummy = document.createElement('textarea');
-                document.body.appendChild(dummy);
-                dummy.value = url;
-                dummy.select();
-                document.execCommand('copy');
-                document.body.removeChild(dummy);
-                
+    if(copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', () => {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
                 copyLinkBtn.textContent = 'Copied!';
                 setTimeout(() => {
                     copyLinkBtn.textContent = 'Copy link';
                     if(shareMenu) shareMenu.classList.add('hidden');
                 }, 1500);
+            }, () => {
+                // Fallback for older browsers if needed
+                alert("Failed to copy.");
             });
-        }
+        });
     }
-    
+
     // Close share menu when clicking outside
     document.addEventListener('click', (e) => {
         if(shareMenu && !shareMenu.classList.contains('hidden') && !shareBtn.contains(e.target)) {
@@ -939,7 +835,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (el.classList.contains('count-up')) {
                     animateCountUp(el);
                 }
-                
+
                 if (el.id === 'link-opportunity-chart') {
                     renderLinkChart(el);
                 }
@@ -955,16 +851,16 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => {
         observer.observe(el);
     });
-    
+
     // 5. CHART RENDERING FUNCTION
     const renderLinkChart = (canvasElement) => {
         const ctx = canvasElement.getContext('2d');
-        
+
         // Data from the report
         const workingAffiliateLinks = 1251;
         const unmonetizedLinks = 688;
         const brokenAffiliateLinks = 98;
-        
+
         new Chart(ctx, {
             type: 'bar',
             data: {
@@ -973,22 +869,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     {
                         label: 'Working affiliate links',
                         data: [workingAffiliateLinks],
-                        backgroundColor: 'rgb(22 163 74 / 0.8)', // green-600
-                        borderColor: 'rgb(22 163 74)',
+                        backgroundColor: 'rgba(22, 163, 74, 0.8)', // green-600
+                        borderColor: 'rgb(22, 163, 74)',
                         borderWidth: 1
                     },
                      {
                         label: 'Unmonetized Mentions',
                         data: [unmonetizedLinks],
-                        backgroundColor: 'rgb(245 158 11 / 0.8)', // amber-500
-                        borderColor: 'rgb(217 119 6)',
+                        backgroundColor: '#97d8c4', // brand-yellow
+                        borderColor: '#97d8c4',
                         borderWidth: 1
                     },
                     {
                         label: 'Broken Affiliate Links',
                         data: [brokenAffiliateLinks],
-                        backgroundColor: 'rgb(220 38 38 / 0.8)', // red-600
-                        borderColor: 'rgb(220 38 38)',
+                        backgroundColor: 'rgba(220, 38, 38, 0.8)', // red-600
+                        borderColor: 'rgb(220, 38, 38)',
                         borderWidth: 1
                     }
                 ]
