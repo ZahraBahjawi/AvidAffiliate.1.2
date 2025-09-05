@@ -851,35 +851,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. BANNER: Floating banner scroll trigger, dismissal, and share functionality
+   // 3. BANNER: Floating banner scroll trigger, dismissal, and share functionality
     const banner = document.getElementById('aa-free-banner');
-    const closeBannerBtn = document.getElementById('aa-free-banner-close');
-    const shareBtn = document.getElementById('share-btn');
-    const shareMenu = document.getElementById('share-menu');
-    const copyLinkBtn = document.getElementById('copy-link-btn');
-    const shareEmail = document.getElementById('share-email');
 
-    let bannerShown = false;
+    if (banner && localStorage.getItem('avidAffiliateBannerDismissed') !== 'true') {
+        const closeBannerBtn = document.getElementById('aa-free-banner-close');
+        const shareBtn = document.getElementById('share-btn');
+        const shareMenu = document.getElementById('share-menu');
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        const shareEmail = document.getElementById('share-email');
+        let bannerShown = false;
 
-    if (localStorage.getItem('avidAffiliateBannerDismissed') === 'true') {
-        if (banner) banner.remove();
-    } else {
-        const handleScroll = () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent >= 50 && !bannerShown && banner) {
+        const showBanner = () => {
+            if (!bannerShown) {
                 banner.classList.remove('hidden');
                 bannerShown = true;
-                window.removeEventListener('scroll', handleScroll);
             }
         };
-        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        const handleScrollAndResize = () => {
+            if (bannerShown) return; // Don't do anything if it's already visible
+
+            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+            
+            // If content is not scrollable, or user has scrolled more than 50%
+            if (scrollableHeight <= 0 || (window.scrollY / scrollableHeight) * 100 >= 50) {
+                showBanner();
+                // We can remove the listeners once the banner is shown to improve performance
+                window.removeEventListener('scroll', handleScrollAndResize);
+                window.removeEventListener('resize', handleScrollAndResize);
+                window.removeEventListener('load', handleScrollAndResize);
+            }
+        };
+
+        // Initial check when the DOM is ready
+        handleScrollAndResize();
+
+        // Add event listeners
+        window.addEventListener('load', handleScrollAndResize);
+        window.addEventListener('scroll', handleScrollAndResize, { passive: true });
+        window.addEventListener('resize', handleScrollAndResize, { passive: true });
 
         if (closeBannerBtn) {
             closeBannerBtn.addEventListener('click', () => {
-                if(banner) {
-                    banner.classList.add('hidden');
-                    localStorage.setItem('avidAffiliateBannerDismissed', 'true');
-                }
+                banner.classList.add('hidden');
+                localStorage.setItem('avidAffiliateBannerDismissed', 'true');
             });
         }
         
@@ -889,6 +905,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 shareMenu.classList.toggle('hidden');
              });
         }
+        
+        if (shareEmail) {
+            const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
+            const emailBody = encodeURIComponent(`I thought you might find this sample report card interesting:\n\n${window.location.href}`);
+            shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+        }
+
+        if(copyLinkBtn) {
+            copyLinkBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    copyLinkBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyLinkBtn.textContent = 'Copy link';
+                        if(shareMenu) shareMenu.classList.add('hidden');
+                    }, 1500);
+                });
+            });
+        }
+    }
 
         if (shareEmail) {
             const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
