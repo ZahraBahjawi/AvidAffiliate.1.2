@@ -934,30 +934,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(copyLinkBtn) {
             copyLinkBtn.addEventListener('click', () => {
                 const url = window.location.href;
-                const dummy = document.createElement('textarea');
-                document.body.appendChild(dummy);
-                dummy.value = url;
-                dummy.select();
-                document.execCommand('copy');
-                document.body.removeChild(dummy);
-                
-                copyLinkBtn.textContent = 'Copied!';
-                setTimeout(() => {
-                    copyLinkBtn.textContent = 'Copy link';
-                    if(shareMenu) shareMenu.classList.add('hidden');
-                }, 1500);
-            });
-        }
-    }
-    
-    // Close share menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if(shareMenu && !shareMenu.classList.contains('hidden') && !shareBtn.contains(e.target)) {
-            shareMenu.classList.add('hidden');
-        }
-    });
-
-
     // 4. ANIMATIONS & CHART: Intersection Observer for animations and chart rendering
     const animatedElements = document.querySelectorAll('.count-up, #link-opportunity-chart');
 
