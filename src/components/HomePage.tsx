@@ -649,10 +649,10 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Missing payouts</h3>
                 <div className="text-3xl font-normal text-green-600 mb-4">50-80%</div>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed overflow-hidden max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
                   of product mentions go unmonetized. We find those mentions and turn them into tracked, revenue‑generating links.
                 </p>
-              </div>
+              </div> 
 
               <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
                 <div className="mx-auto mb-6">
