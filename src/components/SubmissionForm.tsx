@@ -48,11 +48,12 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
     });
 };
 
-  return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+ return (
+    <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       {/* Thank You Popup */}
       {showThankYou && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+ 
           <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative">
             <button
               onClick={() => setShowThankYou(false)}
