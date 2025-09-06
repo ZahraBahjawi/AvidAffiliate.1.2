@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { LoadingLogo } from './components/LoadingLogo';
 import { UserData, ScorecardData, AppStage } from './types';
@@ -42,6 +42,12 @@ function App() {
   const [scorecardData, setScorecardData] = useState<ScorecardData | null>(null);
   const [error, setError] = useState<string>('');
   const [prefilledData, setPrefilledData] = useState<{ url?: string; email?: string }>({});
+
+  useEffect(() => {
+    if (window.location.hash === '#form') {
+      setStage('form');
+    }
+  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
