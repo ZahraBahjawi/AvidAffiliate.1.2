@@ -242,7 +242,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">Complete Site Analysis</h3>
                       <p className="text-gray-300">
-                        Go beyond the 1,000-link free audit with comprehensive analysis of your entire website, including deep-dive competitor research and market opportunity assessment.
+                        Go beyond the 1,000-link free report with comprehensive analysis of your entire website, including deep-dive competitor research and market opportunity assessment.
                       </p>
                     </div>
                   </div>
