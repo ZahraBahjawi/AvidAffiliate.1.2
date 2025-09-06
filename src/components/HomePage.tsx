@@ -835,7 +835,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
           </div>
         </div>
-      </section>
+        </section>
 
       {/* Features */}
       <section id="features" className="py-20">
