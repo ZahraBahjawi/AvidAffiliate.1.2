@@ -660,7 +660,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Broken links</h3>
                 <div className="text-3xl font-normal text-red-600 mb-4">Silent losses</div>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed overflow-hidden max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
                   from 404s, redirects, and geo‑mismatches. We repair pathways from click to commission so your traffic converts.
                 </p>
               </div>
