@@ -840,28 +840,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (shareEmail) {
-        const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
-        const emailBody = encodeURIComponent(`I thought you might find this sample report card interesting:\n\n${window.location.href}`);
-        shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
-    }
+            const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
+            const emailBody = encodeURIComponent(`I thought you might find this sample report card interesting:\n\n<${window.location.href}>`);
+            shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+        }
 
-    if(copyLinkBtn) {
-        copyLinkBtn.addEventListener('click', () => {
-            const url = window.location.href;
-            const dummy = document.createElement('textarea');
-            document.body.appendChild(dummy);
-            dummy.value = url;
-            dummy.select();
-            document.execCommand('copy');
-            document.body.removeChild(dummy);
-            
-            copyLinkBtn.textContent = 'Copied!';
-            setTimeout(() => {
-                copyLinkBtn.textContent = 'Copy link';
-                if(shareMenu) shareMenu.classList.add('hidden');
-            }, 1500);
-        });
-    }
+        if(copyLinkBtn) {
+            copyLinkBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    copyLinkBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyLinkBtn.textContent = 'Copy link';
+                        if(shareMenu) shareMenu.classList.add('hidden');
+                    }, 1500);
+                }).catch(err => console.error('Failed to copy text: ', err));
+            });
+        }
     
     // Close share menu when clicking outside
     document.addEventListener('click', (e) => {
