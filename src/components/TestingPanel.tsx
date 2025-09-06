@@ -113,7 +113,15 @@ export const TestingPanel: React.FC = () => {
     }
   };
 
-
+  if (!isVisible) {
+    return (
+      <div className="fixed bottom-4 right-4 z-50">
+        <div className="bg-gray-800 text-white px-3 py-2 rounded-lg text-xs opacity-50 hover:opacity-0 transition-opacity">
+          Press Ctrl+Shift+T to open test panel
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
