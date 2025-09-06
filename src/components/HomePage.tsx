@@ -842,7 +842,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="why-creators-choose" role="heading" aria-level="2">Why 300+ creators choose AvidAffiliate</h2>
+              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="why-creators-choose" role="heading" aria-level="2">Why choose AvidAffiliate</h2>
               <p className="text-xl text-gray-600 font-light">Make more money from your existing content—effortlessly</p>
             </div>
 
