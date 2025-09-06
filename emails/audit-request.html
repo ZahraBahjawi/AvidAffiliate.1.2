@@ -1,151 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Card Request Received - AvidAffiliate</title>
+    <title>Your AvidAffiliate Report Card is being generated</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
+        :root {
+            color-scheme: light;
+            supported-color-schemes: light;
+        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #f8fafc;
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        table, td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            border-collapse: collapse;
         }
-        .header {
-            background: linear-gradient(135deg, #FF6B35, #E55A2B);
-            color: white;
-            padding: 30px;
-            text-align: center;
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
         }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        #outlook a {
+            padding: 0;
         }
-        .content {
-            padding: 30px;
-        }
-        .highlight-box {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .status-badge {
-            display: inline-block;
-            background: #10b981;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 10px 0;
-        }
-        .footer {
-            background: #f8fafc;
-            padding: 20px;
-            text-align: center;
-            color: #6b7280;
-            font-size: 14px;
-            border-top: 1px solid #e5e7eb;
-        }
-        .website-info {
-            background: #f0f9ff;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        .data-field {
-            margin: 10px 0;
-            padding: 8px 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .data-field:last-child {
-            border-bottom: none;
-        }
-        .field-label {
-            font-weight: 600;
-            color: #374151;
-            display: inline-block;
-            width: 120px;
-        }
-        .field-value {
-            color: #1f2937;
-        }
+        .mso-font-fix { font-family: Arial, sans-serif !important; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">AvidAffiliate</div>
-            <h1 style="margin: 0; font-size: 28px;">Report Card Request Received!</h1>
-            <p style="margin: 10px 0 0 0; opacity: 0.9;">We're analyzing your website for affiliate revenue opportunities</p>
-        </div>
-        
-        <div class="content">
-            <p>Hi {{ name }},</p>
-            
-            <p>Thank you for submitting your website for a free affiliate report card! We've successfully received your request and our analysis system is now working to uncover hidden revenue opportunities.</p>
-            
-            <div class="status-badge">✅ Request Received</div>
-            
-            <div class="highlight-box">
-                <h3 style="margin-top: 0; color: #1e40af;">Your Submission Details:</h3>
-                <div class="data-field">
-                    <span class="field-label">Website:</span>
-                    <span class="field-value">{{ website-url }}</span>
-                </div>
-                <div class="data-field">
-                    <span class="field-label">Name:</span>
-                    <span class="field-value">{{ name }}</span>
-                </div>
-                <div class="data-field">
-                    <span class="field-label">Email:</span>
-                    <span class="field-value">{{ email }}</span>
-                </div>
-                <div class="data-field">
-                    <span class="field-label">Traffic Tier:</span>
-                    <span class="field-value">{{ traffic-tier }}</span>
-                </div>
-                <div class="data-field">
-                    <span class="field-label">Earnings Tier:</span>
-                    <span class="field-value">{{ earnings-tier }}</span>
-                </div>
-            </div>
-            
-            <div style="background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px; margin: 20px 0; border-radius: 0 8px 8px 0;">
-                <h3 style="margin-top: 0; color: #065f46;">What Happens Next:</h3>
-                <ul style="margin: 0; padding-left: 20px;">
-                    <li><strong>Analysis Phase (1-2 hours):</strong> Our system scans your website for affiliate opportunities</li>
-                    <li><strong>Report Generation:</strong> We compile your personalized report card with actionable insights</li>
-                    <li><strong>Delivery (within 48 hours):</strong> Your complete report card will be emailed to you</li>
-                </ul>
-            </div>
-            
-            <p><strong>Expected Delivery:</strong> Within 48 hours to {{ email }}</p>
-            
-            <p>Questions while you wait? Simply reply to this email - we're here to help!</p>
-            
-            <p>Best regards,<br>
-            <strong>The AvidAffiliate Team</strong></p>
-        </div>
-        
-        <div class="footer">
-            <p><strong>AvidAffiliate</strong> - Affiliate Revenue Optimization</p>
-            <p>Email: hello@avidaffiliate.com | Response Time: Within 24 hours</p>
-            <p>This is an automated confirmation email for your report card request.</p>
-        </div>
+<body style="margin: 0; padding: 0; background-color: #f4f4f4;">
+
+    <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+        Your request is confirmed! We're analyzing your site for hidden revenue opportunities. Whitelist this email to ensure you get it!
     </div>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="background-color: #f4f4f4;">
+        <tr>
+            <td align="center" style="padding: 20px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+                    
+                    <tr>
+                        <td class="header" style="background-color: #081F5D; color: #ffffff; padding: 32px; text-align: center;">
+                            <img src="https://avidaffiliate.com/LOGO.png" alt="AvidAffiliate – Affiliate Revenue Optimization" width="120" style="max-width: 120px; margin: 0 auto 8px; display: block; border: 0;">
+                            <h1 style="font-family: 'Google Sans', Arial, sans-serif; margin: 0; font-size: 28px; font-weight: 800;">We're on it!</h1>
+                            </td>
+                    </tr>
+
+                    <tr>
+                        <td class="content" style="padding: 32px; color: #333333; line-height: 1.6; font-size: 16px;">
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 16px;">Hi [User's Name],</p>
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 16px;">Smart move—you’re on your way to uncovering hidden revenue opportunities on <strong>[User's Website URL]</strong>.</p>
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 16px;">Our system is now analyzing your site, looking for:</p>
+                            
+                             <ul style="margin: 0 0 24px; padding-left: 20px; list-style-type: '✓';">
+                                <li class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin-bottom: 10px; padding-left: 10px;"><strong>Revenue Leaks:</strong> High-value broken affiliate links.</li>
+                                <li class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin-bottom: 10px; padding-left: 10px;"><strong>Missed Payouts:</strong> Brands you mention but don't monetize.</li>
+                            </ul>
+
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 24px;">Your personalized report will be in your inbox shortly, usually within 24 hours (and always within 48). Please consider whitelisting <strong>hello@avidaffiliate.com</strong> to ensure you receive it.</p>
+                            
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="margin-bottom: 32px;">
+                                <tr>
+                                    <td>
+                                        <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 8px; font-size: 14px; color: #555555;"><strong>Status:</strong> Queued for Analysis</p>
+                                        <div style="width: 100%; background-color: #e0e0e0; border-radius: 5px; height: 8px;">
+                                            <div style="width: 25%; height: 8px; background-color: #1350C5; border-radius: 5px;"></div>
+                                        </div>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="font-size: 10px; color: #777777; margin-top: 5px;">
+                                            <tr>
+                                                <td class="mso-font-fix" align="left" style="font-family: 'Google Sans', Arial, sans-serif;">Received</td>
+                                                <td class="mso-font-fix" align="center" style="font-family: 'Google Sans', Arial, sans-serif; font-weight: bold; color: #1350C5;">Queued</td>
+                                                <td class="mso-font-fix" align="right" style="font-family: 'Google Sans', Arial, sans-serif;">Analyzing</td>
+                                                <td class="mso-font-fix" align="right" style="font-family: 'Google Sans', Arial, sans-serif; padding-right:15px;">Done</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="background-color: #f0f5ff; border: 1px solid #dbeafe; border-radius: 8px; text-align: center; margin-bottom: 24px;">
+                                <tr>
+                                    <td class="info-box" style="padding: 20px;">
+                                        <h3 class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 16px; font-size: 18px; color: #081F5D;">Boost Your Report's Accuracy (Recommended)</h3>
+                                        <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 20px; font-size: 14px;">Want more targeted recommendations? Take 30 seconds to provide a few extra details about your site:</p>
+                                        <a href="https://avidaffiliate.com/optional-details-form" class="button" target="_blank" role="button" aria-label="Improve My Report" style="display: inline-block; background-color: #1350C5; color: #ffffff !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; line-height: 1.2; cursor: pointer;">Improve My Report</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="background-color: #f8f9fa; border: 1px solid #e5e7eb; border-radius: 8px; text-align: center;">
+                                <tr>
+                                    <td class="info-box" style="padding: 20px;">
+                                        <h3 class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 16px; font-size: 18px; color: #081F5D;">While You Wait...</h3>
+                                        <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 20px; font-size: 14px;">Want a preview of what’s coming? Here’s the level of insight you’ll soon have on your own site.</p>
+                                        <a href="https://avidaffiliate.com/sample-report" class="button button-secondary" target="_blank" role="button" aria-label="Preview a Sample Report" style="display: inline-block; background-color: #e5e7eb; color: #111827 !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; line-height: 1.2; cursor: pointer;">Preview a Sample Report</a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 32px 0 8px;">Keep an eye on your inbox — your Report Card is the first step to unlocking more affiliate revenue.</p>
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; font-size: 14px; color: #555555; margin: 0 0 16px;">If you don’t see your report within 48 hours, please check your spam folder or reply directly to this email.</p>
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 16px 0;">To your success,</p>
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0; font-weight: bold;">David & The AvidAffiliate Team</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="text-align: center; padding: 20px; font-size: 12px; color: #777777; background-color: #f4f4f4;">
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 8px;">AvidAffiliate | hello@avidaffiliate.com</p>
+                            <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0;">No longer want updates? <a href="https://avidaffiliate.com/unsubscribe/[request-id]" target="_blank" style="color: #777777; text-decoration: underline;">Unsubscribe here</a>.</p>
+                        </td>
+                    </tr>
+                </table>
+                </td>
+        </tr>
+    </table>
+
 </body>
 </html>
