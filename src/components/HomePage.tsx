@@ -834,7 +834,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <FAQ />
             </div>
           </div>
-        </div>
+        
         </section>
 
       {/* Features */}
