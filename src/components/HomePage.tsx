@@ -244,19 +244,14 @@ const ReportcardPreview: React.FC = () => {
   
   const slides = [
     {
-      title: "Unmonetized Mentions",
-      description: "50+ brand mentions found without affiliate links",
-      image: "/LOGO.png"
+      title: "Executive Summary",
+      description: "Get a clear overview of your site's health with an overall grade and estimated revenue uplift.",
+      image: "/S1.png"
     },
     {
-      title: "Broken Links Analysis", 
-      description: "12 broken affiliate links costing you commissions",
-      image: "/LOGO.png"
-    },
-    {
-      title: "Higher-Paying Programs",
-      description: "3 alternative programs with 2-5x better rates",
-      image: "/LOGO.png"
+      title: "Detailed Findings",
+      description: "Discover unmonetized mentions and critical link errors that are costing you money.",
+      image: "/S2.png"
     }
   ];
 
@@ -289,18 +284,20 @@ const ReportcardPreview: React.FC = () => {
           </button>
           
           <div className="text-center flex-1">
-            <img 
-              src={slides[currentSlide].image} 
-              alt="Report card preview" 
-              className="h-16 w-auto mx-auto mb-2"
-              decoding="async"
-            />
-            <h3 className="text-lg font-medium text-white mb-1">
+            <h3 className="text-lg font-medium text-white mb-2">
               {slides[currentSlide].title}
             </h3>
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-300 text-sm mb-4">
               {slides[currentSlide].description}
             </p>
+            <div className="bg-white rounded-md shadow-lg p-1 max-w-sm mx-auto">
+              <img 
+                src={slides[currentSlide].image} 
+                alt={slides[currentSlide].title}
+                className="w-full h-auto max-h-80 object-contain rounded-sm"
+                decoding="async"
+              />
+            </div>
           </div>
           
           <button
