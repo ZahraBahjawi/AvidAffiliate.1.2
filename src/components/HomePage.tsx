@@ -290,11 +290,11 @@ const ReportcardPreview: React.FC = () => {
             <p className="text-gray-300 text-sm mb-4">
               {slides[currentSlide].description}
             </p>
-            <div className="max-w-sm mx-auto"> {/* Removed bg-white, rounded-md, shadow-lg, p-1 */}
+            <div className="bg-white rounded-md shadow-lg p-1 max-w-sm mx-auto">
               <img 
                 src={slides[currentSlide].image} 
                 alt={slides[currentSlide].title}
-                className="w-full h-auto max-h-80 object-contain" // Removed rounded-sm
+                className="w-full h-auto max-h-80 object-contain rounded-sm"
                 decoding="async"
               />
             </div>
@@ -648,10 +648,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <DollarSign className="h-8 w-8 text-green-500 mx-auto transition-all duration-300" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Missing payouts</h3>
-                  <div className="text-3xl font-normal text-green-600 mb-4">50-80%</div>
-                <p className="text-gray-600 text-sm leading-relaxed overflow-hidden max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                  of product mentions go unmonetized. We find those mentions and turn them into tracked, revenue‑generating links.
-                </p>
+                <div className="text-3xl font-normal text-green-600 mb-4">50-80%</div>
+                <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-300 ease-in-out">
+                  <p className="text-gray-600 text-sm leading-relaxed pt-2">
+                    of product mentions go unmonetized. We find those mentions and turn them into tracked, revenue‑generating links.
+                  </p>
+                </div>
               </div>
 
               <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
@@ -660,9 +662,11 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Broken links</h3>
                 <div className="text-3xl font-normal text-red-600 mb-4">Silent losses</div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  from 404s, redirects, and geo‑mismatches. We repair pathways from click to commission so your traffic converts.
-                </p>
+                <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-300 ease-in-out">
+                  <p className="text-gray-600 text-sm leading-relaxed pt-2">
+                    from 404s, redirects, and geo‑mismatches. We repair pathways from click to commission so your traffic converts.
+                  </p>
+                </div>
               </div>
 
               <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
@@ -671,9 +675,11 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Low commission rates</h3>
                 <div className="text-3xl font-normal text-blue-600 mb-4">2–5x</div>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  better payouts exist for many programs. We benchmark against 35,000+ programs and recommend higher‑paying alternatives.
-                </p>
+                <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-300 ease-in-out">
+                  <p className="text-gray-600 text-sm leading-relaxed pt-2">
+                    better payouts exist for many programs. We benchmark against 35,000+ programs and recommend higher‑paying alternatives.
+                  </p>
+                </div>
               </div>
             </div>
 
