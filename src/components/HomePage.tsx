@@ -775,10 +775,11 @@ export const HomePage: React.FC<HomePageProps> = ({
                       3
                     </div>
                     <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center mx-auto shadow-lg transform group-hover:scale-105 transition-all duration-300">
-                      <Mail className="h-8 w-8" />
+                      <span className="text-4xl font-bold">C-</span>
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold text-brand-dark-blue mb-4">Get your report card</h3>
+
                   <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 group-hover:shadow-lg transition-all duration-300">
                     <p className="text-gray-600 leading-relaxed text-sm mb-3">We email a clear, prioritized summary of your current link profile and opportunity.</p>
                     <div className="flex items-center justify-center text-xs text-purple-600">
