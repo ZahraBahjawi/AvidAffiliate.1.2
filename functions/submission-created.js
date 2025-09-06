@@ -11,7 +11,8 @@ export const handler = async (event) => {
 
   const { payload } = JSON.parse(event.body);
   const { form_name, data } = payload;
-  const { name, email, subject, message, url, trafficTier, earningsTier } = data;
+   const { name, email, subject, message, websiteUrl, trafficTier, earningsTier } = data;
+
 
   // Make sure you have set this in your Netlify environment variables
   if (!process.env.POSTMARK_SERVER_TOKEN) {
