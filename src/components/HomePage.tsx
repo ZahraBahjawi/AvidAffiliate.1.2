@@ -290,14 +290,16 @@ const ReportcardPreview: React.FC = () => {
             <p className="text-gray-300 text-sm mb-4">
               {slides[currentSlide].description}
             </p>
-           <div className="max-w-sm mx-auto"> {/* Removed bg-white, rounded-md, shadow-lg, p-1 */}
+            <div className="bg-white rounded-md shadow-lg p-1 max-w-sm mx-auto">
               <img 
                 src={slides[currentSlide].image} 
                 alt={slides[currentSlide].title}
-                className="w-full h-auto max-h-80 object-contain" // Removed rounded-sm
+                className="w-full h-auto max-h-80 object-contain rounded-sm"
                 decoding="async"
               />
             </div>
+          </div>
+          
           <button
             onClick={nextSlide}
             className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
@@ -680,7 +682,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </div>
             </div>
-
             <div className="bg-brand-dark-blue rounded-2xl p-12 text-white text-center">
               <h3 className="text-2xl font-normal mb-8">The result? You're leaving money on the table.</h3>
               
@@ -771,25 +772,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </div>
                 </div>
       
-                <div className="text-center group">
-                  {/* Step 3 - Deliver */}
-                  <div className="relative mb-6">
-                    {/* Step number badge */}
-                    <div className="inline-flex items-center justify-center w-8 h-8 bg-purple-600 text-white rounded-full text-sm font-bold mb-4">
-                      3
-                    </div>
-                    <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center mx-auto shadow-lg transform group-hover:scale-105 transition-all duration-300">
-                      <span className="text-4xl font-bold">C-</span>
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-brand-dark-blue mb-4">Get your report card</h3>
-
+                
                   <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 group-hover:shadow-lg transition-all duration-300">
                     <p className="text-gray-600 leading-relaxed text-sm mb-3">We email a clear, prioritized summary of your current link profile and opportunity.</p>
                     <div className="flex items-center justify-center text-xs text-purple-600">
                       <Clock className="h-3 w-3 mr-1" />
                       Delivered in 24-48 hours
-                    </div>
+                     </div>
                   </div>
                 </div>
               </div>
