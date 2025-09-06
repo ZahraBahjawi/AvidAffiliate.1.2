@@ -221,7 +221,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
                 </button>
               )}
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Beyond the Free Audit
+                Beyond the Free Report
               </h1>
               <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Ready to maximize your affiliate revenue? Let's discuss how we can help you implement and optimize your monetization strategy.
