@@ -290,11 +290,11 @@ const ReportcardPreview: React.FC = () => {
             <p className="text-gray-300 text-sm mb-4">
               {slides[currentSlide].description}
             </p>
-            <div className="bg-white rounded-md shadow-lg p-1 max-w-sm mx-auto">
+            <div className="max-w-sm mx-auto"> {/* Removed bg-white, rounded-md, shadow-lg, p-1 */}
               <img 
                 src={slides[currentSlide].image} 
                 alt={slides[currentSlide].title}
-                className="w-full h-auto max-h-80 object-contain rounded-sm"
+                className="w-full h-auto max-h-80 object-contain" // Removed rounded-sm
                 decoding="async"
               />
             </div>
