@@ -807,7 +807,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="text-center mt-16">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 max-w-2xl mx-auto">
                 <h3 className="text-2xl font-semibold text-brand-dark-blue mb-4">Ready to discover your hidden revenue?</h3>
-                <p className="text-gray-600 mb-6">Join 300+ creators who've already optimized their affiliate strategy</p>
+                <p className="text-gray-600 mb-6">Join creators who've already optimized their affiliate strategy</p>
                 <button
                   onClick={() => {
                     track('cta_click', { location: 'how_it_works_bottom' });
