@@ -28,7 +28,7 @@ export const handler = async (event) => {
   let emailSubject = "";
 
   if (form_name === 'audit-request') {
-    emailSubject = "Report Card Request Received!";
+    emailSubject = "Get ready—your hidden revenue opportunities are coming soon!";
     emailHtml = `
       <h1>Hi ${name},</h1>
       <p>Thank you for submitting your website for a free affiliate report card! We've received your request and our analysis system is now working to uncover hidden revenue opportunities.</p>
