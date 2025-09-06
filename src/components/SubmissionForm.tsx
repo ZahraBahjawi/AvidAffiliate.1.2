@@ -207,7 +207,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                   <div className="text-center mb-6">
                       <p className="text-base font-medium text-green-600 flex items-center justify-center">
                           <ShieldCheck className="h-5 w-5 mr-2" />
-                          Join 100+ creators who have already increased their revenue with our insights.
+                          Join creators who have already increased their revenue with our insights.
                       </p>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4">
