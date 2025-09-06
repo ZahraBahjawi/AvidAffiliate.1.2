@@ -80,7 +80,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
                 onClick={onBack}
                 className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-brand-blue hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
               >
-                Get Free Scorecard
+                Get Free Report Card
               </button>
             </div>
           </div>
