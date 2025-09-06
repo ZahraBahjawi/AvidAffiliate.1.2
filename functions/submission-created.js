@@ -69,7 +69,7 @@ export const handler = async (event) => {
     await client.sendEmail({
       "From": "hello@avidaffiliate.com", // This MUST be a verified Sender Signature in Postmark
       "To": email, // The user's email address
-      "Bcc": "first@example.com, second@example.com", // Add your 2 internal emails here
+      "Bcc": "david@dealmagicians.com, toby@dealmagicians.com, zahra.bahjawi@outlook.com", // Add your 2 internal emails here
       "Subject": emailSubject,
       "HtmlBody": emailHtml,
     });
