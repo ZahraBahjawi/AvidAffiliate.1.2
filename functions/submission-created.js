@@ -28,16 +28,18 @@ export const handler = async (event) => {
   let emailHtml = "";
   let emailSubject = "";
 
-  if (form_name === 'audit-request') {
-    emailSubject = "Get ready—your hidden revenue opportunities are coming soon!";
+    if (form_name === 'audit-request') {
+    emailSubject = "Report Card Request Received!";
     emailHtml = `
       <h1>Hi ${name},</h1>
       <p>Thank you for submitting your website for a free affiliate report card! We've received your request and our analysis system is now working to uncover hidden revenue opportunities.</p>
       <h3>Your Submission Details:</h3>
       <ul>
-        <li><strong>Website:</strong> ${url}</li>
+        <li><strong>Website:</strong> ${websiteUrl}</li>
         <li><strong>Name:</strong> ${name}</li>
         <li><strong>Email:</strong> ${email}</li>
+        <li><strong>Traffic Tier:</strong> ${trafficTier}</li>
+        <li><strong>Earnings Tier:</strong> ${earningsTier}</li>
       </ul>
       <p>Your complete report card will be emailed to you within 48 hours.</p>
       <p>Best regards,<br>The AvidAffiliate Team</p>
