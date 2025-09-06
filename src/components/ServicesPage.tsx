@@ -199,7 +199,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
                 onClick={onBack}
                 className="text-white px-6 py-2 rounded-md transition-all duration-300 text-sm font-medium bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-400 hover:to-red-400 hover:shadow-lg hover:shadow-orange-500/50 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
               >
-                Get Free Scorecard
+                Get Free Report Card
               </button>
             </div>
           </div>
