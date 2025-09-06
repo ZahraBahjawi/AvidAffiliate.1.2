@@ -740,14 +740,29 @@
 
             <footer class="mt-8" role="contentinfo">
                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p class="text-sm" style="color: #081F5D;">Questions? Send us an email or book a quick call.</p>
                     <div class="flex items-center gap-3">
-                        <a href="mailto:hello@avidaffiliate.com" class="text-sm font-semibold" style="color: #1350C5;">hello@avidaffiliate.com</a>
-                        <a href="https://calendly.com/avidaudit/intro?source=report_card_footer"
-                                target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center px-4 py-2 text-white font-semibold rounded-lg" style="background-color: #1350C5;">
-                            Book a call
-                        </a>
+                      <span class="inline-flex h-8 w-8 items-center justify-center rounded-full" style="background-color: #1350C5;">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 12.02l.707-.707a1 1 0 011.414 1.414l-.707.707a1 1 0 01-1.414-1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                      </span>
+                      <p class="text-sm font-semibold" style="color:#081F5D;">Found this useful?</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                       <div class="relative">
+                            <button id="share-btn" type="button" class="px-4 py-2 text-sm font-semibold rounded-lg text-gray-700 bg-gray-200 hover:bg-gray-300">
+                                Share
+                            </button>
+                            <div id="share-menu" class="hidden absolute bottom-full right-0 mb-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 text-sm">
+                                <a id="share-email" href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Email to a colleague</a>
+                                <button id="copy-link-btn" class="w-full text-left block px-4 py-2 text-gray-700 hover:bg-gray-100">Copy link</button>
+                            </div>
+                        </div>
+                      <a
+            href="/#form"
+            class="px-4 py-2 text-sm font-semibold rounded-lg text-white"
+            style="background-color:#1350C5;"
+        >
+            Get Your Free Report
+        </a>
                     </div>
                 </div>
                 <div class="text-xs mt-3 text-center text-gray-400">
@@ -756,8 +771,6 @@
             </footer>
         </section>
     </div>
-
-    <div id="aa-free-banner" class="fixed inset-x-0 bottom-0 z-50 print:hidden hidden">
       <div class="mx-auto max-w-4xl">
         <div class="m-4 rounded-xl shadow-xl border border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
           <div class="flex items-center justify-between gap-3 p-3">
