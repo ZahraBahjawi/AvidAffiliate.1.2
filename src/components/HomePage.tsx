@@ -826,7 +826,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   }}
                   className="inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
-                  Start my free report card
+                  Start my free audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </div>

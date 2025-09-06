@@ -773,6 +773,7 @@
                     </button>
                     <div id="share-menu" class="hidden absolute bottom-full right-0 mb-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 text-sm">
                         <a id="share-email" href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Email to a colleague</a>
+                        <a href="/sample-report.pdf" download="AvidAffiliate-Sample-Report.pdf" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Download PDF</a>
                         <button id="copy-link-btn" class="w-full text-left block px-4 py-2 text-gray-700 hover:bg-gray-100">Copy link</button>
                     </div>
                 </div>
@@ -851,51 +852,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   // 3. BANNER: Floating banner scroll trigger, dismissal, and share functionality
+    // 3. BANNER: Floating banner scroll trigger, dismissal, and share functionality
     const banner = document.getElementById('aa-free-banner');
+    const closeBannerBtn = document.getElementById('aa-free-banner-close');
+    const shareBtn = document.getElementById('share-btn');
+    const shareMenu = document.getElementById('share-menu');
+    const copyLinkBtn = document.getElementById('copy-link-btn');
+    const shareEmail = document.getElementById('share-email');
 
-    if (banner && localStorage.getItem('avidAffiliateBannerDismissed') !== 'true') {
-        const closeBannerBtn = document.getElementById('aa-free-banner-close');
-        const shareBtn = document.getElementById('share-btn');
-        const shareMenu = document.getElementById('share-menu');
-        const copyLinkBtn = document.getElementById('copy-link-btn');
-        const shareEmail = document.getElementById('share-email');
-        let bannerShown = false;
+    let bannerShown = false;
 
-        const showBanner = () => {
-            if (!bannerShown) {
+    if (localStorage.getItem('avidAffiliateBannerDismissed') === 'true') {
+        if (banner) banner.remove();
+    } else {
+        const handleScroll = () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent >= 50 && !bannerShown && banner) {
                 banner.classList.remove('hidden');
                 bannerShown = true;
+                window.removeEventListener('scroll', handleScroll);
             }
         };
-
-        const handleScrollAndResize = () => {
-            if (bannerShown) return; // Don't do anything if it's already visible
-
-            const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-            
-            // If content is not scrollable, or user has scrolled more than 50%
-            if (scrollableHeight <= 0 || (window.scrollY / scrollableHeight) * 100 >= 50) {
-                showBanner();
-                // We can remove the listeners once the banner is shown to improve performance
-                window.removeEventListener('scroll', handleScrollAndResize);
-                window.removeEventListener('resize', handleScrollAndResize);
-                window.removeEventListener('load', handleScrollAndResize);
-            }
-        };
-
-        // Initial check when the DOM is ready
-        handleScrollAndResize();
-
-        // Add event listeners
-        window.addEventListener('load', handleScrollAndResize);
-        window.addEventListener('scroll', handleScrollAndResize, { passive: true });
-        window.addEventListener('resize', handleScrollAndResize, { passive: true });
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
         if (closeBannerBtn) {
             closeBannerBtn.addEventListener('click', () => {
-                banner.classList.add('hidden');
-                localStorage.setItem('avidAffiliateBannerDismissed', 'true');
+                if(banner) {
+                    banner.classList.add('hidden');
+                    localStorage.setItem('avidAffiliateBannerDismissed', 'true');
+                }
             });
         }
         
@@ -905,25 +890,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 shareMenu.classList.toggle('hidden');
              });
         }
-        
-        if (shareEmail) {
-            const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
-            const emailBody = encodeURIComponent(`I thought you might find this sample report card interesting:\n\n${window.location.href}`);
-            shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
-        }
-
-        if(copyLinkBtn) {
-            copyLinkBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    copyLinkBtn.textContent = 'Copied!';
-                    setTimeout(() => {
-                        copyLinkBtn.textContent = 'Copy link';
-                        if(shareMenu) shareMenu.classList.add('hidden');
-                    }, 1500);
-                });
-            });
-        }
-    }
 
         if (shareEmail) {
             const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
@@ -934,6 +900,30 @@ document.addEventListener('DOMContentLoaded', () => {
         if(copyLinkBtn) {
             copyLinkBtn.addEventListener('click', () => {
                 const url = window.location.href;
+                const dummy = document.createElement('textarea');
+                document.body.appendChild(dummy);
+                dummy.value = url;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                
+                copyLinkBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyLinkBtn.textContent = 'Copy link';
+                    if(shareMenu) shareMenu.classList.add('hidden');
+                }, 1500);
+            });
+        }
+    }
+    
+    // Close share menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if(shareMenu && !shareMenu.classList.contains('hidden') && !shareBtn.contains(e.target)) {
+            shareMenu.classList.add('hidden');
+        }
+    });
+
+
     // 4. ANIMATIONS & CHART: Intersection Observer for animations and chart rendering
     const animatedElements = document.querySelectorAll('.count-up, #link-opportunity-chart');
 

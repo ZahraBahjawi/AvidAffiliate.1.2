@@ -221,7 +221,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
                 </button>
               )}
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Beyond the Free Report Card
+                Beyond the Free Audit
               </h1>
               <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                 Ready to maximize your affiliate revenue? Let's discuss how we can help you implement and optimize your monetization strategy.
@@ -242,7 +242,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">Complete Site Analysis</h3>
                       <p className="text-gray-300">
-                        Go beyond the 1,000-link free report Card with comprehensive analysis of your entire website, including deep-dive competitor research and market opportunity assessment.
+                        Go beyond the 1,000-link free audit with comprehensive analysis of your entire website, including deep-dive competitor research and market opportunity assessment.
                       </p>
                     </div>
                   </div>
