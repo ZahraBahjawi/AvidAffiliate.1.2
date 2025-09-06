@@ -42,7 +42,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
     { label: 'Request received', done: stageIndex >= 0 },
     { label: 'Queued', done: stageIndex >= 1 },
     { label: 'Audit running', done: stageIndex >= 2 },
-    { label: 'Preparing scorecard', done: stageIndex >= 3 },
+    { label: 'Preparing Report Card', done: stageIndex >= 3 },
   ];
 
   const progressPct = Math.round(((stageIndex + 1) / stages.length) * 100);
