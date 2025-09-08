@@ -186,7 +186,7 @@ export const handler = async (event) => {
     await client.sendEmail({
       "From": "hello@avidaffiliate.com",
       "To": email,
-      "Bcc": "first@example.com, second@example.com",
+      "Bcc": bccEmails,
       "Subject": emailSubject,
       "HtmlBody": emailHtml,
     });
