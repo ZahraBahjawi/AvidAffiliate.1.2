@@ -22,7 +22,7 @@ export const handler = async (event) => {
   }
 
   const client = new ServerClient(process.env.POSTMARK_SERVER_TOKEN);
-
+const bccEmails = process.env.POSTMARK_BCC_EMAILS || "";
   let emailHtml = "";
   let emailSubject = "";
 
