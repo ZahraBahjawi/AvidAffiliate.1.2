@@ -226,7 +226,7 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
                   </p>
                   <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
                     <p><strong>Email:</strong> hello@avidaffiliate.com</p>
-                    <p><strong>Phone:</strong> </p>
+                    <p><strong>Phone:</strong> +1 (804) 687 7660</p>
                   </div>
                 </div>
               </section>
