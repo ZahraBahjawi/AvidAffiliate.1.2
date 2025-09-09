@@ -139,7 +139,7 @@ const bccEmails = process.env.POSTMARK_BCC_EMAILS || "";
                                           <td class="info-box" style="padding: 20px;">
                                               <h3 class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 16px; font-size: 18px; color: #081F5D;">While You Wait...</h3>
                                               <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 20px; font-size: 14px;">Want a preview of what’s coming? Here’s the level of insight you’ll soon have on your own site.</p>
-                                              <a href="https://avidaffiliate.com/sample-report" class="button button-secondary" target="_blank" role="button" aria-label="Preview a Sample Report" style="display: inline-block; background-color: #e5e7eb; color: #111827 !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; line-height: 1.2; cursor: pointer;">Preview a Sample Report</a>
+                                              <a href="https://avidaffiliate.com/sample-report-card.html" class="button button-secondary" target="_blank" role="button" aria-label="Preview a Sample Report" style="display: inline-block; background-color: #e5e7eb; color: #111827 !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; line-height: 1.2; cursor: pointer;">Preview a Sample Report</a>
                                           </td>
                                       </tr>
                                   </table>
