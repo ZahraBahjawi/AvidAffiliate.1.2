@@ -10,8 +10,11 @@ export const handler = async (event) => {
   }
 
   const { payload } = JSON.parse(event.body);
-  const { form_name, data } = payload;
-  const { name, email, subject, message, websiteUrl, trafficTier, earningsTier } = data;
+const { form_name, data } = payload;
+// Deconstruct other variables as before
+const { name, email, subject, message, trafficTier, earningsTier } = data;
+// Explicitly pull the website URL using its correct name from the form
+const websiteUrl = data['website-url'];
 
   if (!process.env.POSTMARK_SERVER_TOKEN) {
     console.error("POSTMARK_SERVER_TOKEN is not set.");
