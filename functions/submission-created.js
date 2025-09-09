@@ -30,7 +30,7 @@ const bccEmails = process.env.POSTMARK_BCC_EMAILS || "";
   let emailSubject = "";
 
   if (form_name === 'audit-request') {
-    emailSubject = "Your AvidAffiliate Report Card is in the Queue!";
+    emailSubject = "Get ready—your hidden revenue opportunities are coming soon!";
     
     emailHtml = `
       <!DOCTYPE html>
