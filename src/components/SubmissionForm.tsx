@@ -16,7 +16,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
 }) => {
   const [showThankYou, setShowThankYou] = useState(false);
   const [formData, setFormData] = useState({
-    url: prefilledData.url || '',
+    'website-url': prefilledData.url || '', // Changed from 'url'
     name: '',
     email: '',
   });
