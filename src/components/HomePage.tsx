@@ -722,6 +722,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <p className="text-xl text-gray-600 font-light">Get your comprehensive audit report in three simple steps</p>
             </div>
             </div>
+          </div>
       
             {/* Infographic Container */}
             <div className="relative">
