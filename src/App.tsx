@@ -47,6 +47,8 @@ function App() {
   useEffect(() => {
     if (window.location.hash === '#form') {
       setStage('form');
+    } else if (window.location.pathname === '/optional-details-form') {
+      setStage('optional-details');
     }
   }, []);
 
