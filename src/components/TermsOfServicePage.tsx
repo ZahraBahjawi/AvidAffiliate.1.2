@@ -225,9 +225,8 @@ export const TermsOfServicePage: React.FC<TermsOfServicePageProps> = ({
                     If you have any questions about these Terms of Service, please contact us:
                   </p>
                   <div className="bg-gray-100 rounded-lg p-4 border border-gray-200">
-                    <p><strong>Email:</strong> legal@avidaffiliate.com</p>
-                    <p><strong>Address:</strong> [Your Business Address]</p>
-                    <p><strong>Phone:</strong> [Your Phone Number]</p>
+                    <p><strong>Email:</strong> hello@avidaffiliate.com</p>
+                    <p><strong>Phone:</strong> </p>
                   </div>
                 </div>
               </section>
