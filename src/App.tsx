@@ -18,6 +18,7 @@ import { AffiliatePartnersPage } from './components/AffiliatePartnersPage';
 import { CookiesPage } from './components/CookiesPage';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
+import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
