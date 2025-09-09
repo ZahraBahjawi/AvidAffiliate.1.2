@@ -1,4 +1,3 @@
-// src/components/OptionalDetailsFormPage.tsx
 import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, Settings } from 'lucide-react';
 import { Footer } from './Footer';
