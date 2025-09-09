@@ -721,8 +721,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free affiliate audit works</h2>
               <p className="text-xl text-gray-600 font-light">Get your comprehensive audit report in three simple steps</p>
             </div>
-            </div>
-          </div>
+            
       
             {/* Infographic Container */}
             <div className="relative">
