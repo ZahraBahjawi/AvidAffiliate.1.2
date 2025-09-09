@@ -128,7 +128,8 @@ const bccEmails = process.env.POSTMARK_BCC_EMAILS || "";
                                           <td class="info-box" style="padding: 20px;">
                                               <h3 class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 16px; font-size: 18px; color: #081F5D;">Boost Your Report's Accuracy (Recommended)</h3>
                                               <p class="mso-font-fix" style="font-family: 'Google Sans', Arial, sans-serif; margin: 0 0 20px; font-size: 14px;">Want more targeted recommendations? Take 30 seconds to provide a few extra details about your site:</p>
-                                              <a href="https://avidaffiliate.com/optional-details-form" class="button" target="_blank" role="button" aria-label="Improve My Report" style="display: inline-block; background-color: #1350C5; color: #ffffff !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; line-height: 1.2; cursor: pointer;">Improve My Report</a>
+<a href="https://avidaffiliate.com/optional-details-form?email=${encodeURIComponent(email)}&url=${encodeURIComponent(websiteUrl)}" class="button" target="_blank" role="button" aria-label="Improve My Report" style="display: inline-block; background-color: #1350C5; color: #ffffff !important; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px; line-height: 1.2; cursor: pointer;">Improve My Report</a>
+
                                           </td>
                                       </tr>
                                   </table>
