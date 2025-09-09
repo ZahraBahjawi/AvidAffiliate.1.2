@@ -64,7 +64,7 @@ export const OptionalDetailsFormPage: React.FC<OptionalDetailsFormPageProps> = (
             </button>
         </div>
     );
-}
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -135,7 +135,7 @@ export const OptionalDetailsFormPage: React.FC<OptionalDetailsFormPageProps> = (
                         />
                     </div>
                     <div className="flex gap-4">
-                        <button type="button" onClick={onBack} className="w-full px-4 py-2 border rounded-lg">Back to Home</button>
+                        <button type="button" onClick={() => onBack && onBack()} className="w-full px-4 py-2 border rounded-lg">Back to Home</button>
                         <button
                           type="submit"
                           disabled={isSubmitting}
