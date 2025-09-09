@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { ArrowLeft, CheckCircle, Settings, TrendingUp } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Settings } from 'lucide-react';
 import { Footer } from './Footer';
 
 interface OptionalDetailsFormPageProps {
@@ -27,7 +28,6 @@ export const OptionalDetailsFormPage: React.FC<OptionalDetailsFormPageProps> = (
     try {
       const payload = {
         'form-name': 'optional-details',
-        // You might need to retrieve these from URL params or local storage if needed
         'website-url': new URLSearchParams(window.location.search).get('url') || 'N/A',
         'email': new URLSearchParams(window.location.search).get('email') || 'N/A',
         'traffic-tier': optionalData.trafficTier,
@@ -82,7 +82,6 @@ export const OptionalDetailsFormPage: React.FC<OptionalDetailsFormPageProps> = (
                     <p className="text-gray-600">Providing these optional details helps us tailor your report card.</p>
                 </div>
                 <form onSubmit={handleOptionalSubmit} className="space-y-6">
-                    {/* Form fields from ThankYouPage.tsx */}
                     <div>
                         <label htmlFor="traffic-tier" className="block text-sm font-medium text-brand-dark-blue mb-2">Monthly Traffic</label>
                         <select
