@@ -151,6 +151,8 @@ function App() {
           />
         ) : null;
 
+      case 'optional-details':
+        return <OptionalDetailsFormPage onBack={resetToHome} onNavigate={handleNavigate} />;
 
       case 'home':
         return <HomePage 
