@@ -21,7 +21,7 @@ const websiteUrl = data['website-url'];
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Email server is not configured." }),
-    };
+    };SubmissionForm
   }
 
   const client = new ServerClient(process.env.POSTMARK_SERVER_TOKEN);
