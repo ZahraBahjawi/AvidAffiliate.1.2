@@ -633,10 +633,16 @@ export const HomePage: React.FC<HomePageProps> = ({
       
       {/* Problem Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
+        <section id="how-it-works" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute top-20 left-10 w-32 h-32 bg-brand-blue rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-10 w-40 h-40 bg-brand-yellow rounded-full blur-3xl"></div>
+          </div>
+          
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="free-affiliate-audit" role="heading" aria-level="2">
+              <h2 className="text-4xl md:text-5xl font-bold text-brand-dark-blue mb-6 animate-fade-in">
                 The hidden revenue leak
               </h2>
               <p className="text-xl text-gray-600 font-light">You could be missing out on thousands in affiliate revenue</p>
@@ -856,43 +862,90 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
 
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
-                <FileText className="h-8 w-8 text-brand-blue mb-6" />
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-delay">
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Proprietary affiliate database</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
                 </p>
-              </div>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto relative">
+              {/* Connecting lines for desktop */}
+              <div className="hidden md:block absolute top-16 left-1/3 right-1/3 h-0.5 bg-gradient-to-r from-brand-blue via-brand-yellow to-brand-blue opacity-30"></div>
+              <div className="hidden md:block absolute top-16 left-1/3 w-4 h-4 bg-brand-blue rounded-full transform -translate-x-2 animate-pulse"></div>
+              <div className="hidden md:block absolute top-16 right-1/3 w-4 h-4 bg-brand-blue rounded-full transform translate-x-2 animate-pulse delay-1000"></div>
+              
 
-              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
-                <Users className="h-8 w-8 text-green-600 mb-6" />
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-500 animate-slide-up">
+                <div className="relative w-20 h-20 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold group-hover:shadow-2xl group-hover:shadow-brand-blue/30 transition-all duration-500">
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Done‑for‑you implementation</h3>
+                  <div className="absolute inset-0 bg-white rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-2 border-2 border-brand-blue rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500"></div>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  We fix issues for you—fast—so you can focus on creating content.
-                </p>
+                <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-brand-blue/20">
+                  <h3 className="text-2xl font-bold text-brand-dark-blue mb-4 group-hover:text-brand-blue transition-colors duration-300">
+                    Submit Your URL
+                  </h3>
+                  <div className="w-16 h-1 bg-gradient-to-r from-brand-blue to-brand-yellow mx-auto mb-4 rounded-full"></div>
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
               </div>
-
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <div className="flex items-center space-x-2 text-sm text-brand-blue font-medium">
+                      <Globe className="h-4 w-4" />
+                      <span>30 seconds</span>
+                    </div>
+                  </div>
+                </div>
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
                 <Clock className="h-8 w-8 text-purple-600 mb-6" />
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Rapid results</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  See measurable gains in weeks, not months—starting with the highest‑impact fixes.
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-500 animate-slide-up delay-200">
+                <div className="relative w-20 h-20 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold group-hover:shadow-2xl group-hover:shadow-brand-blue/30 transition-all duration-500">
                 </p>
+                  <div className="absolute inset-0 bg-white rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-2 border-2 border-brand-blue rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500"></div>
               </div>
-
-              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-brand-blue/20">
+                  <h3 className="text-2xl font-bold text-brand-dark-blue mb-4 group-hover:text-brand-blue transition-colors duration-300">
+                    We Analyze Your Site
+                  </h3>
+                  <div className="w-16 h-1 bg-gradient-to-r from-brand-blue to-brand-yellow mx-auto mb-4 rounded-full"></div>
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                 <Shield className="h-8 w-8 text-indigo-600 mb-6" />
-                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Long‑term partner</h3>
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <div className="flex items-center space-x-2 text-sm text-brand-blue font-medium">
+                      <div className="relative">
+                        <Search className="h-4 w-4" />
+                        <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+                      </div>
+                      <span>AI-powered scan</span>
+                    </div>
+                  </div>
+                </div>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   From audit to ongoing optimization—we help you unlock the full value of your content.
                 </p>
-              </div>
-
+              <div className="text-center group hover:transform hover:scale-105 transition-all duration-500 animate-slide-up delay-400">
+                <div className="relative w-20 h-20 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold group-hover:shadow-2xl group-hover:shadow-brand-blue/30 transition-all duration-500">
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
+                  <div className="absolute inset-0 bg-white rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-2 border-2 border-brand-blue rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-110 transition-all duration-500"></div>
                 <CheckCircle className="h-8 w-8 text-teal-600 mb-6" />
-                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Proven methodology</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <div className="bg-white rounded-2xl p-6 shadow-lg group-hover:shadow-xl transition-all duration-300 border border-gray-100 group-hover:border-brand-blue/20">
+                  <h3 className="text-2xl font-bold text-brand-dark-blue mb-4 group-hover:text-brand-blue transition-colors duration-300">
+                    Get Your Report Card
+                  </h3>
+                  <div className="w-16 h-1 bg-gradient-to-r from-brand-blue to-brand-yellow mx-auto mb-4 rounded-full"></div>
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                   A repeatable process used by creators to drive consistent, compounding revenue.
-                </p>
+                  </p>
+                  <div className="mt-4 flex justify-center">
+                    <div className="flex items-center space-x-2 text-sm text-brand-blue font-medium">
+                      <Mail className="h-4 w-4" />
+                      <span>Within 48 hours</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -947,19 +1000,77 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <p className="text-gray-600 text-sm">Every strategy backed by data</p>
                 </div>
               </div>
+            {/* Interactive demo section */}
+            <div className="mt-20 bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-brand-dark-blue mb-4">See it in action</h3>
+                <p className="text-gray-600">Watch how we identify revenue opportunities</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200 animate-fade-in">
+                    <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-red-800">Broken affiliate link found</div>
+                      <div className="text-sm text-red-600">amazon.com/product-xyz → 404 error</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200 animate-fade-in delay-500">
+                    <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-yellow-800">Unmonetized mention</div>
+                      <div className="text-sm text-yellow-600">"Nike shoes" → No affiliate link</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200 animate-fade-in delay-1000">
+                    <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-green-800">Better program found</div>
+                      <div className="text-sm text-green-600">5% → 8% commission available</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="relative inline-block">
+                    <div className="w-32 h-32 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-2xl animate-bounce-slow">
+                      A-
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
+                      <TrendingUp className="h-4 w-4 text-white" />
+                    </div>
+                  </div>
+                  <div className="mt-4">
+                    <div className="text-2xl font-bold text-green-600">+47% Revenue Potential</div>
+                    <div className="text-sm text-gray-500">Based on identified opportunities</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            <div className="text-center mt-16">
+              <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse">
+                <CheckCircle className="h-4 w-4" />
+                <span>100% Free • No Credit Card • 48 Hour Delivery</span>
+              </div>
+              <div>
+                <button
             <div className="text-center">
               <button
                 onClick={() => {
                   track('learn_more_about');
                   onNavigate('about');
                 }}
-                className="inline-flex items-center px-6 py-3 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-              >
-                Learn more about us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </button>
+                  className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-brand-blue to-blue-600 text-white text-xl font-bold rounded-2xl hover:shadow-2xl hover:shadow-brand-blue/30 transform hover:scale-105 transition-all duration-500 relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10">Get My Free Report Card</span>
+                  <ChevronRight className="ml-3 h-6 w-6 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
