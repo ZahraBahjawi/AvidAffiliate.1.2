@@ -1004,7 +1004,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200 animate-fade-in delay-1000">
                     <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-green-800">Better program found</div>
+                      <div className="font-semibold text-green-800">Better programs found</div>
                       <div className="text-sm text-green-600">5% → 8% commission available</div>
                     </div>
                   </div>
@@ -1014,7 +1014,9 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div className="relative inline-block">
                     
                     
+                  </div>
                   
+                </div>
               </div>
             </div>
 
