@@ -16,21 +16,49 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
 }) => {
   const [showThankYou, setShowThankYou] = useState(false);
   const [formData, setFormData] = useState({
-    'website-url': prefilledData.url || '', // Changed from 'url'
+    'website-url': prefilledData.url || '',
     name: '',
     email: '',
   });
+  const [errors, setErrors] = useState({ name: '', email: '' });
 
   const [honeypot, setHoneypot] = useState('');
 
-  const handleInputChange = (field: string, value: string | boolean) => {
+  const validateForm = () => {
+    const newErrors = { name: '', email: '' };
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required.';
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required.';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address.';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  const handleInputChange = (field: keyof typeof formData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    if (errors[field as keyof typeof errors]) {
+      setErrors(prev => ({ ...prev, [field]: '' }));
+    }
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
 
-  const form = e.target as HTMLFormElement;
+    const form = e.target as HTMLFormElement;
   const formData = new FormData(form);
 
   fetch("/", {
