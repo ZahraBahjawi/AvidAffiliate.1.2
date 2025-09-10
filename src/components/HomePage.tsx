@@ -291,6 +291,7 @@ const ReportcardPreview: React.FC = () => {
 
   return (
     <div className="mt-8 max-w-2xl mx-auto">
+      <p className="text-center text-gray-200 text-sm mb-4">Preview a sample report card</p>
       
       <div className="bg-white/10 rounded-lg border border-white/20 p-6 relative">
         <div className="flex items-center justify-between mb-4">
@@ -361,28 +362,6 @@ const AnimationStyles = () => (
   <style>
     {`
       @keyframes loopAndFade {
-        0%, 100% { opacity: 1; }
-        95%, 99% { opacity: 0; }
-      }
-      @keyframes fadeInSlideUp {
-        from {
-          opacity: 0;
-          transform: translateY(15px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    `}
-  </style>
-);
-
-// This helper component injects the animation rules directly into the page.
-const AnimationStyles = () => (
-  <style>
-    {`
-      @keyframes loopAndFade {
         0%, 87% { opacity: 1; } /* Hold visible until the 13s mark of a 15s animation */
         98%, 100% { opacity: 0; } /* Fade out, then stay hidden before looping */
       }
@@ -401,19 +380,16 @@ const AnimationStyles = () => (
 );
 
 const SeeItInAction: React.FC = () => {
-    // This style applies the master looping animation to the container.
-    // The duration is increased to 15s to allow a longer hold time.
     const animationContainerStyle = {
         animation: 'loopAndFade 15s infinite cubic-bezier(0.5, 0, 0.5, 1)'
     };
 
-    // This is the base style for each individual card/arrow.
-    const cardBaseStyle = {
+    const cardBaseStyle: React.CSSProperties = {
         animationName: 'fadeInSlideUp', 
         animationDuration: '0.5s', 
         animationTimingFunction: 'ease-out', 
         animationFillMode: 'forwards',
-        opacity: 0, // Start hidden
+        opacity: 0, 
     };
 
     return (
@@ -429,7 +405,6 @@ const SeeItInAction: React.FC = () => {
                     <div style={animationContainerStyle}>
                         <div className="space-y-4">
                             
-                            {/* PAIR 1: Broken Link */}
                             <div className="space-y-2">
                                 <div style={{...cardBaseStyle, animationDelay: '0.5s'}}>
                                     <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200">
@@ -454,7 +429,6 @@ const SeeItInAction: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* PAIR 2: Unmonetized Mention */}
                              <div className="space-y-2">
                                 <div style={{...cardBaseStyle, animationDelay: '4s'}}>
                                     <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
@@ -479,7 +453,6 @@ const SeeItInAction: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* PAIR 3: Better Program */}
                             <div className="space-y-2">
                                  <div style={{...cardBaseStyle, animationDelay: '7.5s'}}>
                                     <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
@@ -579,14 +552,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [showMobileSticky, setShowMobileSticky] = React.useState(false);
   const [formStarted, setFormStarted] = React.useState(false);
   const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
-  const [activeStep, setActiveStep] = useState(0);
-
-  const totalSteps = 4; // 3 pairs + initial state
-
-  const handleNextStep = () => setActiveStep(prev => Math.min(prev + 1, totalSteps));
-  const handlePrevStep = () => setActiveStep(prev => Math.max(prev - 1, 0));
-  const handleSetStep = (step: number) => setActiveStep(step);
-
   
   React.useEffect(() => {
     storeUTMs();
@@ -1023,7 +988,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   }}
                   className="inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
-                  Get my free Report Card
+                  Start my free Report Card
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </div>
@@ -1146,12 +1111,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            <SeeItInAction 
-              activeStep={activeStep}
-              onNext={handleNextStep}
-              onPrev={handlePrevStep}
-              onSetStep={handleSetStep}
-            />
+            <SeeItInAction />
 
             <div className="text-center mt-16">
               <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse">
