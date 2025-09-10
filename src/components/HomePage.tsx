@@ -336,15 +336,16 @@ const ReportcardPreview: React.FC = () => {
         
         <div className="text-center">
           <button
-            onClick={() => {
-              track('sample_report_card_view', { action: 'download_sample' });
-              window.open('/sample-report-card.html', '_blank');
-            }}
-            className="inline-flex items-center px-4 py-2 bg-brand-yellow text-brand-dark-blue text-sm font-medium rounded-lg transition-colors"
-          >
-            <Download className="mr-2 h-4 w-4" />
-            View Full Sample
-          </button>
+  onClick={() => {
+    track('sample_report_card_view', { action: 'download_sample' });
+    window.open('/sample-report-card.html', '_blank');
+  }}
+  className="inline-flex items-center px-4 py-2 bg-brand-yellow text-brand-dark-blue text-sm font-medium rounded-lg transition-colors"
+>
+  <ExternalLink className="mr-2 h-4 w-4" />
+  View Full Sample
+</button>
+
         </div>
       </div>
     </div>
