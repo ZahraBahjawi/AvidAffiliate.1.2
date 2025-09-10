@@ -22,8 +22,8 @@ import {
   Search,
   XCircle,
   AlertTriangle,
-  BarChart, // Added for report card preview
-  Link,     // Added for report card preview
+  BarChart,
+  Link,
 } from 'lucide-react';
 import { Footer } from './Footer';
 
@@ -862,7 +862,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   }}
                   className="inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
-                  Get my free Report Card
+                  Start my free Report Card
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </div>
@@ -993,15 +993,15 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Interactive demo section */}
+            {/* Interactive demo section -- FIX APPLIED HERE */}
             <div className="mt-20 bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-brand-dark-blue mb-4">See it in action</h3>
                 <p className="text-gray-600">Watch how we identify revenue opportunities</p>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="space-y-4">
+              <div className="flex justify-center">
+                <div className="space-y-4 w-full max-w-md">
                   <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200 animate-fade-in">
                     <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
                     <div>
@@ -1025,14 +1025,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                       <div className="text-sm text-green-600">5% → 8% commission available</div>
                     </div>
                   </div>
-                </div>
-                
-                <div className="text-center">
-                  <div className="relative inline-block">
-                    
-                    
-                  </div>
-                  
                 </div>
               </div>
             </div>
