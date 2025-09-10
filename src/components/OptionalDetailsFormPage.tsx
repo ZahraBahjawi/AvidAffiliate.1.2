@@ -75,7 +75,7 @@ export const OptionalDetailsFormPage: React.FC<OptionalDetailsFormPageProps> = (
         <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
           <div className="text-center mb-8">
             <div className="w-16 h-16 bg-brand-yellow/30 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Settings className="h-8 w-8 text-brand-dark-blue" />
+              <Settings className="h-8 w-8 text-brand-blue" />
             </div>
             <h2 className="text-2xl font-bold text-brand-dark-blue mb-2">Boost Your Report's Accuracy</h2>
             <p className="text-gray-600">Providing these optional details helps us tailor your report card.</p>
