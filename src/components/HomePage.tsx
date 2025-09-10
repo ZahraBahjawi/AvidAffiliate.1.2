@@ -1010,22 +1010,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </div>
                 </div>
                 
-                <div className="text-center">
-                  <div className="relative inline-block">
-                    <div className="w-32 h-32 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-2xl animate-bounce-slow">
-                      A-
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
-                      <TrendingUp className="h-4 w-4 text-white" />
-                    </div>
-                  </div>
-                  <div className="mt-4">
-                    <div className="text-2xl font-bold text-green-600">+47% Revenue Potential</div>
-                    <div className="text-sm text-gray-500">Based on identified opportunities</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             <div className="text-center mt-16">
               <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse">
