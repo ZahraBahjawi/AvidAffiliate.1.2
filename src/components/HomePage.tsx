@@ -248,13 +248,18 @@ const ReportcardPreview: React.FC = () => {
   const slides = [
     {
       title: "Executive Summary",
-      description: "Get a clear overview of your site's health with an overall grade and estimated revenue uplift.",
-      image: "/S1.png"
+      description: "Get a high-level overview of your site's performance with an overall grade, estimated revenue uplift, and key takeaways.",
+      image: "/SC1.jpg"
+    },
+    {
+      title: "Current Link Footprint",
+      description: "Understand your site's external link distribution and identify your top linked-to domains.",
+      image: "/SC2.png"
     },
     {
       title: "Detailed Findings",
-      description: "Discover unmonetized mentions and critical link errors that are costing you money.",
-      image: "/S2.png"
+      description: "Pinpoint exact revenue opportunities, from missed payouts and unmonetized mentions to critical link errors.",
+      image: "/SC3.png"
     }
   ];
 
