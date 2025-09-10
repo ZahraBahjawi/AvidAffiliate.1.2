@@ -647,39 +647,51 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
+              <div
+                className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue"
+                onMouseEnter={() => setHoveredCard(0)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mx-auto mb-6">
                   <DollarSign className="h-8 w-8 text-green-500 mx-auto transition-all duration-300" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Missing payouts</h3>
                 <div className="text-3xl font-normal text-green-600 mb-4">50-80%</div>
-                <div className="h-0 opacity-0 group-hover:h-24 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${hoveredCard === 0 ? 'max-h-40' : 'max-h-0'}`}>
                   <p className="text-gray-600 text-sm leading-relaxed pt-2">
                     of product mentions go unmonetized. We find those mentions and turn them into tracked, revenue‑generating links.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
+              <div
+                className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue"
+                onMouseEnter={() => setHoveredCard(1)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mx-auto mb-6">
                   <Link2Off className="h-8 w-8 text-red-500 mx-auto transition-all duration-300" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Broken links</h3>
                 <div className="text-3xl font-normal text-red-600 mb-4">Silent losses</div>
-                <div className="h-0 opacity-0 group-hover:h-24 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${hoveredCard === 1 ? 'max-h-40' : 'max-h-0'}`}>
                   <p className="text-gray-600 text-sm leading-relaxed pt-2">
                     from 404s, redirects, and geo‑mismatches. We repair pathways from click to commission so your traffic converts.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
+              <div
+                className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue"
+                onMouseEnter={() => setHoveredCard(2)}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
                 <div className="mx-auto mb-6">
                   <TrendingUp className="h-8 w-8 text-blue-500 mx-auto transition-all duration-300" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Low commission rates</h3>
                 <div className="text-3xl font-normal text-blue-600 mb-4">2–5x</div>
-                <div className="h-0 opacity-0 group-hover:h-24 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${hoveredCard === 2 ? 'max-h-40' : 'max-h-0'}`}>
                   <p className="text-gray-600 text-sm leading-relaxed pt-2">
                     better payouts exist for many programs. We benchmark against 35,000+ programs and recommend higher‑paying alternatives.
                   </p>
