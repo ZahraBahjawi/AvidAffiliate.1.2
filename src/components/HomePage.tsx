@@ -1012,9 +1012,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 
                 <div className="text-center">
                   <div className="relative inline-block">
-                    <div className="w-32 h-32 bg-gradient-to-br from-brand-blue to-blue-600 rounded-full flex items-center justify-center text-white text-4xl font-bold shadow-2xl animate-bounce-slow">
-                      A-
-                    </div>
+                    
                     <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center animate-pulse">
                       <TrendingUp className="h-4 w-4 text-white" />
                     </div>
