@@ -72,7 +72,7 @@ export const OptionalDetailsFormPage: React.FC<OptionalDetailsFormPageProps> = (
             <img src="/LOGO.png" alt="AvidAffiliate Logo" className="h-20 w-auto mx-auto"/>
         </header>
         <div className="py-12 px-6">
-        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
+        <div className="max-w-2xl mx-auto bg-brand-yellow rounded-2xl shadow-xl p-8 border border-gray-200">
         <div className="text-center mb-8">
                     <div className="w-16 h-16 bg-brand-yellow/30 rounded-full flex items-center justify-center mx-auto mb-4">
                         <Settings className="h-8 w-8 text-brand-dark-blue" />
