@@ -37,6 +37,23 @@ interface HomePageProps {
   onScrollComplete?: () => void;
 }
 
+// Component to inject animation keyframes directly into the document head
+const AnimationStyles = () => (
+  <style>{`
+    @keyframes fadeInSlideUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes loopAndFade {
+        0% { opacity: 0; }
+        4% { opacity: 1; } /* Quickly fade in the container */
+        90% { opacity: 1; } /* Hold everything visible */
+        100% { opacity: 0; } /* Fade out at the end to reset */
+    }
+  `}</style>
+);
+
+
 // UTM persistence
 const getStoredUTMs = () => {
   try {
@@ -359,9 +376,6 @@ const ReportcardPreview: React.FC = () => {
 };
 
 const SeeItInAction: React.FC = () => {
-    // We use inline styles here for animations because Tailwind's animation classes
-    // would require customizing the tailwind.config.js file, which is not possible
-    // in this environment. Inline styles provide a self-contained solution.
     const animationStyles = {
         animation: 'loopAndFade 13s infinite cubic-bezier(0.5, 0, 0.5, 1)'
     };
@@ -387,7 +401,7 @@ const SeeItInAction: React.FC = () => {
                             
                             {/* PAIR 1: Broken Link */}
                             <div className="space-y-2">
-                                <div style={{...cardBaseStyle, animationDelay: '0.5s'}}>
+                                <div style={{...cardBaseStyle, animationDelay: '0.5s', opacity: 0}}>
                                     <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200">
                                         <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
                                         <div>
@@ -396,10 +410,10 @@ const SeeItInAction: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '1.5s'}}>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '1.5s', opacity: 0}}>
                                     <ArrowDown className="h-5 w-5 text-gray-400" />
                                 </div>
-                                <div style={{...cardBaseStyle, animationDelay: '2.5s'}}>
+                                <div style={{...cardBaseStyle, animationDelay: '2.5s', opacity: 0}}>
                                     <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
                                         <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
                                         <div>
@@ -412,7 +426,7 @@ const SeeItInAction: React.FC = () => {
 
                             {/* PAIR 2: Unmonetized Mention */}
                              <div className="space-y-2">
-                                <div style={{...cardBaseStyle, animationDelay: '4s'}}>
+                                <div style={{...cardBaseStyle, animationDelay: '4s', opacity: 0}}>
                                     <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
                                         <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
                                         <div>
@@ -421,10 +435,10 @@ const SeeItInAction: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '5s'}}>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '5s', opacity: 0}}>
                                     <ArrowDown className="h-5 w-5 text-gray-400" />
                                 </div>
-                                <div style={{...cardBaseStyle, animationDelay: '6s'}}>
+                                <div style={{...cardBaseStyle, animationDelay: '6s', opacity: 0}}>
                                     <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
                                         <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
                                         <div>
@@ -437,7 +451,7 @@ const SeeItInAction: React.FC = () => {
 
                             {/* PAIR 3: Better Program */}
                             <div className="space-y-2">
-                                 <div style={{...cardBaseStyle, animationDelay: '7.5s'}}>
+                                 <div style={{...cardBaseStyle, animationDelay: '7.5s', opacity: 0}}>
                                     <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
                                        <TrendingUp className="h-6 w-6 text-blue-500 flex-shrink-0" />
                                         <div>
@@ -446,10 +460,10 @@ const SeeItInAction: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '8.5s'}}>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '8.5s', opacity: 0}}>
                                     <ArrowDown className="h-5 w-5 text-gray-400" />
                                 </div>
-                                <div style={{...cardBaseStyle, animationDelay: '9.5s'}}>
+                                <div style={{...cardBaseStyle, animationDelay: '9.5s', opacity: 0}}>
                                     <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
                                         <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
                                         <div>
@@ -612,6 +626,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+      <AnimationStyles />
       <div className="scroll-overlay"></div>
       
       <header className="border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm" style={{ backgroundColor: '#081F5D' }}>
@@ -828,7 +843,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <div className="mx-auto mb-6">
                   <TrendingUp className="h-8 w-8 text-blue-500 mx-auto" />
                 </div>
-                <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Low commission rates</h3>
+                <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Low commission rates</h3>
                 <div className="text-3xl font-normal text-blue-600 mb-4">2–5x</div>
                 <div className="pt-2">
                   <p className="text-gray-600 text-sm leading-relaxed">
