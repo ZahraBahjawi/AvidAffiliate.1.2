@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowLeft, ExternalLink, AlertTriangle, Shield, Users, TrendingUp } from 'lucide-react';
 import { Footer } from './Footer';
 
 interface AffiliatePartnersPageProps {
   onBack?: () => void;
-  onNavigate?: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies') => void;
+  onNavigate?: (page: 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'affiliate_partners' | 'sitemap' | 'cookies' | string) => void;
+  scrollTarget?: string | null;
+  onScrollComplete?: () => void;
 }
 
 interface AffiliatePartner {
