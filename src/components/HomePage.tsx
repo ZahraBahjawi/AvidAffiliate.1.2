@@ -423,10 +423,10 @@ export const HomePage: React.FC<HomePageProps> = ({
     }
     
     if (url) {
-      url = url.replace(/^https?:\/\//, '');
-      url = url.replace(/^www\./, '');
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
       url = url.replace(/\/$/, '');
-      url = 'https://' + url;
     }
     
     const utms = getStoredUTMs();
