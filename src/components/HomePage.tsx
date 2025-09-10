@@ -24,8 +24,10 @@ import {
   AlertTriangle,
   BarChart,
   Link,
+  ArrowDown,
 } from 'lucide-react';
-import { Footer } from './Footer';
+
+// NOTE: The 'Footer' component is now included in this file to resolve the import error.
 
 interface HomePageProps {
   onNext?: (heroData?: { url?: string; email?: string }) => void;
@@ -82,7 +84,6 @@ const ProofStats: React.FC = () => {
     <section className="py-10 bg-gray-50 group relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          {/* CHANGE 1: Clarified heading */}
           <p className="text-lg text-brand-dark-blue font-light">What our full (paid) audits typically find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -357,6 +358,168 @@ const ReportcardPreview: React.FC = () => {
   );
 };
 
+const SeeItInAction: React.FC = () => {
+    // We use inline styles here for animations because Tailwind's animation classes
+    // would require customizing the tailwind.config.js file, which is not possible
+    // in this environment. Inline styles provide a self-contained solution.
+    const animationStyles = {
+        animation: 'loopAndFade 13s infinite cubic-bezier(0.5, 0, 0.5, 1)'
+    };
+
+    const cardBaseStyle = {
+        animationName: 'fadeInSlideUp', 
+        animationDuration: '0.5s', 
+        animationTimingFunction: 'ease-out', 
+        animationFillMode: 'forwards'
+    };
+
+    return (
+        <div className="mt-20 bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-[#081F5D] mb-4">See it in action</h3>
+                <p className="text-gray-600">Watch how we identify and fix revenue opportunities</p>
+            </div>
+            
+            <div className="flex justify-center">
+                <div className="w-full max-w-md">
+                    <div style={animationStyles}>
+                        <div className="space-y-4">
+                            
+                            {/* PAIR 1: Broken Link */}
+                            <div className="space-y-2">
+                                <div style={{...cardBaseStyle, animationDelay: '0.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200">
+                                        <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-red-800">Broken affiliate link found</div>
+                                            <div className="text-sm text-red-600">amazon.com/product-xyz → 404 error</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '1.5s'}}>
+                                    <ArrowDown className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <div style={{...cardBaseStyle, animationDelay: '2.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                                        <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-green-800">Link Fixed</div>
+                                            <div className="text-sm text-green-700">Now points to `amazon.com/product-abc`</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* PAIR 2: Unmonetized Mention */}
+                             <div className="space-y-2">
+                                <div style={{...cardBaseStyle, animationDelay: '4s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                                        <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-yellow-800">Unmonetized mention</div>
+                                            <div className="text-sm text-yellow-600">"Nike shoes" → No affiliate link</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '5s'}}>
+                                    <ArrowDown className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <div style={{...cardBaseStyle, animationDelay: '6s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                                        <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-green-800">Link Added</div>
+                                            <div className="text-sm text-green-700">Monetized with `brand.com/affiliate-link`</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* PAIR 3: Better Program */}
+                            <div className="space-y-2">
+                                 <div style={{...cardBaseStyle, animationDelay: '7.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                                       <TrendingUp className="h-6 w-6 text-blue-500 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-blue-800">Suboptimal Program</div>
+                                            <div className="text-sm text-blue-600">Current partner pays 5% commission</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '8.5s'}}>
+                                    <ArrowDown className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <div style={{...cardBaseStyle, animationDelay: '9.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                                        <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-green-800">Program Updated</div>
+                                            <div className="text-sm text-green-700">Switched to partner with 8% commission</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const Footer: React.FC<{
+  onNavigate: (page: string) => void;
+  onNext: (data?: any) => void;
+}> = ({ onNavigate, onNext }) => {
+  return (
+    <footer className="bg-[#081F5D] text-white">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-lg font-semibold mb-4">AvidAffiliate</h3>
+            <p className="text-sm text-gray-400">Unlock your site's true revenue potential.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#features" className="hover:text-brand-yellow transition-colors">Features</a></li>
+              <li><a href="#how-it-works" className="hover:text-brand-yellow transition-colors">How It Works</a></li>
+              <li><button onClick={() => onNavigate('contact')} className="hover:text-brand-yellow transition-colors">Contact</button></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="/privacy" className="hover:text-brand-yellow transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-brand-yellow transition-colors">Terms of Service</a></li>
+              <li><a href="/cookies" className="hover:text-brand-yellow transition-colors">Cookie Policy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">Get Started</h4>
+            <p className="text-sm text-gray-400 mb-4">Ready to find your hidden revenue?</p>
+            <button
+              onClick={() => {
+                track('cta_click', { location: 'footer' });
+                const heroForm = document.querySelector('#hero-form');
+                if (heroForm) {
+                  heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+              }}
+              className="w-full text-center px-4 py-2 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+            >
+              Get My Free Report Card
+            </button>
+          </div>
+        </div>
+        <div className="mt-8 border-t border-white/20 pt-8 text-center text-sm text-gray-400">
+          <p>&copy; {new Date().getFullYear()} AvidAffiliate. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
 
 export const HomePage: React.FC<HomePageProps> = ({ 
   onNext = () => {}, 
@@ -624,7 +787,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
       
-      {/* CHANGE 2: Updated this section for mobile visibility */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -882,7 +1044,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* CHANGE 3: Updated this section for copy consistency */}
       <section id="about-us" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -932,38 +1093,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            <div className="mt-20 bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-brand-dark-blue mb-4">See it in action</h3>
-                <p className="text-gray-600">Watch how we identify revenue opportunities</p>
-              </div>
-              
-              <div className="flex justify-center">
-                <div className="space-y-4 w-full max-w-md">
-                    <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200 animate-fade-in">
-                      <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-red-800">Broken affiliate link found</div>
-                        <div className="text-sm text-red-600">amazon.com/product-xyz → 404 error</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200 animate-fade-in delay-500">
-                      <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-yellow-800">Unmonetized mention</div>
-                        <div className="text-sm text-yellow-600">"Nike shoes" → No affiliate link</div>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200 animate-fade-in delay-1000">
-                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                      <div>
-                        <div className="font-semibold text-green-800">Better programs found</div>
-                        <div className="text-sm text-green-600">5% → 8% commission available</div>
-                      </div>
-                    </div>
-                </div>
-              </div>
-            </div>
+            <SeeItInAction />
 
             <div className="text-center mt-16">
               <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse">
@@ -1132,3 +1262,4 @@ export const HomePage: React.FC<HomePageProps> = ({
     </div>
   );
 };
+
