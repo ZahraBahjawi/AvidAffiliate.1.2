@@ -82,7 +82,8 @@ const ProofStats: React.FC = () => {
     <section className="py-10 bg-gray-50 group relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          <p className="text-lg text-brand-dark-blue font-light">Our full audits find:</p>
+          {/* CHANGE: Clarified heading */}
+          <p className="text-lg text-brand-dark-blue font-light">What our full (paid) audits typically find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-white border border-gray-200 rounded-xl p-9 text-center">
@@ -100,7 +101,6 @@ const ProofStats: React.FC = () => {
         </div>
       </div>
       
-      {/* Caption - Made permanently visible */}
       <div className="text-center mt-6 px-6 transition-opacity duration-300">
         <div className="text-sm text-gray-600 space-y-1">
           <p>Estimates based on last 10 audits; results vary by traffic and content mix.</p>
@@ -245,32 +245,30 @@ const DesktopRightRailCTA: React.FC<{ onClick: () => void; show: boolean }> = ({
   );
 };
 
-// A good practice is to define the type for your slide objects
 type Slide = {
   title: string;
   description: string;
-  icon: React.ElementType; // We use React.ElementType for component references
+  icon: React.ElementType;
 };
 
 const ReportcardPreview: React.FC = () => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   
-  // Updated slides array to use icons instead of image strings
   const slides: Slide[] = [
     {
       title: "Executive Summary",
       description: "Get a high-level overview of your site's performance with an overall grade, estimated revenue uplift, and key takeaways.",
-      icon: BarChart // Icon for summary/data
+      icon: BarChart
     },
     {
       title: "Current Link Footprint",
       description: "Understand your site's external link distribution and identify your top linked-to domains.",
-      icon: Link // Icon for links/connections
+      icon: Link
     },
     {
       title: "Detailed Findings",
       description: "Pinpoint exact revenue opportunities, from missed payouts and unmonetized mentions to critical link errors.",
-      icon: Search // Icon for finding details/pinpointing
+      icon: Search
     }
   ];
 
@@ -288,7 +286,6 @@ const ReportcardPreview: React.FC = () => {
     track('sample_report_card_view', { slide: 1, action: 'view' });
   }, []);
 
-  // Get the current Icon component to render it dynamically
   const IconComponent = slides[currentSlide].icon;
 
   return (
@@ -309,11 +306,10 @@ const ReportcardPreview: React.FC = () => {
             <h3 className="text-lg font-medium text-white mb-2">
               {slides[currentSlide].title}
             </h3>
-            <p className="text-gray-300 text-sm mb-4 h-12"> {/* Set a fixed height to prevent layout shifts */}
+            <p className="text-gray-300 text-sm mb-4 h-12">
               {slides[currentSlide].description}
             </p>
             
-            {/* This is the new icon container, replacing the <img> tag */}
             <div className="flex justify-center items-center h-40 max-w-sm mx-auto bg-white/5 rounded-lg my-4">
               <IconComponent className="w-20 h-20 text-brand-yellow" />
             </div>
@@ -375,23 +371,18 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [showMobileSticky, setShowMobileSticky] = React.useState(false);
   const [formStarted, setFormStarted] = React.useState(false);
   const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null); // Add this line for state
-
-  // Store UTMs on first visit
+  
   React.useEffect(() => {
     storeUTMs();
   }, []);
 
-  // Scroll-based hooks
   React.useEffect(() => {
     const handleScroll = () => {
       const scrollPercent = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1);
       
-      // Right rail and mobile sticky CTAs
       setShowRightRail(scrollPercent > 0.3);
       setShowMobileSticky(scrollPercent > 0.35);
       
-      // Scroll depth tracking
       const depths = [25, 50, 75, 100];
       depths.forEach(depth => {
         if (scrollPercent * 100 >= depth && !scrollDepthTracked.has(depth)) {
@@ -405,7 +396,6 @@ export const HomePage: React.FC<HomePageProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollDepthTracked]);
 
-  // Handle scroll target
   React.useEffect(() => {
     if (scrollTarget) {
       const element = document.getElementById(scrollTarget);
@@ -420,36 +410,28 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   const submitHero = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
     if (isSubmitting) return;
-    
     if (honeypot) {
       console.log('Bot detected via honeypot');
       track('form_submit_fail', { reason: 'honeypot', url: '' });
       return;
     }
-    
     setIsSubmitting(true);
-    
     const form = e.currentTarget;
     let url = (form.elements.namedItem('siteUrl') as HTMLInputElement)?.value || '';
-    
     if (!url.trim()) {
       track('validation_error', { field: 'url', message: 'URL is required' });
       setIsSubmitting(false);
       return;
     }
-    
     if (url) {
       if (!/^https?:\/\//i.test(url)) {
         url = 'https://' + url;
       }
       url = url.replace(/\/$/, '');
     }
-    
     const utms = getStoredUTMs();
     track('form_submit_attempt', { url, source: 'hero' });
-    
     setTimeout(() => {
       if (url) {
         onNext({ url, ...utms });
@@ -469,11 +451,9 @@ export const HomePage: React.FC<HomePageProps> = ({
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       <div className="scroll-overlay"></div>
       
-      {/* Header Navigation */}
       <header className="border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm" style={{ backgroundColor: '#081F5D' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
             <div className="flex items-center">
               <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Scroll to top"> 
               <img
@@ -484,14 +464,12 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
 
-            {/* Navigation Links */}
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-white transition text-sm font-medium" aria-label="View features section">Features</a>
               <a href="#how-it-works" className="text-white transition text-sm font-medium" aria-label="Learn how it works">How it works</a>
               <button onClick={() => onNavigate('contact')} className="text-white transition text-sm font-medium">Contact</button>
             </nav>
 
-            {/* CTA Button */}
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => {
@@ -510,7 +488,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </header>
 
-      {/* Hero Section */}
       <section id="main-content" className="pt-16 pb-10 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -535,7 +512,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               Get a free Report Card within 48 hours that shows unmonetized and broken links, and guides you to higher‑paying programs - so you earn more without redoing content. 
             </p>
 
-            {/* Hero Audit Form */}
             <div className="group">
               <form id="hero-form" onSubmit={submitHero} className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-4 max-w-2xl mx-auto">
               <input
@@ -580,13 +556,11 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
               </form>
 
-              {/* Reassurance text - Made permanently visible */}
               <p className="text-center text-gray-600 text-sm mt-2 mb-4 transition-opacity duration-300" role="note">
                 Takes ~15 seconds. We'll email your report card—no spam.
               </p>
             </div>
 
-            {/* Sample PDF Thumbnail */}
             <div className="flex justify-center mb-6">
               <button
                 onClick={() => {
@@ -607,7 +581,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
             </div>
             
-            {/* Security badges - mobile friendly */}
             <div className="text-center text-gray-600 text-sm mt-12">
               <div className="flex items-center justify-center mb-2">
                 <Shield className="h-4 w-4 mr-2 text-green-600 flex-shrink-0" />
@@ -618,9 +591,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Proof Stats Strip */}
       <ProofStats />
-      {/* Testimonial Section */}
+      
       <section className="py-20" aria-labelledby="testimonial-heading">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -652,7 +624,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
       
-      {/* Problem Section */}
+      {/* --- THIS IS THE UPDATED SECTION --- */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -664,52 +636,41 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div
-                className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue"
-                onMouseEnter={() => setHoveredCard(0)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
+              {/* CHANGE: Removed hover events and made text always visible */}
+              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue">
                 <div className="mx-auto mb-6">
-                  <DollarSign className="h-8 w-8 text-green-500 mx-auto transition-all duration-300" />
+                  <DollarSign className="h-8 w-8 text-green-500 mx-auto" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Missing payouts</h3>
                 <div className="text-3xl font-normal text-green-600 mb-4">50-80%</div>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${hoveredCard === 0 ? 'max-h-40' : 'max-h-0'}`}>
-                  <p className="text-gray-600 text-sm leading-relaxed pt-2">
+                <div className="pt-2">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     of product mentions go unmonetized. We find those mentions and turn them into tracked, revenue‑generating links.
                   </p>
                 </div>
               </div>
 
-              <div
-                className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue"
-                onMouseEnter={() => setHoveredCard(1)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
+              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue">
                 <div className="mx-auto mb-6">
-                  <Link2Off className="h-8 w-8 text-red-500 mx-auto transition-all duration-300" />
+                  <Link2Off className="h-8 w-8 text-red-500 mx-auto" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Broken links</h3>
                 <div className="text-3xl font-normal text-red-600 mb-4">Silent losses</div>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${hoveredCard === 1 ? 'max-h-40' : 'max-h-0'}`}>
-                  <p className="text-gray-600 text-sm leading-relaxed pt-2">
+                <div className="pt-2">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     from 404s, redirects, and geo‑mismatches. We repair pathways from click to commission so your traffic converts.
                   </p>
                 </div>
               </div>
 
-              <div
-                className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue"
-                onMouseEnter={() => setHoveredCard(2)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
+              <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue">
                 <div className="mx-auto mb-6">
-                  <TrendingUp className="h-8 w-8 text-blue-500 mx-auto transition-all duration-300" />
+                  <TrendingUp className="h-8 w-8 text-blue-500 mx-auto" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Low commission rates</h3>
                 <div className="text-3xl font-normal text-blue-600 mb-4">2–5x</div>
-                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${hoveredCard === 2 ? 'max-h-40' : 'max-h-0'}`}>
-                  <p className="text-gray-600 text-sm leading-relaxed pt-2">
+                <div className="pt-2">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     better payouts exist for many programs. We benchmark against 35,000+ programs and recommend higher‑paying alternatives.
                   </p>
                 </div>
@@ -733,14 +694,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <ArrowRight className="ml-2 h-4 w-4" />
               </button>
               
-              {/* Reportcard Preview */}
               <ReportcardPreview />
             </div>
           </div>
         </div>
       </section>
-
-      {/* How It Works */}
+      
       <section id="how-it-works" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -749,14 +708,10 @@ export const HomePage: React.FC<HomePageProps> = ({
               <p className="text-xl text-gray-600 font-light">Get your comprehensive Report Card in three simple steps</p>
             </div>
       
-            {/* Infographic Container */}
             <div className="relative">
-              {/* Timeline Steps */}
               <div className="space-y-12 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
                 <div className="text-center group">
-                  {/* Step 1 - Submit */}
                   <div className="relative mb-6">
-                    {/* Step number badge */}
                     <div className="inline-flex items-center justify-center w-8 h-8 bg-brand-blue text-white rounded-full text-sm font-bold mb-4">
                       1
                     </div>
@@ -773,16 +728,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </div>
                   </div>
                   
-                  {/* Timeline connector for mobile */}
                   <div className="md:hidden flex justify-center mt-8 mb-4">
                     <div className="w-px h-8 bg-gray-300"></div>
                   </div>
                 </div>
       
                 <div className="text-center group">
-                  {/* Step 2 - Analyze */}
                   <div className="relative mb-6">
-                    {/* Step number badge */}
                     <div className="inline-flex items-center justify-center w-8 h-8 bg-green-600 text-white rounded-full text-sm font-bold mb-4">
                       2
                     </div>
@@ -800,16 +752,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </div>
                   </div>
                   
-                  {/* Timeline connector for mobile */}
                   <div className="md:hidden flex justify-center mt-8 mb-4">
                     <div className="w-px h-8 bg-gray-300"></div>
                   </div>
                 </div>
       
                 <div className="text-center group">
-                  {/* Step 3 - Receive */}
                   <div className="relative mb-6">
-                    {/* Step number badge */}
                     <div className="inline-flex items-center justify-center w-8 h-8 bg-purple-600 text-white rounded-full text-sm font-bold mb-4">
                       3
                     </div>
@@ -828,7 +777,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </div>
               
-              {/* Desktop timeline progress bar */}
               <div className="hidden md:block mt-12">
                 <div className="flex items-center justify-center">
                   <div className="flex items-center space-x-4">
@@ -847,7 +795,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
             
-            {/* Bottom CTA */}
             <div className="text-center mt-16">
               <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 max-w-2xl mx-auto">
                 <h3 className="text-2xl font-semibold text-brand-dark-blue mb-4">Ready to discover your hidden revenue?</h3>
@@ -868,7 +815,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
       
-            {/* FAQ Section */}
             <div className="mt-20">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-4" id="frequently-asked-questions" role="heading" aria-level="2">Frequently Asked Questions</h2>
@@ -881,7 +827,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Features */}
       <section id="features" className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -898,7 +843,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Automatically find every missed commission opportunity—then see exactly how to monetize it.
                 </p>
               </div>
-
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
                 <Target className="h-8 w-8 text-orange-600 mb-6" />
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Proprietary affiliate database</h3>
@@ -906,7 +850,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Discover higher‑paying alternatives matched to your content—benchmarked against 35,000+ programs.
                 </p>
               </div>
-
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
                 <Clock className="h-8 w-8 text-purple-600 mb-6" />
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Rapid results</h3>
@@ -914,7 +857,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Get actionable insights within 48 hours—no waiting weeks for analysis.
                 </p>
               </div>
-
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
                 <Shield className="h-8 w-8 text-indigo-600 mb-6" />
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Safe & secure</h3>
@@ -922,7 +864,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Read‑only analysis with enterprise‑grade security. Your data stays private.
                 </p>
               </div>
-
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
                 <CheckCircle className="h-8 w-8 text-teal-600 mb-6" />
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Done‑for‑you implementation</h3>
@@ -930,7 +871,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                   From audit to ongoing optimization—we help you unlock the full value of your content.
                 </p>
               </div>
-
               <div className="bg-white rounded-xl p-8 shadow-md border border-gray-200">
                 <TrendingUp className="h-8 w-8 text-green-600 mb-6" />
                 <h3 className="text-lg font-medium text-brand-dark-blue mb-3">Proven process</h3>
@@ -943,7 +883,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* About / Values */}
+      {/* --- THIS IS THE UPDATED SECTION --- */}
       <section id="about-us" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -957,8 +897,9 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   We bridge the gap between great content and optimized monetization with intelligent, data‑driven affiliate marketing solutions.
                 </p>
+                {/* CHANGE: Rewrote this paragraph for clarity and consistency */}
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Audit with Optimize, fix with Implement, upgrade partners with Discover, plan with Strategize, and scale with Manage.
+                  After your report card, we help you **Audit** (deep analysis), **Implement** (we fix the issues), and **Manage** your affiliate strategy for ongoing growth.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6">
@@ -993,38 +934,34 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
 
-            {/* Interactive demo section -- FIX APPLIED HERE */}
             <div className="mt-20 bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-brand-dark-blue mb-4">See it in action</h3>
                 <p className="text-gray-600">Watch how we identify revenue opportunities</p>
               </div>
-              
               <div className="flex justify-center">
                 <div className="space-y-4 w-full max-w-md">
-                  <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200 animate-fade-in">
-                    <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-red-800">Broken affiliate link found</div>
-                      <div className="text-sm text-red-600">amazon.com/product-xyz → 404 error</div>
+                    <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200 animate-fade-in">
+                      <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-red-800">Broken affiliate link found</div>
+                        <div className="text-sm text-red-600">amazon.com/product-xyz → 404 error</div>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200 animate-fade-in delay-500">
-                    <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-yellow-800">Unmonetized mention</div>
-                      <div className="text-sm text-yellow-600">"Nike shoes" → No affiliate link</div>
+                    <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200 animate-fade-in delay-500">
+                      <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-yellow-800">Unmonetized mention</div>
+                        <div className="text-sm text-yellow-600">"Nike shoes" → No affiliate link</div>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200 animate-fade-in delay-1000">
-                    <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-green-800">Better programs found</div>
-                      <div className="text-sm text-green-600">5% → 8% commission available</div>
+                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200 animate-fade-in delay-1000">
+                      <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
+                      <div>
+                        <div className="font-semibold text-green-800">Better programs found</div>
+                        <div className="text-sm text-green-600">5% → 8% commission available</div>
+                      </div>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -1055,7 +992,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Partners Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -1064,7 +1000,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               <p className="text-xl text-gray-600 font-light">Access premium partnerships and exclusive programs through our vetted network support.</p>
             </div>
 
-            {/* Logo Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
               {[
                 { name: 'Amazon Associates', src: '/amazon.png' },
@@ -1116,7 +1051,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="py-20 bg-brand-dark-blue">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center text-white">
@@ -1175,7 +1109,6 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       <Footer onNavigate={onNavigate} onNext={onNext} />
 
-      {/* Desktop Right Rail CTA */}
       <DesktopRightRailCTA
         show={showRightRail}
         onClick={() => {
@@ -1187,7 +1120,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         }}
       />
 
-      {/* Sticky mobile CTA */}
       <StickyMobileCTA
         show={showMobileSticky}
         onClick={() => {
