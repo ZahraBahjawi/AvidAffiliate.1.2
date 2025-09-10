@@ -357,118 +357,136 @@ const ReportcardPreview: React.FC = () => {
   );
 };
 
-const SeeItInAction: React.FC<{
-  activeStep: number;
-  onNext: () => void;
-  onPrev: () => void;
-  onSetStep: (step: number) => void;
-}> = ({ activeStep, onNext, onPrev, onSetStep }) => {
-  const steps = [
-    {
-      problem: {
-        icon: XCircle,
-        title: "Broken affiliate link found",
-        description: "amazon.com/product-xyz → 404 error",
-        color: "red",
-      },
-      fix: {
-        icon: CheckCircle,
-        title: "Link Fixed",
-        description: "Now points to `amazon.com/product-abc`",
-        color: "green",
+const AnimationStyles = () => (
+  <style>
+    {`
+      @keyframes loopAndFade {
+        0%, 100% { opacity: 1; }
+        95%, 99% { opacity: 0; }
       }
-    },
-    {
-      problem: {
-        icon: AlertTriangle,
-        title: "Unmonetized mention",
-        description: `"Nike shoes" → No affiliate link`,
-        color: "yellow",
-      },
-      fix: {
-        icon: CheckCircle,
-        title: "Link Added",
-        description: "Monetized with `brand.com/affiliate-link`",
-        color: "green",
+      @keyframes fadeInSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-    },
-    {
-      problem: {
-        icon: TrendingUp,
-        title: "Suboptimal Program",
-        description: "Current partner pays 5% commission",
-        color: "blue",
-      },
-      fix: {
-        icon: CheckCircle,
-        title: "Program Updated",
-        description: "Switched to partner with 8% commission",
-        color: "green",
-      }
-    },
-  ];
+    `}
+  </style>
+);
 
-  return (
-    <div className="mt-20 bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <h3 className="text-2xl font-bold text-[#081F5D] mb-4">See it in action</h3>
-        <p className="text-gray-600">Watch how we identify and fix revenue opportunities</p>
-      </div>
+const SeeItInAction: React.FC = () => {
+    // This style applies the master 13-second looping animation to the container.
+    const animationContainerStyle = {
+        animation: 'loopAndFade 13s infinite cubic-bezier(0.5, 0, 0.5, 1)'
+    };
 
-      <div className="flex justify-center">
-        <div className="w-full max-w-md space-y-4">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className={`transition-opacity duration-500 ${activeStep >= index ? 'opacity-100' : 'opacity-0'}`}
-            >
-              <div className="space-y-2">
-                {/* Problem Card */}
-                <div className={`flex items-center space-x-3 p-4 bg-${step.problem.color}-50 rounded-lg border border-${step.problem.color}-200`}>
-                  <step.problem.icon className={`h-6 w-6 text-${step.problem.color}-500 flex-shrink-0`} />
-                  <div>
-                    <div className={`font-semibold text-${step.problem.color}-800`}>{step.problem.title}</div>
-                    <div className={`text-sm text-${step.problem.color}-600`}>{step.problem.description}</div>
-                  </div>
-                </div>
+    // This is the base style for each individual card/arrow.
+    // The animationDelay will be customized for each element.
+    const cardBaseStyle = {
+        animationName: 'fadeInSlideUp', 
+        animationDuration: '0.5s', 
+        animationTimingFunction: 'ease-out', 
+        animationFillMode: 'forwards',
+        opacity: 0, // Start hidden
+    };
 
-                {/* Arrow and Fix Card */}
-                <div className={`transition-all duration-500 ease-in-out overflow-hidden ${activeStep > index ? 'max-h-40' : 'max-h-0'}`}>
-                  <div className="flex justify-center py-2">
-                    <ArrowDown className="h-5 w-5 text-gray-400" />
-                  </div>
-                  <div className={`flex items-center space-x-3 p-4 bg-${step.fix.color}-50 rounded-lg border border-${step.fix.color}-200`}>
-                    <step.fix.icon className={`h-6 w-6 text-${step.fix.color}-600 flex-shrink-0`} />
-                    <div>
-                      <div className={`font-semibold text-${step.fix.color}-800`}>{step.fix.title}</div>
-                      <div className={`text-sm text-${step.fix.color}-700`}>{step.fix.description}</div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+    return (
+        <div className="mt-20 bg-white rounded-3xl p-8 shadow-2xl border border-gray-100 max-w-4xl mx-auto">
+            <AnimationStyles />
+            <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-[#081F5D] mb-4">See it in action</h3>
+                <p className="text-gray-600">Watch how we identify and fix revenue opportunities</p>
             </div>
-          ))}
-        </div>
-      </div>
-      
-      {/* Navigation Controls */}
-      <div className="flex items-center justify-center mt-8 space-x-4">
-        <button onClick={onPrev} disabled={activeStep === 0} className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
-          <ChevronLeft className="h-5 w-5 text-gray-600"/>
-        </button>
-        <div className="flex items-center space-x-2">
-          {steps.map((_, index) => (
-            <button key={index} onClick={() => onSetStep(index)} className={`w-2.5 h-2.5 rounded-full transition-colors ${activeStep === index ? 'bg-brand-blue' : 'bg-gray-300 hover:bg-gray-400'}`}></button>
-          ))}
-        </div>
-        <button onClick={onNext} disabled={activeStep === steps.length} className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed">
-          <ChevronRight className="h-5 w-5 text-gray-600"/>
-        </button>
-      </div>
+            
+            <div className="flex justify-center">
+                <div className="w-full max-w-md">
+                    <div style={animationContainerStyle}>
+                        <div className="space-y-4">
+                            
+                            {/* PAIR 1: Broken Link */}
+                            <div className="space-y-2">
+                                <div style={{...cardBaseStyle, animationDelay: '0.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200">
+                                        <XCircle className="h-6 w-6 text-red-500 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-red-800">Broken affiliate link found</div>
+                                            <div className="text-sm text-red-600">amazon.com/product-xyz → 404 error</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '1.5s'}}>
+                                    <ArrowDown className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <div style={{...cardBaseStyle, animationDelay: '2.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                                        <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-green-800">Link Fixed</div>
+                                            <div className="text-sm text-green-700">Now points to `amazon.com/product-abc`</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-    </div>
-  );
+                            {/* PAIR 2: Unmonetized Mention */}
+                             <div className="space-y-2">
+                                <div style={{...cardBaseStyle, animationDelay: '4s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                                        <AlertTriangle className="h-6 w-6 text-yellow-500 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-yellow-800">Unmonetized mention</div>
+                                            <div className="text-sm text-yellow-600">"Nike shoes" → No affiliate link</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '5s'}}>
+                                    <ArrowDown className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <div style={{...cardBaseStyle, animationDelay: '6s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                                        <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-green-800">Link Added</div>
+                                            <div className="text-sm text-green-700">Monetized with `brand.com/affiliate-link`</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* PAIR 3: Better Program */}
+                            <div className="space-y-2">
+                                 <div style={{...cardBaseStyle, animationDelay: '7.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                                       <TrendingUp className="h-6 w-6 text-blue-500 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-blue-800">Suboptimal Program</div>
+                                            <div className="text-sm text-blue-600">Current partner pays 5% commission</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex justify-center" style={{...cardBaseStyle, animationDelay: '8.5s'}}>
+                                    <ArrowDown className="h-5 w-5 text-gray-400" />
+                                </div>
+                                <div style={{...cardBaseStyle, animationDelay: '9.5s'}}>
+                                    <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                                        <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                                        <div>
+                                            <div className="font-semibold text-green-800">Program Updated</div>
+                                            <div className="text-sm text-green-700">Switched to partner with 8% commission</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 
