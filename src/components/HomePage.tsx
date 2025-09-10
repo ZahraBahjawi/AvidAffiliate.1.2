@@ -358,6 +358,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [showMobileSticky, setShowMobileSticky] = React.useState(false);
   const [formStarted, setFormStarted] = React.useState(false);
   const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null); // Add this line for state
 
   // Store UTMs on first visit
   React.useEffect(() => {
