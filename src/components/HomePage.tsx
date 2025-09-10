@@ -1019,10 +1019,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       <TrendingUp className="h-4 w-4 text-white" />
                     </div>
                   </div>
-                  <div className="mt-4">
-                    <div className="text-2xl font-bold text-green-600">+47% Revenues Potential</div>
-                    <div className="text-sm text-gray-500">Based on identified opportunities</div>
-                  </div>
+                  
                 </div>
               </div>
             </div>
