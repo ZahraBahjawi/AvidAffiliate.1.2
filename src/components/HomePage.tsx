@@ -249,7 +249,7 @@ const ReportcardPreview: React.FC = () => {
     {
       title: "Executive Summary",
       description: "Get a high-level overview of your site's performance with an overall grade, estimated revenue uplift, and key takeaways.",
-      image: "/SC1.jpg"
+      image: "/SC1.png"
     },
     {
       title: "Current Link Footprint",
