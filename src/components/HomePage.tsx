@@ -637,29 +637,22 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* Problem Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
-          <section id="how-it-works" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-20 left-10 w-32 h-32 bg-brand-blue rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 right-10 w-40 h-40 bg-brand-yellow rounded-full blur-3xl"></div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="free-affiliate-audit" role="heading" aria-level="2">
+                The hidden revenue leak
+              </h2>
+              <p className="text-xl text-gray-600 font-light">You could be missing out on thousands in affiliate revenue</p>
             </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-brand-dark-blue mb-6 animate-fade-in">
-                  The hidden revenue leak
-                </h2>
-                <p className="text-xl text-gray-600 font-light">You could be missing out on thousands in affiliate revenue</p>
-              </div>
 
-              <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
               <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue group">
                 <div className="mx-auto mb-6">
                   <DollarSign className="h-8 w-8 text-green-500 mx-auto transition-all duration-300" />
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Missing payouts</h3>
                 <div className="text-3xl font-normal text-green-600 mb-4">50-80%</div>
-                <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-300 ease-in-out">
+                <div className="h-0 opacity-0 group-hover:h-24 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                   <p className="text-gray-600 text-sm leading-relaxed pt-2">
                     of product mentions go unmonetized. We find those mentions and turn them into tracked, revenue‑generating links.
                   </p>
@@ -672,7 +665,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Broken links</h3>
                 <div className="text-3xl font-normal text-red-600 mb-4">Silent losses</div>
-                <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-300 ease-in-out">
+                <div className="h-0 opacity-0 group-hover:h-24 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                   <p className="text-gray-600 text-sm leading-relaxed pt-2">
                     from 404s, redirects, and geo‑mismatches. We repair pathways from click to commission so your traffic converts.
                   </p>
@@ -685,35 +678,35 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
                 <h3 className="text-xl font-medium text-brand-dark-blue mb-3">Low commission rates</h3>
                 <div className="text-3xl font-normal text-blue-600 mb-4">2–5x</div>
-                <div className="overflow-hidden max-h-0 group-hover:max-h-40 transition-all duration-300 ease-in-out">
+                <div className="h-0 opacity-0 group-hover:h-24 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                   <p className="text-gray-600 text-sm leading-relaxed pt-2">
                     better payouts exist for many programs. We benchmark against 35,000+ programs and recommend higher‑paying alternatives.
                   </p>
                 </div>
               </div>
             </div>
-              <div className="bg-brand-dark-blue rounded-2xl p-12 text-white text-center">
-                <h3 className="text-2xl font-normal mb-8">The result? You're leaving money on the table.</h3>
-                
-                <button
-                  onClick={() => {
-                    track('cta_click', { location: 'problem_section' });
-                    const heroForm = document.querySelector('#hero-form');
-                    if (heroForm) {
-                      heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                  }}
-                  className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-8"
-                >
-                  Find my hidden revenue
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
-                
-                {/* Reportcard Preview */}
-                <ReportcardPreview />
-              </div>
+            
+            <div className="bg-brand-dark-blue rounded-2xl p-12 text-white text-center">
+              <h3 className="text-2xl font-normal mb-8">The result? You're leaving money on the table.</h3>
+              
+              <button
+                onClick={() => {
+                  track('cta_click', { location: 'problem_section' });
+                  const heroForm = document.querySelector('#hero-form');
+                  if (heroForm) {
+                    heroForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }}
+                className="inline-flex items-center px-6 py-3 bg-brand-yellow text-brand-dark-blue font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 mb-8"
+              >
+                Find my hidden revenue
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </button>
+              
+              {/* Reportcard Preview */}
+              <ReportcardPreview />
             </div>
-          </section>
+          </div>
         </div>
       </section>
 
