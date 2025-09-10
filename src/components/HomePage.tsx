@@ -1065,34 +1065,21 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Logo Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
               {[
-                { name: 'Amazon', src: '/amazon.png', hasSection: false },
-                { name: 'ShareASale', src: '/shareasale.png', hasSection: false },
-                { name: 'CJ Affiliate', src: '/CJ.png', hasSection: true },
-                { name: 'Impact', src: '/impact.png', hasSection: true },
-                { name: 'Awin', src: '/awin.png', hasSection: true },
-                { name: 'FlexOffers', src: '/flexoffers.png', hasSection: true },
-                { name: 'ClickBank', src: '/clickbank.png', hasSection: false },
-                { name: 'Rakuten', src: '/rakuten.png', hasSection: false },
+                { name: 'Amazon', src: '/amazon.png', id: 'amazon' },
+                { name: 'ShareASale', src: '/shareasale.png', id: 'shareasale' },
+                { name: 'CJ Affiliate', src: '/CJ.png', id: 'cj-(commission-junction)' },
+                { name: 'Impact', src: '/impact.png', id: 'impact' },
+                { name: 'Awin', src: '/awin.png', id: 'awin' },
+                { name: 'FlexOffers', src: '/flexoffers.png', id: 'flexoffers' },
+                { name: 'ClickBank', src: '/clickbank.png', id: 'clickbank' },
+                { name: 'Rakuten', src: '/rakuten.png', id: 'rakuten' },
               ].map((p, i) => (
                 <button
                   key={i} 
                   className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
                   onClick={() => {
                     track('partner_logo_click', { name: p.name });
-                    if (p.hasSection) {
-                      // Navigate to affiliate partners page and scroll to the specific section
-                      onNavigate('affiliate_partners');
-                      // Use setTimeout to ensure navigation completes before scrolling
-                      setTimeout(() => {
-                        const element = document.getElementById(p.name.toLowerCase().replace(/\s+/g, '-'));
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }, 100);
-                    } else {
-                      // For networks without sections, just go to the affiliate partners page
-                      onNavigate('affiliate_partners');
-                    }
+                    onNavigate(`affiliate_partners#${p.id}`);
                   }}
                 >
                   <img 
