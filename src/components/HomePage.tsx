@@ -27,7 +27,7 @@ import {
   ArrowDown,
 } from 'lucide-react';
 
-// NOTE: The 'Footer' component is now included in this file to resolve the import error.
+// NOTE: The 'Footer' component is now included in this file to resolve potential import errors.
 
 interface HomePageProps {
   onNext?: (heroData?: { url?: string; email?: string }) => void;
@@ -290,7 +290,9 @@ const ReportcardPreview: React.FC = () => {
   const IconComponent = slides[currentSlide].icon;
 
   return (
-    <div className="mt-8 max-w-2xl mx-auto">      
+    <div className="mt-8 max-w-2xl mx-auto">
+      <p className="text-center text-gray-200 text-sm mb-4">Preview a sample report card</p>
+      
       <div className="bg-white/10 rounded-lg border border-white/20 p-6 relative">
         <div className="flex items-center justify-between mb-4">
           <button
@@ -356,32 +358,36 @@ const ReportcardPreview: React.FC = () => {
   );
 };
 
-const AnimationStyles = () => (
-  <style>
-    {`
-      @keyframes loopAndFade {
-        0%, 87% { opacity: 1; } /* Hold visible until the 13s mark of a 15s animation */
-        98%, 100% { opacity: 0; } /* Fade out, then stay hidden before looping */
-      }
-      @keyframes fadeInSlideUp {
-        from {
-          opacity: 0;
-          transform: translateY(15px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    `}
-  </style>
-);
-
 const SeeItInAction: React.FC = () => {
+    // This helper component injects the animation rules directly into the page.
+    const AnimationStyles = () => (
+      <style>
+        {`
+          @keyframes loopAndFade {
+            0%, 87% { opacity: 1; } /* Hold visible until the ~13s mark of a 15s animation */
+            98%, 100% { opacity: 0; } /* Fade out, then stay hidden before looping */
+          }
+          @keyframes fadeInSlideUp {
+            from {
+              opacity: 0;
+              transform: translateY(15px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}
+      </style>
+    );
+
+    // This style applies the master looping animation to the container.
+    // The duration is increased to 15s to allow a longer hold time.
     const animationContainerStyle = {
         animation: 'loopAndFade 15s infinite cubic-bezier(0.5, 0, 0.5, 1)'
     };
 
+    // This is the base style for each individual card/arrow.
     const cardBaseStyle: React.CSSProperties = {
         animationName: 'fadeInSlideUp', 
         animationDuration: '0.5s', 
@@ -986,7 +992,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   }}
                   className="inline-flex items-center px-8 py-4 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-dark-blue hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
-                  Get my free Report Card
+                  Start my free Report Card
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
               </div>
