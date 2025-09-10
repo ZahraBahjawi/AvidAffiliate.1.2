@@ -833,29 +833,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const shareEmail = document.getElementById('share-email');
     
     if (shareBtn && shareMenu) {
-            shareBtn.addEventListener('click', (e) => {
+        shareBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             shareMenu.classList.toggle('hidden');
-            });
+        });
     }
 
     if (shareEmail) {
-            const emailSubject = encodeURIComponent("Check out this Affiliate Monetization Report Card");
-            const emailBody = encodeURIComponent(`I thought you might find this sample report card interesting:\n\n<${window.location.href}>`);
-            shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
-        }
+        const emailSubject = encodeURIComponent("Insightful Affiliate Report Card Sample from AvidAffiliate");
+        const emailBody = encodeURIComponent(
+`Hi,
 
-        if(copyLinkBtn) {
-            copyLinkBtn.addEventListener('click', () => {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    copyLinkBtn.textContent = 'Copied!';
-                    setTimeout(() => {
-                        copyLinkBtn.textContent = 'Copy link';
-                        if(shareMenu) shareMenu.classList.add('hidden');
-                    }, 1500);
-                }).catch(err => console.error('Failed to copy text: ', err));
-            });
-        }
+I came across this sample affiliate report card from AvidAffiliate and thought you might find it helpful. It gives a good overview of how they identify hidden revenue opportunities.
+
+You can view the sample report here:
+${window.location.href}
+
+Let me know what you think.
+`
+        );
+        shareEmail.href = `mailto:?subject=${emailSubject}&body=${emailBody}`;
+    }
+
+    if(copyLinkBtn) {
+        copyLinkBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                copyLinkBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyLinkBtn.textContent = 'Copy link';
+                    if(shareMenu) shareMenu.classList.add('hidden');
+                }, 1500);
+            }).catch(err => console.error('Failed to copy text: ', err));
+        });
+    }
     
     // Close share menu when clicking outside
     document.addEventListener('click', (e) => {
