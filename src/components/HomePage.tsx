@@ -291,7 +291,6 @@ const ReportcardPreview: React.FC = () => {
 
   return (
     <div className="mt-8 max-w-2xl mx-auto">
-      <p className="text-center text-gray-200 text-sm mb-4">Preview a sample report card</p>
       
       <div className="bg-white/10 rounded-lg border border-white/20 p-6 relative">
         <div className="flex items-center justify-between mb-4">
