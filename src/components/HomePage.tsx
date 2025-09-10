@@ -511,8 +511,6 @@ const SeeItInAction: React.FC = () => {
     );
 };
 
-export default SeeItInAction;
-
 
 const Footer: React.FC<{
   onNavigate: (page: string) => void;
