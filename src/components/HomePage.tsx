@@ -82,7 +82,7 @@ const ProofStats: React.FC = () => {
     <section className="py-10 bg-gray-50 group relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-8">
-          {/* CHANGE: Clarified heading */}
+          {/* CHANGE 1: Clarified heading */}
           <p className="text-lg text-brand-dark-blue font-light">What our full (paid) audits typically find:</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -624,7 +624,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
       
-      {/* --- THIS IS THE UPDATED SECTION --- */}
+      {/* CHANGE 2: Updated this section for mobile visibility */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -636,7 +636,6 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {/* CHANGE: Removed hover events and made text always visible */}
               <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200 transition-all duration-300 hover:shadow-xl hover:border-brand-blue">
                 <div className="mx-auto mb-6">
                   <DollarSign className="h-8 w-8 text-green-500 mx-auto" />
@@ -883,7 +882,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* --- THIS IS THE UPDATED SECTION --- */}
+      {/* CHANGE 3: Updated this section for copy consistency */}
       <section id="about-us" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
@@ -897,9 +896,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   We bridge the gap between great content and optimized monetization with intelligent, data‑driven affiliate marketing solutions.
                 </p>
-                {/* CHANGE: Rewrote this paragraph for clarity and consistency */}
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  After your report card, we help you **Audit** (deep analysis), **Implement** (we fix the issues), and **Manage** your affiliate strategy for ongoing growth.
+                  After your report card, we help you <strong>Audit</strong> (deep analysis), <strong>Implement</strong> (we fix the issues), and <strong>Manage</strong> your affiliate strategy for ongoing growth.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-6">
@@ -939,6 +937,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <h3 className="text-2xl font-bold text-brand-dark-blue mb-4">See it in action</h3>
                 <p className="text-gray-600">Watch how we identify revenue opportunities</p>
               </div>
+              
               <div className="flex justify-center">
                 <div className="space-y-4 w-full max-w-md">
                     <div className="flex items-center space-x-3 p-4 bg-red-50 rounded-lg border border-red-200 animate-fade-in">
