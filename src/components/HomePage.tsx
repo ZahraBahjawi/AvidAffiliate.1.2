@@ -1005,7 +1005,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
                     <div>
                       <div className="font-semibold text-green-800">Better program found</div>
-                      <div className="text-sm text-green-600">5% → 8% commission available!</div>
+                      <div className="text-sm text-green-600">5% → 8% commission available</div>
                     </div>
                   </div>
                 </div>
