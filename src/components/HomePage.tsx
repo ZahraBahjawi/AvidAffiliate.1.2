@@ -378,14 +378,36 @@ const AnimationStyles = () => (
   </style>
 );
 
+// This helper component injects the animation rules directly into the page.
+const AnimationStyles = () => (
+  <style>
+    {`
+      @keyframes loopAndFade {
+        0%, 87% { opacity: 1; } /* Hold visible until the 13s mark of a 15s animation */
+        98%, 100% { opacity: 0; } /* Fade out, then stay hidden before looping */
+      }
+      @keyframes fadeInSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `}
+  </style>
+);
+
 const SeeItInAction: React.FC = () => {
-    // This style applies the master 13-second looping animation to the container.
+    // This style applies the master looping animation to the container.
+    // The duration is increased to 15s to allow a longer hold time.
     const animationContainerStyle = {
-        animation: 'loopAndFade 13s infinite cubic-bezier(0.5, 0, 0.5, 1)'
+        animation: 'loopAndFade 15s infinite cubic-bezier(0.5, 0, 0.5, 1)'
     };
 
     // This is the base style for each individual card/arrow.
-    // The animationDelay will be customized for each element.
     const cardBaseStyle = {
         animationName: 'fadeInSlideUp', 
         animationDuration: '0.5s', 
@@ -488,6 +510,8 @@ const SeeItInAction: React.FC = () => {
         </div>
     );
 };
+
+export default SeeItInAction;
 
 
 const Footer: React.FC<{
