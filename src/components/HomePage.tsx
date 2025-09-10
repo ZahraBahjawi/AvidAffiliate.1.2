@@ -297,28 +297,28 @@ const ReportcardPreview: React.FC = () => {
         <div className="flex items-center justify-between mb-4">
           <button
             onClick={prevSlide}
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors self-center"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-4 w-4 text-white" />
           </button>
           
-          <div className="text-center flex-1 mx-4">
+          <div className="text-center flex-1 mx-2">
             <h3 className="text-lg font-medium text-white mb-2">
               {slides[currentSlide].title}
             </h3>
-            <p className="text-gray-300 text-sm mb-4 h-12">
+            <p className="text-gray-300 text-sm mb-4 min-h-[60px] flex items-center justify-center">
               {slides[currentSlide].description}
             </p>
             
-            <div className="flex justify-center items-center h-40 max-w-sm mx-auto bg-white/5 rounded-lg my-4">
-              <IconComponent className="w-20 h-20 text-brand-yellow" />
+            <div className="flex justify-center items-center h-32 md:h-40 max-w-sm mx-auto bg-white/5 rounded-lg my-4">
+              <IconComponent className="w-16 h-16 md:w-20 md:h-20 text-brand-yellow" />
             </div>
           </div>
           
           <button
             onClick={nextSlide}
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors self-center"
             aria-label="Next slide"
           >
             <ChevronRight className="h-4 w-4 text-white" />
@@ -1281,3 +1281,4 @@ export const HomePage: React.FC<HomePageProps> = ({
     </div>
   );
 };
+
