@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowLeft, Globe, User, Mail, TrendingUp, DollarSign, Users, ShieldCheck, CheckCircle, X } from 'lucide-react';
+import { ChevronRight, ArrowLeft, Globe, User, Mail, ShieldCheck, CheckCircle, X } from 'lucide-react';
 
 interface SubmissionFormProps {
   onSubmit: (data: any) => void;
@@ -21,7 +21,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
     email: '',
   });
   const [errors, setErrors] = useState({ name: '', email: '' });
-
   const [honeypot, setHoneypot] = useState('');
 
   const validateForm = () => {
@@ -59,29 +58,25 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
     }
 
     const form = e.target as HTMLFormElement;
-  const formData = new FormData(form);
+    const formData = new FormData(form);
 
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(formData as any).toString(),
-  })
-    .then(() => {
-      // On success, call the onSubmit prop to navigate to your custom thank you page
-      onSubmit(Object.fromEntries(formData));
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
     })
-    .catch((error) => {
-      // You can add more robust error handling here
-      alert(error);
-    });
-};
+      .then(() => {
+        onSubmit(Object.fromEntries(formData));
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
  return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
-      {/* Thank You Popup */}
       {showThankYou && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
- 
           <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full relative">
             <button
               onClick={() => setShowThankYou(false)}
@@ -89,20 +84,16 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
             >
               <X className="h-6 w-6" />
             </button>
-            
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="h-8 w-8 text-green-600" />
               </div>
-              
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 Thank You!
               </h2>
-              
               <p className="text-gray-600 mb-6">
                 We've received your request for a free affiliate report card. You'll receive your results within 48 hours at the email address you provided.
               </p>
-              
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => setShowThankYou(false)}
@@ -122,7 +113,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
         </div>
       )}
 
-      {/* Simplified Header */}
       <header className="border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm" style={{ backgroundColor: '#081F5D' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
@@ -146,7 +136,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
       <div className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto">
-            {/* Header with Progress Indicator */}
             <div className="text-center mb-12">
               <p className="text-brand-blue font-semibold mb-2">Step 2 of 2</p>
               <h1 className="text-4xl md:text-5xl font-light text-brand-dark-blue mb-6 tracking-tight">
@@ -157,7 +146,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
               </p>
             </div>
 
-            {/* Form */}
             <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200">
               <form
                 name="audit-request"
@@ -187,8 +175,8 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                   <input
                     type="url"
                     name="website-url"
-                    value={formData.url}
-                    onChange={(e) => handleInputChange('url', e.target.value)}
+                    value={formData['website-url']}
+                    onChange={(e) => handleInputChange('website-url', e.target.value)}
                     placeholder="https://yourwebsite.com"
                     className={`w-full px-4 py-4 rounded-xl border-2 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-blue/20 ${
                       'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'
@@ -208,9 +196,10 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                     onChange={(e) => handleInputChange('name', e.target.value)}
                     placeholder="John Doe"
                     className={`w-full px-4 py-4 rounded-xl border-2 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-blue/20 ${
-                      'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'
+                      errors.name ? 'border-red-500' : 'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'
                     }`}
                   />
+                  {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
@@ -225,9 +214,10 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     placeholder="john@example.com"
                     className={`w-full px-4 py-4 rounded-xl border-2 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-blue/20 ${
-                      'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'
+                      errors.email ? 'border-red-500' : 'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'
                     }`}
                   />
+                  {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
                   <p className="text-xs text-gray-500 mt-2">Your free report card will be sent here. We never spam.</p>
                 </div>
 
