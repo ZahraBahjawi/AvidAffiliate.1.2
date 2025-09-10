@@ -22,6 +22,8 @@ import {
   Search,
   XCircle,
   AlertTriangle,
+  BarChart, // Added for report card preview
+  Link,     // Added for report card preview
 } from 'lucide-react';
 import { Footer } from './Footer';
 
@@ -98,8 +100,8 @@ const ProofStats: React.FC = () => {
         </div>
       </div>
       
-      {/* Caption */}
-      <div className="text-center mt-6 px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      {/* Caption - Made permanently visible */}
+      <div className="text-center mt-6 px-6 transition-opacity duration-300">
         <div className="text-sm text-gray-600 space-y-1">
           <p>Estimates based on last 10 audits; results vary by traffic and content mix.</p>
           <p>*Uplift calculated using proportion of unmonetized / broken affiliate links to existing monetized links</p>
@@ -243,24 +245,32 @@ const DesktopRightRailCTA: React.FC<{ onClick: () => void; show: boolean }> = ({
   );
 };
 
+// A good practice is to define the type for your slide objects
+type Slide = {
+  title: string;
+  description: string;
+  icon: React.ElementType; // We use React.ElementType for component references
+};
+
 const ReportcardPreview: React.FC = () => {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   
-  const slides = [
+  // Updated slides array to use icons instead of image strings
+  const slides: Slide[] = [
     {
       title: "Executive Summary",
       description: "Get a high-level overview of your site's performance with an overall grade, estimated revenue uplift, and key takeaways.",
-      image: "/SC1.png"
+      icon: BarChart // Icon for summary/data
     },
     {
       title: "Current Link Footprint",
       description: "Understand your site's external link distribution and identify your top linked-to domains.",
-      image: "/SC2.png"
+      icon: Link // Icon for links/connections
     },
     {
       title: "Detailed Findings",
       description: "Pinpoint exact revenue opportunities, from missed payouts and unmonetized mentions to critical link errors.",
-      image: "/SC3.png"
+      icon: Search // Icon for finding details/pinpointing
     }
   ];
 
@@ -278,6 +288,9 @@ const ReportcardPreview: React.FC = () => {
     track('sample_report_card_view', { slide: 1, action: 'view' });
   }, []);
 
+  // Get the current Icon component to render it dynamically
+  const IconComponent = slides[currentSlide].icon;
+
   return (
     <div className="mt-8 max-w-2xl mx-auto">
       <p className="text-center text-gray-200 text-sm mb-4">Preview a sample report card</p>
@@ -292,20 +305,17 @@ const ReportcardPreview: React.FC = () => {
             <ChevronLeft className="h-4 w-4 text-white" />
           </button>
           
-          <div className="text-center flex-1">
+          <div className="text-center flex-1 mx-4">
             <h3 className="text-lg font-medium text-white mb-2">
               {slides[currentSlide].title}
             </h3>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 text-sm mb-4 h-12"> {/* Set a fixed height to prevent layout shifts */}
               {slides[currentSlide].description}
             </p>
-            <div className="max-w-sm mx-auto"> {/* Removed bg-white, rounded-md, shadow-lg, p-1 */}
-              <img 
-                src={slides[currentSlide].image} 
-                alt={slides[currentSlide].title}
-                className="w-full h-auto max-h-80 object-contain" // Removed rounded-sm
-                decoding="async"
-              />
+            
+            {/* This is the new icon container, replacing the <img> tag */}
+            <div className="flex justify-center items-center h-40 max-w-sm mx-auto bg-white/5 rounded-lg my-4">
+              <IconComponent className="w-20 h-20 text-brand-yellow" />
             </div>
           </div>
           
@@ -336,20 +346,21 @@ const ReportcardPreview: React.FC = () => {
         
         <div className="text-center">
           <button
-  onClick={() => {
-    track('sample_report_card_view', { action: 'download_sample' });
-    window.open('/sample-report-card.html', '_blank');
-  }}
-  className="inline-flex items-center px-4 py-2 bg-brand-yellow text-brand-dark-blue text-sm font-medium rounded-lg transition-colors"
->
-  <ExternalLink className="mr-2 h-4 w-4" />
-  View Full Sample
-</button>
+            onClick={() => {
+              track('sample_report_card_view', { action: 'download_sample' });
+              window.open('/sample-report-card.html', '_blank');
+            }}
+            className="inline-flex items-center px-4 py-2 bg-brand-yellow text-brand-dark-blue text-sm font-medium rounded-lg transition-colors"
+          >
+            <ExternalLink className="mr-2 h-4 w-4" />
+            View Full Sample
+          </button>
         </div>
       </div>
     </div>
   );
 };
+
 
 export const HomePage: React.FC<HomePageProps> = ({ 
   onNext = () => {}, 
@@ -521,7 +532,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </span> revenue
             </h1>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed font-light" role="doc-subtitle">
-              Get a free affiliate marketing audit within 48 hours that shows unmonetized and broken links, and guides you to higher‑paying programs - so you earn more without redoing content. 
+              Get a free Report Card within 48 hours that shows unmonetized and broken links, and guides you to higher‑paying programs - so you earn more without redoing content. 
             </p>
 
             {/* Hero Audit Form */}
@@ -569,8 +580,8 @@ export const HomePage: React.FC<HomePageProps> = ({
               </button>
               </form>
 
-              {/* Reassurance text - only visible on button hover */}
-              <p className="text-center text-gray-600 text-sm mt-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" role="note">
+              {/* Reassurance text - Made permanently visible */}
+              <p className="text-center text-gray-600 text-sm mt-2 mb-4 transition-opacity duration-300" role="note">
                 Takes ~15 seconds. We'll email your report card—no spam.
               </p>
             </div>
@@ -734,8 +745,8 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free affiliate audit works</h2>
-              <p className="text-xl text-gray-600 font-light">Get your comprehensive audit report in three simple steps</p>
+              <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-6" id="how-report-card-works" role="heading" aria-level="2">How the free Report Card works</h2>
+              <p className="text-xl text-gray-600 font-light">Get your comprehensive Report Card in three simple steps</p>
             </div>
       
             {/* Infographic Container */}
@@ -812,7 +823,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <div className="flex items-center justify-center text-xs text-purple-600">
                       <Clock className="h-3 w-3 mr-1" />
                       Delivered in 24-48 hours
-                     </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -861,7 +872,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="mt-20">
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-normal text-brand-dark-blue mb-4" id="frequently-asked-questions" role="heading" aria-level="2">Frequently Asked Questions</h2>
-                <p className="text-lg text-gray-600 font-light">Everything you need to know about our free affiliate marketing audit</p>
+                <p className="text-lg text-gray-600 font-light">Everything you need to know about our free Report Card</p>
               </div>
 
               <FAQ />
