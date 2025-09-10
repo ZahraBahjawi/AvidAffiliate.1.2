@@ -1014,9 +1014,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <div className="relative inline-block">
                     
                     
-                  </div>
                   
-                </div>
               </div>
             </div>
 
