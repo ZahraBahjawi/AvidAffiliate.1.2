@@ -18,6 +18,7 @@ import {
   ChevronRight,
   Globe,
   Mail,
+  EternalLink,
   Search,
   XCircle,
   AlertTriangle,
