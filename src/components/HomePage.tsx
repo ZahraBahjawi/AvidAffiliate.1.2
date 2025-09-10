@@ -1001,7 +1001,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     </div>
                   </div>
                   
-                  <div className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200 animate-fade-in delay-1000">
+                
                     
                 <span>100% Free • No Credit Card • 48 Hour Delivery</span>
               </div>
