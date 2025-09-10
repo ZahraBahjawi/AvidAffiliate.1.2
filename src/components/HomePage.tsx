@@ -1065,21 +1065,22 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Logo Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
               {[
-                { name: 'Amazon', src: '/amazon.png', id: 'amazon' },
-                { name: 'ShareASale', src: '/shareasale.png', id: 'shareasale' },
-                { name: 'CJ Affiliate', src: '/CJ.png', id: 'cj-(commission-junction)' },
-                { name: 'Impact', src: '/impact.png', id: 'impact' },
-                { name: 'Awin', src: '/awin.png', id: 'awin' },
-                { name: 'FlexOffers', src: '/flexoffers.png', id: 'flexoffers' },
-                { name: 'ClickBank', src: '/clickbank.png', id: 'clickbank' },
-                { name: 'Rakuten', src: '/rakuten.png', id: 'rakuten' },
+                { name: 'Amazon Associates', src: '/amazon.png' },
+                { name: 'ShareASale', src: '/shareasale.png' },
+                { name: 'CJ (Commission Junction)', src: '/CJ.png' },
+                { name: 'Impact', src: '/impact.png' },
+                { name: 'Awin', src: '/awin.png' },
+                { name: 'FlexOffers', src: '/flexoffers.png' },
+                { name: 'ClickBank', src: '/clickbank.png' },
+                { name: 'Rakuten Advertising', src: '/rakuten.png' },
               ].map((p, i) => (
                 <button
                   key={i} 
                   className="bg-white rounded-lg p-6 flex items-center justify-center h-24 hover:shadow-lg transition-shadow border border-gray-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2"
                   onClick={() => {
+                    const partnerId = p.name.toLowerCase().replace(/\s+/g, '-');
                     track('partner_logo_click', { name: p.name });
-                    onNavigate(`affiliate_partners#${p.id}`);
+                    onNavigate(`affiliate_partners#${partnerId}`);
                   }}
                 >
                   <img 
