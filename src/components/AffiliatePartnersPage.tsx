@@ -65,6 +65,34 @@ export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ on
       description: "One of the oldest and most established affiliate networks with extensive advertiser base. Offers robust tracking technology and access to major brand partnerships.",
       url: "https://cj.com/join",
       category: "Established Network"
+    },
+    {
+      name: "Amazon Associates",
+      type: "Not Referral",
+      description: "The official affiliate program for Amazon. Ideal for beginners and content creators focused on product reviews and recommendations across a vast catalog.",
+      url: "https://affiliate-program.amazon.com/",
+      category: "E-commerce Giant"
+    },
+    {
+        name: "ShareASale",
+        type: "Referral",
+        description: "A large and popular affiliate network (part of Awin) with a wide variety of merchants, known for its reliable tracking and robust reporting tools.",
+        url: "https://www.shareasale.com/info/new-affiliate-application/",
+        category: "Multi-Vertical Network"
+    },
+    {
+        name: "ClickBank",
+        type: "Not Referral",
+        description: "A global internet retailer and affiliate marketplace specializing in digital products like e-books, software, and online courses.",
+        url: "https://www.clickbank.com/",
+        category: "Digital Products"
+    },
+    {
+        name: "Rakuten Advertising",
+        type: "Not Referral",
+        description: "A leading affiliate network with a focus on premium and well-known retail brands, offering advanced tools for publishers.",
+        url: "https://rakutenadvertising.com/publishers/",
+        category: "Global Network"
     }
   ];
 
