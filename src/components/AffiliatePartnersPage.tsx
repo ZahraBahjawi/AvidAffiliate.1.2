@@ -17,7 +17,18 @@ interface AffiliatePartner {
   category: string;
 }
 
-export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ onBack, onNavigate }) => {
+export const AffiliatePartnersPage: React.FC<AffiliatePartnersPageProps> = ({ onBack, onNavigate, scrollTarget, onScrollComplete }) => {
+  useEffect(() => {
+    if (scrollTarget) {
+      const element = document.getElementById(scrollTarget);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Notify App component that scroll is done
+        onScrollComplete?.();
+      }
+    }
+  }, [scrollTarget, onScrollComplete]);
+
   const affiliatePartners: AffiliatePartner[] = [
     {
       name: "Impact",
