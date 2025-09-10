@@ -195,13 +195,15 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({
             View sample report card
             <ArrowRight className="ml-2 h-4 w-4" />
           </button>
-          <button
-            onClick={onBookCall}
+          <a
+            href="https://calendly.com/your-calendly-link"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 bg-white border-2 border-gray-300 text-brand-dark-blue font-semibold rounded-lg hover:bg-gray-100 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
           >
-            Book a 20‑minute Strategize call
+            Book a 20-minute Strategize call
             <ArrowRight className="ml-2 h-4 w-4" />
-          </button>
+          </a>
           <button
             onClick={onGoHome}
             className="inline-flex items-center justify-center px-6 py-3 bg-brand-dark-blue text-white font-semibold rounded-lg hover:bg-gray-800 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
