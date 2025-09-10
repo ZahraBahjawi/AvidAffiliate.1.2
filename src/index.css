@@ -102,3 +102,17 @@ body {
   z-index: -1;
   transition: background 0.5s ease-out;
 }
+
+/* Base keyframe for appearing */
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Keyframe for the main container to loop the whole sequence */
+@keyframes loopAndFade {
+    0% { opacity: 0; }
+    4% { opacity: 1; } /* Quickly fade in the container */
+    90% { opacity: 1; } /* Hold everything visible */
+    100% { opacity: 0; } /* Fade out at the end to reset */
+}
