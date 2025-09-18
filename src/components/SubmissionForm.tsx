@@ -67,6 +67,14 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
     })
       .then(() => {
         onSubmit(Object.fromEntries(formData));
+        // @ts-ignore
+        if (typeof gtag === 'function') {
+        // @ts-ignore
+          gtag('event', 'generate_lead', {
+            'event_category': 'form_submission',
+            'event_label': 'audit-request'
+          });
+        }
       })
       .catch((error) => {
         alert(error);
