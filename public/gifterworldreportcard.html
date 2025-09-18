@@ -1,160 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    />
-    <title>Affiliate Report Card</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZVR6RHF0F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-TZVR6RHF0F');
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .report-page { page-break-after: always; }
-        .blur-text {
-            filter: blur(4px);
-            -webkit-filter: blur(4px);
-            user-select: none;
-            pointer-events: none;
-            opacity: 0.8;
-        }
-        /* Tooltip utility (hover + focus) */
-        .tooltip-group:hover .tooltip,
-        .tooltip-group:focus-within .tooltip {
-            display: block;
-        }
-        /* Priority badges */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.125rem 0.5rem;
-            border-radius: 0.375rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-width: 1px;
-            white-space: nowrap;
-        }
-        .badge-high     { background-color: rgb(220 38 38 / 0.1); color: rgb(220 38 38); border-color: rgb(220 38 38 / 0.3); }
-        .badge-medium   { background-color: rgb(245 158 11 / 0.12); color: rgb(217 119 6); border-color: rgb(251 191 36 / 0.35); }
-        .badge-low      { background-color: rgb(16 185 129 / 0.12); color: rgb(5 150 105); border-color: rgb(16 185 129 / 0.35); }
-        
-        /* Share menu transition */
-        #share-menu {
-            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-        }
-
-        /* Responsive Tables */
-        @media (max-width: 768px) {
-            .responsive-table thead {
-                display: none;
-            }
-             .responsive-table tbody {
-                 border-top: 1px solid #e5e7eb;
-            }
-            .responsive-table tr {
-                display: block;
-                border-bottom: 1px solid #e5e7eb;
-                padding: 1rem 0;
-            }
-             .responsive-table tr:last-child {
-                border-bottom: none;
-                 padding-bottom: 0.5rem;
-            }
-            .responsive-table td {
-                display: block;
-                text-align: right !important;
-                border: none;
-                padding: 0.25rem 0;
-            }
-            .responsive-table td::before {
-                content: attr(data-label);
-                float: left;
-                font-weight: 600;
-                color: #4b5563; /* text-gray-600 */
-            }
-        }
-
-
-        @media print {
-            .print-bg-none { background: none !important; }
-            .print-border-none { border: none !important; }
-            .print-text-black { color: #000 !important; }
-            .print\:animate-none { animation: none !important; }
-            .print\:hidden { display: none !important; }
-        }
-    </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Is the report card really free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The report card is free and takes less than 48 hours. No credit card or login required."
-        }
-      },{
-        "@type": "Question",
-        "name": "What's included in the report card?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We provide a rating A–F of your current link profile and opportunity. We provide a count of the unmonetized mentions, broken/redirecting links, estimated impact and outline next steps."
-        }
-      },{
-        "@type": "Question",
-        "name": "What access do you need?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Only your public website URL. Our crawler is read‑only and does not require credentials or code access."
-        }
-      },{
-        "@type": "Question",
-        "name": "Is this safe for Amazon Associates?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We follow Amazon Associates policies and suggest compliant alternatives when they pay more."
-        }
-      },{
-        "@type": "Question",
-        "name": "What happens after I get the report card?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Once we share your report card, we will find time with you to discuss your goals, share more details and develop an action plan. If you would like to proceed, the next step is to conduct a full audit on your site."
-        }
-      },{
-        "@type": "Question",
-        "name": "Will this affect my site performance?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Our crawler is read-only and designed to have zero impact on your site's performance or user experience."
-        }
-      },{
-        "@type": "Question",
-        "name": "Do you guarantee results?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While we can't guarantee specific revenue increases, our audits consistently identify actionable opportunities. Most clients see measurable improvements within 30 days of implementation."
-        }
-      }]
-    }
-    </script>
-</head>
     <meta charset="UTF-8" />
     <meta
         name="viewport"
@@ -227,6 +73,19 @@
  text-align: right !important; border: none; padding: 0.25rem 0; }
             .responsive-table td::before { content: attr(data-label);
  float: left; font-weight: 600; color: #4b5563; }
+
+            /* New styles for banner on small screens */
+            #audit-banner .flex-col-mobile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            #audit-banner .flex-col-mobile > div {
+                margin-bottom: 0.5rem; /* Add some space between text and button */
+            }
+            #audit-banner .flex-col-mobile .sm\:text-left {
+                text-align: center; /* Center text on mobile */
+            }
         }
 
         @media print {
@@ -659,8 +518,8 @@
      <div id="audit-banner" class="fixed inset-x-0 bottom-0 z-50 print:hidden">
       <div class="mx-auto max-w-4xl">
         <div class="m-4 rounded-xl shadow-2xl border border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70">
-          <div class="flex items-center justify-between gap-4 p-3">
-            <div class="flex items-center gap-3">
+          <div class="flex flex-col items-center gap-3 p-3 text-center sm:flex-row sm:justify-between sm:text-left flex-col-mobile">
+            <div class="flex items-center gap-3 flex-col sm:flex-row">
               <span class="hidden sm:inline-flex h-12 w-12 items-center justify-center rounded-full" style="background-color: #1350C5;">
                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
               </span>
