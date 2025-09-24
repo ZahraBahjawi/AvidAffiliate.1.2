@@ -209,16 +209,11 @@ function App() {
       case 'cookies':
         return <CookiesPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
-          case 'affiliate_partners':
-        return <AffiliatePartnersPage 
-          onBack={resetToHome} 
-          onNavigate={handleNavigate} 
-          scrollTarget={scrollTarget}
-          onScrollComplete={() => setScrollTarget(null)}
-        />;
+      case 'affiliate_partners':
+        return <AffiliatePartnersPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
       default:
-        return <HomePage
+        return <HomePage 
           onNext={() => setStage('form')} 
           onNavigate={handleNavigate}
         />;
