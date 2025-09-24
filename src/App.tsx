@@ -18,6 +18,7 @@ import { AffiliatePartnersPage } from './components/AffiliatePartnersPage';
 import { CookiesPage } from './components/CookiesPage';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
+import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,6 +47,8 @@ function App() {
   useEffect(() => {
     if (window.location.hash === '#form') {
       setStage('form');
+    } else if (window.location.pathname === '/optional-details-form') {
+      setStage('optional-details');
     }
   }, []);
 
@@ -148,6 +151,8 @@ function App() {
           />
         ) : null;
 
+      case 'optional-details':
+        return <OptionalDetailsFormPage onBack={resetToHome} onNavigate={handleNavigate} />;
 
       case 'home':
         return <HomePage 
