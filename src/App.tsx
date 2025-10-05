@@ -19,6 +19,7 @@ import { CookiesPage } from './components/CookiesPage';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
+import { madgicxPixel } from './utils/madgicxPixel';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -54,6 +55,7 @@ function App() {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    madgicxPixel.trackPageView();
   };
 
   const handleNavigate = (page: AppStage | string) => {

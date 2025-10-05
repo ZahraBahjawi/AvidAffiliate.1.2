@@ -3,6 +3,7 @@ import { ArrowLeft, Mail, Send, CheckCircle } from 'lucide-react';
 import { logFormSubmission } from '../utils/submissionLogger';
 import { Footer } from './Footer';
 import { sendConfirmationEmail } from '../utils/emailService';
+import { madgicxPixel } from '../utils/madgicxPixel';
 
 // Helper function to encode form data for Netlify
 const encode = (data: { [key: string]: any }) => {
@@ -110,12 +111,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
     })
     .then(() => {
       logFormSubmission('contact', formData);
-      
-      // Send confirmation email
+
+      madgicxPixel.trackContact({
+        email: formData.email,
+        firstName: formData.name.split(' ')[0],
+        lastName: formData.name.split(' ').slice(1).join(' '),
+      }, {
+        content_name: 'Contact Form',
+        content_category: formData.subject,
+      });
+
       sendConfirmationEmail('contact', formData)
         .then(() => console.log('✅ Confirmation email sent to user'))
         .catch(() => console.warn('⚠️ Confirmation email failed'));
-      
+
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
     })
