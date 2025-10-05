@@ -25,6 +25,7 @@ interface ConversionEvent {
   fbp?: string;
   fbc?: string;
   event_id?: string;
+  test_event_code?: string;
 }
 
 interface ConversionPayload {
@@ -150,16 +151,24 @@ Deno.serve(async (req: Request) => {
     );
 
     const fbApiUrl = `https://graph.facebook.com/v18.0/${fbPixelId}/events`;
-    
+
+    const testEventCode = events[0]?.test_event_code;
+
+    const payload: any = {
+      data: processedEvents,
+      access_token: fbAccessToken,
+    };
+
+    if (testEventCode) {
+      payload.test_event_code = testEventCode;
+    }
+
     const fbResponse = await fetch(fbApiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        data: processedEvents,
-        access_token: fbAccessToken,
-      }),
+      body: JSON.stringify(payload),
     });
 
     const fbResult = await fbResponse.json();
