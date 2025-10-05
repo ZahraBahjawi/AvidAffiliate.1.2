@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, ArrowLeft, Globe, User, Mail, ShieldCheck, CheckCircle, X } from 'lucide-react';
-import { madgicxPixel } from '../utils/madgicxPixel';
+import { facebookPixel } from '../utils/facebookPixel';
 
 interface SubmissionFormProps {
   onSubmit: (data: any) => void;
@@ -69,7 +69,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
       .then(() => {
         const submissionData = Object.fromEntries(formData);
 
-        madgicxPixel.trackLead({
+        facebookPixel.trackLead({
           email: submissionData.email as string,
           firstName: (submissionData.name as string)?.split(' ')[0],
           lastName: (submissionData.name as string)?.split(' ').slice(1).join(' '),

@@ -30,8 +30,8 @@ interface ConversionEvent {
   event_id?: string;
 }
 
-class MadgicxPixel {
-  private static instance: MadgicxPixel;
+class FacebookPixel {
+  private static instance: FacebookPixel;
   private pixelInitialized = false;
   private fbp: string | null = null;
   private fbc: string | null = null;
@@ -39,15 +39,15 @@ class MadgicxPixel {
 
   private constructor() {
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    this.apiEndpoint = `${supabaseUrl}/functions/v1/madgicx-conversions`;
+    this.apiEndpoint = `${supabaseUrl}/functions/v1/facebook-conversions`;
     this.initializePixelData();
   }
 
-  public static getInstance(): MadgicxPixel {
-    if (!MadgicxPixel.instance) {
-      MadgicxPixel.instance = new MadgicxPixel();
+  public static getInstance(): FacebookPixel {
+    if (!FacebookPixel.instance) {
+      FacebookPixel.instance = new FacebookPixel();
     }
-    return MadgicxPixel.instance;
+    return FacebookPixel.instance;
   }
 
   private initializePixelData(): void {
@@ -147,15 +147,15 @@ class MadgicxPixel {
       });
 
       if (!response.ok) {
-        console.error('Madgicx pixel tracking failed:', await response.text());
+        console.error('Facebook pixel tracking failed:', await response.text());
         return false;
       }
 
       const result = await response.json();
-      console.log('Madgicx conversion tracked:', result);
+      console.log('Facebook conversion tracked:', result);
       return true;
     } catch (error) {
-      console.error('Error tracking Madgicx conversion:', error);
+      console.error('Error tracking Facebook conversion:', error);
       return false;
     }
   }
@@ -259,6 +259,6 @@ class MadgicxPixel {
   }
 }
 
-export const madgicxPixel = MadgicxPixel.getInstance();
+export const facebookPixel = FacebookPixel.getInstance();
 
 export type { UserData, CustomData, ConversionEvent };

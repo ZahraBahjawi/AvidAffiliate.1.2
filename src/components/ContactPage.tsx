@@ -3,7 +3,7 @@ import { ArrowLeft, Mail, Send, CheckCircle } from 'lucide-react';
 import { logFormSubmission } from '../utils/submissionLogger';
 import { Footer } from './Footer';
 import { sendConfirmationEmail } from '../utils/emailService';
-import { madgicxPixel } from '../utils/madgicxPixel';
+import { facebookPixel } from '../utils/facebookPixel';
 
 // Helper function to encode form data for Netlify
 const encode = (data: { [key: string]: any }) => {
@@ -112,7 +112,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBack, onNavigate }) 
     .then(() => {
       logFormSubmission('contact', formData);
 
-      madgicxPixel.trackContact({
+      facebookPixel.trackContact({
         email: formData.email,
         firstName: formData.name.split(' ')[0],
         lastName: formData.name.split(' ').slice(1).join(' '),

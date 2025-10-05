@@ -19,7 +19,7 @@ import { CookiesPage } from './components/CookiesPage';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
-import { madgicxPixel } from './utils/madgicxPixel';
+import { facebookPixel } from './utils/facebookPixel';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,7 +55,7 @@ function App() {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    madgicxPixel.trackPageView();
+    facebookPixel.trackPageView();
   };
 
   const handleNavigate = (page: AppStage | string) => {

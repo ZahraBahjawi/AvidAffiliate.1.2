@@ -27,11 +27,10 @@ interface ConversionEvent {
   event_id?: string;
 }
 
-interface MadgicxConversionPayload {
+interface ConversionPayload {
   data: ConversionEvent[];
 }
 
-// Hash function for user data (SHA-256)
 async function hashData(data: string): Promise<string> {
   if (!data) return "";
   
@@ -43,7 +42,6 @@ async function hashData(data: string): Promise<string> {
   return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 }
 
-// Hash user data fields
 async function hashUserData(userData: any): Promise<any> {
   if (!userData) return {};
   
@@ -63,7 +61,6 @@ async function hashUserData(userData: any): Promise<any> {
 
 Deno.serve(async (req: Request) => {
   try {
-    // Handle CORS preflight
     if (req.method === "OPTIONS") {
       return new Response(null, {
         status: 200,
@@ -84,20 +81,18 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // Initialize Supabase client with service role
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Get Madgicx credentials from environment
-    const madgicxPixelId = Deno.env.get("MADGICX_PIXEL_ID");
-    const madgicxAccessToken = Deno.env.get("MADGICX_ACCESS_TOKEN");
+    const fbPixelId = Deno.env.get("FB_PIXEL_ID");
+    const fbAccessToken = Deno.env.get("FB_ACCESS_TOKEN");
 
-    if (!madgicxPixelId || !madgicxAccessToken) {
+    if (!fbPixelId || !fbAccessToken) {
       return new Response(
         JSON.stringify({ 
-          error: "Madgicx credentials not configured",
-          message: "Please set MADGICX_PIXEL_ID and MADGICX_ACCESS_TOKEN environment variables"
+          error: "Facebook credentials not configured",
+          message: "Please set FB_PIXEL_ID and FB_ACCESS_TOKEN environment variables"
         }),
         {
           status: 500,
@@ -109,8 +104,7 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // Parse request body
-    const { data: events }: MadgicxConversionPayload = await req.json();
+    const { data: events }: ConversionPayload = await req.json();
 
     if (!events || !Array.isArray(events) || events.length === 0) {
       return new Response(
@@ -125,20 +119,16 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // Get client info from headers
     const clientIp = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "";
     const clientUserAgent = req.headers.get("user-agent") || "";
 
-    // Process each event
     const processedEvents = await Promise.all(
       events.map(async (event) => {
         const eventTime = event.event_time || Math.floor(Date.now() / 1000);
         const eventId = event.event_id || crypto.randomUUID();
         
-        // Hash user data
         const hashedUserData = await hashUserData(event.user_data);
         
-        // Add client info to user data
         const userData = {
           ...hashedUserData,
           client_ip_address: clientIp,
@@ -159,25 +149,23 @@ Deno.serve(async (req: Request) => {
       })
     );
 
-    // Send to Madgicx Conversions API
-    const madgicxApiUrl = `https://graph.facebook.com/v18.0/${madgicxPixelId}/events`;
+    const fbApiUrl = `https://graph.facebook.com/v18.0/${fbPixelId}/events`;
     
-    const madgicxResponse = await fetch(madgicxApiUrl, {
+    const fbResponse = await fetch(fbApiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         data: processedEvents,
-        access_token: madgicxAccessToken,
+        access_token: fbAccessToken,
       }),
     });
 
-    const madgicxResult = await madgicxResponse.json();
-    const status = madgicxResponse.ok ? "sent" : "failed";
+    const fbResult = await fbResponse.json();
+    const status = fbResponse.ok ? "sent" : "failed";
 
-    // Store conversion events in database
-    const dbRecords = processedEvents.map((event, index) => ({
+    const dbRecords = processedEvents.map((event) => ({
       event_name: event.event_name,
       event_time: event.event_time,
       event_source_url: event.event_source_url,
@@ -188,12 +176,12 @@ Deno.serve(async (req: Request) => {
       client_ip_address: clientIp,
       client_user_agent: clientUserAgent,
       event_id: event.event_id,
-      madgicx_response: madgicxResult,
+      facebook_response: fbResult,
       status: status,
     }));
 
     const { error: dbError } = await supabase
-      .from("madgicx_conversions")
+      .from("facebook_conversions")
       .insert(dbRecords);
 
     if (dbError) {
@@ -202,14 +190,14 @@ Deno.serve(async (req: Request) => {
 
     return new Response(
       JSON.stringify({
-        success: madgicxResponse.ok,
+        success: fbResponse.ok,
         events_received: events.length,
         events_processed: processedEvents.length,
-        madgicx_response: madgicxResult,
+        facebook_response: fbResult,
         status: status,
       }),
       {
-        status: madgicxResponse.ok ? 200 : 500,
+        status: fbResponse.ok ? 200 : 500,
         headers: {
           ...corsHeaders,
           "Content-Type": "application/json",
