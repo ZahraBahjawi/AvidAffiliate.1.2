@@ -26,7 +26,6 @@ import {
   Link,
   ArrowDown,
 } from 'lucide-react';
-import { saveDraft, getDraft } from '../utils/formDraftService';
 
 // NOTE: The 'Footer' component is now included in this file to resolve potential import errors.
 
@@ -544,12 +543,12 @@ const Footer: React.FC<{
 };
 
 
-export const HomePage: React.FC<HomePageProps> = ({
-  onNext = () => {},
-  onNavigate = () => {},
+export const HomePage: React.FC<HomePageProps> = ({ 
+  onNext = () => {}, 
+  onNavigate = () => {}, 
   onBack = () => {},
   scrollTarget,
-  onScrollComplete
+  onScrollComplete 
 }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [honeypot, setHoneypot] = React.useState('');
@@ -557,29 +556,10 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [showMobileSticky, setShowMobileSticky] = React.useState(false);
   const [formStarted, setFormStarted] = React.useState(false);
   const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
-  const [heroUrl, setHeroUrl] = React.useState('');
-
+  
   React.useEffect(() => {
     storeUTMs();
-
-    const loadDraft = async () => {
-      const draft = await getDraft();
-      if (draft?.websiteUrl) {
-        setHeroUrl(draft.websiteUrl);
-      }
-    };
-    loadDraft();
   }, []);
-
-  React.useEffect(() => {
-    if (heroUrl) {
-      saveDraft({
-        websiteUrl: heroUrl,
-        step: 'step1',
-        lastActiveField: 'website-url',
-      });
-    }
-  }, [heroUrl]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -622,7 +602,8 @@ export const HomePage: React.FC<HomePageProps> = ({
       return;
     }
     setIsSubmitting(true);
-    let url = heroUrl;
+    const form = e.currentTarget;
+    let url = (form.elements.namedItem('siteUrl') as HTMLInputElement)?.value || '';
     if (!url.trim()) {
       track('validation_error', { field: 'url', message: 'URL is required' });
       setIsSubmitting(false);
@@ -731,8 +712,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                 name="siteUrl"
                 type="text"
                 required
-                value={heroUrl}
-                onChange={(e) => setHeroUrl(e.target.value)}
                 onFocus={handleFormFocus}
                 placeholder="Enter your website URL"
                 className="w-full px-4 py-3 rounded-lg bg-white text-brand-dark-blue border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue placeholder-gray-500"
