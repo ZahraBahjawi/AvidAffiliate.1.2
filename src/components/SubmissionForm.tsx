@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ChevronRight, ArrowLeft, Globe, User, Mail, ShieldCheck, CheckCircle, X } from 'lucide-react';
 import { facebookPixel } from '../utils/facebookPixel';
-import { saveDraft, markSubmitted, getDraft } from '../utils/formDraftService';
 
 interface SubmissionFormProps {
   onSubmit: (data: any) => void;
@@ -24,31 +23,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
   });
   const [errors, setErrors] = useState({ name: '', email: '' });
   const [honeypot, setHoneypot] = useState('');
-  const [lastActiveField, setLastActiveField] = useState<string | null>(null);
-
-  useEffect(() => {
-    const loadDraft = async () => {
-      const draft = await getDraft();
-      if (draft && !prefilledData.url) {
-        setFormData({
-          'website-url': draft.websiteUrl || '',
-          name: draft.name || '',
-          email: draft.email || '',
-        });
-      }
-    };
-    loadDraft();
-  }, []);
-
-  useEffect(() => {
-    saveDraft({
-      websiteUrl: formData['website-url'],
-      name: formData.name,
-      email: formData.email,
-      step: 'step2',
-      lastActiveField: lastActiveField || undefined,
-    });
-  }, [formData, lastActiveField]);
 
   const validateForm = () => {
     const newErrors = { name: '', email: '' };
@@ -78,7 +52,7 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
     }
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
@@ -92,10 +66,8 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData as any).toString(),
     })
-      .then(async () => {
+      .then(() => {
         const submissionData = Object.fromEntries(formData);
-
-        await markSubmitted();
 
         facebookPixel.trackLead({
           email: submissionData.email as string,
@@ -226,7 +198,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                     name="website-url"
                     value={formData['website-url']}
                     onChange={(e) => handleInputChange('website-url', e.target.value)}
-                    onFocus={() => setLastActiveField('website-url')}
                     placeholder="https://yourwebsite.com"
                     className={`w-full px-4 py-4 rounded-xl border-2 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-blue/20 ${
                       'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'
@@ -244,7 +215,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                     name="name"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    onFocus={() => setLastActiveField('name')}
                     placeholder="John Doe"
                     className={`w-full px-4 py-4 rounded-xl border-2 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-blue/20 ${
                       errors.name ? 'border-red-500' : 'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'
@@ -263,7 +233,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
                     name="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    onFocus={() => setLastActiveField('email')}
                     placeholder="john@example.com"
                     className={`w-full px-4 py-4 rounded-xl border-2 text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-brand-blue/20 ${
                       errors.email ? 'border-red-500' : 'border-gray-300 bg-white text-brand-dark-blue hover:border-brand-blue/50 focus:border-brand-blue'

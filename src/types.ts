@@ -19,4 +19,4 @@ export interface ScorecardData {
   known_merchant_links?: number;
 }
 
-export type AppStage = 'home' | 'form' | 'loading' | 'thankyou' | 'scorecard' | 'sitemap' | 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'cookies' | 'affiliate_partners' | 'admin' | 'optional-details' | 'form-drafts';
+export type AppStage = 'home' | 'form' | 'loading' | 'thankyou' | 'scorecard' | 'sitemap' | 'about' | 'team' | 'contact' | 'privacy' | 'terms' | 'cookies' | 'affiliate_partners' | 'admin' | 'optional-details';

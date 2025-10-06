@@ -19,7 +19,6 @@ import { CookiesPage } from './components/CookiesPage';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
-import { FormDraftsViewer } from './components/FormDraftsViewer';
 import { facebookPixel } from './utils/facebookPixel';
 
 function App() {
@@ -213,16 +212,13 @@ function App() {
         return <CookiesPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
           case 'affiliate_partners':
-        return <AffiliatePartnersPage
-          onBack={resetToHome}
-          onNavigate={handleNavigate}
+        return <AffiliatePartnersPage 
+          onBack={resetToHome} 
+          onNavigate={handleNavigate} 
           scrollTarget={scrollTarget}
           onScrollComplete={() => setScrollTarget(null)}
         />;
-
-      case 'form-drafts':
-        return <FormDraftsViewer onBack={resetToHome} />;
-
+      
       default:
         return <HomePage
           onNext={() => setStage('form')} 
