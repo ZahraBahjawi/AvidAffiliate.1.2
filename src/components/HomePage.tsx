@@ -69,9 +69,10 @@ const track = (eventName: string, data?: Record<string, any>) => {
   try {
     const utms = getStoredUTMs();
     const eventData = { ...data, ...utms };
-
-    if (window.gtag) {
-      window.gtag('event', eventName, eventData);
+    
+    const w = window as any;
+    if (w.gtag) {
+      w.gtag('event', eventName, eventData);
     }
   } catch {
     // no-op

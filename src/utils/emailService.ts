@@ -1,11 +1,9 @@
 // src/utils/emailService.ts
 /**
- * In this application, actual email sending is handled by Netlify Forms
- * notification system configured in the Netlify Dashboard at:
- * Site Settings → Forms → Form notifications
- *
- * This client-side function serves to resolve the import and can be used
- * for logging or future client-side notifications.
+ * In this application, actual email sending is handled by the Netlify Function
+ * located at `/functions/submission-created.js`. This client-side function
+ * serves to resolve the import and can be used for logging or future client-side
+ * notifications. It simulates the email sending process by logging to the console.
  */
 
 interface FormData {
@@ -22,6 +20,6 @@ interface FormData {
  */
 export const sendConfirmationEmail = async (formType: string, formData: FormData): Promise<void> => {
   console.log(`Confirmation email simulation for form "${formType}" to ${formData.email}.`);
-  // The actual email is sent via Netlify Forms notification system.
+  // The actual email is sent via the `submission-created` Netlify function.
   return Promise.resolve();
 };

@@ -80,8 +80,10 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
 
         onSubmit(submissionData);
 
-        if (window.gtag) {
-          window.gtag('event', 'generate_lead', {
+        // @ts-ignore
+        if (typeof gtag === 'function') {
+        // @ts-ignore
+          gtag('event', 'generate_lead', {
             'event_category': 'form_submission',
             'event_label': 'audit-request'
           });
