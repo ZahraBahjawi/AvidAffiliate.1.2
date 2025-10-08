@@ -18,11 +18,11 @@ import {
 import { UserData } from '../types';
 import { Footer } from './Footer';
 
-// Simple tracking helper
 const track = (eventName: string, data?: Record<string, any>) => {
   try {
-    const w = window as any;
-    if (w.gtag) w.gtag('event', eventName, data || {});
+    if (window.gtag) {
+      window.gtag('event', eventName, data || {});
+    }
   } catch {}
 };
 

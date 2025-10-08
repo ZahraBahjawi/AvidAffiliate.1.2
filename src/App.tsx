@@ -21,6 +21,7 @@ import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
 import { facebookPixel } from './utils/facebookPixel';
+import { trackPageView } from './utils/analytics';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,6 +61,7 @@ function App() {
   const handleLoadingComplete = () => {
     setIsLoading(false);
     facebookPixel.trackPageView();
+    trackPageView(stage);
   };
 
   const handleNavigate = (page: AppStage | string) => {
@@ -67,9 +69,11 @@ function App() {
       const [targetStage, targetId] = page.split('#');
       setStage(targetStage as AppStage);
       setScrollTarget(targetId);
+      trackPageView(targetStage);
     } else {
       setStage(page as AppStage);
-      window.scrollTo(0, 0); // Scroll to top on normal page navigation
+      trackPageView(page);
+      window.scrollTo(0, 0);
     }
   };
 
@@ -110,6 +114,7 @@ function App() {
 
   const resetToHome = () => {
     setStage('home');
+    trackPageView('home');
     setUserData(null);
     setScorecardData(null);
     setError('');
