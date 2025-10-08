@@ -1,6 +1,21 @@
+# This file tells Netlify how to build your Vite project.
+# It ensures that your environment variables are correctly handled.
+
 [build]
-  publish = "dist"
+  # This is the command that will be run to build your site.
   command = "npm run build"
+  
+  # This is the directory that contains your built site.
+  publish = "dist"
+
+  [build.environment]
+    # This explicitly tells the build to use Node.js version 18.
+    NODE_VERSION = "18"
+
+  # This new section tells Netlify's security scanner to ignore these specific keys.
+  # It allows them to be present in the final public files without failing the build.
+  [build.processing.secrets]
+    omit_keys = ["VITE_SUPABASE_ANON_KEY", "VITE_SUPABASE_URL"]
 
 [functions]
   directory = "functions"
