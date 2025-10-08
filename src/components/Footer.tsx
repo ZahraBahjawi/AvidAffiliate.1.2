@@ -25,9 +25,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
             <div>
               <h4 className="text-base font-medium text-brand-dark-blue mb-4">Get Started</h4>
               <ul className="space-y-2">
-                <li><a href="#" onClick={() => { onNext && onNext(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Free Report Card</a></li>
-                <li><button onClick={() => onNavigate && onNavigate('home#about-us')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">About Us</button></li>
-                <li><a href="#" onClick={() => onNavigate && onNavigate('affiliate_partners')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Affiliate Network Guide</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNext && onNext(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Free Report Card</a></li>
+                <li><button onClick={() => onNavigate && onNavigate('home#about-us')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm text-left">About Us</button></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('affiliate_partners'); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Affiliate Network Guide</a></li>
               </ul>
             </div>
 
@@ -35,9 +35,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
             <div>
               <h4 className="text-base font-medium text-brand-dark-blue mb-4">Company</h4>
               <ul className="space-y-2">
-                <li><button onClick={() => onNavigate && onNavigate('home#about-us')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">About Us</button></li>
-                <li><a href="#" onClick={() => onNavigate && onNavigate('team')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Our Team</a></li>
-                <li><a href="#" onClick={() => onNavigate && onNavigate('contact')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Contact Us</a></li>
+                <li><button onClick={() => onNavigate && onNavigate('home#about-us')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm text-left">About Us</button></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('team'); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Our Team</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('contact'); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Contact Us</a></li>
               </ul>
             </div>
 
@@ -45,10 +45,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onNext }) => {
             <div>
               <h4 className="text-base font-medium text-brand-dark-blue mb-4">Legal & Support</h4>
               <ul className="space-y-2">
-                <li><a href="#" onClick={() => onNavigate && onNavigate('privacy')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Privacy Policy</a></li>
-                <li><a href="#" onClick={() => onNavigate && onNavigate('terms')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Terms of Service</a></li>
-                <li><a href="#" onClick={() => onNavigate && onNavigate('cookies')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Cookie Policy</a></li>
-                <li><a href="#" onClick={() => onNavigate && onNavigate('sitemap')} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Sitemap</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('privacy'); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Privacy Policy</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('terms'); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Terms of Service</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('cookies'); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Cookie Policy</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate('sitemap'); }} className="text-gray-700 hover:text-brand-blue transition-colors text-sm">Sitemap</a></li>
               </ul>
             </div>
           </div>
