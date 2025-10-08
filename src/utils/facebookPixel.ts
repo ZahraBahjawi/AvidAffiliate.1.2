@@ -39,7 +39,14 @@ class FacebookPixel {
 
   private constructor() {
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    this.apiEndpoint = `${supabaseUrl}/functions/v1/facebook-conversions`;
+
+    if (!supabaseUrl) {
+      console.error('VITE_SUPABASE_URL environment variable is not set. Facebook Conversions API will not work.');
+      this.apiEndpoint = '';
+    } else {
+      this.apiEndpoint = `${supabaseUrl}/functions/v1/facebook-conversions`;
+    }
+
     this.initializePixelData();
   }
 
@@ -124,6 +131,11 @@ class FacebookPixel {
     userData?: UserData,
     customData?: CustomData
   ): Promise<boolean> {
+    if (!this.apiEndpoint) {
+      console.warn('Facebook Conversions API endpoint not configured. Skipping event:', eventName);
+      return false;
+    }
+
     try {
       const event: ConversionEvent = {
         event_name: eventName,
