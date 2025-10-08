@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Shield, Clock } from 'lucide-react';
+import { ArrowRight, CheckCircle, Shield, Clock, DollarSign, Link2Off, TrendingUp } from 'lucide-react';
 
 interface LandingPageProps {
   onNext?: (data?: { url?: string; email?: string }) => void;
@@ -188,7 +188,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-brand-blue text-white text-lg font-bold rounded-lg hover:bg-brand-dark-blue hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white text-lg font-bold rounded-lg hover:bg-orange-600 hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -231,18 +231,27 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200">
+              <div className="flex justify-center mb-4">
+                <DollarSign className="h-12 w-12 text-green-600" />
+              </div>
               <div className="text-5xl font-bold text-green-600 mb-2">~300</div>
               <p className="text-brand-dark-blue font-semibold mb-2">Unmonetized mentions</p>
               <p className="text-gray-600 text-sm">Product references with no affiliate links</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200">
+              <div className="flex justify-center mb-4">
+                <Link2Off className="h-12 w-12 text-red-600" />
+              </div>
               <div className="text-5xl font-bold text-red-600 mb-2">~250</div>
               <p className="text-brand-dark-blue font-semibold mb-2">Broken links</p>
               <p className="text-gray-600 text-sm">Lost commissions from 404s and redirects</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 text-center shadow-md border border-gray-200">
+              <div className="flex justify-center mb-4">
+                <TrendingUp className="h-12 w-12 text-blue-600" />
+              </div>
               <div className="text-5xl font-bold text-blue-600 mb-2">~20%</div>
               <p className="text-brand-dark-blue font-semibold mb-2">Revenue uplift</p>
               <p className="text-gray-600 text-sm">Potential increase through optimization</p>
@@ -289,7 +298,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               track('cta_click', { location: 'bottom_cta' });
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="inline-flex items-center px-10 py-4 bg-brand-yellow text-brand-dark-blue text-lg font-bold rounded-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center px-10 py-4 bg-orange-500 text-white text-lg font-bold rounded-lg hover:bg-orange-600 hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
           >
             Get My Free Report Card
             <ArrowRight className="ml-2 h-5 w-5" />
