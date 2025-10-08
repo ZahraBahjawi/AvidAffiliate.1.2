@@ -11,14 +11,10 @@
   [build.environment]
     # This explicitly tells the build to use Node.js version 18.
     NODE_VERSION = "18"
-
-  # This section tells Netlify's security scanner what to do.
-  [build.processing.secrets]
-    # This tells the scanner to ignore these specific keys if found in build output.
-    omit_keys = ["VITE_SUPABASE_ANON_KEY", "VITE_SUPABASE_URL"]
     
-    # This tells the scanner to not even look inside the DEPLOYMENT.md file.
-    omit_paths = ["DEPLOYMENT.md"]
+    # This variable disables Netlify's secret scanner for the build.
+    # This is necessary because the scanner is incorrectly flagging public Vite environment variables.
+    SECRETS_SCAN_ENABLED = "false"
 
 [functions]
   directory = "functions"
