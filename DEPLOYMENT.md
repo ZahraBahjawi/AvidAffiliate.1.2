@@ -29,9 +29,9 @@ Go to Netlify Dashboard → Site Settings → Environment Variables and add:
 
 ---
 
-### Part 2: Supabase Secrets (Backend/Edge Functions)
+### Part 2: Supabase Secrets (Backend/Edge Function)
 
-**CRITICAL:** The edge functions need Facebook and Postmark credentials. Go to your Supabase dashboard and add these secrets:
+**CRITICAL:** The edge function needs Facebook credentials. Go to your Supabase dashboard and add these secrets:
 
 1. **FB_PIXEL_ID**
    - Your Facebook Pixel ID (e.g., `1234567890123456`)
@@ -41,20 +41,15 @@ Go to Netlify Dashboard → Site Settings → Environment Variables and add:
    - Your Facebook Conversions API Access Token
    - Generate at: Facebook Events Manager → Data Sources → Pixels → Settings → Conversions API → Generate Access Token
 
-3. **POSTMARK_SERVER_TOKEN**
-   - Your Postmark Server API Token (required for confirmation emails)
-   - Find it at: [Postmark Account](https://account.postmarkapp.com/) → Servers → API Tokens
-   - Must have permission to send from `noreply@avidaffiliate.com`
-
 #### How to Add Supabase Secrets
 
 1. Go to [Supabase Dashboard](https://app.supabase.com)
 2. Select your project: `qkiqcrohrgruzgyxhbnp`
 3. Go to **Project Settings** → **Edge Functions** → **Manage Secrets**
-4. Add all three secrets: `FB_PIXEL_ID`, `FB_ACCESS_TOKEN`, and `POSTMARK_SERVER_TOKEN`
+4. Add both `FB_PIXEL_ID` and `FB_ACCESS_TOKEN`
 5. Click **Save**
 
-**Important:** After adding secrets, the edge functions will automatically pick them up on the next invocation (no redeployment needed).
+**Important:** After adding secrets, the edge function will automatically pick them up on the next invocation (no redeployment needed).
 
 ## Verification & Troubleshooting
 
@@ -82,13 +77,6 @@ After configuring all environment variables:
 **Error: `VITE_SUPABASE_URL environment variable is not set`**
 - **Cause:** Frontend environment variables missing
 - **Fix:** Add variables to Netlify and trigger new deployment
-
-**Error: Confirmation emails not being sent**
-- **Cause:** `POSTMARK_SERVER_TOKEN` not configured in Supabase secrets
-- **Fix:**
-  1. Get your Postmark Server API Token from your Postmark account
-  2. Add `POSTMARK_SERVER_TOKEN` to Supabase secrets
-  3. Ensure your Postmark account has verified the sender address `noreply@avidaffiliate.com`
 
 ## Alternative: Vercel Deployment
 

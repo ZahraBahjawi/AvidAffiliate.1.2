@@ -1,4 +1,13 @@
 // src/utils/emailService.ts
+/**
+ * In this application, actual email sending is handled by Netlify Forms
+ * notification system configured in the Netlify Dashboard at:
+ * Site Settings → Forms → Form notifications
+ *
+ * This client-side function serves to resolve the import and can be used
+ * for logging or future client-side notifications.
+ */
+
 interface FormData {
   name: string;
   email: string;
@@ -6,46 +15,13 @@ interface FormData {
 }
 
 /**
- * Sends a confirmation email via Supabase Edge Function
- * @param formType - The name of the form being submitted (e.g., 'contact', 'audit request').
+ * Simulates sending a confirmation email.
+ * @param formType - The name of the form being submitted (e.g., 'contact').
  * @param formData - The data collected from the form.
- * @returns A promise that resolves when the email is sent.
+ * @returns A promise that resolves when the simulation is complete.
  */
 export const sendConfirmationEmail = async (formType: string, formData: FormData): Promise<void> => {
-  try {
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-    if (!supabaseUrl || !supabaseAnonKey) {
-      console.error('Supabase environment variables not configured');
-      return;
-    }
-
-    const apiUrl = `${supabaseUrl}/functions/v1/send-confirmation-email`;
-
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${supabaseAnonKey}`,
-      },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        formType: formType,
-        formData: formData,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Failed to send confirmation email:', errorData);
-      return;
-    }
-
-    const result = await response.json();
-    console.log('✅ Confirmation email sent successfully:', result);
-  } catch (error) {
-    console.error('Error sending confirmation email:', error);
-  }
+  console.log(`Confirmation email simulation for form "${formType}" to ${formData.email}.`);
+  // The actual email is sent via Netlify Forms notification system.
+  return Promise.resolve();
 };

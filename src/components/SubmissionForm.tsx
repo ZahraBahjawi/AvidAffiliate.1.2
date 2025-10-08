@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, ArrowLeft, Globe, User, Mail, ShieldCheck, CheckCircle, X } from 'lucide-react';
 import { facebookPixel } from '../utils/facebookPixel';
-import { sendConfirmationEmail } from '../utils/emailService';
 
 interface SubmissionFormProps {
   onSubmit: (data: any) => void;
@@ -78,15 +77,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
           content_name: 'Audit Request',
           content_category: 'Lead Generation'
         });
-
-        // Send confirmation email
-        sendConfirmationEmail('audit request', {
-          name: submissionData.name as string,
-          email: submissionData.email as string,
-          'website-url': submissionData['website-url'] as string,
-        })
-          .then(() => console.log('✅ Confirmation email sent to user'))
-          .catch(() => console.warn('⚠️ Confirmation email failed'));
 
         onSubmit(submissionData);
 
