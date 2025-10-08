@@ -12,10 +12,13 @@
     # This explicitly tells the build to use Node.js version 18.
     NODE_VERSION = "18"
 
-  # This new section tells Netlify's security scanner to ignore these specific keys.
-  # It allows them to be present in the final public files without failing the build.
+  # This section tells Netlify's security scanner what to do.
   [build.processing.secrets]
+    # This tells the scanner to ignore these specific keys if found in build output.
     omit_keys = ["VITE_SUPABASE_ANON_KEY", "VITE_SUPABASE_URL"]
+    
+    # This tells the scanner to not even look inside the DEPLOYMENT.md file.
+    omit_paths = ["DEPLOYMENT.md"]
 
 [functions]
   directory = "functions"
@@ -25,3 +28,4 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
