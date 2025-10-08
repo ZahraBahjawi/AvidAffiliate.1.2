@@ -157,6 +157,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </p>
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-brand-blue rounded-2xl p-8 md:p-12 max-w-2xl mx-auto shadow-xl">
+              <div className="flex justify-center mb-4">
+                <img
+                  src="/Untitled design.png"
+                  alt="C- Grade"
+                  className="h-20 w-20 md:h-24 md:w-24"
+                />
+              </div>
               <h2 className="text-2xl font-bold text-brand-dark-blue mb-6">
                 Get Your Free Report Card
               </h2>
