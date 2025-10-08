@@ -6,6 +6,7 @@ import { generateMockScorecard } from './utils/mockData';
 import { logFormSubmission } from './utils/submissionLogger';
 import { ErrorBanner } from './components/ErrorBanner';
 import { HomePage } from './components/HomePage';
+import { LandingPage } from './components/LandingPage';
 import { SubmissionForm } from './components/SubmissionForm';
 import { LoadingScreen } from './components/LoadingScreen';
 import { ScorecardDisplay } from './components/ScorecardDisplay';
@@ -46,7 +47,10 @@ function App() {
   const [prefilledData, setPrefilledData] = useState<{ url?: string; email?: string }>({});
 
   useEffect(() => {
-    if (window.location.hash === '#form') {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('landing') === 'true') {
+      setStage('landing');
+    } else if (window.location.hash === '#form') {
       setStage('form');
     } else if (window.location.pathname === '/optional-details-form') {
       setStage('optional-details');
@@ -156,15 +160,26 @@ function App() {
       case 'optional-details':
         return <OptionalDetailsFormPage onBack={resetToHome} onNavigate={handleNavigate} />;
 
-      case 'home':
-        return <HomePage 
-          
+      case 'landing':
+        return <LandingPage
           onNext={(data) => {
             if (data?.url) {
               setPrefilledData(data);
             }
             setStage('form');
-          }} 
+          }}
+          onNavigate={handleNavigate}
+        />;
+
+      case 'home':
+        return <HomePage
+
+          onNext={(data) => {
+            if (data?.url) {
+              setPrefilledData(data);
+            }
+            setStage('form');
+          }}
           onNavigate={handleNavigate}
           onBack={resetToHome}
           scrollTarget={scrollTarget}
