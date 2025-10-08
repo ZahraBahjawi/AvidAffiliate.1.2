@@ -54,11 +54,29 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [honeypot, setHoneypot] = React.useState('');
   const [formStarted, setFormStarted] = React.useState(false);
+  const [scrollDepthTracked, setScrollDepthTracked] = React.useState<Set<number>>(new Set());
 
   React.useEffect(() => {
     storeUTMs();
     track('landing_page_view');
   }, []);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollPercent = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1);
+
+      const depths = [25, 50, 75, 100];
+      depths.forEach(depth => {
+        if (scrollPercent * 100 >= depth && !scrollDepthTracked.has(depth)) {
+          track('scroll_depth', { depth, page: 'landing' });
+          setScrollDepthTracked(prev => new Set([...prev, depth]));
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrollDepthTracked]);
 
   const submitHero = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -117,7 +135,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-brand-dark-blue mb-6 leading-tight">
-              Your website is <span className="text-brand-yellow">leaking revenue</span>
+              Your website is <span className="relative inline-block">
+                <span className="text-brand-dark-blue">leaking</span>
+                <svg className="absolute -bottom-2 left-0 w-full h-4 overflow-visible" viewBox="0 0 100 16" preserveAspectRatio="none">
+                  <path
+                    d="M15 8 Q20 12 25 8 T35 8 Q40 12 45 8 T55 8 Q60 12 65 8 T75 8 Q80 12 85 8"
+                    stroke="#97d8c4"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                </svg>
+              </span> revenue
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-700 mb-4 leading-relaxed font-light max-w-3xl mx-auto">
@@ -228,20 +256,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       </section>
 
       <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8">
-            <div className="flex flex-col sm:flex-row items-center gap-6">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-10">
+            <div className="flex flex-col sm:flex-row items-center gap-8 text-center sm:text-left">
               <img
-                className="w-24 h-24 rounded-full object-cover border-2 border-brand-blue flex-shrink-0"
+                className="w-28 h-28 rounded-full object-cover border-2 border-brand-blue flex-shrink-0"
                 src="https://www.thegolftravelguru.com/wp-content/uploads/2019/07/IMG_0407-copy-768x757.jpg"
                 alt="Ed Schmidt testimonial"
               />
-              <div className="text-left">
-                <p className="text-gray-700 italic mb-4">
+              <div>
+                <p className="text-gray-700 italic mb-4 text-lg leading-relaxed">
                   "They highlighted the staggering number of broken and old links on my site and offered superb ideas on new partners. The changes have enhanced my site and put me in a better position to attain more clicks and sales."
                 </p>
-                <div className="font-bold text-brand-dark-blue">Ed Schmidt</div>
-                <div className="text-sm text-gray-600">The Golf Travel Guru</div>
+                <div className="font-bold text-brand-dark-blue text-lg">Ed Schmidt</div>
+                <div className="text-base text-gray-600">The Golf Travel Guru</div>
               </div>
             </div>
           </div>
