@@ -713,6 +713,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 type="text"
                 required
                 onFocus={handleFormFocus}
+                onBlur={handleUrlBlur}
                 placeholder="Enter your website URL"
                 className="w-full px-4 py-3 rounded-lg bg-white text-brand-dark-blue border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue placeholder-gray-500"
                 aria-label="Website URL"
