@@ -178,6 +178,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     type="text"
                     required
                     onFocus={handleFormFocus}
+                    onBlur={handleUrlBlur}
                     placeholder="Enter your website URL"
                     className="w-full px-6 py-4 text-lg rounded-lg bg-white text-brand-dark-blue border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue placeholder-gray-400"
                     disabled={isSubmitting}
