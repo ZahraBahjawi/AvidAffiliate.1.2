@@ -632,6 +632,13 @@ export const HomePage: React.FC<HomePageProps> = ({
     }
   };
 
+  const handleUrlBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const url = e.target.value;
+    if (url) {
+      track('url_blur', { url, location: 'hero' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white" style={{ fontFamily: 'Google Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
       <div className="scroll-overlay"></div>

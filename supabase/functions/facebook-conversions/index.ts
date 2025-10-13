@@ -86,8 +86,8 @@ Deno.serve(async (req: Request) => {
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    const fbPixelId = Deno.env.get("FB_PIXEL_ID");
-    const fbAccessToken = Deno.env.get("FB_ACCESS_TOKEN");
+    const fbPixelId = Deno.env.get("FB_PIXEL_ID")?.trim();
+    const fbAccessToken = Deno.env.get("FB_ACCESS_TOKEN")?.trim();
 
     if (!fbPixelId || !fbAccessToken) {
       return new Response(
