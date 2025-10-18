@@ -85,8 +85,17 @@
     .kpi { font-weight: 800; font-size: 2rem; color: var(--brand-navy); }
     .kpi-strong { color: var(--brand-blue); }
 
-    /* Responsive table small screen */
+    /* Mobile Optimizations & Responsive Tables */
     @media (max-width: 768px) {
+      body { -webkit-text-size-adjust: 100%; }
+      .container { padding: 1rem; margin: 1rem auto; }
+      .card { padding: 1rem; }
+      h1 { font-size: 1.5rem !important; line-height: 1.8rem; }
+      h2 { font-size: 1.25rem !important; }
+      
+      .report-page > header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .report-page > header > div:last-child { text-align: left; }
+
       .responsive-table thead { display: none; }
       .responsive-table tbody { border-top: 1px solid #e5e7eb; }
       .responsive-table tr { display: block; border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
@@ -153,7 +162,7 @@
           </div>
 
           <div class="card p-4 mb-4">
-            <div class="flex items-start gap-4">
+            <div class="flex flex-col sm:flex-row items-start gap-4">
               <div class="kpi" id="stability-score">71<span class="text-sm font-medium text-gray-500"> /100</span></div>
               <div>
                 <div class="font-semibold" style="color:var(--brand-navy)">Publisher Stability Score — Tier 2 (Growth Ready)</div>
@@ -213,7 +222,7 @@
     <section class="report-page card" aria-labelledby="networks-heading">
       <header class="flex items-center justify-between mb-4">
         <h2 id="networks-heading" class="text-xl font-semibold" style="color:var(--brand-navy)">Share of Links & Top Destinations</h2>
-        <div class="small-muted">Quick view of network distribution and most linked external domains</div>
+        <div class="small-muted hidden md:block">Quick view of network distribution and most linked external domains</div>
       </header>
 
       <main class="grid md:grid-cols-2 gap-6">
@@ -261,7 +270,7 @@
     <section class="report-page card" aria-labelledby="partnerize-deep-dive">
       <header class="flex items-center justify-between mb-4">
         <h2 id="partnerize-deep-dive" class="text-xl font-semibold" style="color:var(--brand-navy)">Partnerize Deep Dive</h2>
-        <div class="small-muted">Programs promoted by the publisher on Partnerize</div>
+        <div class="small-muted hidden md:block">Programs promoted by the publisher on Partnerize</div>
       </header>
 
       <main class="space-y-6">
@@ -319,7 +328,7 @@
     <section class="report-page card" aria-labelledby="risk-heading">
       <header class="flex items-center justify-between mb-4">
         <h2 id="risk-heading" class="text-xl font-semibold" style="color:var(--brand-navy)">Risk Mitigation</h2>
-        <div class="small-muted">Prioritize fixes that recover revenue and protect the publisher relationship</div>
+        <div class="small-muted hidden md:block">Prioritize fixes that recover revenue and protect the publisher relationship</div>
       </header>
 
       <main class="grid md:grid-cols-2 gap-6">
@@ -333,9 +342,9 @@
                 <tr><th class="pb-2 font-medium">Broken Link</th><th class="text-center pb-2 font-medium">Error</th><th class="text-right pb-2 font-medium">Source Page</th></tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
-                <tr><td data-label="Brand" class="py-3 font-medium">Marriott</td><td data-label="Status" class="py-3 text-center"><span class="badge badge-high">404 Not Found</span></td><td data-label="Source" class="py-3 text-right" style="color:var(--brand-blue)">/travel/hotel-reviews/</td></tr>
-                <tr><td data-label="Brand" class="py-3 font-medium">HP</td><td data-label="Status" class="py-3 text-center"><span class="badge badge-high">404 Not Found</span></td><td data-label="Source" class="py-3 text-right" style="color:var(--brand-blue)">/electronics/best-laptops/</td></tr>
-                <tr><td data-label="Brand" class="py-3 font-medium">(Old Retailer)</td><td data-label="Status" class="py-3 text-center"><span class="badge badge-high">Host Not Found</span></td><td data-label="Source" class="py-3 text-right" style="color:var(--brand-blue)">/archive/2021-deals/</td></tr>
+                <tr><td data-label="Brand" class="py-3 font-medium">Marriott</td><td data-label="Status" class="py-3 text-center"><span class="badge badge-high">404 Not Found</span></td><td data-label="Source" class="py-3 text-right" style="color:var(--brand-blue)">/travel/...</td></tr>
+                <tr><td data-label="Brand" class="py-3 font-medium">HP</td><td data-label="Status" class="py-3 text-center"><span class="badge badge-high">404 Not Found</span></td><td data-label="Source" class="py-3 text-right" style="color:var(--brand-blue)">/electronics/...</td></tr>
+                <tr><td data-label="Brand" class="py-3 font-medium">(Old Retailer)</td><td data-label="Status" class="py-3 text-center"><span class="badge badge-high">Host Not Found</span></td><td data-label="Source" class="py-3 text-right" style="color:var(--brand-blue)">/archive/...</td></tr>
               </tbody>
             </table>
           </div>
@@ -359,9 +368,9 @@
                 <tr><th class="pb-2 font-medium">Brand</th><th class="text-center pb-2 font-medium">Mentions</th><th class="text-right pb-2 font-medium">Example Page</th></tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
-                <tr><td data-label="Brand" class="py-3 font-medium">Hotels.com</td><td data-label="Mentions" class="py-3 text-center">15</td><td data-label="Page" class="py-3 text-right" style="color:var(--brand-blue)">/travel/hotel-reviews/</td></tr>
-                <tr><td data-label="Brand" class="py-3 font-medium">Betterment</td><td data-label="Mentions" class="py-3 text-center">11</td><td data-label="Page" class="py-3 text-right" style="color:var(--brand-blue)">/finance/investment-platforms/</td></tr>
-                <tr><td data-label="Brand" class="py-3 font-medium">Chewy</td><td data-label="Mentions" class="py-3 text-center">9</td><td data-label="Page" class="py-3 text-right" style="color:var(--brand-blue)">/pets/dog-care-guide/</td></tr>
+                <tr><td data-label="Brand" class="py-3 font-medium">Hotels.com</td><td data-label="Mentions" class="py-3 text-center">15</td><td data-label="Page" class="py-3 text-right" style="color:var(--brand-blue)">/travel/...</td></tr>
+                <tr><td data-label="Brand" class="py-3 font-medium">Betterment</td><td data-label="Mentions" class="py-3 text-center">11</td><td data-label="Page" class="py-3 text-right" style="color:var(--brand-blue)">/finance/...</td></tr>
+                <tr><td data-label="Brand" class="py-3 font-medium">Chewy</td><td data-label="Mentions" class="py-3 text-center">9</td><td data-label="Page" class="py-3 text-right" style="color:var(--brand-blue)">/pets/...</td></tr>
               </tbody>
             </table>
           </div>
@@ -378,7 +387,7 @@
     <section class="report-page card" aria-labelledby="strategy-heading">
       <header class="flex items-center justify-between mb-4">
         <h2 id="strategy-heading" class="text-xl font-semibold" style="color:var(--brand-navy)">Strategic Recommendations & Next Steps</h2>
-        <div class="small-muted">Roadmap to secure partnership and unlock incremental revenue</div>
+        <div class="small-muted hidden md:block">Roadmap to secure partnership and unlock incremental revenue</div>
       </header>
 
       <main class="space-y-6">
@@ -433,7 +442,7 @@
   <script>
     // Inject current date
     (function() {
-      const formatDate = d => d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+      const formatDate = d => d.toLocaleDate's'ring('en-US', { year:'numeric', month:'long', day:'numeric' });
       const today = new Date();
       document.querySelectorAll('.current-date').forEach(el => el.textContent = formatDate(today));
     })();
@@ -460,13 +469,24 @@
           responsive: true,
           maintainAspectRatio: false,
           plugins: {
-            legend: { position: 'right', labels: { boxWidth: 14, font: { size: 12, family: 'Inter, sans-serif' } } },
+            legend: { 
+              position: 'bottom', // Optimized for all screens
+              labels: { 
+                boxWidth: 14, 
+                font: { 
+                  size: 12, 
+                  family: 'Inter, sans-serif' 
+                } 
+              } 
+            },
             tooltip: {
               callbacks: {
                 label: (context) => {
                   const label = context.label || '';
                   const value = context.parsed || 0;
-                  return label + ': ' + value.toLocaleString();
+                  const sum = context.dataset.data.reduce((a, b) => a + b, 0);
+                  const percentage = ((value / sum) * 100).toFixed(1) + '%';
+                  return `${label}: ${value.toLocaleString()} (${percentage})`;
                 }
               }
             }
@@ -478,4 +498,3 @@
 
 </body>
 </html>
-
