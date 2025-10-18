@@ -87,8 +87,17 @@
     .trend-up { color: var(--success); }
     .trend-down { color: var(--danger); }
 
-    /* Responsive table small screen */
+    /* Mobile Optimizations & Responsive Tables */
     @media (max-width: 768px) {
+      body { -webkit-text-size-adjust: 100%; }
+      .container { padding: 1rem; margin: 1rem auto; }
+      .card { padding: 1rem; }
+      h1 { font-size: 1.5rem !important; line-height: 1.8rem; }
+      h2 { font-size: 1.25rem !important; }
+
+      .report-page > header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .report-page > header > div:last-child { text-align: left; }
+
       .responsive-table thead { display: none; }
       .responsive-table tbody { border-top: 1px solid #e5e7eb; }
       .responsive-table tr { display: block; border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
@@ -129,24 +138,24 @@
         <main class="space-y-8">
             <section aria-labelledby="monthly-snapshot">
                 <h2 id="monthly-snapshot" class="text-xl font-semibold mb-4 text-center" style="color:var(--brand-navy)">September Snapshot & Month-over-Month Trends</h2>
-                <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                     <div class="card bg-gray-50 p-4">
-                        <div class="text-4xl font-extrabold kpi-strong">8</div>
+                        <div class="text-3xl md:text-4xl font-extrabold kpi-strong">8</div>
                         <div class="small-muted uppercase text-xs mt-1">New Articles Published</div>
                         <div class="text-sm font-semibold mt-2 trend-up">+14% vs. Aug</div>
                     </div>
                      <div class="card bg-gray-50 p-4">
-                        <div class="text-4xl font-extrabold text-amber-600">3</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-amber-600">3</div>
                         <div class="small-muted uppercase text-xs mt-1">New Monetization Opps</div>
                          <div class="text-sm font-semibold mt-2 trend-down">-25% vs. Aug</div>
                     </div>
                     <div class="card bg-gray-50 p-4">
-                        <div class="text-4xl font-extrabold text-red-600">2</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-red-600">2</div>
                         <div class="small-muted uppercase text-xs mt-1">New Critical Errors</div>
                         <div class="text-sm font-semibold mt-2 trend-up">-50% vs. Aug</div>
                     </div>
                     <div class="card bg-gray-50 p-4">
-                        <div class="text-4xl font-extrabold text-green-600">28%</div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-green-600">28%</div>
                         <div class="small-muted uppercase text-xs mt-1">Partnerize Share of Voice</div>
                         <div class="text-sm font-semibold mt-2 trend-up">+2 pts vs. Aug</div>
                     </div>
@@ -255,7 +264,7 @@
                              <tr>
                                 <td data-label="Article" class="py-3 font-medium" style="color:var(--brand-blue)">/design/best-photo-editors/</td>
                                 <td data-label="Status" class="py-3 text-center text-amber-600 font-semibold">Partial</td>
-                                <td data-label="Insight" class="py-3 text-right small-muted">Features Competitor (CJ). Opportunity to add <span class="font-bold">Adobe</span>.</td>
+                                <td data--label="Insight" class="py-3 text-right small-muted">Features Competitor (CJ). Opportunity to add <span class="font-bold">Adobe</span>.</td>
                             </tr>
                              <tr>
                                 <td data-label="Article" class="py-3 font-medium" style="color:var(--brand-blue)">/pets/best-pet-food/</td>
@@ -438,4 +447,3 @@
 
 </body>
 </html>
-
