@@ -39,6 +39,8 @@ const getUTMParams = (): Record<string, string> => {
 
 export const trackUrlInput = async (url: string): Promise<boolean> => {
   try {
+    console.log('[URL Tracker] Starting to track URL:', url);
+
     const sessionId = getSessionId();
     const utms = getUTMParams();
 
@@ -54,19 +56,25 @@ export const trackUrlInput = async (url: string): Promise<boolean> => {
       user_agent: navigator.userAgent,
     };
 
-    const { error } = await supabase
+    console.log('[URL Tracker] Tracking data:', trackingData);
+    console.log('[URL Tracker] Supabase URL:', supabaseUrl);
+    console.log('[URL Tracker] Has anon key:', !!supabaseAnonKey);
+
+    const { data, error } = await supabase
       .from('url_input_tracking')
-      .insert([trackingData]);
+      .insert([trackingData])
+      .select();
 
     if (error) {
-      console.error('Error tracking URL input:', error);
+      console.error('[URL Tracker] Error tracking URL input:', error);
+      console.error('[URL Tracker] Error details:', JSON.stringify(error, null, 2));
       return false;
     }
 
-    console.log('URL input tracked successfully');
+    console.log('[URL Tracker] URL input tracked successfully:', data);
     return true;
   } catch (error) {
-    console.error('Error tracking URL input:', error);
+    console.error('[URL Tracker] Exception while tracking URL input:', error);
     return false;
   }
 };

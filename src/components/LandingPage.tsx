@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, Shield, Clock } from 'lucide-react';
+import { trackUrlInput } from '../utils/urlInputTracker';
 
 interface LandingPageProps {
   onNext?: (data?: { url?: string; email?: string }) => void;
@@ -114,6 +115,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({
     if (!formStarted) {
       setFormStarted(true);
       track('form_start', { location: 'landing_page' });
+    }
+  };
+
+  const handleUrlBlur = async (e: React.FocusEvent<HTMLInputElement>) => {
+    const url = e.target.value.trim();
+    if (url) {
+      track('url_blur', { url, location: 'landing_page' });
+
+      let normalizedUrl = url;
+      if (!/^https?:\/\//i.test(normalizedUrl)) {
+        normalizedUrl = 'https://' + normalizedUrl;
+      }
+
+      await trackUrlInput(normalizedUrl);
     }
   };
 
