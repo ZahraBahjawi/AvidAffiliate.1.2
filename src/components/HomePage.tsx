@@ -26,6 +26,7 @@ import {
   Link,
   ArrowDown,
 } from 'lucide-react';
+import { trackUrlInput } from '../utils/urlInputTracker';
 
 // NOTE: The 'Footer' component is now included in this file to resolve potential import errors.
 
@@ -632,10 +633,17 @@ export const HomePage: React.FC<HomePageProps> = ({
     }
   };
 
-  const handleUrlBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const url = e.target.value;
+  const handleUrlBlur = async (e: React.FocusEvent<HTMLInputElement>) => {
+    const url = e.target.value.trim();
     if (url) {
       track('url_blur', { url, location: 'hero' });
+
+      let normalizedUrl = url;
+      if (!/^https?:\/\//i.test(normalizedUrl)) {
+        normalizedUrl = 'https://' + normalizedUrl;
+      }
+
+      await trackUrlInput(normalizedUrl);
     }
   };
 
