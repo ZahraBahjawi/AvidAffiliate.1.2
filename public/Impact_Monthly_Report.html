@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Impact Publisher Growth Monitor — example.com</title>
+
+  <!-- Tailwind CDN & Chart.js -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --brand-ink: #081F5D;
+      --brand-blue: #1350C5;
+      --accent-amber: #F59E0B;
+      --danger: #DC2626;
+      --success: #16A34A;
+      --muted: #6B7280;
+      --card-bg: #F8FAFC;
+    }
+
+    html,body {
+      height: 100%;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #F9FAFB;
+      color: #0f172a;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 36px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #E6E8EB;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .report-page { 
+        margin-bottom: 28px;
+        page-break-after: always;
+     }
+    .report-page:last-child {
+        page-break-after: auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-width: 1px;
+      white-space: nowrap;
+    }
+    .badge-high     { background-color: rgba(220,38,38,0.08); color: #DC2626; border-color: rgba(220,38,38,0.25); }
+    .badge-medium   { background-color: rgba(245,158,11,0.08); color: #B45309; border-color: rgba(245,158,11,0.22); }
+    .badge-low      { background-color: rgba(16,185,129,0.06); color: #059669; border-color: rgba(16,185,129,0.18); }
+
+    .impact-gradient {
+      background-image: linear-gradient(90deg, var(--brand-ink), var(--brand-blue));
+    }
+
+    .section-banner { border-left-width: 4px; padding-left: 1rem; }
+    .banner-risk { border-color: var(--danger); }
+    .banner-optimize { border-color: var(--accent-amber); }
+    .banner-growth { border-color: var(--brand-blue); }
+
+    .small-muted { font-size: 0.86rem; color: var(--muted); }
+    .kpi { font-weight: 800; font-size: 2rem; color: var(--brand-ink); }
+    .kpi-strong { color: var(--brand-blue); }
+
+    .trend-up { color: var(--success); }
+    .trend-down { color: var(--danger); }
+
+    /* Responsive table small screen */
+    @media (max-width: 768px) {
+      .responsive-table thead { display: none; }
+      .responsive-table tbody { border-top: 1px solid #e5e7eb; }
+      .responsive-table tr { display: block; border-bottom: 1px solid #e5e7eb; padding: 1rem 0; }
+      .responsive-table tr:last-child { border-bottom: none; padding-bottom: 0.5rem; }
+      .responsive-table td { display: block; text-align: right !important; border: none; padding: 0.25rem 0; }
+      .responsive-table td::before { content: attr(data-label); float: left; font-weight: 600; color: #4b5563; }
+    }
+
+    /* Print tweaks */
+    @media print {
+      .container { margin: 0; width: 100%; padding: 12px; }
+      .card { box-shadow: none; border-radius: 6px; border: 1px solid #DDD; }
+      .impact-gradient { background-image: none !important; background-color: var(--brand-ink) !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- PAGE 1: MONTHLY EXECUTIVE SUMMARY -->
+    <section class="report-page card" aria-labelledby="monthly-heading">
+        <header class="flex items-start justify-between mb-4">
+            <div class="flex items-center gap-4">
+              <img src="https://mma.prnewswire.com/media/656461/Impact_Logo.jpg?w=200" alt="Impact logo" class="h-8 w-auto">
+              <div>
+                <h1 id="monthly-heading" class="text-2xl font-bold" style="color:var(--brand-ink)">Publisher Growth Monitor</h1>
+                <div class="small-muted">AvidAffiliate Intelligence — September 2025 Report</div>
+              </div>
+            </div>
+    
+            <div class="text-right small-muted">
+              <div><strong>Publisher:</strong> <a href="http://example.com" target="_blank" class="text-blue-600 hover:underline">example.com</a></div>
+              <div><strong>Reporting Period:</strong> Sep 1 - 30, 2025</div>
+            </div>
+        </header>
+
+        <main class="space-y-8">
+            <section aria-labelledby="monthly-snapshot">
+                <h2 id="monthly-snapshot" class="text-xl font-semibold mb-4 text-center" style="color:var(--brand-ink)">September Snapshot & Month-over-Month Trends</h2>
+                <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="card bg-gray-50 p-4">
+                        <div class="text-4xl font-extrabold kpi-strong">8</div>
+                        <div class="small-muted uppercase text-xs mt-1">New Articles Published</div>
+                        <div class="text-sm font-semibold mt-2 trend-up">+14% vs. Aug</div>
+                    </div>
+                     <div class="card bg-gray-50 p-4">
+                        <div class="text-4xl font-extrabold text-amber-600">3</div>
+                        <div class="small-muted uppercase text-xs mt-1">New Monetization Opps</div>
+                         <div class="text-sm font-semibold mt-2 trend-down">-25% vs. Aug</div>
+                    </div>
+                    <div class="card bg-gray-50 p-4">
+                        <div class="text-4xl font-extrabold text-red-600">2</div>
+                        <div class="small-muted uppercase text-xs mt-1">New Critical Errors</div>
+                        <div class="text-sm font-semibold mt-2 trend-up">-50% vs. Aug</div>
+                    </div>
+                    <div class="card bg-gray-50 p-4">
+                        <div class="text-4xl font-extrabold text-green-600">35%</div>
+                        <div class="small-muted uppercase text-xs mt-1">Impact Share of Voice</div>
+                        <div class="text-sm font-semibold mt-2 trend-up">+2 pts vs. Aug</div>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-labelledby="key-insights">
+                <div class="card bg-blue-50 border border-blue-200">
+                    <h3 id="key-insights" class="font-semibold text-lg mb-2 text-blue-800">Key Insights & Action Plan for October</h3>
+                    <ol class="list-decimal pl-5 small-muted space-y-2 text-blue-700">
+                        <li>
+                            <strong class="text-blue-800">Content production is increasing, but monetization is lagging.</strong> The publisher created more content but missed key monetization opportunities for Impact brands like HubSpot and Expedia in their new articles.
+                            <br><strong>Action:</strong> Reach out with a pre-populated list of unmonetized links from their September content to provide immediate value.
+                        </li>
+                        <li>
+                            <strong class="text-blue-800">Link health is improving, but new errors are still appearing.</strong> While the overall number of broken links is decreasing, new 404s on important brand pages (Canva) were detected this month.
+                            <br><strong>Action:</strong> Alert the publisher to the new critical errors to prevent revenue decay and reinforce your role as a proactive partner.
+                        </li>
+                         <li>
+                            <strong class="text-blue-800">Impact's Share of Voice is growing.</strong> Consistent engagement is paying off as Impact's share of monetized links has grown steadily over the last 90 days.
+                            <br><strong>Action:</strong> Use the new content analysis to recommend adding more Impact brands (e.g., Jasper.ai) to accelerate this trend.
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+         <footer class="text-xs small-muted text-center pt-4 mt-6 border-t">
+          Page 1 of 4
+        </footer>
+    </section>
+
+    <!-- PAGE 2: TREND ANALYSIS -->
+     <section class="report-page card" aria-labelledby="trends-heading">
+        <header class="flex items-center justify-between mb-4">
+            <h2 id="trends-heading" class="text-xl font-semibold" style="color:var(--brand-ink)">90-Day Performance Trends</h2>
+        </header>
+        <main class="space-y-8">
+            <div class="card">
+                <h3 class="font-semibold mb-2 text-center">Broken Links Trend (90 Days)</h3>
+                <div class="relative h-48 sm:h-56"><canvas id="broken-links-trend-chart"></canvas></div>
+                 <div class="mt-3 p-3 bg-white border rounded">
+                    <div class="font-semibold small-muted">Insight & Action</div>
+                    <div class="small-muted text-xs mt-1">The number of critical broken links has decreased by 17% this month, indicating successful remediation efforts. Continue monitoring to keep this number below 100.</div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="font-semibold mb-2 text-center">Impact Share of Voice Trend (90 Days)</h3>
+                <div class="relative h-48 sm:h-56"><canvas id="sov-trend-chart"></canvas></div>
+                <div class="mt-3 p-3 bg-white border rounded">
+                    <div class="font-semibold small-muted">Insight & Action</div>
+                    <div class="small-muted text-xs mt-1">Impact's share of monetized links continues to grow, up 2% MoM. Focus on new content monetization (p. 3) to accelerate this trend.</div>
+                </div>
+            </div>
+             <div class="card">
+                <h3 class="font-semibold mb-2 text-center">New Content vs. Monetization (90 Days)</h3>
+                <div class="relative h-48 sm:h-56"><canvas id="content-trend-chart"></canvas></div>
+                <div class="mt-3 p-3 bg-white border rounded">
+                    <div class="font-semibold small-muted">Insight & Action</div>
+                    <div class="small-muted text-xs mt-1">Content production increased in September, but the rate of new monetization opportunities outpaced the publisher's implementation. This highlights a key area for AM support.</div>
+                </div>
+            </div>
+        </main>
+         <footer class="text-xs small-muted text-center pt-4 mt-6 border-t">
+          Page 2 of 4
+        </footer>
+    </section>
+
+    <!-- PAGE 3: CONTENT FRESHNESS ANALYSIS -->
+    <section class="report-page card" aria-labelledby="freshness-heading">
+        <header class="flex items-center justify-between mb-4">
+            <h2 id="freshness-heading" class="text-xl font-semibold" style="color:var(--brand-ink)">Content Freshness Analysis (Last 30 Days)</h2>
+        </header>
+        <main class="space-y-6">
+            <div class="card section-banner banner-growth">
+                <h3 class="font-semibold mb-3">New Content Monetization Breakdown</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm responsive-table">
+                        <thead class="text-left small-muted">
+                            <tr>
+                                <th class="pb-2 font-medium">New Article (Published Sep 2025)</th>
+                                <th class="text-center pb-2 font-medium">Status</th>
+                                <th class="text-right pb-2 font-medium">Actionable Insight</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td data-label="Article" class="py-3 font-medium text-blue-600">/reviews/new-laptop-2025/</td>
+                                <td data-label="Status" class="py-3 text-center text-green-600 font-semibold">Monetized</td>
+                                <td data-label="Insight" class="py-3 text-right small-muted">Great placement for <span class="font-bold">Lenovo</span>. No immediate action needed.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Article" class="py-3 font-medium text-blue-600">/guides/ai-writing-assistants/</td>
+                                <td data-label="Status" class="py-3 text-center text-amber-600 font-semibold">Partial</td>
+                                <td data-label="Insight" class="py-3 text-right small-muted">Promotes Grammarly (ShareASale). Opportunity to add <span class="font-bold">Jasper.ai</span>.</td>
+                            </tr>
+                             <tr>
+                                <td data-label="Article" class="py-3 font-medium text-blue-600">/news/industry-trends-q3/</td>
+                                <td data-label="Status" class="py-3 text-center text-red-600 font-semibold">Unmonetized</td>
+                                <td data-label="Insight" class="py-3 text-right small-muted">Mentions <span class="font-bold">HubSpot</span> with no affiliate link.</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Article" class="py-3 font-medium text-blue-600">/travel/best-booking-sites/</td>
+                                <td data-label="Status" class="py-3 text-center text-red-600 font-semibold">Unmonetized</td>
+                                <td data-label="Insight" class="py-3 text-right small-muted">Mentions <span class="font-bold">Expedia</span> (on Impact) with no link.</td>
+                            </tr>
+                             <tr>
+                                <td data-label="Article" class="py-3 font-medium text-blue-600">/design/best-photo-editors/</td>
+                                <td data-label="Status" class="py-3 text-center text-amber-600 font-semibold">Partial</td>
+                                <td data-label="Insight" class="py-3 text-right small-muted">Features Adobe (CJ). Opportunity to add <span class="font-bold">Canva</span>.</td>
+                            </tr>
+                             <tr>
+                                <td data-label="Article" class="py-3 font-medium text-blue-600">/finance/top-budget-apps/</td>
+                                <td data-label="Status" class="py-3 text-center text-green-600 font-semibold">Monetized</td>
+                                <td data-label="Insight" class="py-3 text-right small-muted">Good integration of <span class="font-bold">YNAB</span>. Well done.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 p-3 bg-white border rounded">
+                    <div class="font-semibold small-muted">💬 Suggested Outreach</div>
+                    <div class="small-muted italic text-xs mt-1">"Hi [Publisher], great new article on AI assistants! We noticed you mentioned Grammarly. Our data shows publishers who also promote Jasper.ai see a 20% lift in that category. Let's get them added."</div>
+                </div>
+            </div>
+             <div class="card section-banner banner-risk">
+                <h3 class="font-semibold mb-3">New Risks Identified (Last 30 Days)</h3>
+                 <div class="overflow-x-auto">
+                    <table class="w-full text-sm responsive-table">
+                        <thead class="text-left small-muted">
+                            <tr>
+                                <th class="pb-2 font-medium">Broken Link to Brand</th>
+                                <th class="text-center pb-2 font-medium">Error</th>
+                                <th class="text-right pb-2 font-medium">Source Page</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td data-label="Brand" class="py-3 font-medium">Canva</td>
+                                <td data-label="Error" class="py-3 text-center"><span class="badge badge-high">404 Not Found</span></td>
+                                <td data-label="Page" class="py-3 text-right text-blue-600">/resources/design-tools/</td>
+                            </tr>
+                            <tr>
+                                <td data-label="Brand" class="py-3 font-medium">AWeber</td>
+                                <td data-label="Error" class="py-3 text-center"><span class="badge badge-high">Host Not Found</span></td>
+                                <td data-label="Page" class="py-3 text-right text-blue-600">/old/email-marketing-2020/</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <div class="mt-4 p-3 bg-white border rounded">
+                    <div class="font-semibold small-muted">🧭 Action Plan</div>
+                    <div class="small-muted text-xs mt-1">Alert publisher to the newly detected 404 on the Canva link to prevent commission loss on a key partner. Investigate the "Host Not Found" error for AWeber, as the brand may no longer be active.</div>
+                </div>
+             </div>
+        </main>
+        <footer class="text-xs small-muted text-center pt-4 mt-6 border-t">
+          Page 3 of 4
+        </footer>
+    </section>
+    
+    <!-- PAGE 4: NEXT STEPS & SUBSCRIPTION -->
+     <section class="report-page card" aria-labelledby="next-steps-heading">
+        <header class="flex items-center justify-between mb-4">
+            <h2 id="next-steps-heading" class="text-xl font-semibold" style="color:var(--brand-ink)">Forward-Looking Plan &amp; Engagement</h2>
+        </header>
+        <main class="space-y-6">
+            <div class="card">
+                <h3 class="font-semibold mb-3">Engagement Plan (Next 90 Days)</h3>
+                <ol class="list-decimal pl-5 small-muted space-y-3">
+                    <li>
+                        <strong class="text-gray-800">October: Quick Wins & Remediation</strong>
+                        <p class="text-xs">Focus on fixing all new and existing critical link errors. Monetize the low-hanging fruit from September's unmonetized content (HubSpot, Expedia).</p>
+                    </li>
+                     <li>
+                        <strong class="text-gray-800">November: Strategic Placements & Testing</strong>
+                        <p class="text-xs">Introduce the predictive partner recommendations (Jasper.ai, Creative Market). Work with the publisher to test placements in new or existing content.</p>
+                    </li>
+                     <li>
+                        <strong class="text-gray-800">December: Performance Review & 2026 Planning</strong>
+                        <p class="text-xs">Review the performance of the implemented fixes and new partnerships. Use the trend data to set joint goals for increasing Impact's share of voice in the new year.</p>
+                    </li>
+                </ol>
+            </div>
+             <div class="rounded-lg p-6 impact-gradient text-white">
+                <h3 class="text-lg font-bold mb-2">Continue Your Growth Trajectory</h3>
+                <p class="small-muted text-white/80 mb-3">This monthly monitor provides the ongoing intelligence needed to nurture and grow high-value partnerships. Ensure you never miss an opportunity or a risk by maintaining your subscription.</p>
+                 <div class="mt-4">
+                    <a href="mailto:admin@dealmagicians.com?subject=Renew%20Impact%20Publisher%20Growth%20Monitor" class="inline-block px-5 py-3 bg-white rounded-lg font-semibold text-gray-900 hover:bg-gray-200">Renew Subscription</a>
+                </div>
+            </div>
+        </main>
+         <footer class="text-xs small-muted text-center pt-4 mt-6 border-t">
+          End of Monthly Growth Monitor Report
+        </footer>
+    </section>
+  </div>
+
+  <script>
+    // Inject current date
+    (function() {
+      const formatDate = d => d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+      const today = new Date();
+      document.querySelectorAll('.current-date').forEach(el => el.textContent = formatDate(today));
+    })();
+
+    // CHART: Broken Links Trend
+    (function(){
+        const ctx = document.getElementById('broken-links-trend-chart');
+        if(!ctx) return;
+        new Chart(ctx.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['Jul 2025', 'Aug 2025', 'Sep 2025'],
+                datasets: [{
+                    label: 'Critical Broken Links',
+                    data: [152, 118, 98],
+                    borderColor: 'var(--danger)',
+                    backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true, suggestedMax: 200 } },
+                plugins: { legend: { display: false } }
+            }
+        });
+    })();
+
+    // CHART: Share of Voice Trend
+    (function(){
+        const ctx = document.getElementById('sov-trend-chart');
+        if(!ctx) return;
+        new Chart(ctx.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['Jul 2025', 'Aug 2025', 'Sep 2025'],
+                datasets: [{
+                    label: "Impact % of Monetized Links",
+                    data: [31, 33, 35],
+                    borderColor: 'var(--brand-blue)',
+                    backgroundColor: 'rgba(19, 80, 197, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: false, suggestedMin: 25, suggestedMax: 40, ticks: { callback: (value) => value + '%' } } },
+                plugins: { 
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    })();
+    
+    // CHART: Content vs Monetization Trend
+    (function(){
+        const ctx = document.getElementById('content-trend-chart');
+        if(!ctx) return;
+        new Chart(ctx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Jul 2025', 'Aug 2025', 'Sep 2025'],
+                datasets: [
+                {
+                    label: 'New Articles Published',
+                    data: [6, 7, 8],
+                    backgroundColor: '#00A9E0',
+                },
+                {
+                    label: 'New Monetization Opps',
+                    data: [5, 4, 3],
+                    backgroundColor: '#F59E0B',
+                }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                scales: { y: { beginAtZero: true, suggestedMax: 10 } },
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    })();
+  </script>
+
+</body>
+</html>
+
