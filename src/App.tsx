@@ -23,233 +23,150 @@ import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
 import { trackPageView } from './utils/analytics';
 
 function App() {
-  const handleLoadingComplete = () => {
-     setIsLoading(false);
-     trackPageView(stage);
-   };
+  // State hooks must be at the top level
   const [isLoading, setIsLoading] = useState(true);
-  // Scroll-based background darkening effect
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercent = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight), 1);
-      const overlay = document.querySelector('.scroll-overlay') as HTMLElement;
-      if (overlay) {
-        overlay.style.opacity = (scrollPercent * 0.8).toString();
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const [stage, setStage] = useState<AppStage>('home');
-  const [scrollTarget, setScrollTarget] = useState<string | null>(null); // Add this line
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
   const [userData, setUserData] = useState<UserData | null>(null);
   const [scorecardData, setScorecardData] = useState<ScorecardData | null>(null);
   const [error, setError] = useState<string>('');
   const [prefilledData, setPrefilledData] = useState<{ url?: string; email?: string }>({});
 
+  // Scroll-based background darkening effect
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById('hero-section');
+      if (hero) {
+        const scrollY = window.scrollY;
+        const opacity = Math.min(scrollY / (hero.offsetHeight * 0.5), 0.7);
+        hero.style.setProperty('--overlay-opacity', opacity.toString());
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('landing') === 'true') {
-      setStage('landing');
-    } else if (window.location.hash === '#form') {
+    const url = urlParams.get('url');
+    const email = urlParams.get('email');
+    if (url) {
+      setPrefilledData({ url, email: email || undefined });
       setStage('form');
-    } else if (window.location.pathname === '/optional-details-form') {
-      setStage('optional-details');
     }
   }, []);
 
-  const handleNavigate = (page: AppStage | string) => {
-    if (typeof page === 'string' && page.includes('#')) {
-      const [targetStage, targetId] = page.split('#');
-      setStage(targetStage as AppStage);
-      setScrollTarget(targetId);
-      trackPageView(targetStage);
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    trackPageView(stage);
+  };
+
+  const handleNavigation = (newStage: AppStage, scrollId?: string) => {
+    setStage(newStage);
+    trackPageView(newStage);
+    if (scrollId) {
+      setScrollTarget(scrollId);
     } else {
-      setStage(page as AppStage);
-      trackPageView(page);
       window.scrollTo(0, 0);
     }
   };
 
-  const handleFormSubmit = async (data: UserData) => {
-    setUserData(data);
-    
-    // Log the form submission
-    const submissionId = logFormSubmission('audit', data);
-
-    try {
-      // Generate unique audit ID
-      const auditId = submissionId || `audit_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-
-      // Go directly to thank you page
-      setStage('thankyou');
-
-      
-     
-      // Save to localStorage as backup
-      try {
-        const backupData = {
-          userData: data,
-          auditId: auditId,
-          timestamp: new Date().toISOString()
-        };
-        localStorage.setItem(`submission_${auditId}`, JSON.stringify(backupData));
-        console.log('💾 Submission saved to localStorage');
-      } catch (localError) {
-        console.error('Failed to save to localStorage:', localError);
+  useEffect(() => {
+    if (scrollTarget) {
+      const element = document.getElementById(scrollTarget);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-
-    } catch (error) {
-      console.error('Error in form submission:', error);
-      // Even if there's an error, go to thank you page
-      setStage('thankyou');
+      setScrollTarget(null);
     }
+  }, [stage, scrollTarget]);
+
+  const handleFormSubmit = (data: UserData) => {
+    setUserData(data);
+    setStage('loading');
+    logFormSubmission('audit', data);
+
+    // Simulate API call for scorecard
+    setTimeout(() => {
+      try {
+        const mockData = generateMockScorecard(data.url);
+        setScorecardData(mockData);
+        setStage('scorecard');
+        window.scrollTo(0, 0);
+      } catch (err: any) {
+        setError(err.message || 'An unknown error occurred.');
+        setStage('error');
+      }
+    }, 2500);
   };
 
-  const resetToHome = () => {
+  const handleOptionalDetailsSubmit = (data: any) => {
+    // This is the data from the optional details form
+    console.log('Optional details submitted:', data);
+    setStage('thank-you');
+    window.scrollTo(0, 0);
+  };
+
+  const handleReset = () => {
     setStage('home');
-    trackPageView('home');
     setUserData(null);
     setScorecardData(null);
     setError('');
-    setPrefilledData({});
+    window.scrollTo(0, 0);
   };
 
-  // Admin access via keyboard shortcut
-  React.useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      // Press Ctrl+Shift+A to access admin panel
-      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
-        setStage('admin');
-      }
-      // Press Escape to go back to home from admin
-      if (e.key === 'Escape' && stage === 'admin') {
-        resetToHome();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [stage]);
-
-  const dismissError = () => {
-    setError('');
-  };
-
-  // Show loading screen first
-  if (isLoading) {
-    return (
-      <ErrorBoundary>
-        <LoadingLogo onComplete={handleLoadingComplete} />
-      </ErrorBoundary>
-    );
-  }
-
-  const renderCurrentStage = () => {
+  const renderStage = () => {
     switch (stage) {
-      case 'thankyou':
-        return userData ? (
-          <ThankYouPage
-            userData={userData}
-            onBackToHome={resetToHome}
-            onNavigate={handleNavigate}
-          />
-        ) : null;
-
-      case 'optional-details':
-        return <OptionalDetailsFormPage onBack={resetToHome} onNavigate={handleNavigate} />;
-
-      case 'landing':
-        return <LandingPage
-          onNext={(data) => {
-            if (data?.url) {
-              setPrefilledData(data);
-            }
-            setStage('form');
-          }}
-          onNavigate={handleNavigate}
-        />;
-
       case 'home':
-        return <HomePage
-
-          onNext={(data) => {
-            if (data?.url) {
-              setPrefilledData(data);
-            }
-            setStage('form');
-          }}
-          onNavigate={handleNavigate}
-          onBack={resetToHome}
-          scrollTarget={scrollTarget}
-          onScrollComplete={() => setScrollTarget(null)}
-        />;
-      
+        return <HomePage onNavigate={handleNavigation} />;
+      case 'landing':
+        return <LandingPage onNavigate={handleNavigation} />;
       case 'form':
-        return (
-          <SubmissionForm
-            onSubmit={handleFormSubmit}
-            onBack={() => setStage('home')}
-            onNavigate={handleNavigate}
-            prefilledData={prefilledData}
-          />
-        );
-      
+        return <SubmissionForm onSubmit={handleFormSubmit} prefilledData={prefilledData} />;
+      case 'loading':
+        return <LoadingScreen url={userData?.url || ''} />;
       case 'scorecard':
-        return userData && scorecardData ? (
-          <ScorecardDisplay
-            scorecardData={scorecardData}
-            userData={userData}
-            onBackToHome={resetToHome}
-            onNavigate={handleNavigate}
+        return scorecardData ? (
+          <ScorecardDisplay 
+            data={scorecardData} 
+            onNavigate={handleNavigation} 
           />
-        ) : null;
-      
+        ) : (
+          <ErrorBanner message="Failed to load scorecard data." onReset={handleReset} />
+        );
+      case 'optional-details':
+        return <OptionalDetailsFormPage onSubmit={handleOptionalDetailsSubmit} />;
+      case 'thank-you':
+        return <ThankYouPage onNavigate={handleNavigation} />;
       case 'sitemap':
-        return <SitemapPage onBack={resetToHome} onNavigate={handleNavigate} />;
-      
-     
+        return <SitemapPage onNavigate={handleNavigation} />;
       case 'team':
-        return <OurTeamPage onBack={resetToHome} onNavigate={handleNavigate} />;
-      
-      case 'contact': // Add this case
-        return <ContactPage onBack={resetToHome} onNavigate={handleNavigate} />;
-      
-      
+        return <OurTeamPage onNavigate={handleNavigation} />;
+      case 'contact':
+        return <ContactPage onNavigate={handleNavigation} />;
       case 'privacy':
-        return <PrivacyPolicyPage onBack={resetToHome} onNavigate={handleNavigate} />;
-      
+        return <PrivacyPolicyPage onNavigate={handleNavigation} />;
       case 'terms':
-        return <TermsOfServicePage onBack={resetToHome} onNavigate={handleNavigate} />;
-      
+        return <TermsOfServicePage onNavigate={handleNavigation} />;
+      case 'partners':
+        return <AffiliatePartnersPage onNavigate={handleNavigation} />;
       case 'cookies':
-        return <CookiesPage onBack={resetToHome} onNavigate={handleNavigate} />;
-      
-          case 'affiliate_partners':
-        return <AffiliatePartnersPage 
-          onBack={resetToHome} 
-          onNavigate={handleNavigate} 
-          scrollTarget={scrollTarget}
-          onScrollComplete={() => setScrollTarget(null)}
-        />;
-      
+        return <CookiesPage onNavigate={handleNavigation} />;
+      case 'error':
+        return <ErrorBanner message={error} onReset={handleReset} />;
       default:
-        return <HomePage
-          onNext={() => setStage('form')} 
-          onNavigate={handleNavigate}
-        />;
+        return <HomePage onNavigate={handleNavigation} />;
     }
   };
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-white">
-        <div className="scroll-overlay"></div>
-        {error && <ErrorBanner error={error} onDismiss={dismissError} />}
-        {renderCurrentStage()}
-        <TestingPanel />
+      {isLoading && <LoadingLogo onLoaded={handleLoadingComplete} />}
+      <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <main id="main-content">
+          {renderStage()}
+        </main>
+        <TestingPanel onNavigate={handleNavigation} setStage={setStage} />
       </div>
     </ErrorBoundary>
   );
