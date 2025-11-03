@@ -9,11 +9,11 @@ For the Facebook Conversions API to work, you need to configure environment vari
 Go to Netlify Dashboard → Site Settings → Environment Variables and add:
 
 1. **VITE_SUPABASE_URL**
-   - Value: `https://bcytzofkrdjotozwinnv.supabase.co`
+   - Value: `https://wuvxfglgfeaazenbtsmg.supabase.co`
    - Scope: All scopes (Production, Deploy Previews, Branch deploys)
 
 2. **VITE_SUPABASE_ANON_KEY**
-   - Value: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJjeXR6b2ZrcmRqb3Rvendpbm52Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2NTE2OTEsImV4cCI6MjA3NzIyNzY5MX0.SvxSdbivs7D4XJ0xD327vMehNRWe_4HvD6G5o8x93ko`
+   - Value: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dnhmZ2xnZmVhYXplbmJ0c21nIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3NjA4NTAsImV4cCI6MjA3NzMzNjg1MH0.ocrV8yh9bveIyx3a1Z5hO-ms4JHPZgtHI7dpAbRqcVA`
    - Scope: All scopes (Production, Deploy Previews, Branch deploys)
 
 #### How to Add in Netlify
