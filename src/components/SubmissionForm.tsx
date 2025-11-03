@@ -68,15 +68,6 @@ export const SubmissionForm: React.FC<SubmissionFormProps> = ({
       .then(() => {
         const submissionData = Object.fromEntries(formData);
 
-        facebookPixel.trackLead({
-          email: submissionData.email as string,
-          firstName: (submissionData.name as string)?.split(' ')[0],
-          lastName: (submissionData.name as string)?.split(' ').slice(1).join(' '),
-        }, {
-          content_name: 'Audit Request',
-          content_category: 'Lead Generation'
-        });
-
         onSubmit(submissionData);
 
         // @ts-ignore
