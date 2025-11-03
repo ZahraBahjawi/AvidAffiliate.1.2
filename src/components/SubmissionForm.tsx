@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, ArrowLeft, Globe, User, Mail, ShieldCheck, CheckCircle, X } from 'lucide-react';
+import { facebookPixel } from '../utils/facebookPixel';
 
 interface SubmissionFormProps {
   onSubmit: (data: any) => void;
