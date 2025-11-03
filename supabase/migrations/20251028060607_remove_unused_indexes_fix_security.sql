@@ -3,7 +3,6 @@
 
   1. Index Cleanup
     - Drop unused indexes from madgicx_conversions table
-    - Drop unused indexes from facebook_conversions table
     - Drop unused indexes from form_drafts table
     - Drop unused indexes from url_input_tracking table
     
