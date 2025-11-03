@@ -1,33 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { ErrorBoundary } from './components/ErrorBoundary';
-import { LoadingLogo } from './components/LoadingLogo';
-import { UserData, ScorecardData, AppStage } from './types';
-import { generateMockScorecard } from './utils/mockData';
-import { logFormSubmission } from './utils/submissionLogger';
-import { ErrorBanner } from './components/ErrorBanner';
-import { HomePage } from './components/HomePage';
-import { LandingPage } from './components/LandingPage';
-import { SubmissionForm } from './components/SubmissionForm';
-import { LoadingScreen } from './components/LoadingScreen';
-import { ScorecardDisplay } from './components/ScorecardDisplay';
-import { SitemapPage } from './components/SitemapPage';
-import { OurTeamPage } from './components/OurTeamPage';
-import { ContactPage } from './components/ContactPage';
-import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
-import { TermsOfServicePage } from './components/TermsOfServicePage';
-import { AffiliatePartnersPage } from './components/AffiliatePartnersPage';
-import { CookiesPage } from './components/CookiesPage';
-import { TestingPanel } from './components/TestingPanel';
-import { ThankYouPage } from './components/ThankYouPage';
-import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
-import { trackPageView } from './utils/analytics';
+import { ErrorBoundary } from './components/ErrorBoundary.tsx';
+import { LoadingLogo } from './components/LoadingLogo.tsx';
+import { UserData, ScorecardData, AppStage } from './types.ts';
+import { generateMockScorecard } from './utils/mockData.ts';
+import { logFormSubmission } from './utils/submissionLogger.ts';
+import { ErrorBanner } from './components/ErrorBanner.tsx';
+import { HomePage } from './components/HomePage.tsx';
+import { LandingPage } from './components/LandingPage.tsx';
+import { SubmissionForm } from './components/SubmissionForm.tsx';
+import { LoadingScreen } from './components/LoadingScreen.tsx';
+import { ScorecardDisplay } from './components/ScorecardDisplay.tsx';
+import { SitemapPage } from './components/SitemapPage.tsx';
+import { OurTeamPage } from './components/OurTeamPage.tsx';
+import { ContactPage } from './components/ContactPage.tsx';
+import { PrivacyPolicyPage } from './components/PrivacyPolicyPage.tsx';
+import { TermsOfServicePage } from './components/TermsOfServicePage.tsx';
+import { AffiliatePartnersPage } from './components/AffiliatePartnersPage.tsx';
+import { CookiesPage } from './components/CookiesPage.tsx';
+import { TestingPanel } from './components/TestingPanel.tsx';
+import { ThankYouPage } from './components/ThankYouPage.tsx';
+import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage.tsx';
+import { trackPageView } from './utils/analytics.ts';
 
 function App() {
-  const handleLoadingComplete = () => {
-     setIsLoading(false);
-     trackPageView(stage);
-   };
+  // State hooks must be at the top level
   const [isLoading, setIsLoading] = useState(true);
+  const [stage, setStage] = useState<AppStage>('home');
+  const [scrollTarget, setScrollTarget] = useState<string | null>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
+  const [scorecardData, setScorecardData] = useState<ScorecardData | null>(null);
+  const [error, setError] = useState<string>('');
+  const [prefilledData, setPrefilledData] = useState<{ url?: string; email?: string }>({});
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    trackPageView(stage);
+  };
+
   // Scroll-based background darkening effect
   React.useEffect(() => {
     const handleScroll = () => {
@@ -41,13 +50,6 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const [stage, setStage] = useState<AppStage>('home');
-  const [scrollTarget, setScrollTarget] = useState<string | null>(null); // Add this line
-  const [userData, setUserData] = useState<UserData | null>(null);
-  const [scorecardData, setScorecardData] = useState<ScorecardData | null>(null);
-  const [error, setError] = useState<string>('');
-  const [prefilledData, setPrefilledData] = useState<{ url?: string; email?: string }>({});
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -87,7 +89,7 @@ function App() {
       setStage('thankyou');
 
       
-     
+      
       // Save to localStorage as backup
       try {
         const backupData = {
@@ -142,7 +144,10 @@ function App() {
   if (isLoading) {
     return (
       <ErrorBoundary>
-        <LoadingLogo onComplete={handleLoadingComplete} />
+        {/* Note: The original file used 'onLoaded', your pasted code used 'onComplete'. 
+          I've used 'onLoaded' to match the context file's likely prop name. 
+        */}
+        <LoadingLogo onLoaded={handleLoadingComplete} />
       </ErrorBoundary>
     );
   }
@@ -210,7 +215,7 @@ function App() {
       case 'sitemap':
         return <SitemapPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
-     
+      
       case 'team':
         return <OurTeamPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
@@ -227,7 +232,7 @@ function App() {
       case 'cookies':
         return <CookiesPage onBack={resetToHome} onNavigate={handleNavigate} />;
       
-          case 'affiliate_partners':
+        case 'affiliate_partners':
         return <AffiliatePartnersPage 
           onBack={resetToHome} 
           onNavigate={handleNavigate} 
@@ -247,12 +252,16 @@ function App() {
     <ErrorBoundary>
       <div className="min-h-screen bg-white">
         <div className="scroll-overlay"></div>
-        {error && <ErrorBanner error={error} onDismiss={dismissError} />}
+        {/* Note: The original file used 'message', your pasted code used 'error'. 
+          I've used 'message' to match the context file's likely prop name for ErrorBanner.
+        */}
+        {error && <ErrorBanner message={error} onReset={dismissError} />}
         {renderCurrentStage()}
-        <TestingPanel />
+        <TestingPanel onNavigate={handleNavigate} setStage={setStage} />
       </div>
     </ErrorBoundary>
   );
 }
 
 export default App;
+
