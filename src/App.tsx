@@ -20,7 +20,6 @@ import { CookiesPage } from './components/CookiesPage';
 import { TestingPanel } from './components/TestingPanel';
 import { ThankYouPage } from './components/ThankYouPage';
 import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
-import { facebookPixel } from './utils/facebookPixel';
 import { trackPageView } from './utils/analytics';
 
 function App() {
@@ -57,12 +56,6 @@ function App() {
       setStage('optional-details');
     }
   }, []);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    facebookPixel.trackPageView();
-    trackPageView(stage);
-  };
 
   const handleNavigate = (page: AppStage | string) => {
     if (typeof page === 'string' && page.includes('#')) {
