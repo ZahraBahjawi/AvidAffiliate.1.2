@@ -23,7 +23,10 @@ import { OptionalDetailsFormPage } from './components/OptionalDetailsFormPage';
 import { trackPageView } from './utils/analytics';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const handleLoadingComplete = () => {
+     setIsLoading(false);
+     trackPageView(stage);
+   };
   
   // Scroll-based background darkening effect
   React.useEffect(() => {
