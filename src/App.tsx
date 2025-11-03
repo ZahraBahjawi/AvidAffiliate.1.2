@@ -27,7 +27,7 @@ function App() {
      setIsLoading(false);
      trackPageView(stage);
    };
-  
+  const [isLoading, setIsLoading] = useState(true);
   // Scroll-based background darkening effect
   React.useEffect(() => {
     const handleScroll = () => {
