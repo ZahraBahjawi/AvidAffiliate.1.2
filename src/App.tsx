@@ -147,7 +147,7 @@ function App() {
         {/* Note: The original file used 'onLoaded', your pasted code used 'onComplete'. 
           I've used 'onLoaded' to match the context file's likely prop name. 
         */}
-        <LoadingLogo onLoaded={handleLoadingComplete} />
+        <LoadingLogo onComplete={handleLoadingComplete} />
       </ErrorBoundary>
     );
   }
